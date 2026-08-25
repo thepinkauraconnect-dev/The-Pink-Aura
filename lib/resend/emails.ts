@@ -13,8 +13,8 @@ const getFromEmail = (type: 'consultation' | 'welcome') => {
     return 'The Pink Aura <onboarding@resend.dev>';
   }
   return type === 'consultation'
-    ? 'The Pink Aura <consultation@thepinkaura.in>'
-    : 'The Pink Aura <welcome@thepinkaura.in>';
+    ? 'The Pink Aura <consultation@thepinkaura.co.in>'
+    : 'The Pink Aura <welcome@thepinkaura.co.in>';
 };
 
 export async function sendOwnerNotificationEmail(lead: {

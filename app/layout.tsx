@@ -4,7 +4,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://thepinkaura.in'),
+  metadataBase: new URL('https://thepinkaura.co.in'),
   title: 'The Pink Aura — Aesthetic & Wellness Centre',
   description: 'A premium destination for advanced aesthetics, skin rejuvenation, laser hair reduction, body contouring, hair restoration, and spiritual wellness in JP Nagar, Bangalore.',
   keywords: [
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'The Pink Aura — Aesthetic & Wellness Centre',
     description: 'Enhance Your Beauty • Elevate Your Aura',
-    url: 'https://thepinkaura.in',
+    url: 'https://thepinkaura.co.in',
     siteName: 'The Pink Aura',
     images: [
       {
