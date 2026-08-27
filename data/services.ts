@@ -9,8 +9,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     subtitle: 'Precision Laser Technology for Smooth, Flawless Skin',
     description: 'Experience painless, state-of-the-art medical laser hair reduction tailored to your unique skin tone and hair structure for long-lasting silky perfection.',
     group: 'BEAUTY',
-    heroImage: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=1200',
-    cardImage: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=600',
+    heroImage: '/images/services/WEB%20IMAGES/Laser%20Hair%20Reduction.png',
+    cardImage: '/images/services/WEB%20IMAGES/Laser%20Hair%20Reduction.png',
     highlights: [
       'FDA-approved triple wavelength cooling laser technology',
       'Safe & effective for all skin tones and hair types',
@@ -48,8 +48,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     subtitle: 'Nourishing Medi-Facials & Clinical Laser Radiance',
     description: 'Transform your skin texture, tone, and luminosity with customized medi-facials, dermatological peels, and high-precision Q-Switched & Pico laser therapies.',
     group: 'BEAUTY',
-    heroImage: 'https://images.unsplash.com/photo-1512290900676-26c2a4d4b5dd?auto=format&fit=crop&q=80&w=1200',
-    cardImage: 'https://images.unsplash.com/photo-1512290900676-26c2a4d4b5dd?auto=format&fit=crop&q=80&w=600',
+    heroImage: '/images/services/WEB%20IMAGES/SKIN%20CARE,%20FACIALS%20&%20LASER%20TREATMENTS.png',
+    cardImage: '/images/services/WEB%20IMAGES/SKIN%20CARE,%20FACIALS%20&%20LASER%20TREATMENTS.png',
     highlights: [
       'Customized medical-grade serums and peel formulations',
       'Advanced Hydro-dermabrasion and carbon laser technologies',
@@ -96,8 +96,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     subtitle: 'Artistic Facial Sculpting, Fillers & Bio-Remodeling',
     description: 'Restore youthful volume, refine facial contours, and stimulate deep cellular regeneration with premium injectables, exosomes, Botox, and dermal fillers.',
     group: 'BEAUTY',
-    heroImage: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80&w=1200',
-    cardImage: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80&w=600',
+    heroImage: '/images/services/WEB%20IMAGES/ADVANCED%20SKIN%20REJUVENATION%20&%20INJECTABLE%20AESTHETICS.png',
+    cardImage: '/images/services/WEB%20IMAGES/ADVANCED%20SKIN%20REJUVENATION%20&%20INJECTABLE%20AESTHETICS.png',
     highlights: [
       'Administered exclusively by certified aesthetic doctors',
       'Premium hyaluronic acid fillers & US-FDA approved anti-wrinkle toxins',
@@ -137,8 +137,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     subtitle: 'Micropigmentation Artistry for Effortless Everyday Elegance',
     description: 'Enhance your natural features with semi-permanent micropigmentation. From feather-light microblading to ombre brows and velvety lip blush, wake up radiant every day.',
     group: 'BEAUTY',
-    heroImage: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=1200',
-    cardImage: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=600',
+    heroImage: '/images/services/WEB%20IMAGES/PERMANENT%20MAKEUP%20(PMU).png',
+    cardImage: '/images/services/WEB%20IMAGES/PERMANENT%20MAKEUP%20(PMU).png',
     highlights: [
       'Hypoallergenic, organic pigments tailored to your skin undertone',
       'Custom brow mapping tailored to facial bone structure',
@@ -170,8 +170,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     subtitle: 'Clinical Therapies to Arrest Hair Loss & Boost Density',
     description: 'Combating hair thinning and scalp stress with medical hair restoration, GFC, stem cell micro-infusions, and low-level laser light therapy.',
     group: 'HAIR',
-    heroImage: 'https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&q=80&w=1200',
-    cardImage: 'https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&q=80&w=600',
+    heroImage: '/images/services/WEB%20IMAGES/HAIR%20CARE%20&%20HAIR%20RESTORATION.png',
+    cardImage: '/images/services/WEB%20IMAGES/HAIR%20CARE%20&%20HAIR%20RESTORATION.png',
     highlights: [
       'Comprehensive trichological scalp evaluation',
       'Autologous Growth Factor Concentrate (GFC) & QR678 patented therapies',
@@ -202,8 +202,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     subtitle: 'Surgical Precision Follicular Unit Extraction & Grafting',
     description: 'Permanent, natural hairline restoration using advanced FUE and FUT surgical graft implantation techniques performed by skilled surgical specialists.',
     group: 'HAIR',
-    heroImage: 'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&q=80&w=1200',
-    cardImage: 'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&q=80&w=600',
+    heroImage: '/images/services/WEB%20IMAGES/HAIR%20TRANSPLANT.png',
+    cardImage: '/images/services/WEB%20IMAGES/HAIR%20TRANSPLANT.png',
     highlights: [
       'Advanced Follicular Unit Extraction (FUE) & FUT techniques',
       'Micro-punch graft harvesting with zero linear scarring option',
@@ -227,8 +227,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     subtitle: 'Scientific Body Sculpting & Non-Invasive Fat Reduction',
     description: 'Sculpt your silhouette with non-surgical fat melting, RF skin tightening, CoolSculpting cryolipolysis, and metabolic weight management programs.',
     group: 'BODY',
-    heroImage: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=1200',
-    cardImage: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=600',
+    heroImage: '/images/services/WEB%20IMAGES/SLIMMING,%20WEIGHT%20MANAGEMENT%20&%20BODY%20CONTOURING%20PACKAGES.png',
+    cardImage: '/images/services/WEB%20IMAGES/SLIMMING,%20WEIGHT%20MANAGEMENT%20&%20BODY%20CONTOURING%20PACKAGES.png',
     highlights: [
       'In-depth Body Composition Analysis (BCA)',
       'Non-invasive fat freezing (Cryolipolysis) & radiofrequency thermal melting',
@@ -261,8 +261,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     subtitle: 'Holistic Transformation Programs for Targeted Results',
     description: 'Curated multi-modality body reshaping packages designed to achieve visible inch loss, skin firming, and structural body transformation.',
     group: 'BODY',
-    heroImage: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=1200',
-    cardImage: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=600',
+    heroImage: '/images/services/WEB%20IMAGES/BODY%20CONTOURING%20PACKAGES.png',
+    cardImage: '/images/services/WEB%20IMAGES/BODY%20CONTOURING%20PACKAGES.png',
     highlights: [
       'Multi-modality treatment combinations for synergistic fat loss',
       'Dedicated body contouring therapist monitoring your progress',
@@ -286,8 +286,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     subtitle: 'Holistic Nutrition, Mindful Habits & Metabolic Health',
     description: 'Harmonize your inner health with personalized nutrition plans, restorative exercise guidance, and holistic lifestyle consultations.',
     group: 'WELLNESS',
-    heroImage: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&q=80&w=1200',
-    cardImage: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&q=80&w=600',
+    heroImage: '/images/services/WEB%20IMAGES/LIFESTYLE%20MODIFICATION%20&%20WELLNESS.png',
+    cardImage: '/images/services/WEB%20IMAGES/LIFESTYLE%20MODIFICATION%20&%20WELLNESS.png',
     highlights: [
       'Supervised by Ayurvedic & Wellness Expert Dr. Yashaswini HV',
       'Personalized nutrition charts without extreme restrictive diets',
@@ -311,8 +311,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     subtitle: 'Expert Surgical Sculpting & Reconstruction',
     description: 'Hospital-grade aesthetic plastic surgery performed by leading board-certified plastic surgeons in state-of-the-art sterile surgical suites.',
     group: 'SURGICAL',
-    heroImage: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1200',
-    cardImage: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=600',
+    heroImage: '/images/services/WEB%20IMAGES/COSMETIC%20&%20PLASTIC%20SURGERY.png',
+    cardImage: '/images/services/WEB%20IMAGES/COSMETIC%20&%20PLASTIC%20SURGERY.png',
     highlights: [
       'Board-certified aesthetic plastic surgeons',
       'Comprehensive pre-operative assessment & sterile operating environment',
@@ -351,8 +351,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     subtitle: 'Discreet, Specialized Aesthetic Care & Functional Wellness',
     description: 'Private, respectful, and confidential intimate cosmetic procedures designed to enhance functional comfort, symmetry, and personal confidence.',
     group: 'SURGICAL',
-    heroImage: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=1200',
-    cardImage: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=600',
+    heroImage: '/images/services/WEB%20IMAGES/INTIMATE%20&%20GENITAL%20COSMETIC%20PROCEDURES.png',
+    cardImage: '/images/services/WEB%20IMAGES/INTIMATE%20&%20GENITAL%20COSMETIC%20PROCEDURES.png',
     highlights: [
       'Utmost privacy, confidentiality, and female surgeon options',
       'Refined surgical & non-surgical functional enhancements',
@@ -376,8 +376,8 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     subtitle: 'Inner Harmony, Mindful Guidance & Energy Alignment',
     description: 'Elevate your internal aura and emotional clarity with meditative guidance and spiritual counselling led by Founder Nagendra Karanik.',
     group: 'WELLNESS',
-    heroImage: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=1200',
-    cardImage: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=600',
+    heroImage: '/images/services/WEB%20IMAGES/SPIRITUAL%20COUNSELLING%20&%20WELLNESS.png',
+    cardImage: '/images/services/WEB%20IMAGES/SPIRITUAL%20COUNSELLING%20&%20WELLNESS.png',
     highlights: [
       'Guided by Founder, Spiritual Guide & Filmmaker Nagendra Karanik',
       'Mindfulness & aura alignment sessions',
@@ -399,14 +399,14 @@ export const FOUNDERS = [
     role: 'Co-Founder & Chief Aesthetic Physician',
     qualifications: 'BAMS | Ayurvedic Doctor | Aesthetic Physician | Wellness Expert',
     bio: 'Dr. Yashaswini HV blends time-tested Ayurvedic wellness principles with state-of-the-art modern aesthetic physician expertise. Her holistic philosophy ensures every treatment enhances external natural beauty while nurturing internal vital aura.',
-    image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=600'
+    image: '/images/Founders%20Images/Dr.%20Yashaswini.jpeg'
   },
   {
     name: 'Nagendra Karanik',
     role: 'Founder, CEO & Spiritual Guide',
     qualifications: 'Founder | CEO | Spiritual Guide | Filmmaker',
     bio: 'Nagendra Karanik brings a profound vision of holistic human transformation to Pink Aura. As a filmmaker and spiritual guide, he shapes Pink Aura into more than a center — a sanctuary where inner confidence and outer beauty meet.',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600'
+    image: '/images/Founders%20Images/Mr.%20Nagendra%20Karanik.jpeg'
   }
 ];
 

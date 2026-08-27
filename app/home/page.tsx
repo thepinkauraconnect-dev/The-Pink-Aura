@@ -289,7 +289,7 @@ export default function MainHomePage() {
                   src={founder.image}
                   alt={founder.name}
                   fill
-                  className="object-cover"
+                  className="object-cover object-[center_20%]"
                 />
               </div>
               <div className="space-y-3 text-center sm:text-left">

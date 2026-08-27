@@ -87,7 +87,7 @@ export default function AboutPage() {
                     src={founder.image}
                     alt={founder.name}
                     fill
-                    className="object-cover"
+                    className="object-cover object-[center_20%]"
                   />
                 </div>
                 <div className="space-y-2 text-center sm:text-left">
