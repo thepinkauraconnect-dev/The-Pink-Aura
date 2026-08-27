@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { User, Phone, Mail, Grid, MessageSquare, AlertCircle, ArrowRight, Flower2 } from 'lucide-react';
@@ -12,7 +12,7 @@ const CATEGORY_OPTIONS = [
   { value: 'Other / Not Sure', label: 'Other / Personalized Recommendation' },
 ];
 
-export default function ConsultationForm() {
+function ConsultationFormContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -318,5 +318,20 @@ export default function ConsultationForm() {
         </button>
       </form>
     </div>
+  );
+}
+
+export default function ConsultationForm() {
+  return (
+    <Suspense
+      fallback={
+        <div className="w-full max-w-2xl mx-auto clay-card bg-white/95 rounded-4xl p-12 text-center text-charcoal-muted font-light">
+          <div className="w-8 h-8 border-2 border-aura-600 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+          <p className="text-xs">Loading Consultation Registration Form...</p>
+        </div>
+      }
+    >
+      <ConsultationFormContent />
+    </Suspense>
   );
 }
