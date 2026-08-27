@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { User, Phone, Mail, Grid, MessageSquare, AlertCircle, ArrowRight, Flower2 } from 'lucide-react';
 import { registerLead } from '@/app/actions/registerLead';
@@ -14,6 +14,8 @@ const CATEGORY_OPTIONS = [
 
 export default function ConsultationForm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -25,6 +27,40 @@ export default function ConsultationForm() {
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    const categoryParam = searchParams.get('category');
+    const treatmentParam = searchParams.get('treatment');
+    const reqParam = searchParams.get('requirement');
+
+    if (categoryParam || treatmentParam || reqParam) {
+      let matchedCategory = '';
+      if (categoryParam) {
+        const found = CATEGORY_OPTIONS.find(
+          (opt) =>
+            opt.value.toLowerCase() === categoryParam.toLowerCase() ||
+            opt.value.toLowerCase().includes(categoryParam.toLowerCase()) ||
+            categoryParam.toLowerCase().includes(opt.value.toLowerCase())
+        );
+        if (found) {
+          matchedCategory = found.value;
+        }
+      }
+
+      let requirementText = reqParam || '';
+      if (!requirementText && treatmentParam) {
+        requirementText = `Enquiry for: ${treatmentParam}${matchedCategory ? ` (${matchedCategory})` : ''}`;
+      } else if (!requirementText && matchedCategory) {
+        requirementText = `Enquiry for: ${matchedCategory}`;
+      }
+
+      setFormData((prev) => ({
+        ...prev,
+        category: matchedCategory || prev.category,
+        requirement: requirementText || prev.requirement,
+      }));
+    }
+  }, [searchParams]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;

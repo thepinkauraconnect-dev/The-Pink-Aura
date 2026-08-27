@@ -198,10 +198,13 @@ export default function MainHomePage() {
               </div>
 
               {/* Card Footer CTA */}
-              <div className="p-6 pt-0 border-t border-aura-100/60 mt-4 flex items-center justify-between">
-                <span className="text-[11px] font-bold text-aura-600">
-                  {category.treatments.length} Signature Treatments
-                </span>
+              <div className="p-6 pt-0 border-t border-aura-100/60 mt-4 flex items-center justify-between gap-2">
+                <Link
+                  href={`/register?category=${encodeURIComponent(category.title)}`}
+                  className="text-xs font-bold text-aura-600 hover:text-aura-700 clay-badge px-3 py-1.5 hover:scale-105 transition-all"
+                >
+                  Enquire Now
+                </Link>
                 <Link
                   href={`/services/${category.slug}`}
                   className="clay-btn-secondary inline-flex items-center gap-1.5 text-xs font-bold px-4 py-2"

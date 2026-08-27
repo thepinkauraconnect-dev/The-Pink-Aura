@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import ConsultationForm from '@/components/registration/ConsultationForm';
 import { Metadata } from 'next';
 
@@ -14,7 +15,14 @@ export default function RegisterPage() {
       <div className="absolute bottom-10 left-10 w-96 h-96 bg-champagne-light/30 rounded-full blur-3xl pointer-events-none" />
 
       <div className="w-full max-w-4xl mx-auto relative z-10">
-        <ConsultationForm />
+        <Suspense fallback={
+          <div className="w-full max-w-2xl mx-auto clay-card bg-white/95 rounded-4xl p-12 text-center text-charcoal-muted font-light">
+            <div className="w-8 h-8 border-2 border-aura-600 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+            <p>Loading Consultation Registration Form...</p>
+          </div>
+        }>
+          <ConsultationForm />
+        </Suspense>
       </div>
     </div>
   );

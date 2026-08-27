@@ -68,7 +68,7 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
 
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              href="/register"
+              href={`/register?category=${encodeURIComponent(category.title)}`}
               className="clay-btn-primary inline-flex items-center gap-2 px-8 py-3.5 text-xs font-extrabold uppercase tracking-widest"
             >
               <span>Begin Consultation for {category.title}</span>
@@ -153,8 +153,8 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
               <div className="pt-2 border-t border-aura-100 flex items-center justify-between">
                 <span className="text-[11px] text-aura-600 font-bold">Personalized Plan Available</span>
                 <Link
-                  href="/register"
-                  className="text-xs font-bold text-charcoal hover:text-aura-600 inline-flex items-center gap-1"
+                  href={`/register?category=${encodeURIComponent(category.title)}&treatment=${encodeURIComponent(treatment.name)}`}
+                  className="text-xs font-bold text-aura-600 hover:text-aura-700 inline-flex items-center gap-1 clay-badge px-3 py-1 hover:scale-105 transition-all"
                 >
                   <span>Enquire</span>
                   <ChevronRight className="w-3.5 h-3.5" />
@@ -204,7 +204,7 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
           </p>
           <div className="pt-2">
             <Link
-              href="/register"
+              href={`/register?category=${encodeURIComponent(category.title)}`}
               className="clay-btn-primary inline-flex items-center gap-2 px-8 py-3.5 text-xs font-extrabold uppercase tracking-widest"
             >
               <span>Register for Consultation</span>
