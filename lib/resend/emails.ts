@@ -4,7 +4,6 @@ import { CLINIC_INFO } from '@/data/services';
 const resendApiKey = process.env.RESEND_API_KEY;
 const resend = resendApiKey && !resendApiKey.includes('mock') ? new Resend(resendApiKey) : null;
 
-// Use custom configured sender, or fallback during local dev / testing
 const getFromEmail = (type: 'consultation' | 'welcome') => {
   if (process.env.RESEND_FROM_EMAIL) {
     return process.env.RESEND_FROM_EMAIL;
@@ -30,9 +29,11 @@ export async function sendOwnerNotificationEmail(lead: {
   const mailtoLink = `mailto:${lead.email}?subject=${encodeURIComponent('The Pink Aura — Regarding Your Consultation Request')}`;
   const timestamp = new Date().toLocaleString('en-IN', {
     timeZone: 'Asia/Kolkata',
-    dateStyle: 'full',
-    timeStyle: 'medium',
+    dateStyle: 'medium',
+    timeStyle: 'short',
   });
+
+  const fontStack = `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif`;
 
   const html = `
     <!DOCTYPE html>
@@ -40,148 +41,145 @@ export async function sendOwnerNotificationEmail(lead: {
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>New Consultation Request — The Pink Aura</title>
+      <title>New Lead Consultation Inquiry — The Pink Aura</title>
     </head>
-    <body style="margin: 0; padding: 0; background-color: #FAF6F8; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; -webkit-font-smoothing: antialiased;">
-      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #FAF6F8; padding: 40px 15px;">
+    <body style="margin: 0; padding: 0; background-color: #FAF4F6; font-family: ${fontStack}; -webkit-font-smoothing: antialiased;">
+      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #FAF4F6; padding: 32px 12px;">
         <tr>
           <td align="center">
-            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width: 620px; background-color: #ffffff; border-radius: 20px; overflow: hidden; border: 1px solid #F0D5E0; box-shadow: 0 20px 40px rgba(158, 77, 104, 0.08);">
+            
+            <!-- Main Claymorphic Card Container -->
+            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width: 580px; background-color: #ffffff; border-radius: 28px; overflow: hidden; border: 2px solid #F3E5EB; box-shadow: 0 16px 40px rgba(158, 77, 104, 0.10);">
               
-              <!-- Luxury Header Banner -->
+              <!-- Claymorphic Top Header -->
               <tr>
-                <td style="background: linear-gradient(135deg, #7A2846 0%, #9E4D68 50%, #C87D94 100%); padding: 36px 32px; text-align: center; color: #ffffff;">
-                  <div style="font-family: Georgia, 'Times New Roman', serif; font-size: 26px; font-weight: bold; letter-spacing: 0.5px; margin-bottom: 6px;">
+                <td style="padding: 32px 28px 24px 28px; text-align: center; background: linear-gradient(180deg, #FDF5F8 0%, #FFFFFF 100%); border-bottom: 1px solid #F3E5EB;">
+                  <!-- Brand Pill -->
+                  <div style="display: inline-block; background: linear-gradient(135deg, #9E4D68 0%, #7A2846 100%); color: #ffffff; border-radius: 50px; padding: 6px 18px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; box-shadow: 0 4px 12px rgba(158, 77, 104, 0.25); margin-bottom: 12px;">
                     The Pink Aura
                   </div>
-                  <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 3px; color: #FBEAF0; font-weight: 600;">
-                    Executive Lead Notification System
-                  </div>
-                </td>
-              </tr>
-
-              <!-- Alert Header -->
-              <tr>
-                <td style="padding: 24px 32px 12px 32px; text-align: left;">
-                  <div style="display: inline-block; background-color: #FDF2F6; border: 1px solid #F7C5D6; border-radius: 50px; padding: 6px 16px; font-size: 12px; font-weight: bold; color: #9E4D68; text-transform: uppercase; letter-spacing: 1px;">
-                    ⚡ Action Required • New Lead Inquiry
-                  </div>
-                </td>
-              </tr>
-
-              <!-- Lead Info Section -->
-              <tr>
-                <td style="padding: 12px 32px 28px 32px;">
-                  <h1 style="font-family: Georgia, serif; font-size: 22px; color: #1C1917; margin: 0 0 20px 0; font-weight: bold;">
-                    Consultation Lead Details
+                  <h1 style="margin: 0 0 6px 0; font-size: 22px; font-weight: 800; color: #292524; letter-spacing: -0.3px;">
+                    New Consultation Request
                   </h1>
-
-                  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: separate; border-spacing: 0 12px;">
-                    
-                    <!-- Client Name -->
-                    <tr>
-                      <td width="35%" style="background-color: #FAF8F5; padding: 14px 16px; border-radius: 10px 0 0 10px; font-size: 13px; font-weight: bold; color: #57534E; uppercase; letter-spacing: 0.5px;">
-                        👤 Client Name
-                      </td>
-                      <td style="background-color: #FAF8F5; padding: 14px 16px; border-radius: 0 10px 10px 0; font-size: 15px; font-weight: bold; color: #1C1917;">
-                        ${lead.name}
-                      </td>
-                    </tr>
-
-                    <!-- Phone Number with Interactive Call Action -->
-                    <tr>
-                      <td style="background-color: #FAF8F5; padding: 14px 16px; border-radius: 10px 0 0 10px; font-size: 13px; font-weight: bold; color: #57534E;">
-                        📞 Phone Number
-                      </td>
-                      <td style="background-color: #FAF8F5; padding: 14px 16px; border-radius: 0 10px 10px 0; font-size: 15px; font-weight: bold; color: #1C1917;">
-                        <span style="vertical-align: middle; margin-right: 8px;">${lead.phone}</span>
-                        <a href="${telLink}" style="display: inline-block; vertical-align: middle; background-color: #22C55E; color: #ffffff; text-decoration: none; padding: 6px 14px; border-radius: 50px; font-size: 12px; font-weight: bold; font-family: sans-serif; box-shadow: 0 2px 6px rgba(34, 197, 94, 0.3);">
-                          📞 Call Now
-                        </a>
-                      </td>
-                    </tr>
-
-                    <!-- Email Address with Interactive Email Action -->
-                    <tr>
-                      <td style="background-color: #FAF8F5; padding: 14px 16px; border-radius: 10px 0 0 10px; font-size: 13px; font-weight: bold; color: #57534E;">
-                        ✉️ Email Address
-                      </td>
-                      <td style="background-color: #FAF8F5; padding: 14px 16px; border-radius: 0 10px 10px 0; font-size: 15px; font-weight: bold; color: #1C1917;">
-                        <span style="vertical-align: middle; margin-right: 8px;">${lead.email}</span>
-                        <a href="${mailtoLink}" style="display: inline-block; vertical-align: middle; background-color: #9E4D68; color: #ffffff; text-decoration: none; padding: 6px 14px; border-radius: 50px; font-size: 12px; font-weight: bold; font-family: sans-serif; box-shadow: 0 2px 6px rgba(158, 77, 104, 0.3);">
-                          ✉️ Send Email
-                        </a>
-                      </td>
-                    </tr>
-
-                    <!-- Service Category -->
-                    <tr>
-                      <td style="background-color: #FAF8F5; padding: 14px 16px; border-radius: 10px 0 0 10px; font-size: 13px; font-weight: bold; color: #57534E;">
-                        ✨ Category
-                      </td>
-                      <td style="background-color: #FAF8F5; padding: 14px 16px; border-radius: 0 10px 10px 0; font-size: 14px; font-weight: bold; color: #9E4D68;">
-                        <span style="background-color: #FDF2F6; border: 1px solid #F5E6EC; padding: 4px 12px; border-radius: 6px; display: inline-block;">
-                          ${lead.category}
-                        </span>
-                      </td>
-                    </tr>
-
-                    <!-- Requirement Details Box -->
-                    <tr>
-                      <td style="background-color: #FAF8F5; padding: 14px 16px; border-radius: 10px 0 0 10px; font-size: 13px; font-weight: bold; color: #57534E; vertical-align: top;">
-                        📝 Specific Need
-                      </td>
-                      <td style="background-color: #FAF8F5; padding: 14px 16px; border-radius: 0 10px 10px 0; font-size: 14px; color: #292524; line-height: 1.6; white-space: pre-wrap;">
-                        ${lead.requirement || 'No additional requirement notes provided.'}
-                      </td>
-                    </tr>
-
-                    <!-- Received Timestamp -->
-                    <tr>
-                      <td style="background-color: #FAF8F5; padding: 14px 16px; border-radius: 10px 0 0 10px; font-size: 13px; font-weight: bold; color: #57534E;">
-                        🕒 Date & Time
-                      </td>
-                      <td style="background-color: #FAF8F5; padding: 14px 16px; border-radius: 0 10px 10px 0; font-size: 13px; color: #78716C;">
-                        ${timestamp}
-                      </td>
-                    </tr>
-
-                  </table>
+                  <p style="margin: 0; font-size: 13px; color: #78716C; font-weight: 500;">
+                    Executive Lead System Notification
+                  </p>
                 </td>
               </tr>
 
-              <!-- Big Direct Action Callout Section -->
+              <!-- Clay Field Cards Grid -->
               <tr>
-                <td style="padding: 0 32px 32px 32px;">
-                  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background: linear-gradient(135deg, #FAF3F5 0%, #F5E6EC 100%); border-radius: 16px; padding: 20px; text-align: center; border: 1px solid #E8C8D4;">
-                    <tr>
-                      <td>
-                        <div style="font-size: 14px; font-weight: bold; color: #7A2846; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">
-                          Immediate Lead Contact Options
-                        </div>
-                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
-                          <tr>
-                            <td align="center" style="padding: 4px;">
-                              <a href="${telLink}" style="display: inline-block; background-color: #22C55E; color: #ffffff; font-weight: bold; text-decoration: none; padding: 12px 24px; border-radius: 50px; font-size: 14px; margin: 4px; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25);">
-                                📞 Call Client (${lead.phone})
-                              </a>
-                              <a href="${mailtoLink}" style="display: inline-block; background-color: #9E4D68; color: #ffffff; font-weight: bold; text-decoration: none; padding: 12px 24px; border-radius: 50px; font-size: 14px; margin: 4px; box-shadow: 0 4px 12px rgba(158, 77, 104, 0.25);">
-                                ✉️ Email Client (${lead.email})
-                              </a>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
+                <td style="padding: 24px 28px;">
+                  
+                  <!-- 1. Client Name Card -->
+                  <div style="background-color: #FAF4F6; border: 1.5px solid #F0D5E0; border-radius: 16px; padding: 14px 18px; margin-bottom: 12px; box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.8);">
+                    <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #9E4D68; margin-bottom: 4px;">
+                      Client Name
+                    </div>
+                    <div style="font-size: 16px; font-weight: 700; color: #1C1917;">
+                      ${lead.name}
+                    </div>
+                  </div>
+
+                  <!-- 2. Phone Number Card with Call Action -->
+                  <div style="background-color: #FAF4F6; border: 1.5px solid #F0D5E0; border-radius: 16px; padding: 14px 18px; margin-bottom: 12px; box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.8);">
+                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td style="vertical-align: middle;">
+                          <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #9E4D68; margin-bottom: 4px;">
+                            Phone Number
+                          </div>
+                          <div style="font-size: 16px; font-weight: 700; color: #1C1917;">
+                            ${lead.phone}
+                          </div>
+                        </td>
+                        <td align="right" style="vertical-align: middle;">
+                          <a href="${telLink}" style="display: inline-block; background: linear-gradient(135deg, #9E4D68 0%, #7A2846 100%); color: #ffffff; font-size: 12px; font-weight: 700; text-decoration: none; padding: 8px 16px; border-radius: 50px; box-shadow: 0 4px 10px rgba(158, 77, 104, 0.3);">
+                            📞 Call
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <!-- 3. Email Address Card with Email Action -->
+                  <div style="background-color: #FAF4F6; border: 1.5px solid #F0D5E0; border-radius: 16px; padding: 14px 18px; margin-bottom: 12px; box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.8);">
+                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td style="vertical-align: middle;">
+                          <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #9E4D68; margin-bottom: 4px;">
+                            Email Address
+                          </div>
+                          <div style="font-size: 14px; font-weight: 700; color: #1C1917; word-break: break-all;">
+                            ${lead.email}
+                          </div>
+                        </td>
+                        <td align="right" style="vertical-align: middle; padding-left: 8px;">
+                          <a href="${mailtoLink}" style="display: inline-block; background: linear-gradient(135deg, #4A1D2F 0%, #290E1B 100%); color: #ffffff; font-size: 12px; font-weight: 700; text-decoration: none; padding: 8px 16px; border-radius: 50px; box-shadow: 0 4px 10px rgba(74, 29, 47, 0.3);">
+                            ✉️ Email
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <!-- 4. Interested Category Card -->
+                  <div style="background-color: #FAF4F6; border: 1.5px solid #F0D5E0; border-radius: 16px; padding: 14px 18px; margin-bottom: 12px; box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.8);">
+                    <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #9E4D68; margin-bottom: 6px;">
+                      Interested Service Category
+                    </div>
+                    <div style="display: inline-block; background-color: #ffffff; border: 1px solid #E8C8D4; padding: 6px 14px; border-radius: 50px; font-size: 13px; font-weight: 700; color: #7A2846; box-shadow: 0 2px 6px rgba(158, 77, 104, 0.08);">
+                      ✨ ${lead.category}
+                    </div>
+                  </div>
+
+                  <!-- 5. Specific Requirement Block Card -->
+                  <div style="background-color: #FAF4F6; border: 1.5px solid #F0D5E0; border-radius: 16px; padding: 16px 18px; margin-bottom: 12px; box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.8);">
+                    <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #9E4D68; margin-bottom: 6px;">
+                      Specific Requirement Details
+                    </div>
+                    <div style="font-size: 14px; color: #292524; line-height: 1.6; font-weight: 500; white-space: pre-wrap; background-color: #ffffff; border-radius: 12px; padding: 12px 14px; border: 1px solid #F3E5EB;">
+                      ${lead.requirement || 'No specific notes provided.'}
+                    </div>
+                  </div>
+
+                  <!-- 6. Date & Time -->
+                  <div style="background-color: #FAF4F6; border: 1.5px solid #F0D5E0; border-radius: 16px; padding: 12px 18px; box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.8);">
+                    <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #9E4D68; margin-bottom: 2px;">
+                      Date & Time Received
+                    </div>
+                    <div style="font-size: 13px; color: #57534E; font-weight: 600;">
+                      🕒 ${timestamp}
+                    </div>
+                  </div>
+
                 </td>
               </tr>
 
-              <!-- Luxury Footer -->
+              <!-- Claymorphic Quick Contact Action Container -->
               <tr>
-                <td style="background-color: #FAF8F5; padding: 20px 32px; text-align: center; border-top: 1px solid #F0D5E0; font-size: 12px; color: #A8A29E;">
-                  <div style="font-weight: 600; color: #78716C; margin-bottom: 4px;">The Pink Aura — Aesthetic & Wellness Centre</div>
-                  <div>#112, 1st Floor, 16th Cross, 4th Phase JP Nagar, Dollars Colony, Bangalore – 560078</div>
+                <td style="padding: 0 28px 28px 28px;">
+                  <div style="background: linear-gradient(135deg, #FDF4F7 0%, #F5E6EC 100%); border-radius: 20px; padding: 22px 20px; text-align: center; border: 1.5px solid #E8C8D4; box-shadow: 0 8px 20px rgba(158, 77, 104, 0.08);">
+                    <div style="font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: #7A2846; margin-bottom: 14px;">
+                      Direct Client Communication Options
+                    </div>
+                    <div>
+                      <a href="${telLink}" style="display: inline-block; background: linear-gradient(135deg, #9E4D68 0%, #7A2846 100%); color: #ffffff; font-size: 13px; font-weight: 700; text-decoration: none; padding: 12px 24px; border-radius: 50px; margin: 4px; box-shadow: 0 6px 16px rgba(158, 77, 104, 0.25);">
+                        📞 Call Client (${lead.phone})
+                      </a>
+                      <a href="${mailtoLink}" style="display: inline-block; background: linear-gradient(135deg, #4A1D2F 0%, #290E1B 100%); color: #ffffff; font-size: 13px; font-weight: 700; text-decoration: none; padding: 12px 24px; border-radius: 50px; margin: 4px; box-shadow: 0 6px 16px rgba(74, 29, 47, 0.25);">
+                        ✉️ Email Client (${lead.email})
+                      </a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Footer -->
+              <tr>
+                <td style="background-color: #FAF4F6; padding: 18px 28px; text-align: center; border-top: 1px solid #F3E5EB; font-size: 12px; color: #78716C; font-weight: 500;">
+                  The Pink Aura — Aesthetic & Wellness Centre<br>
+                  <span style="font-size: 11px; color: #A8A29E; font-weight: 400;">#112, 1st Floor, 16th Cross, 4th Phase JP Nagar, Dollars Colony, Bangalore – 560078</span>
                 </td>
               </tr>
 
@@ -220,100 +218,105 @@ export async function sendCustomerConfirmationEmail(lead: {
   const clinicPhoneLink = `tel:${CLINIC_INFO.phone.replace(/[^0-9+]/g, '')}`;
   const clinicMailtoLink = `mailto:${CLINIC_INFO.email}?subject=${encodeURIComponent('Inquiry Regarding Consultation — The Pink Aura')}`;
 
+  const fontStack = `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif`;
+
   const html = `
     <!DOCTYPE html>
     <html lang="en">
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Your Pink Aura Consultation Journey</title>
+      <title>Your Consultation Inquiry — The Pink Aura</title>
     </head>
-    <body style="margin: 0; padding: 0; background-color: #FAF6F8; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; -webkit-font-smoothing: antialiased;">
-      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #FAF6F8; padding: 40px 15px;">
+    <body style="margin: 0; padding: 0; background-color: #FAF4F6; font-family: ${fontStack}; -webkit-font-smoothing: antialiased;">
+      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #FAF4F6; padding: 32px 12px;">
         <tr>
           <td align="center">
-            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width: 620px; background-color: #ffffff; border-radius: 20px; overflow: hidden; border: 1px solid #F0D5E0; box-shadow: 0 20px 40px rgba(158, 77, 104, 0.08);">
+            
+            <!-- Main Claymorphic Card Container -->
+            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width: 580px; background-color: #ffffff; border-radius: 28px; overflow: hidden; border: 2px solid #F3E5EB; box-shadow: 0 16px 40px rgba(158, 77, 104, 0.10);">
               
               <!-- Brand Header -->
               <tr>
-                <td style="background: linear-gradient(135deg, #7A2846 0%, #9E4D68 50%, #C87D94 100%); padding: 40px 32px; text-align: center; color: #ffffff;">
-                  <div style="font-family: Georgia, 'Times New Roman', serif; font-size: 28px; font-weight: bold; letter-spacing: 0.5px; margin-bottom: 6px;">
+                <td style="padding: 36px 28px 24px 28px; text-align: center; background: linear-gradient(180deg, #FDF5F8 0%, #FFFFFF 100%); border-bottom: 1px solid #F3E5EB;">
+                  <div style="display: inline-block; background: linear-gradient(135deg, #9E4D68 0%, #7A2846 100%); color: #ffffff; border-radius: 50px; padding: 6px 18px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; box-shadow: 0 4px 12px rgba(158, 77, 104, 0.25); margin-bottom: 12px;">
                     The Pink Aura
                   </div>
-                  <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 3px; color: #FBEAF0; font-weight: 500;">
+                  <h1 style="margin: 0 0 6px 0; font-size: 22px; font-weight: 800; color: #292524; letter-spacing: -0.3px;">
+                    Consultation Request Received
+                  </h1>
+                  <p style="margin: 0; font-size: 13px; color: #78716C; font-weight: 500;">
                     Aesthetic & Wellness Centre
-                  </div>
+                  </p>
                 </td>
               </tr>
 
-              <!-- Greeting & Content -->
+              <!-- Greeting & Content Section -->
               <tr>
-                <td style="padding: 36px 32px 20px 32px;">
-                  <h2 style="font-family: Georgia, serif; font-size: 22px; color: #1C1917; margin: 0 0 16px 0; font-weight: normal;">
+                <td style="padding: 28px 28px 20px 28px;">
+                  <h2 style="font-size: 18px; font-weight: 700; color: #1C1917; margin: 0 0 14px 0;">
                     Dear ${lead.name},
                   </h2>
-                  <p style="font-size: 15px; color: #44403C; line-height: 1.7; margin-bottom: 20px;">
-                    Thank you for reaching out to <strong>The Pink Aura — Aesthetic & Wellness Centre</strong>. We have successfully received your inquiry for:
+                  <p style="font-size: 14px; color: #44403C; line-height: 1.7; margin: 0 0 20px 0;">
+                    Thank you for reaching out to <strong>The Pink Aura — Aesthetic & Wellness Centre</strong>. We have received your consultation inquiry regarding:
                   </p>
 
-                  <!-- Requested Service Card -->
-                  <div style="background-color: #FDF2F6; border: 1px solid #F5E6EC; border-left: 4px solid #9E4D68; border-radius: 12px; padding: 20px; margin-bottom: 24px;">
-                    <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: #9E4D68; font-weight: bold; margin-bottom: 4px;">
+                  <!-- Requested Service Clay Card -->
+                  <div style="background-color: #FAF4F6; border: 1.5px solid #F0D5E0; border-left: 5px solid #9E4D68; border-radius: 16px; padding: 18px 20px; margin-bottom: 20px; box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.8);">
+                    <div style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #9E4D68; margin-bottom: 4px;">
                       Selected Consultation Category
                     </div>
-                    <div style="font-family: Georgia, serif; font-size: 18px; font-weight: bold; color: #1C1917;">
-                      ${lead.category}
+                    <div style="font-size: 16px; font-weight: 800; color: #1C1917;">
+                      ✨ ${lead.category}
                     </div>
                   </div>
 
-                  <p style="font-size: 15px; color: #44403C; line-height: 1.7; margin-bottom: 24px;">
-                    Our senior medical aesthetic doctors and wellness consultants are currently reviewing your request. We will reach out to you shortly to assist in scheduling your personalized consultation.
+                  <p style="font-size: 14px; color: #44403C; line-height: 1.7; margin: 0 0 24px 0;">
+                    Our medical aesthetic team and wellness consultants are currently reviewing your details and will get in touch with you shortly to schedule your personalized consultation.
                   </p>
                 </td>
               </tr>
 
-              <!-- Interactive Contact Direct Line -->
+              <!-- Interactive Direct Contact Clay Card -->
               <tr>
-                <td style="padding: 0 32px 28px 32px;">
-                  <div style="background-color: #FAF8F5; border-radius: 16px; padding: 24px; border: 1px solid #F0D5E0; text-align: center;">
-                    <div style="font-size: 14px; font-weight: bold; color: #1C1917; margin-bottom: 12px;">
+                <td style="padding: 0 28px 28px 28px;">
+                  <div style="background: linear-gradient(135deg, #FDF4F7 0%, #F5E6EC 100%); border-radius: 20px; padding: 22px 20px; text-align: center; border: 1.5px solid #E8C8D4; box-shadow: 0 8px 20px rgba(158, 77, 104, 0.08);">
+                    <div style="font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: #7A2846; margin-bottom: 14px;">
                       Need Immediate Assistance? Connect With Us Directly
                     </div>
-                    
-                    <div style="margin-bottom: 16px;">
-                      <a href="${clinicPhoneLink}" style="display: inline-block; background-color: #22C55E; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 50px; font-size: 13px; font-weight: bold; margin: 4px; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25);">
+                    <div>
+                      <a href="${clinicPhoneLink}" style="display: inline-block; background: linear-gradient(135deg, #9E4D68 0%, #7A2846 100%); color: #ffffff; font-size: 13px; font-weight: 700; text-decoration: none; padding: 12px 24px; border-radius: 50px; margin: 4px; box-shadow: 0 6px 16px rgba(158, 77, 104, 0.25);">
                         📞 Call Clinic: ${CLINIC_INFO.phone}
                       </a>
-                      <a href="${clinicMailtoLink}" style="display: inline-block; background-color: #9E4D68; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 50px; font-size: 13px; font-weight: bold; margin: 4px; box-shadow: 0 4px 12px rgba(158, 77, 104, 0.25);">
+                      <a href="${clinicMailtoLink}" style="display: inline-block; background: linear-gradient(135deg, #4A1D2F 0%, #290E1B 100%); color: #ffffff; font-size: 13px; font-weight: 700; text-decoration: none; padding: 12px 24px; border-radius: 50px; margin: 4px; box-shadow: 0 6px 16px rgba(74, 29, 47, 0.25);">
                         ✉️ Email Support
                       </a>
                     </div>
-
-                    <div style="font-size: 12px; color: #78716C;">
+                    <div style="font-size: 12px; color: #78716C; font-weight: 500; margin-top: 14px;">
                       📍 <strong>Address:</strong> ${CLINIC_INFO.address}
                     </div>
                   </div>
                 </td>
               </tr>
 
-              <!-- Signature & Tagline -->
+              <!-- Signature Section -->
               <tr>
-                <td style="padding: 0 32px 36px 32px; text-align: center;">
-                  <div style="font-family: Georgia, serif; font-style: italic; color: #9E4D68; font-size: 15px; margin-bottom: 24px;">
+                <td style="padding: 0 28px 32px 28px; text-align: center;">
+                  <div style="font-style: italic; color: #9E4D68; font-size: 14px; font-weight: 600; margin-bottom: 20px;">
                     "${CLINIC_INFO.tagline}"
                   </div>
 
-                  <div style="border-top: 1px dashed #F0D5E0; pt-24; padding-top: 20px; font-size: 13px; color: #57534E;">
-                    <div style="font-weight: bold; color: #1C1917; margin-bottom: 2px;">Warm Regards,</div>
-                    <div style="font-weight: 600; color: #9E4D68;">Dr. Yashaswini HV & Nagendra Karanik</div>
-                    <div style="font-size: 12px; color: #78716C;">Founders, The Pink Aura Aesthetic & Wellness Centre</div>
+                  <div style="border-top: 1px dashed #F0D5E0; padding-top: 20px; font-size: 13px; color: #57534E;">
+                    <div style="font-weight: 700; color: #1C1917; margin-bottom: 2px;">Warm Regards,</div>
+                    <div style="font-weight: 800; color: #9E4D68;">Dr. Yashaswini HV & Nagendra Karanik</div>
+                    <div style="font-size: 12px; color: #78716C; font-weight: 500;">Founders, The Pink Aura Aesthetic & Wellness Centre</div>
                   </div>
                 </td>
               </tr>
 
               <!-- Footer -->
               <tr>
-                <td style="background-color: #FAF8F5; padding: 16px 32px; text-align: center; border-top: 1px solid #F0D5E0; font-size: 11px; color: #A8A29E;">
+                <td style="background-color: #FAF4F6; padding: 18px 28px; text-align: center; border-top: 1px solid #F3E5EB; font-size: 11px; color: #A8A29E; font-weight: 500;">
                   © ${new Date().getFullYear()} The Pink Aura. All rights reserved.
                 </td>
               </tr>
