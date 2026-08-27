@@ -178,9 +178,33 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Legal bar */}
+        {/* Bottom Legal & Developer Credit bar */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-aura-300/60 font-light">
           <p>© {new Date().getFullYear()} The Pink Aura. All rights reserved.</p>
+
+          {/* Developed by Vyome Credit Badge */}
+          <a
+            href="https://vyome.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-sky-950/70 via-blue-950/50 to-cyan-950/70 border border-sky-400/40 text-sky-200 hover:text-white hover:border-sky-300/80 hover:shadow-[0_0_16px_rgba(56,189,248,0.35)] transition-all duration-300 group"
+          >
+            <span className="text-[11px] font-normal tracking-wide text-sky-200/90 group-hover:text-white">
+              Developed by
+            </span>
+            <div className="relative w-4 h-4 shrink-0">
+              <Image
+                src="/images/Vyome/Vyome%20Logo.png"
+                alt="Vyome Logo"
+                fill
+                className="object-contain filter drop-shadow-[0_0_6px_rgba(56,189,248,0.6)] group-hover:scale-110 transition-transform"
+              />
+            </div>
+            <span className="font-semibold text-xs text-sky-300 group-hover:text-sky-100 tracking-wider uppercase">
+              Vyome
+            </span>
+          </a>
+
           <div className="flex items-center gap-6">
             <Link href="/privacy" className="hover:text-aura-200 transition-colors">
               Privacy Policy
