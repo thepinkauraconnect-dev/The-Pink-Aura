@@ -95,7 +95,7 @@ export default function AboutPage() {
                   <p className="text-xs font-extrabold uppercase tracking-wider text-aura-600">
                     {founder.role}
                   </p>
-                  <p className="text-xs text-aura-800 font-medium italic clay-badge p-2.5">
+                  <p className="text-xs text-aura-800 font-medium italic bg-aura-50 border border-aura-200/60 rounded-xl px-3 py-2">
                     {founder.qualifications}
                   </p>
                 </div>

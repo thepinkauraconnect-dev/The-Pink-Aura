@@ -94,16 +94,16 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
           </div>
 
           {category.highlights && (
-            <div className="lg:col-span-5 p-6 rounded-3xl clay-badge bg-aura-50/80 border border-white space-y-3">
-              <h4 className="font-serif text-lg font-bold text-charcoal flex items-center gap-2">
-                <Flower2 className="w-5 h-5 text-aura-600" />
+            <div className="lg:col-span-5 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-white via-aura-50/50 to-[#FDF4F7] border border-aura-200/80 shadow-[0_8px_24px_-6px_rgba(158,77,104,0.12)] space-y-4">
+              <h4 className="font-serif text-lg sm:text-xl font-bold text-charcoal flex items-center gap-2.5">
+                <Flower2 className="w-5 h-5 text-aura-600 shrink-0" />
                 <span>Key Experience Highlights</span>
               </h4>
-              <ul className="space-y-2">
+              <ul className="space-y-3">
                 {category.highlights.map((h, idx) => (
-                  <li key={idx} className="text-xs text-charcoal-muted flex items-start gap-2 font-light">
+                  <li key={idx} className="text-xs sm:text-sm text-charcoal-muted flex items-start gap-2.5 font-light leading-relaxed">
                     <CheckCircle2 className="w-4 h-4 text-aura-600 shrink-0 mt-0.5" />
-                    <span>{h}</span>
+                    <span className="text-charcoal">{h}</span>
                   </li>
                 ))}
               </ul>
