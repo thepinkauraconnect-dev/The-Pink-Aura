@@ -7,7 +7,10 @@ import { User, Phone, Mail, Grid, MessageSquare, AlertCircle, ArrowRight, Flower
 import { registerLead } from '@/app/actions/registerLead';
 import { SERVICE_CATEGORIES } from '@/data/services';
 
+const DEFAULT_CATEGORY = 'General Aesthetic & Wellness Consultation';
+
 const CATEGORY_OPTIONS = [
+  { value: DEFAULT_CATEGORY, label: 'General Aesthetic & Wellness Consultation (Doctor Assessment)' },
   ...SERVICE_CATEGORIES.map((c) => ({ value: c.title, label: c.title })),
   { value: 'Other / Not Sure', label: 'Other / Personalized Recommendation' },
 ];
@@ -20,7 +23,7 @@ function ConsultationFormContent() {
     name: '',
     phone: '',
     email: '',
-    category: '',
+    category: DEFAULT_CATEGORY,
     requirement: '',
     honeypot: '',
   });
@@ -56,7 +59,7 @@ function ConsultationFormContent() {
 
       setFormData((prev) => ({
         ...prev,
-        category: matchedCategory || prev.category,
+        category: matchedCategory || prev.category || DEFAULT_CATEGORY,
         requirement: requirementText || prev.requirement,
       }));
     }
@@ -81,9 +84,6 @@ function ConsultationFormContent() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email.trim() || !emailRegex.test(formData.email.trim())) {
       newErrors.email = 'Valid email address is required.';
-    }
-    if (!formData.category) {
-      newErrors.category = 'Please select a service category.';
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;

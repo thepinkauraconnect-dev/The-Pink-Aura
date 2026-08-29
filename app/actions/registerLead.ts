@@ -21,7 +21,9 @@ export async function registerLead(formData: LeadFormData): Promise<LeadActionRe
   const name = formData.name ? formData.name.trim() : '';
   const phone = formData.phone ? formData.phone.trim() : '';
   const email = formData.email ? formData.email.trim().toLowerCase() : '';
-  const category = formData.category ? formData.category.trim() : '';
+  const category = formData.category && formData.category.trim() !== ''
+    ? formData.category.trim()
+    : 'General Aesthetic & Wellness Consultation';
   const requirement = formData.requirement ? formData.requirement.trim() : '';
 
   if (!name || name.length < 2) {
@@ -35,10 +37,6 @@ export async function registerLead(formData: LeadFormData): Promise<LeadActionRe
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!email || !emailRegex.test(email)) {
     errors.email = 'Please enter a valid email address.';
-  }
-
-  if (!category) {
-    errors.category = 'Please select a service category of interest.';
   }
 
   if (Object.keys(errors).length > 0) {
