@@ -71,18 +71,29 @@ export async function sendInstantMobileAlert(lead: {
   if (telegramBotToken && telegramChatId) {
     try {
       const cleanPhone = lead.phone.replace(/[^0-9+]/g, '');
-      const telegramText = 
-        `${alertMessage}\n\n` +
-        `👉 [Click to Call: ${lead.phone}](tel:${cleanPhone})\n` +
-        `👉 [Click to Email](mailto:${lead.email}?subject=The%20Pink%20Aura%20Consultation)`;
+      const timeStr = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+      
+      const escapeHtml = (str: string) =>
+        str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+      const htmlText = 
+        `🌸 <b>NEW CONSULTATION LEAD — THE PINK AURA</b> 🌸\n\n` +
+        `👤 <b>Client Name:</b> ${escapeHtml(lead.name)}\n` +
+        `📞 <b>Phone:</b> ${escapeHtml(lead.phone)}\n` +
+        `✉️ <b>Email:</b> ${escapeHtml(lead.email)}\n` +
+        `✨ <b>Category:</b> ${escapeHtml(lead.category)}\n` +
+        `📝 <b>Requirement:</b> ${escapeHtml(lead.requirement || 'Not specified')}\n` +
+        `🕒 <b>Time:</b> ${timeStr}\n\n` +
+        `👉 <a href="tel:${cleanPhone}">Click to Call: ${escapeHtml(lead.phone)}</a>\n` +
+        `👉 <a href="mailto:${lead.email}?subject=The%20Pink%20Aura%20Consultation">Click to Email</a>`;
 
       const response = await fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           chat_id: telegramChatId,
-          text: telegramText,
-          parse_mode: 'Markdown',
+          text: htmlText,
+          parse_mode: 'HTML',
           disable_web_page_preview: true,
         }),
       });

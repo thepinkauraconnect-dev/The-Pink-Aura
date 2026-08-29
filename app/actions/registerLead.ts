@@ -65,18 +65,21 @@ export async function registerLead(formData: LeadFormData): Promise<LeadActionRe
     });
 
     // 2. Dispatch Emails & Instant Mobile Alerts concurrently
-    Promise.allSettled([
-      sendOwnerNotificationEmail({ name, phone, email, category, requirement }),
-      sendCustomerConfirmationEmail({ name, email, category }),
-      sendInstantMobileAlert({ name, phone, email, category, requirement }),
-    ]).then((results) => {
+    try {
+      const results = await Promise.allSettled([
+        sendOwnerNotificationEmail({ name, phone, email, category, requirement }),
+        sendCustomerConfirmationEmail({ name, email, category }),
+        sendInstantMobileAlert({ name, phone, email, category, requirement }),
+      ]);
       results.forEach((res, index) => {
         if (res.status === 'rejected') {
           const names = ['Owner Email', 'Customer Email', 'Mobile Alert'];
           console.error(`[Dispatch ${names[index]} Error]`, res.reason);
         }
       });
-    });
+    } catch (dispatchErr) {
+      console.error('[Notification Dispatch Warning]', dispatchErr);
+    }
 
     return {
       success: true,
