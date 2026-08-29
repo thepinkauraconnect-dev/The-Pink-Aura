@@ -49,21 +49,32 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Phone Number */}
+              {/* Phone & WhatsApp */}
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-full clay-badge flex items-center justify-center text-aura-600 shrink-0">
                   <Phone className="w-5 h-5" />
                 </div>
-                <div>
-                  <h4 className="text-xs font-extrabold uppercase tracking-wider text-charcoal mb-1">
-                    Phone & WhatsApp Inquiry
+                <div className="space-y-1.5">
+                  <h4 className="text-xs font-extrabold uppercase tracking-wider text-charcoal">
+                    Phone & WhatsApp Direct Line
                   </h4>
-                  <a
-                    href={`tel:${CLINIC_INFO.rawPhone || CLINIC_INFO.phone.replace(/\s+/g, '')}`}
-                    className="text-xs sm:text-sm text-aura-600 font-bold hover:underline block"
-                  >
-                    {CLINIC_INFO.phone}
-                  </a>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <a
+                      href={`tel:${CLINIC_INFO.rawPhone || CLINIC_INFO.phone.replace(/\s+/g, '')}`}
+                      className="text-xs sm:text-sm text-aura-700 font-bold hover:underline"
+                    >
+                      {CLINIC_INFO.phone}
+                    </a>
+                    <a
+                      href={CLINIC_INFO.whatsapp}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-[11px] font-bold text-white bg-[#25D366] hover:bg-[#20bd5a] px-3 py-1 rounded-full shadow-sm transition-all"
+                    >
+                      <span>Chat on WhatsApp</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -140,13 +151,13 @@ export default function ContactPage() {
             {/* Embedded Google Map iframe */}
             <iframe
               title="The Pink Aura Location Map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.857311745494!2d77.5878!3d12.9158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae150000000001%3A0x0!2zMTLCsDU0JzU2LjkiTiA3N8KwMzUnMTYuMSJF!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3889.029365171525!2d77.5951944!3d12.905833300000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTLCsDU0JzIxLjAiTiA3N8KwMzUnNDIuNyJF!5e0!3m2!1sen!2sin!4v1787991568406!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style={{ border: 0, filter: 'contrast(1.05) saturate(1.1)' }}
               allowFullScreen
               loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
+              referrerPolicy="strict-origin-when-cross-origin"
             />
           </div>
 

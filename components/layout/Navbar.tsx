@@ -127,7 +127,7 @@ export default function Navbar() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 8, scale: 0.98 }}
                     transition={{ duration: 0.25, ease: 'easeOut' }}
-                    className="absolute top-full left-4 right-4 md:left-6 md:right-6 mt-3 clay-card bg-white/95 backdrop-blur-2xl p-7 grid grid-cols-3 gap-6 shadow-clay-lg z-50"
+                    className="absolute top-full left-4 right-4 md:left-6 md:right-6 mt-3 clay-card bg-white/98 backdrop-blur-2xl rounded-3xl p-7 grid grid-cols-3 gap-6 shadow-clay-lg z-50 border border-white"
                   >
                     <div className="col-span-2 grid grid-cols-2 gap-6 border-r border-aura-100/80 pr-6">
                       {SERVICE_GROUPS.slice(0, 4).map((group, idx) => (
@@ -171,21 +171,23 @@ export default function Navbar() {
                         </ul>
                       </div>
 
-                      <div className="p-4 rounded-2xl clay-badge bg-aura-50/60 border border-white">
-                        <div className="flex items-center gap-2 text-aura-700 font-serif font-bold text-sm mb-1">
-                          <Flower2 className="w-4 h-4 text-aura-600" />
+                      <div className="p-4 rounded-2xl bg-gradient-to-br from-aura-50/95 via-rose-50/40 to-aura-100/60 border border-aura-200/80 shadow-sm space-y-2">
+                        <div className="flex items-center gap-2 text-aura-700 font-serif font-bold text-sm">
+                          <Flower2 className="w-4 h-4 text-aura-600 shrink-0" />
                           <span>Personalized Consultation</span>
                         </div>
-                        <p className="text-[11px] text-charcoal-muted mb-3 leading-relaxed">
+                        <p className="text-[11px] text-charcoal-muted leading-relaxed font-light">
                           Receive a custom beauty roadmap tailored to your skin & wellness goals.
                         </p>
-                        <Link
-                          href="/register"
-                          className="inline-flex items-center gap-1.5 text-xs font-bold text-aura-700 hover:text-aura-900 group"
-                        >
-                          <span>Begin Your Consultation</span>
-                          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                        </Link>
+                        <div className="pt-1">
+                          <Link
+                            href="/register"
+                            className="inline-flex items-center gap-1.5 text-xs font-extrabold text-aura-700 hover:text-aura-900 group"
+                          >
+                            <span>Begin Your Consultation</span>
+                            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-aura-600" />
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </motion.div>

@@ -3,6 +3,7 @@
 import { LeadFormData, LeadActionResult } from '@/types/leads';
 import { saveLeadToFirestore } from '@/lib/firebase/config';
 import { sendOwnerNotificationEmail, sendCustomerConfirmationEmail } from '@/lib/resend/emails';
+import { sendInstantMobileAlert } from '@/lib/notifications/instantAlerts';
 
 export async function registerLead(formData: LeadFormData): Promise<LeadActionResult> {
   // Honeypot spam protection check
@@ -63,14 +64,16 @@ export async function registerLead(formData: LeadFormData): Promise<LeadActionRe
       createdAt,
     });
 
-    // 2. Dispatch Emails (Owner notification & Customer confirmation)
+    // 2. Dispatch Emails & Instant Mobile Alerts concurrently
     Promise.allSettled([
       sendOwnerNotificationEmail({ name, phone, email, category, requirement }),
       sendCustomerConfirmationEmail({ name, email, category }),
+      sendInstantMobileAlert({ name, phone, email, category, requirement }),
     ]).then((results) => {
       results.forEach((res, index) => {
         if (res.status === 'rejected') {
-          console.error(`[Email Dispatch ${index === 0 ? 'Owner' : 'Customer'} Error]`, res.reason);
+          const names = ['Owner Email', 'Customer Email', 'Mobile Alert'];
+          console.error(`[Dispatch ${names[index]} Error]`, res.reason);
         }
       });
     });

@@ -145,12 +145,23 @@ export default function Footer() {
 
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-aura-400 shrink-0" />
-                <a
-                  href={`tel:${CLINIC_INFO.rawPhone || CLINIC_INFO.phone.replace(/\s+/g, '')}`}
-                  className="hover:text-white font-medium transition-colors"
-                >
-                  {CLINIC_INFO.phone}
-                </a>
+                <div className="flex items-center gap-2">
+                  <a
+                    href={`tel:${CLINIC_INFO.rawPhone || CLINIC_INFO.phone.replace(/\s+/g, '')}`}
+                    className="hover:text-white font-medium transition-colors"
+                  >
+                    {CLINIC_INFO.phone}
+                  </a>
+                  <span className="text-aura-400/40">•</span>
+                  <a
+                    href={CLINIC_INFO.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#25D366] hover:underline font-semibold"
+                  >
+                    WhatsApp
+                  </a>
+                </div>
               </div>
 
               <div className="flex items-center gap-2.5">

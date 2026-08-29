@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import WhatsAppButton from '@/components/ui/WhatsAppButton';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://thepinkaura.co.in'),
@@ -63,6 +64,7 @@ export default function RootLayout({
           <Navbar />
           <main className="flex-grow pt-24">{children}</main>
           <Footer />
+          <WhatsAppButton />
         </div>
       </body>
     </html>
