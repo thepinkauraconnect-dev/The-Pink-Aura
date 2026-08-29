@@ -127,7 +127,7 @@ export default function MainHomePage() {
             </div>
           </div>
 
-          {/* Floating Luxury Editorial Center-Right Callout & Circular CTA */}
+          {/* Floating Luxury Editorial Center-Right Callout */}
           <div className="relative z-20 w-full flex flex-col md:flex-row items-center md:items-center justify-between gap-6 my-auto pt-8 sm:pt-14">
             {/* Left subtle doctor-led badge (desktop) */}
             <div className="hidden lg:block max-w-xs space-y-2 text-white drop-shadow-md">
@@ -140,25 +140,11 @@ export default function MainHomePage() {
               </p>
             </div>
 
-            {/* Right side circular CTA button & Editorial description */}
-            <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4 sm:gap-6 max-w-md md:ml-auto text-center sm:text-right">
-              {/* Circular Action Badge */}
-              <Link
-                href="/register"
-                className="order-1 sm:order-2 shrink-0 w-22 h-22 sm:w-26 sm:h-26 md:w-28 md:h-28 rounded-full bg-gradient-to-br from-[#FCEAE6] to-[#F5D2C9] text-aura-900 font-extrabold uppercase text-[11px] sm:text-xs tracking-wider flex flex-col items-center justify-center text-center shadow-[0_12px_36px_rgba(0,0,0,0.35)] hover:scale-110 active:scale-95 transition-all duration-300 border-2 border-white group"
-              >
-                <span className="font-serif text-[9px] sm:text-[10px] tracking-widest text-aura-600 block mb-0.5">EST. 2026</span>
-                <span className="leading-tight font-black group-hover:text-aura-700 transition-colors">
-                  START<br />TODAY
-                </span>
-              </Link>
-
-              {/* Minimalist Editorial Paragraph */}
-              <div className="order-2 sm:order-1 space-y-2 text-white drop-shadow-md">
-                <p className="text-xs sm:text-sm text-white/95 font-light leading-relaxed tracking-wide">
-                  Advanced aesthetic care & clinical dermatology engineered with precision. Gentle enough for daily wellbeing, powerful enough for lasting radiance.
-                </p>
-              </div>
+            {/* Right side Editorial description */}
+            <div className="max-w-sm md:ml-auto text-center sm:text-right space-y-2 text-white drop-shadow-md bg-black/15 sm:bg-transparent backdrop-blur-xs p-3 sm:p-0 rounded-2xl">
+              <p className="text-xs sm:text-sm text-white/95 font-light leading-relaxed tracking-wide">
+                Advanced aesthetic care & clinical dermatology engineered with precision. Gentle enough for daily wellbeing, powerful enough for lasting radiance.
+              </p>
             </div>
           </div>
 
