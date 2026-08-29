@@ -23,7 +23,7 @@ export function generateMetadata({ params }: CategoryPageProps): Metadata {
 
   return {
     title: `${category.title} — The Pink Aura Aesthetic & Wellness`,
-    description: `${category.subtitle}. Explore ${category.treatments.length} signature treatments at Pink Aura JP Nagar Bangalore.`,
+    description: `${category.subtitle}. Explore ${category.treatments.length} signature treatments at The Pink Aura JP Nagar Bangalore.`,
   };
 }
 

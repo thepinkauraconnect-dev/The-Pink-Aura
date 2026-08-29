@@ -68,7 +68,7 @@ export default function AboutPage() {
             Founding Leadership
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-charcoal">
-            The Visionaries Behind Pink Aura
+            The Visionaries Behind The Pink Aura
           </h2>
           <p className="text-sm text-charcoal-muted font-light">
             Bringing together medical expertise, Ayurvedic wisdom, and spiritual guidance.
@@ -104,6 +104,16 @@ export default function AboutPage() {
               <p className="text-xs sm:text-sm text-charcoal-muted leading-relaxed font-light border-t border-aura-100 pt-4">
                 {founder.bio}
               </p>
+
+              <div className="pt-2 border-t border-aura-100 flex items-center justify-between text-xs">
+                <span className="text-charcoal-muted font-light">Direct Line:</span>
+                <a
+                  href={`tel:${founder.rawPhone || founder.phone?.replace(/[^0-9+]/g, '')}`}
+                  className="font-mono font-bold text-aura-600 hover:underline"
+                >
+                  {founder.phone}
+                </a>
+              </div>
             </div>
           ))}
         </div>
@@ -151,7 +161,7 @@ export default function AboutPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
         <div className="clay-card rounded-4xl p-10 border border-white space-y-4">
           <h3 className="font-serif text-3xl font-bold text-charcoal">
-            Experience Pink Aura In Person
+            Experience The Pink Aura In Person
           </h3>
           <p className="text-xs sm:text-sm text-charcoal-muted max-w-md mx-auto font-light">
             Book a one-on-one consultation with our clinical specialists and begin your personal journey.

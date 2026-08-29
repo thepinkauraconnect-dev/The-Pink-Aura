@@ -1,7 +1,8 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Metadata } from 'next';
-import { MapPin, Mail, Phone, Clock, Instagram, ExternalLink, ArrowRight, Flower2 } from 'lucide-react';
-import { CLINIC_INFO } from '@/data/services';
+import { MapPin, Mail, Phone, Clock, Instagram, ExternalLink, ArrowRight, Flower2, UserCheck } from 'lucide-react';
+import { CLINIC_INFO, FOUNDERS } from '@/data/services';
 
 export const metadata: Metadata = {
   title: 'Contact Us — The Pink Aura Aesthetic & Wellness',
@@ -18,7 +19,7 @@ export default function ContactPage() {
           <span>Location & Visiting Information</span>
         </div>
         <h1 className="font-serif text-4xl sm:text-6xl font-light text-charcoal tracking-tight">
-          Connect With <span className="aura-gradient-text italic font-normal">Pink Aura</span>
+          Connect With <span className="aura-gradient-text italic font-normal">The Pink Aura</span>
         </h1>
         <p className="text-sm sm:text-base text-charcoal-muted font-light leading-relaxed">
           We welcome you to visit our aesthetic sanctuary in JP Nagar, Bangalore. Our team is ready to assist you with every detail of your consultation.
@@ -58,7 +59,7 @@ export default function ContactPage() {
                     Phone & WhatsApp Inquiry
                   </h4>
                   <a
-                    href={`tel:${CLINIC_INFO.phone.replace(/\s+/g, '')}`}
+                    href={`tel:${CLINIC_INFO.rawPhone || CLINIC_INFO.phone.replace(/\s+/g, '')}`}
                     className="text-xs sm:text-sm text-aura-600 font-bold hover:underline block"
                   >
                     {CLINIC_INFO.phone}
@@ -114,7 +115,7 @@ export default function ContactPage() {
                     rel="noopener noreferrer"
                     className="text-xs sm:text-sm text-aura-600 font-medium hover:underline inline-flex items-center gap-1"
                   >
-                    <span>@thepinkaura</span>
+                    <span>@thepinkaura_official</span>
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 </div>
@@ -163,6 +164,69 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
+
+      {/* Leadership & Direct Founder Contacts */}
+      <section className="space-y-8 pt-4">
+        <div className="text-center space-y-3 max-w-2xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full clay-badge text-aura-800 text-xs font-extrabold uppercase tracking-widest">
+            <UserCheck className="w-3.5 h-3.5 text-aura-600" />
+            <span>Founding Leadership</span>
+          </div>
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-charcoal">
+            Direct Founder Inquiries
+          </h2>
+          <p className="text-sm text-charcoal-muted font-light">
+            Connect directly with the founders of The Pink Aura for personalized guidance and executive consultations.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {FOUNDERS.map((founder, idx) => (
+            <div
+              key={idx}
+              className="clay-card rounded-4xl p-8 border border-white shadow-clay-lg flex flex-col justify-between space-y-6"
+            >
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+                <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-3xl overflow-hidden shrink-0 shadow-md border-2 border-white">
+                  <Image
+                    src={founder.image}
+                    alt={founder.name}
+                    fill
+                    className="object-cover object-[center_20%]"
+                  />
+                </div>
+                <div className="space-y-2 text-center sm:text-left">
+                  <h3 className="font-serif text-2xl font-bold text-charcoal">{founder.name}</h3>
+                  <p className="text-xs font-extrabold uppercase tracking-wider text-aura-600">
+                    {founder.role}
+                  </p>
+                  <p className="text-[11px] text-charcoal-muted italic font-light">
+                    {founder.qualifications}
+                  </p>
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-aura-100/80 flex flex-col sm:flex-row items-center justify-between gap-3 bg-aura-50/60 p-4 rounded-2xl">
+                <div>
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-aura-800 block">
+                    Direct Phone Number
+                  </span>
+                  <span className="font-mono text-sm font-bold text-charcoal">
+                    {founder.phone}
+                  </span>
+                </div>
+                <a
+                  href={`tel:${founder.rawPhone || founder.phone?.replace(/[^0-9+]/g, '')}`}
+                  className="clay-btn-primary inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold uppercase tracking-wider shrink-0"
+                >
+                  <Phone className="w-3.5 h-3.5" />
+                  <span>Call {founder.name.split(' ')[0]}</span>
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

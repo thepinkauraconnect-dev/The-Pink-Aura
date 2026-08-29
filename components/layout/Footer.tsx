@@ -19,10 +19,10 @@ export default function Footer() {
             <Link href="/home" className="flex items-center gap-3 group">
               <div className="relative w-12 h-12 overflow-hidden rounded-full bg-white/10 p-1 border border-aura-400/40 group-hover:scale-105 transition-transform">
                 <Image
-                  src="/images/logo/Logo-01.png"
+                  src="/images/logo/Logo%20the%20pink%20aura.png"
                   alt="The Pink Aura Logo"
                   fill
-                  className="object-contain p-1"
+                  className="object-contain p-0.5"
                 />
               </div>
               <div className="flex flex-col">
@@ -51,7 +51,7 @@ export default function Footer() {
                 href="/register"
                 className="inline-flex items-center gap-2 px-6 py-3 text-xs font-semibold uppercase tracking-wider text-white bg-aura-600 hover:bg-aura-500 rounded-full shadow-lg transition-all duration-300 hover:shadow-aura-glow hover:scale-105"
               >
-                <span>Begin Your Pink Aura Journey</span>
+                <span>Begin Your Journey with The Pink Aura</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -70,7 +70,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/about" className="text-aura-200/70 hover:text-white transition-colors">
-                  About Pink Aura
+                  About The Pink Aura
                 </Link>
               </li>
               <li>
@@ -146,7 +146,7 @@ export default function Footer() {
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-aura-400 shrink-0" />
                 <a
-                  href={`tel:${CLINIC_INFO.phone.replace(/\s+/g, '')}`}
+                  href={`tel:${CLINIC_INFO.rawPhone || CLINIC_INFO.phone.replace(/\s+/g, '')}`}
                   className="hover:text-white font-medium transition-colors"
                 >
                   {CLINIC_INFO.phone}
@@ -163,6 +163,11 @@ export default function Footer() {
                 </a>
               </div>
 
+              <div className="flex items-start gap-2.5">
+                <span className="text-aura-400">🕒</span>
+                <span>{CLINIC_INFO.hours}</span>
+              </div>
+
               <div className="flex items-center gap-2.5">
                 <Instagram className="w-4 h-4 text-aura-400 shrink-0" />
                 <a
@@ -171,7 +176,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
                 >
-                  @thepinkaura.official
+                  @thepinkaura_official
                 </a>
               </div>
             </div>

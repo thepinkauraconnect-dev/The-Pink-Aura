@@ -92,7 +92,7 @@ export default function MainHomePage() {
               <div className="relative w-full h-full rounded-3xl overflow-hidden">
                 <Image
                   src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=800"
-                  alt="Pink Aura Aesthetic Care"
+                  alt="The Pink Aura Aesthetic Care"
                   fill
                   className="object-cover transition-transform duration-700 hover:scale-105"
                   priority
@@ -218,7 +218,7 @@ export default function MainHomePage() {
         </div>
       </section>
 
-      {/* 4. WHY PINK AURA — CLAY DARK CONTAINER */}
+      {/* 4. WHY THE PINK AURA — CLAY DARK CONTAINER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="clay-card-dark text-white rounded-5xl p-8 sm:p-14 shadow-2xl relative overflow-hidden">
           <div className="max-w-3xl space-y-4 mb-12">
@@ -226,7 +226,7 @@ export default function MainHomePage() {
               The Pink Aura Standard
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white tracking-tight">
-              Why Discerning Clients Choose Pink Aura
+              Why Discerning Clients Choose The Pink Aura
             </h2>
             <p className="text-sm text-aura-200/80 font-light leading-relaxed">
               Every detail of our center is thoughtfully engineered to deliver a calming, discreet, and transformational experience.
@@ -277,7 +277,7 @@ export default function MainHomePage() {
             <span>Leadership & Vision</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-charcoal tracking-tight">
-            Meet the Experts Behind Pink Aura
+            Meet the Experts Behind The Pink Aura
           </h2>
           <p className="text-sm text-charcoal-muted font-light">
             Guiding your transformation with clinical expertise, aesthetic passion, and spiritual vision.
@@ -286,28 +286,40 @@ export default function MainHomePage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {FOUNDERS.map((founder, i) => (
-            <div key={i} className="clay-card rounded-4xl p-8 border border-white flex flex-col sm:flex-row gap-6 items-center sm:items-start">
-              <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-3xl overflow-hidden shrink-0 shadow-lg border-2 border-white">
-                <Image
-                  src={founder.image}
-                  alt={founder.name}
-                  fill
-                  className="object-cover object-[center_20%]"
-                />
-              </div>
-              <div className="space-y-3 text-center sm:text-left">
-                <div>
-                  <h3 className="font-serif text-2xl font-bold text-charcoal">{founder.name}</h3>
-                  <span className="text-xs font-extrabold uppercase tracking-wider text-aura-600 block mt-1">
-                    {founder.role}
-                  </span>
-                  <span className="text-[11px] text-charcoal-muted italic block mt-0.5 font-light">
-                    {founder.qualifications}
-                  </span>
+            <div key={i} className="clay-card rounded-4xl p-8 border border-white flex flex-col justify-between space-y-6">
+              <div className="flex flex-col sm:flex-row gap-6 items-center sm:items-start">
+                <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-3xl overflow-hidden shrink-0 shadow-lg border-2 border-white">
+                  <Image
+                    src={founder.image}
+                    alt={founder.name}
+                    fill
+                    className="object-cover object-[center_20%]"
+                  />
                 </div>
-                <p className="text-xs text-charcoal-muted leading-relaxed font-light">
-                  {founder.bio}
-                </p>
+                <div className="space-y-3 text-center sm:text-left">
+                  <div>
+                    <h3 className="font-serif text-2xl font-bold text-charcoal">{founder.name}</h3>
+                    <span className="text-xs font-extrabold uppercase tracking-wider text-aura-600 block mt-1">
+                      {founder.role}
+                    </span>
+                    <span className="text-[11px] text-charcoal-muted italic block mt-0.5 font-light">
+                      {founder.qualifications}
+                    </span>
+                  </div>
+                  <p className="text-xs text-charcoal-muted leading-relaxed font-light">
+                    {founder.bio}
+                  </p>
+                </div>
+              </div>
+
+              <div className="pt-3 border-t border-aura-100 flex items-center justify-between text-xs">
+                <span className="text-charcoal-muted font-light">Direct Contact:</span>
+                <a
+                  href={`tel:${founder.rawPhone || founder.phone?.replace(/[^0-9+]/g, '')}`}
+                  className="font-mono font-bold text-aura-600 hover:underline"
+                >
+                  {founder.phone}
+                </a>
               </div>
             </div>
           ))}
@@ -389,7 +401,7 @@ export default function MainHomePage() {
         <div className="clay-card-dark text-white rounded-5xl p-8 sm:p-12 text-center shadow-2xl space-y-6 relative overflow-hidden">
           <div className="max-w-2xl mx-auto space-y-4 relative z-10">
             <h2 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight">
-              Ready to Discover Your Pink Aura?
+              Ready to Discover The Pink Aura?
             </h2>
             <p className="text-sm sm:text-base font-light text-white/90">
               Schedule your personalized consultation today with our experts and begin your bespoke beauty & wellness transformation.

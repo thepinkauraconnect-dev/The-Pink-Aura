@@ -77,7 +77,7 @@ export async function registerLead(formData: LeadFormData): Promise<LeadActionRe
 
     return {
       success: true,
-      message: 'Your Pink Aura consultation inquiry has been submitted successfully.',
+      message: 'Your The Pink Aura consultation inquiry has been submitted successfully.',
       leadId: firestoreResult.id,
     };
   } catch (error) {

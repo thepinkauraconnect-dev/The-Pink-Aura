@@ -123,7 +123,7 @@ function ConsultationFormContent() {
           <span>Personalized Consultation</span>
         </div>
         <h2 className="font-serif text-3xl sm:text-4xl font-bold text-charcoal tracking-tight">
-          Begin Your Pink Aura Journey
+          Begin Your Journey with The Pink Aura
         </h2>
         <p className="text-xs sm:text-sm text-charcoal-muted mt-2 font-light max-w-md mx-auto leading-relaxed">
           Share your details below to receive a personalized aesthetic & wellness consultation plan from our specialists.
@@ -195,7 +195,7 @@ function ConsultationFormContent() {
               <input
                 type="tel"
                 name="phone"
-                placeholder="+91 98765 43210"
+                placeholder="+91 76191 51455"
                 value={formData.phone}
                 onChange={handleChange}
                 className={`w-full pl-11 pr-4 py-3.5 clay-input text-sm font-medium text-charcoal placeholder-charcoal-soft focus:outline-none ${
@@ -242,8 +242,8 @@ function ConsultationFormContent() {
 
         {/* Service Category Selection */}
         <div>
-          <label className="block text-xs font-bold text-charcoal uppercase tracking-wider mb-2">
-            Interested Service Category <span className="text-aura-600">*</span>
+          <label className="block text-xs font-extrabold uppercase tracking-wider text-charcoal mb-2">
+            Service Category of Interest <span className="text-red-500">*</span>
           </label>
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-aura-400">
@@ -253,13 +253,15 @@ function ConsultationFormContent() {
               name="category"
               value={formData.category}
               onChange={handleChange}
-              className={`w-full pl-11 pr-10 py-3.5 clay-input text-sm font-medium text-charcoal focus:outline-none appearance-none ${
+              className={`w-full pl-11 pr-8 py-3.5 clay-input text-sm font-medium text-charcoal focus:outline-none appearance-none cursor-pointer ${
                 errors.category ? 'border-red-300 ring-2 ring-red-100' : ''
               }`}
             >
-              <option value="">Select a category of interest...</option>
-              {CATEGORY_OPTIONS.map((opt, i) => (
-                <option key={i} value={opt.value}>
+              <option value="" disabled>
+                Select your primary consultation interest...
+              </option>
+              {CATEGORY_OPTIONS.map((opt) => (
+                <option key={opt.value} value={opt.value}>
                   {opt.label}
                 </option>
               ))}
@@ -273,19 +275,19 @@ function ConsultationFormContent() {
           )}
         </div>
 
-        {/* Requirement / Message */}
+        {/* Specific Requirement / Note */}
         <div>
-          <label className="block text-xs font-bold text-charcoal uppercase tracking-wider mb-2">
-            Tell us a little about what you're looking for
+          <label className="block text-xs font-extrabold uppercase tracking-wider text-charcoal mb-2">
+            Specific Goals or Notes (Optional)
           </label>
           <div className="relative">
-            <div className="absolute top-4 left-4 pointer-events-none text-aura-400">
+            <div className="absolute top-3.5 left-4 pointer-events-none text-aura-400">
               <MessageSquare className="w-4 h-4" />
             </div>
             <textarea
               name="requirement"
               rows={3}
-              placeholder="e.g. I am interested in skin rejuvenation & hyperpigmentation treatment for an upcoming event..."
+              placeholder="Share any specific areas of concern, desired timeline, or questions for our doctors..."
               value={formData.requirement}
               onChange={handleChange}
               className="w-full pl-11 pr-4 py-3.5 clay-input text-sm font-medium text-charcoal placeholder-charcoal-soft focus:outline-none resize-none"
@@ -295,7 +297,7 @@ function ConsultationFormContent() {
 
         {/* Privacy Notice */}
         <p className="text-[11px] text-charcoal-muted text-center font-light leading-relaxed">
-          By submitting this form, you agree to be contacted by Pink Aura regarding your consultation inquiry. Your information remains strictly private.
+          By submitting this form, you agree to be contacted by The Pink Aura regarding your consultation inquiry. Your information remains strictly private.
         </p>
 
         {/* Primary Submit Clay Button */}

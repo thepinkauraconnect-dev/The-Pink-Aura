@@ -64,10 +64,10 @@ export default function Navbar() {
           <Link href="/home" className="flex items-center gap-3 group">
             <div className="relative w-10 h-10 overflow-hidden rounded-full clay-badge p-1 group-hover:scale-105 transition-transform flex items-center justify-center">
               <Image
-                src="/images/logo/Logo-01.png"
+                src="/images/logo/Logo%20the%20pink%20aura.png"
                 alt="The Pink Aura Logo"
                 fill
-                className="object-contain p-1"
+                className="object-contain p-0.5"
                 priority
               />
             </div>

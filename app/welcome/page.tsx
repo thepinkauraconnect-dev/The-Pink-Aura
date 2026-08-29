@@ -21,10 +21,10 @@ export default function WelcomePage() {
         >
           <div className="relative w-16 h-16 rounded-full overflow-hidden">
             <Image
-              src="/images/logo/Logo-01.png"
+              src="/images/logo/Logo%20the%20pink%20aura.png"
               alt="The Pink Aura Logo"
               fill
-              className="object-contain p-1"
+              className="object-contain p-0.5"
               priority
             />
           </div>
@@ -38,7 +38,7 @@ export default function WelcomePage() {
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full clay-badge text-aura-800 text-xs font-extrabold uppercase tracking-widest"
         >
           <Flower2 className="w-3.5 h-3.5 text-aura-600" />
-          <span>Aesthetic & Wellness Centre</span>
+          <span>The Pink Aura Aesthetic & Wellness</span>
         </motion.div>
 
         {/* Main Headline */}
@@ -48,7 +48,7 @@ export default function WelcomePage() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="font-serif text-4xl sm:text-6xl lg:text-7xl font-light text-charcoal tracking-tight leading-[1.15]"
         >
-          Begin Your <span className="aura-gradient-text font-normal italic">Pink Aura</span> Journey
+          Begin Your Journey with <span className="aura-gradient-text font-normal italic">The Pink Aura</span>
         </motion.h1>
 
         {/* Supporting Copy */}
@@ -81,7 +81,7 @@ export default function WelcomePage() {
             className="w-full sm:w-auto clay-btn-secondary inline-flex items-center justify-center gap-2 px-8 py-4 text-xs font-extrabold uppercase tracking-widest text-charcoal"
           >
             <Compass className="w-4 h-4 text-aura-600" />
-            <span>Explore Pink Aura</span>
+            <span>Explore The Pink Aura</span>
           </Link>
         </motion.div>
 

@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: 'The Pink Aura',
     images: [
       {
-        url: '/images/logo/Logo-01.png',
+        url: '/images/logo/Logo%20the%20pink%20aura.png',
         width: 1200,
         height: 630,
         alt: 'The Pink Aura Aesthetic & Wellness Centre',
@@ -37,8 +37,8 @@ export const metadata: Metadata = {
     type: 'website',
   },
   icons: {
-    icon: '/images/logo/Logo-01.png',
-    apple: '/images/logo/Logo-01.png',
+    icon: '/images/logo/Logo%20the%20pink%20aura.png',
+    apple: '/images/logo/Logo%20the%20pink%20aura.png',
   },
 };
 

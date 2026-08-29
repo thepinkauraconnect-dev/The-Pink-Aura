@@ -338,7 +338,7 @@ export async function sendCustomerConfirmationEmail(lead: {
     await resend.emails.send({
       from: getFromEmail('welcome'),
       to: [lead.email],
-      subject: `Your Pink Aura Journey Begins — Consultation Request Received`,
+      subject: `Thank You for Trusting The Pink Aura — Consultation Request Received`,
       html,
     });
     return { success: true };

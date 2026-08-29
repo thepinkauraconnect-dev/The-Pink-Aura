@@ -125,7 +125,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       { id: 'inj-18', name: 'Skin Infusion Therapy', description: 'Direct cellular nutrient micro-infusion tailored for ultimate radiance.' }
     ],
     faqs: [
-      { question: 'Will Botox make my face look frozen or unnatural?', answer: 'Not at all. At Pink Aura, our philosophy centers on subtle, micro-droplet artistry that preserves your natural expressions while softening dynamic wrinkles.' },
+      { question: 'Will Botox make my face look frozen or unnatural?', answer: 'Not at all. At The Pink Aura, our philosophy centers on subtle, micro-droplet artistry that preserves your natural expressions while softening dynamic wrinkles.' },
       { question: 'How long do Dermal Fillers last?', answer: 'Depending on the treatment area and product density, premium hyaluronic acid fillers generally last between 9 to 18 months.' }
     ]
   },
@@ -399,14 +399,18 @@ export const FOUNDERS = [
     role: 'Co-Founder & Chief Aesthetic Physician',
     qualifications: 'BAMS | Ayurvedic Doctor | Aesthetic Physician | Wellness Expert',
     bio: 'Dr. Yashaswini HV blends time-tested Ayurvedic wellness principles with state-of-the-art modern aesthetic physician expertise. Her holistic philosophy ensures every treatment enhances external natural beauty while nurturing internal vital aura.',
-    image: '/images/Founders%20Images/Dr.%20Yashaswini.jpeg'
+    image: '/images/Founders%20Images/Dr.%20Yashaswini.jpeg',
+    phone: '+91 96639 11089',
+    rawPhone: '9663911089'
   },
   {
     name: 'Nagendra Karanik',
     role: 'Founder, CEO & Spiritual Guide',
     qualifications: 'Founder | CEO | Spiritual Guide | Filmmaker',
-    bio: 'Nagendra Karanik brings a profound vision of holistic human transformation to Pink Aura. As a filmmaker and spiritual guide, he shapes Pink Aura into more than a center — a sanctuary where inner confidence and outer beauty meet.',
-    image: '/images/Founders%20Images/Mr.%20Nagendra%20Karanik.jpeg'
+    bio: 'Nagendra Karanik brings a profound vision of holistic human transformation to The Pink Aura. As a filmmaker and spiritual guide, he shapes The Pink Aura into more than a center — a sanctuary where inner confidence and outer beauty meet.',
+    image: '/images/Founders%20Images/Mr.%20Nagendra%20Karanik.jpeg',
+    phone: '+91 63623 48467',
+    rawPhone: '6362348467'
   }
 ];
 
@@ -415,7 +419,8 @@ export const CLINIC_INFO = {
   tagline: 'Enhance Your Beauty • Elevate Your Aura',
   address: '#112, 1st Floor, 16th Cross, Near Delmia Circle, 4th Phase JP Nagar, Dollars Colony, Bangalore – 560078',
   email: 'thepinkaura.connect@gmail.com',
-  phone: '+91 98765 43210', // Placeholders if needed or prompt default
+  phone: '+91 76191 51455',
+  rawPhone: '7619151455',
   instagram: 'https://www.instagram.com/thepinkaura_official?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==',
-  hours: 'Monday – Sunday: 10:00 AM – 8:00 PM'
+  hours: '10:00 AM – 7:00 PM (Closed on Tuesdays)'
 };

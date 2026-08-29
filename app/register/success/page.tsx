@@ -3,8 +3,8 @@ import { CheckCircle2, ArrowRight, Heart, Flower2 } from 'lucide-react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Your Journey Has Begun — The Pink Aura',
-  description: 'Thank you for registering your consultation with The Pink Aura Aesthetic & Wellness Centre.',
+  title: 'Thank You For Trusting The Pink Aura',
+  description: 'Thank you for trusting The Pink Aura Aesthetic & Wellness Centre. We have received your consultation inquiry.',
 };
 
 export default function RegistrationSuccessPage() {
@@ -26,7 +26,7 @@ export default function RegistrationSuccessPage() {
           </div>
 
           <h1 className="font-serif text-3xl sm:text-4xl font-bold text-charcoal tracking-tight">
-            Your Journey Has Begun
+            Thank You for Trusting The Pink Aura
           </h1>
         </div>
 
@@ -37,7 +37,7 @@ export default function RegistrationSuccessPage() {
         <div className="p-4 rounded-2xl bg-aura-50/80 border border-aura-200/60 text-xs text-aura-800 space-y-1">
           <p className="font-bold flex items-center justify-center gap-1">
             <Heart className="w-3.5 h-3.5 text-aura-600 fill-aura-600" />
-            <span>Thank you for trusting Pink Aura</span>
+            <span>Thank you for trusting The Pink Aura</span>
           </p>
           <p className="text-charcoal-muted font-light">A confirmation notice has been sent to your email.</p>
         </div>
@@ -47,7 +47,7 @@ export default function RegistrationSuccessPage() {
             href="/home"
             className="clay-btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 text-xs font-extrabold uppercase tracking-widest group"
           >
-            <span>Enter Pink Aura Homepage</span>
+            <span>Enter The Pink Aura Homepage</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>

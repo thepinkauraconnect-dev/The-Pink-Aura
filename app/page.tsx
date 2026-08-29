@@ -31,22 +31,22 @@ export default function RootEntryPage() {
         >
           {/* Logo & Clay Emblem */}
           <div className="inline-flex items-center gap-3 p-2 pr-5 rounded-full clay-badge">
-            <div className="relative w-10 h-10 rounded-full overflow-hidden bg-white p-1 shadow-sm">
+            <div className="relative w-10 h-10 rounded-full overflow-hidden bg-white p-0.5 shadow-sm">
               <Image
-                src="/images/logo/Logo-01.png"
+                src="/images/logo/Logo%20the%20pink%20aura.png"
                 alt="The Pink Aura Logo"
                 fill
-                className="object-contain p-1"
+                className="object-contain p-0.5"
                 priority
               />
             </div>
             <span className="text-xs font-extrabold text-aura-800 uppercase tracking-widest">
-              Aesthetic & Wellness Centre
+              The Pink Aura
             </span>
           </div>
 
           <h1 className="font-serif text-4xl sm:text-6xl font-light text-charcoal tracking-tight leading-[1.1]">
-            Begin Your <span className="aura-gradient-text italic font-normal block">Pink Aura Journey</span>
+            Begin Your Journey with <span className="aura-gradient-text italic font-normal block">The Pink Aura</span>
           </h1>
 
           <p className="text-base sm:text-lg text-charcoal-muted font-light leading-relaxed">
@@ -93,7 +93,7 @@ export default function RootEntryPage() {
               className="clay-btn-secondary inline-flex items-center gap-2.5 px-6 py-3 text-xs font-extrabold uppercase tracking-wider group"
             >
               <Compass className="w-4 h-4 text-aura-600" />
-              <span>Explore Pink Aura Homepage Directly</span>
+              <span>Explore The Pink Aura Homepage Directly</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
