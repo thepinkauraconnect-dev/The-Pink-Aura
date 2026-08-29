@@ -98,7 +98,7 @@ export default function MainHomePage() {
           initial={{ opacity: 0, scale: 0.98, y: 15 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full min-h-[78vh] sm:min-h-[85vh] lg:min-h-[88vh] rounded-[32px] sm:rounded-[48px] overflow-hidden shadow-[0_28px_70px_-15px_rgba(158,77,104,0.22)] border border-white flex flex-col justify-between p-6 sm:p-10 lg:p-14"
+          className="relative w-full min-h-[75vh] sm:min-h-[84vh] lg:min-h-[88vh] rounded-[28px] sm:rounded-[44px] overflow-hidden shadow-[0_28px_70px_-15px_rgba(158,77,104,0.22)] border border-white flex flex-col justify-between p-5 sm:p-8 lg:p-12"
         >
           {/* High-Resolution Editorial Background Image */}
           <div className="absolute inset-0 z-0">
@@ -106,34 +106,34 @@ export default function MainHomePage() {
               src="/images/hero/editorial-hero.jpg"
               alt="The Pink Aura Luxury Editorial Care"
               fill
-              className="object-cover object-[center_32%] sm:object-[center_28%] scale-105 transition-transform duration-1000"
+              className="object-cover object-[center_35%] sm:object-[center_28%] scale-105 transition-transform duration-1000"
               priority
             />
             {/* Cinematic Gradient Overlays */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-aura-950/85" />
-            <div className="absolute inset-0 bg-gradient-to-r from-aura-950/20 via-transparent to-aura-950/40" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-aura-950/85" />
+            <div className="absolute inset-0 bg-gradient-to-r from-aura-950/25 via-transparent to-aura-950/45" />
             <div className="absolute inset-0 bg-[#E8C5D3]/10 mix-blend-overlay" />
           </div>
 
-          {/* Top Canvas Subtle Header Badge */}
-          <div className="relative z-20 w-full flex items-center justify-between">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/25 backdrop-blur-md border border-white/40 text-[11px] font-extrabold uppercase tracking-widest text-white shadow-sm">
-              <Flower2 className="w-3.5 h-3.5 text-champagne-light" />
-              <span>Aesthetic & Wellness Sanctuary • Bangalore</span>
+          {/* Top Canvas Header Badges (Responsive) */}
+          <div className="relative z-20 w-full flex items-center justify-between gap-3">
+            <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-white/25 backdrop-blur-md border border-white/40 text-[10px] sm:text-[11px] font-extrabold uppercase tracking-widest text-white shadow-sm">
+              <Flower2 className="w-3.5 h-3.5 text-champagne-light shrink-0" />
+              <span>Aesthetic & Wellness Sanctuary</span>
             </div>
 
-            <div className="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-[10px] font-mono font-bold uppercase tracking-widest text-white/90">
-              <span>Wed – Mon: 10 AM – 7 PM</span>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-[10px] font-mono font-bold uppercase tracking-wider text-white/95">
+              <span>Wed–Mon: 10AM–7PM</span>
             </div>
           </div>
 
           {/* Floating Luxury Editorial Center-Right Callout & Circular CTA */}
-          <div className="relative z-20 w-full flex flex-col md:flex-row items-end md:items-center justify-between gap-6 my-auto pt-10 sm:pt-16">
-            {/* Left subtle doctor-led badge */}
+          <div className="relative z-20 w-full flex flex-col md:flex-row items-center md:items-center justify-between gap-6 my-auto pt-8 sm:pt-14">
+            {/* Left subtle doctor-led badge (desktop) */}
             <div className="hidden lg:block max-w-xs space-y-2 text-white drop-shadow-md">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-[10px] font-extrabold uppercase tracking-widest text-champagne-light">
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>JP Nagar 4th Phase</span>
+                <span>JP Nagar 4th Phase • Bangalore</span>
               </div>
               <p className="text-xs text-white/85 font-light leading-relaxed">
                 Doctor-led clinical dermatology fused with holistic inner vitality.
@@ -141,13 +141,13 @@ export default function MainHomePage() {
             </div>
 
             {/* Right side circular CTA button & Editorial description */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 max-w-md ml-auto text-left sm:text-right">
+            <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4 sm:gap-6 max-w-md md:ml-auto text-center sm:text-right">
               {/* Circular Action Badge */}
               <Link
                 href="/register"
-                className="order-1 sm:order-2 shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-br from-[#FCEAE6] to-[#F5D2C9] text-aura-900 font-extrabold uppercase text-[11px] sm:text-xs tracking-wider flex flex-col items-center justify-center text-center shadow-[0_12px_36px_rgba(0,0,0,0.3)] hover:scale-110 active:scale-95 transition-all duration-300 border-2 border-white group"
+                className="order-1 sm:order-2 shrink-0 w-22 h-22 sm:w-26 sm:h-26 md:w-28 md:h-28 rounded-full bg-gradient-to-br from-[#FCEAE6] to-[#F5D2C9] text-aura-900 font-extrabold uppercase text-[11px] sm:text-xs tracking-wider flex flex-col items-center justify-center text-center shadow-[0_12px_36px_rgba(0,0,0,0.35)] hover:scale-110 active:scale-95 transition-all duration-300 border-2 border-white group"
               >
-                <span className="font-serif text-[10px] tracking-widest text-aura-600 block mb-0.5">EST. 2026</span>
+                <span className="font-serif text-[9px] sm:text-[10px] tracking-widest text-aura-600 block mb-0.5">EST. 2026</span>
                 <span className="leading-tight font-black group-hover:text-aura-700 transition-colors">
                   START<br />TODAY
                 </span>
@@ -162,11 +162,28 @@ export default function MainHomePage() {
             </div>
           </div>
 
-          {/* Complete Editorial Typography Across Bottom */}
-          <div className="relative z-10 w-full pt-6 pb-2 overflow-hidden select-none pointer-events-none text-center">
-            <h1 className="font-serif text-[8.5vw] sm:text-[9.2vw] lg:text-[9.6vw] font-normal tracking-[0.02em] sm:tracking-[0.04em] text-white/95 leading-none uppercase inline-block whitespace-nowrap drop-shadow-[0_10px_35px_rgba(0,0,0,0.5)]">
-              THE PINK AURA
-            </h1>
+          {/* 100% Scalable Precision Vector Typography Across Bottom */}
+          <div className="relative z-10 w-full pt-3 sm:pt-6 pb-1 select-none pointer-events-none flex items-center justify-center">
+            <svg
+              viewBox="0 0 1300 150"
+              className="w-full h-auto max-h-16 sm:max-h-24 md:max-h-32 lg:max-h-36 overflow-visible"
+              aria-label="THE PINK AURA"
+            >
+              <text
+                x="50%"
+                y="74%"
+                textAnchor="middle"
+                className="font-serif font-normal"
+                fill="rgba(255, 255, 255, 0.96)"
+                fontSize="128"
+                letterSpacing="0.04em"
+                style={{
+                  filter: 'drop-shadow(0px 8px 24px rgba(0, 0, 0, 0.5))',
+                }}
+              >
+                THE PINK AURA
+              </text>
+            </svg>
           </div>
         </motion.div>
       </section>
