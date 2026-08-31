@@ -106,6 +106,8 @@ export default function MainHomePage() {
               src="/images/hero/editorial-hero.jpg"
               alt="The Pink Aura Luxury Editorial Care"
               fill
+              sizes="100vw"
+              quality={85}
               className="object-cover object-center sm:object-[center_28%] scale-100 sm:scale-105 transition-transform duration-1000"
               priority
             />
@@ -285,6 +287,8 @@ export default function MainHomePage() {
                       src={category.cardImage}
                       alt={category.title}
                       fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      quality={80}
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-transparent to-transparent" />
@@ -411,6 +415,8 @@ export default function MainHomePage() {
                     src={founder.image}
                     alt={founder.name}
                     fill
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                    quality={80}
                     className="object-cover object-[center_20%]"
                   />
                 </div>

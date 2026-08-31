@@ -46,6 +46,8 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
             src={category.heroImage}
             alt={category.title}
             fill
+            sizes="100vw"
+            quality={85}
             className="object-cover"
             priority
           />
