@@ -16,22 +16,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-aura-800/60">
           {/* Brand Column */}
           <div className="lg:col-span-2 space-y-6">
-            <Link href="/home" className="flex items-center gap-3 group">
-              <div className="relative w-12 h-12 overflow-hidden rounded-full bg-white/10 p-1 border border-aura-400/40 group-hover:scale-105 transition-transform">
+            <Link href="/home" className="flex items-center group">
+              <div className="relative h-14 w-64 shrink-0 group-hover:scale-105 transition-transform duration-300">
                 <Image
-                  src="/images/logo/Logo%20the%20pink%20aura.png"
-                  alt="The Pink Aura Logo"
+                  src="/Logo%20header.png"
+                  alt="The Pink Aura"
                   fill
-                  className="object-contain p-0.5"
+                  className="object-contain object-left brightness-110 drop-shadow-[0_0_12px_rgba(248,187,208,0.35)]"
                 />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-serif text-2xl font-bold tracking-tight text-white">
-                  The Pink Aura
-                </span>
-                <span className="text-[10px] tracking-widest uppercase font-medium text-aura-300">
-                  Aesthetic & Wellness Centre
-                </span>
               </div>
             </Link>
 

@@ -118,8 +118,7 @@ function ConsultationFormContent() {
       <div className="absolute -top-24 -right-24 w-56 h-56 bg-aura-300/30 dark:bg-[#9E1B4E]/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="text-center mb-5 sm:mb-8">
-        <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full clay-badge text-aura-700 text-[10px] sm:text-xs font-extrabold uppercase tracking-widest mb-2.5">
-          <Flower2 className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-aura-600 dark:text-aura-300" />
+        <div className="inline-flex items-center px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full clay-badge text-aura-700 text-[10px] sm:text-xs font-extrabold uppercase tracking-widest mb-2.5">
           <span>Personalized Consultation</span>
         </div>
         <h2 className="font-serif text-2xl sm:text-4xl font-bold text-charcoal tracking-tight">
