@@ -128,7 +128,7 @@ export default function Navbar() {
           <Link href="/home" className="flex items-center group shrink-0">
             <div className="relative h-12 sm:h-14 md:h-16 lg:h-18 w-48 sm:w-60 md:w-72 lg:w-80 shrink-0 -my-2 sm:-my-3 group-hover:scale-105 transition-transform duration-300">
               <Image
-                src="/Logo%20header.png"
+                src="/logo-header.png"
                 alt="The Pink Aura"
                 fill
                 className="object-contain object-left transition-all duration-300 dark:brightness-125 dark:drop-shadow-[0_0_14px_rgba(248,187,208,0.45)]"

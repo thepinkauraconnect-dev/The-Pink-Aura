@@ -19,7 +19,7 @@ export default function Footer() {
             <Link href="/home" className="flex items-center group">
               <div className="relative h-14 w-64 shrink-0 group-hover:scale-105 transition-transform duration-300">
                 <Image
-                  src="/Logo%20header.png"
+                  src="/logo-header.png"
                   alt="The Pink Aura"
                   fill
                   className="object-contain object-left brightness-110 drop-shadow-[0_0_12px_rgba(248,187,208,0.35)]"
