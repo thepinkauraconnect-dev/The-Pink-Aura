@@ -123,10 +123,10 @@ export default function Navbar() {
             : 'clay-badge bg-[#FFF5F8]/95 dark:bg-[#2E0817]/95 backdrop-blur-md border border-white/90 dark:border-aura-700/30 shadow-clay-sm'
         }`}
       >
-        <div className="flex items-center justify-between gap-4 w-full">
+        <div className="flex items-center justify-between gap-2 sm:gap-4 w-full">
           {/* Header Brand Logo Image */}
           <Link href="/home" className="flex items-center group shrink-0">
-            <div className="relative h-12 sm:h-14 md:h-16 lg:h-18 w-48 sm:w-60 md:w-72 lg:w-80 shrink-0 -my-2 sm:-my-3 group-hover:scale-105 transition-transform duration-300">
+            <div className="relative h-9 xs:h-11 sm:h-14 md:h-16 lg:h-18 w-32 xs:w-44 sm:w-60 md:w-72 lg:w-80 shrink-0 -my-1 sm:-my-3 group-hover:scale-105 transition-transform duration-300">
               <Image
                 src="/logo-header.png"
                 alt="The Pink Aura"
@@ -315,24 +315,26 @@ export default function Navbar() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
-            className="lg:hidden mt-3 max-w-7xl mx-auto clay-card bg-white/98 backdrop-blur-2xl p-6 shadow-clay-lg overflow-hidden"
+            className="lg:hidden mt-2 sm:mt-3 max-w-7xl mx-auto clay-card bg-white/98 dark:bg-[#20040E]/98 backdrop-blur-2xl p-5 sm:p-6 shadow-clay-lg border border-white dark:border-aura-700/40 overflow-hidden"
           >
             <div className="space-y-4 max-h-[75vh] overflow-y-auto pr-1">
               <Link
                 href="/home"
-                className="block text-base font-bold text-charcoal hover:text-aura-600 py-1"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block text-base font-bold text-charcoal dark:text-pink-100 hover:text-aura-600 py-1"
               >
                 Home
               </Link>
               <Link
                 href="/about"
-                className="block text-base font-bold text-charcoal hover:text-aura-600 py-1"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block text-base font-bold text-charcoal dark:text-pink-100 hover:text-aura-600 py-1"
               >
                 About Us
               </Link>
 
-              <div className="pt-2 border-t border-aura-100">
-                <span className="text-xs font-bold uppercase tracking-wider text-aura-600 block mb-2">
+              <div className="pt-2 border-t border-aura-100 dark:border-aura-800/40">
+                <span className="text-xs font-bold uppercase tracking-wider text-aura-600 dark:text-aura-300 block mb-2">
                   Service Categories
                 </span>
                 <div className="grid grid-cols-1 gap-2 pl-2">
@@ -340,7 +342,8 @@ export default function Navbar() {
                     <Link
                       key={cat.id}
                       href={`/services/${cat.slug}`}
-                      className="text-sm text-charcoal-muted hover:text-aura-600 py-1 font-medium"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="text-sm text-charcoal-muted dark:text-pink-200/80 hover:text-aura-600 dark:hover:text-aura-300 py-1 font-medium"
                     >
                       {cat.title}
                     </Link>
@@ -348,15 +351,17 @@ export default function Navbar() {
                 </div>
               </div>
 
-              <div className="pt-3 border-t border-aura-100 space-y-2">
+              <div className="pt-3 border-t border-aura-100 dark:border-aura-800/40 space-y-2">
                 <Link
                   href="/contact"
-                  className="block text-base font-bold text-charcoal hover:text-aura-600 py-1"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block text-base font-bold text-charcoal dark:text-pink-100 hover:text-aura-600 py-1"
                 >
                   Contact & Location
                 </Link>
                 <Link
                   href="/register"
+                  onClick={() => setMobileMenuOpen(false)}
                   className="clay-btn-primary w-full mt-4 flex items-center justify-center gap-2 py-3 px-6 text-xs font-bold uppercase tracking-wider"
                 >
                   <span>Begin Your Journey</span>
