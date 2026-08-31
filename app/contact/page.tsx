@@ -29,7 +29,7 @@ export default function ContactPage() {
       {/* Main Grid: Contact Details & Interactive Map Container */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
         {/* Contact Info Card */}
-        <div className="lg:col-span-5 clay-card bg-white/95 rounded-4xl p-8 sm:p-10 border border-white shadow-clay-lg space-y-8 flex flex-col justify-between">
+        <div className="lg:col-span-5 clay-card bg-white/95 dark:bg-[#250512]/95 rounded-4xl p-8 sm:p-10 border border-white dark:border-aura-700/30 shadow-clay-lg dark:shadow-none space-y-8 flex flex-col justify-between">
           <div className="space-y-6">
             <h2 className="font-serif text-2xl font-bold text-charcoal">Clinic Information</h2>
 
@@ -134,7 +134,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="pt-6 border-t border-aura-100">
+          <div className="pt-6 border-t border-aura-100 dark:border-aura-800/40">
             <Link
               href="/register"
               className="clay-btn-primary w-full py-3.5 px-6 rounded-full text-xs font-extrabold uppercase tracking-widest flex items-center justify-center gap-2"
@@ -146,8 +146,8 @@ export default function ContactPage() {
         </div>
 
         {/* Map Location Preview */}
-        <div className="lg:col-span-7 clay-card bg-white/95 rounded-4xl p-4 sm:p-6 border border-white shadow-clay-lg flex flex-col justify-between">
-          <div className="relative w-full h-[400px] sm:h-[480px] rounded-3xl overflow-hidden bg-aura-100 border border-aura-200">
+        <div className="lg:col-span-7 clay-card bg-white/95 dark:bg-[#250512]/95 rounded-4xl p-4 sm:p-6 border border-white dark:border-aura-700/30 shadow-clay-lg dark:shadow-none flex flex-col justify-between">
+          <div className="relative w-full h-[400px] sm:h-[480px] rounded-3xl overflow-hidden bg-aura-100 dark:bg-[#1E040D] border border-aura-200 dark:border-aura-800/40">
             {/* Embedded Google Map iframe */}
             <iframe
               title="The Pink Aura Location Map"
@@ -195,10 +195,10 @@ export default function ContactPage() {
           {FOUNDERS.map((founder, idx) => (
             <div
               key={idx}
-              className="clay-card rounded-4xl p-8 border border-white shadow-clay-lg flex flex-col justify-between space-y-6"
+              className="clay-card bg-white/95 dark:bg-[#250512]/95 rounded-4xl p-8 border border-white dark:border-aura-700/30 shadow-clay-lg dark:shadow-none flex flex-col justify-between space-y-6"
             >
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
-                <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-3xl overflow-hidden shrink-0 shadow-md border-2 border-white">
+                <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-3xl overflow-hidden shrink-0 shadow-md border-2 border-white dark:border-aura-700/40">
                   <Image
                     src={founder.image}
                     alt={founder.name}
@@ -208,18 +208,18 @@ export default function ContactPage() {
                 </div>
                 <div className="space-y-2 text-center sm:text-left">
                   <h3 className="font-serif text-2xl font-bold text-charcoal">{founder.name}</h3>
-                  <p className="text-xs font-extrabold uppercase tracking-wider text-aura-600">
+                  <p className="text-xs font-extrabold uppercase tracking-wider text-aura-600 dark:text-aura-300">
                     {founder.role}
                   </p>
-                  <p className="text-[11px] text-charcoal-muted italic font-light">
+                  <p className="text-[11px] text-charcoal-muted dark:text-pink-200/70 italic font-light">
                     {founder.qualifications}
                   </p>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-aura-100/80 flex flex-col sm:flex-row items-center justify-between gap-3 bg-aura-50/60 p-4 rounded-2xl">
+              <div className="pt-4 border-t border-aura-100/80 dark:border-aura-800/40 flex flex-col sm:flex-row items-center justify-between gap-3 bg-aura-50/60 dark:bg-[#20040E]/90 border border-transparent dark:border-aura-700/30 p-4 rounded-2xl">
                 <div>
-                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-aura-800 block">
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-aura-800 dark:text-aura-200 block">
                     Direct Phone Number
                   </span>
                   <span className="font-mono text-sm font-bold text-charcoal">

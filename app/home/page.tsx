@@ -93,12 +93,12 @@ export default function MainHomePage() {
   return (
     <div className="space-y-24 sm:space-y-32 pb-20 overflow-x-hidden">
       {/* 1. HIGH-FASHION EDITORIAL LUXURY HERO CANVAS */}
-      <section className="relative px-3 sm:px-6 lg:px-8 pt-2 pb-8 max-w-[1440px] mx-auto">
+      <section className="relative px-3 sm:px-6 lg:px-8 pt-3 sm:pt-6 pb-8 max-w-[1440px] mx-auto">
         <motion.div
           initial={{ opacity: 0, scale: 0.98, y: 15 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full min-h-[75vh] sm:min-h-[84vh] lg:min-h-[88vh] rounded-[28px] sm:rounded-[44px] overflow-hidden shadow-[0_28px_70px_-15px_rgba(158,77,104,0.22)] border border-white flex flex-col justify-between p-5 sm:p-8 lg:p-12"
+          className="relative w-full min-h-[70vh] sm:min-h-[84vh] lg:min-h-[88vh] rounded-[28px] sm:rounded-[44px] overflow-hidden shadow-[0_28px_70px_-15px_rgba(158,77,104,0.22)] border border-white flex flex-col justify-between p-4 sm:p-8 lg:p-12"
         >
           {/* High-Resolution Editorial Background Image */}
           <div className="absolute inset-0 z-0">
@@ -106,29 +106,28 @@ export default function MainHomePage() {
               src="/images/hero/editorial-hero.jpg"
               alt="The Pink Aura Luxury Editorial Care"
               fill
-              className="object-cover object-[center_35%] sm:object-[center_28%] scale-105 transition-transform duration-1000"
+              className="object-cover object-center sm:object-[center_28%] scale-100 sm:scale-105 transition-transform duration-1000"
               priority
             />
-            {/* Cinematic Gradient Overlays */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-aura-950/85" />
-            <div className="absolute inset-0 bg-gradient-to-r from-aura-950/25 via-transparent to-aura-950/45" />
-            <div className="absolute inset-0 bg-[#E8C5D3]/10 mix-blend-overlay" />
+            {/* Soft Transparent Cinematic Overlays for High Image Visibility */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-aura-950/75 sm:to-aura-950/85" />
+            <div className="absolute inset-0 bg-gradient-to-r from-aura-950/15 via-transparent to-aura-950/30" />
           </div>
 
           {/* Top Canvas Header Badges (Responsive) */}
-          <div className="relative z-20 w-full flex items-center justify-between gap-3">
-            <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-white/25 backdrop-blur-md border border-white/40 text-[10px] sm:text-[11px] font-extrabold uppercase tracking-widest text-white shadow-sm">
+          <div className="relative z-20 w-full flex items-center justify-between gap-2 flex-wrap sm:flex-nowrap">
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-white/30 dark:bg-black/35 backdrop-blur-md border border-white/40 text-[9px] sm:text-[11px] font-extrabold uppercase tracking-widest text-white shadow-sm">
               <Flower2 className="w-3.5 h-3.5 text-champagne-light shrink-0" />
               <span>Aesthetic & Wellness Sanctuary</span>
             </div>
 
-            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-[10px] font-mono font-bold uppercase tracking-wider text-white/95">
+            <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full bg-white/25 dark:bg-black/30 backdrop-blur-md border border-white/30 text-[9px] font-mono font-bold uppercase tracking-wider text-white/95">
               <span>Wed–Mon: 10AM–7PM</span>
             </div>
           </div>
 
-          {/* Floating Luxury Editorial Center-Right Callout */}
-          <div className="relative z-20 w-full flex flex-col md:flex-row items-center md:items-center justify-between gap-6 my-auto pt-8 sm:pt-14">
+          {/* Floating Luxury Editorial Callouts */}
+          <div className="relative z-20 w-full flex flex-col md:flex-row items-center justify-between gap-4 my-auto pt-6 sm:pt-14">
             {/* Left subtle doctor-led badge (desktop) */}
             <div className="hidden lg:block max-w-xs space-y-2 text-white drop-shadow-md">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-[10px] font-extrabold uppercase tracking-widest text-champagne-light">
@@ -140,8 +139,8 @@ export default function MainHomePage() {
               </p>
             </div>
 
-            {/* Right side Editorial description */}
-            <div className="max-w-sm md:ml-auto text-center sm:text-right space-y-2 text-white drop-shadow-md bg-black/15 sm:bg-transparent backdrop-blur-xs p-3 sm:p-0 rounded-2xl">
+            {/* Right side Editorial description - Framed cleanly for mobile readability */}
+            <div className="max-w-sm md:ml-auto text-center sm:text-right space-y-2 text-white drop-shadow-md bg-black/35 sm:bg-transparent backdrop-blur-md sm:backdrop-blur-none p-4 sm:p-0 rounded-2xl border border-white/20 sm:border-none">
               <p className="text-xs sm:text-sm text-white/95 font-light leading-relaxed tracking-wide">
                 Advanced aesthetic care & clinical dermatology engineered with precision. Gentle enough for daily wellbeing, powerful enough for lasting radiance.
               </p>
@@ -152,7 +151,7 @@ export default function MainHomePage() {
           <div className="relative z-10 w-full pt-3 sm:pt-6 pb-1 select-none pointer-events-none flex items-center justify-center">
             <svg
               viewBox="0 0 1300 150"
-              className="w-full h-auto max-h-16 sm:max-h-24 md:max-h-32 lg:max-h-36 overflow-visible"
+              className="w-full h-auto max-h-12 sm:max-h-24 md:max-h-32 lg:max-h-36 overflow-visible"
               aria-label="THE PINK AURA"
             >
               <text
@@ -197,11 +196,11 @@ export default function MainHomePage() {
                 key={idx}
                 whileHover={{ y: -6 }}
                 transition={{ duration: 0.3 }}
-                className="clay-card rounded-3xl p-6 border border-white flex flex-col justify-between space-y-4 relative overflow-hidden group"
+                className="clay-card rounded-3xl p-6 border border-white dark:border-aura-700/30 flex flex-col justify-between space-y-4 relative overflow-hidden group"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="font-serif text-2xl font-bold text-aura-600/40 group-hover:text-aura-600 transition-colors">
+                    <span className="font-serif text-2xl font-bold text-aura-600/50 dark:text-aura-200/60 group-hover:text-aura-600 dark:group-hover:text-aura-100 transition-colors">
                       {step.step}
                     </span>
                     <div className="w-10 h-10 rounded-2xl clay-badge flex items-center justify-center text-aura-600 group-hover:scale-110 transition-transform">
@@ -216,7 +215,7 @@ export default function MainHomePage() {
                   </p>
                 </div>
 
-                <div className="pt-2 border-t border-aura-100 flex items-center text-[10px] uppercase font-bold text-aura-600">
+                <div className="pt-2 border-t border-aura-100 dark:border-aura-700/30 flex items-center text-[10px] uppercase font-bold text-aura-600 dark:text-aura-300">
                   <span>Step {step.step} Protocol</span>
                 </div>
               </motion.div>
@@ -277,9 +276,9 @@ export default function MainHomePage() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.35 }}
                 key={category.id}
-                className="group clay-card clay-card-hover rounded-4xl overflow-hidden flex flex-col justify-between border border-white"
+                className="group clay-card clay-card-hover rounded-4xl overflow-hidden flex flex-col justify-between border border-white dark:border-aura-700/30"
               >
-                <div>
+                <Link href={`/services/${category.slug}`} className="block group">
                   {/* Image Header */}
                   <div className="relative w-full h-52 overflow-hidden rounded-t-4xl">
                     <Image
@@ -302,29 +301,30 @@ export default function MainHomePage() {
                     <h3 className="font-serif text-xl font-bold text-charcoal group-hover:text-aura-600 transition-colors">
                       {category.title}
                     </h3>
-                    <p className="text-xs text-aura-700 font-semibold italic">
+                    <p className="text-xs text-aura-700 dark:text-aura-300 font-semibold italic">
                       {category.subtitle}
                     </p>
                     <p className="text-xs text-charcoal-muted leading-relaxed font-light line-clamp-3">
                       {category.description}
                     </p>
                   </div>
-                </div>
+                </Link>
 
                 {/* Card Footer CTA */}
-                <div className="p-6 pt-0 border-t border-aura-100/60 mt-4 flex items-center justify-between gap-2">
+                <div className="px-6 py-4 border-t border-aura-200/60 dark:border-aura-800/40 mt-auto flex items-center justify-between gap-2 bg-[#FCE4EC]/40 dark:bg-[#1C030D]/60 backdrop-blur-sm rounded-b-4xl">
                   <Link
                     href={`/register?category=${encodeURIComponent(category.title)}`}
-                    className="text-xs font-extrabold text-aura-600 hover:text-aura-700 clay-badge px-3.5 py-1.5 hover:scale-105 transition-all"
+                    className="clay-btn-primary px-4 py-2 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shrink-0"
                   >
-                    Enquire Now
+                    <span>Enquire Now</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                   <Link
                     href={`/services/${category.slug}`}
-                    className="clay-btn-secondary inline-flex items-center gap-1.5 text-xs font-bold px-4 py-2"
+                    className="clay-btn-secondary inline-flex items-center gap-1 text-[11px] font-bold px-3 py-1.5 text-charcoal-muted dark:text-pink-200/80"
                   >
                     <span>Explore</span>
-                    <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    <ChevronRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
               </motion.div>
@@ -403,10 +403,10 @@ export default function MainHomePage() {
           {FOUNDERS.map((founder, i) => (
             <div
               key={i}
-              className="clay-card rounded-4xl p-8 border border-white flex flex-col justify-between space-y-6 shadow-clay-lg hover:shadow-xl transition-shadow"
+              className="clay-card rounded-4xl p-8 border border-white dark:border-aura-700/30 flex flex-col justify-between space-y-6 shadow-clay-lg hover:shadow-xl transition-shadow"
             >
               <div className="flex flex-col sm:flex-row gap-6 items-center sm:items-start">
-                <div className="relative w-32 h-32 sm:w-36 sm:h-36 rounded-3xl overflow-hidden shrink-0 shadow-lg border-2 border-white">
+                <div className="relative w-32 h-32 sm:w-36 sm:h-36 rounded-3xl overflow-hidden shrink-0 shadow-lg border-2 border-white dark:border-aura-700/30">
                   <Image
                     src={founder.image}
                     alt={founder.name}
@@ -430,9 +430,9 @@ export default function MainHomePage() {
                 </div>
               </div>
 
-              <div className="pt-3 border-t border-aura-100 flex flex-col sm:flex-row items-center justify-between gap-3 bg-aura-50/70 p-3.5 rounded-2xl">
+              <div className="pt-3 border-t border-aura-100 dark:border-aura-700/30 flex flex-col sm:flex-row items-center justify-between gap-3 bg-aura-50/70 dark:bg-[#20040E]/90 p-3.5 rounded-2xl border border-aura-200/50 dark:border-aura-700/30">
                 <div className="text-center sm:text-left">
-                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-aura-800 block">
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-aura-800 dark:text-aura-100 block">
                     Direct Contact
                   </span>
                   <span className="font-mono text-sm font-bold text-charcoal">
@@ -441,7 +441,7 @@ export default function MainHomePage() {
                 </div>
                 <a
                   href={`tel:${founder.rawPhone || founder.phone?.replace(/[^0-9+]/g, '')}`}
-                  className="clay-btn-primary inline-flex items-center gap-1.5 px-5 py-2 text-xs font-bold uppercase tracking-wider shrink-0"
+                  className="clay-btn-primary inline-flex items-center gap-1.5 px-5 py-2.5 text-xs font-bold uppercase tracking-wider shrink-0"
                 >
                   <Phone className="w-3.5 h-3.5" />
                   <span>Call {founder.name.split(' ')[0]}</span>

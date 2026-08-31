@@ -61,9 +61,9 @@ export default function ServicesPage() {
         {filteredCategories.map((category) => (
           <div
             key={category.id}
-            className="group clay-card clay-card-hover rounded-4xl overflow-hidden flex flex-col justify-between"
+            className="group clay-card clay-card-hover rounded-4xl overflow-hidden flex flex-col justify-between border border-white dark:border-aura-700/30"
           >
-            <div>
+            <Link href={`/services/${category.slug}`} className="block group">
               {/* Card Image */}
               <div className="relative w-full h-52 overflow-hidden rounded-t-4xl">
                 <Image
@@ -86,7 +86,7 @@ export default function ServicesPage() {
                 <h3 className="font-serif text-2xl font-bold text-charcoal group-hover:text-aura-600 transition-colors">
                   {category.title}
                 </h3>
-                <p className="text-xs font-bold text-aura-600 italic">
+                <p className="text-xs font-bold text-aura-600 dark:text-aura-300 italic">
                   {category.subtitle}
                 </p>
                 <p className="text-xs text-charcoal-muted leading-relaxed font-light line-clamp-3">
@@ -105,19 +105,20 @@ export default function ServicesPage() {
                   </ul>
                 )}
               </div>
-            </div>
+            </Link>
 
             {/* Card Action */}
-            <div className="p-6 pt-0 border-t border-aura-100/60 mt-4 flex items-center justify-between gap-2">
+            <div className="px-6 py-4 border-t border-aura-200/60 dark:border-aura-800/40 mt-auto flex items-center justify-between gap-2 bg-[#FCE4EC]/40 dark:bg-[#1C030D]/60 backdrop-blur-sm rounded-b-4xl">
               <Link
                 href={`/register?category=${encodeURIComponent(category.title)}`}
-                className="text-xs font-bold text-aura-600 hover:text-aura-700 clay-badge px-3 py-1.5 hover:scale-105 transition-all"
+                className="clay-btn-primary px-4 py-2 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shrink-0"
               >
-                Enquire Now
+                <span>Enquire Now</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
               <Link
                 href={`/services/${category.slug}`}
-                className="clay-btn-secondary inline-flex items-center gap-1.5 text-xs font-bold px-4 py-2"
+                className="clay-btn-secondary inline-flex items-center gap-1 text-[11px] font-bold px-3 py-1.5 text-charcoal-muted dark:text-pink-200/80"
               >
                 <span>Explore</span>
                 <ChevronRight className="w-3.5 h-3.5" />

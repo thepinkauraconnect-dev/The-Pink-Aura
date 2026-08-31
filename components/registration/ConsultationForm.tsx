@@ -113,19 +113,19 @@ function ConsultationFormContent() {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto clay-card bg-white/95 backdrop-blur-2xl rounded-4xl p-7 sm:p-10 shadow-clay-lg relative overflow-hidden">
+    <div className="w-full max-w-2xl mx-auto clay-card clay-card-contour bg-[#FCE4EC]/95 dark:bg-[#250512]/95 backdrop-blur-2xl rounded-3xl sm:rounded-4xl p-5 sm:p-9 shadow-clay-lg dark:shadow-none relative overflow-hidden">
       {/* Decorative Aura Accent */}
-      <div className="absolute -top-24 -right-24 w-56 h-56 bg-aura-300/30 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -top-24 -right-24 w-56 h-56 bg-aura-300/30 dark:bg-[#9E1B4E]/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="text-center mb-8">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full clay-badge text-aura-700 text-xs font-extrabold uppercase tracking-widest mb-3">
-          <Flower2 className="w-3.5 h-3.5 text-aura-600" />
+      <div className="text-center mb-5 sm:mb-8">
+        <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full clay-badge text-aura-700 text-[10px] sm:text-xs font-extrabold uppercase tracking-widest mb-2.5">
+          <Flower2 className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-aura-600 dark:text-aura-300" />
           <span>Personalized Consultation</span>
         </div>
-        <h2 className="font-serif text-3xl sm:text-4xl font-bold text-charcoal tracking-tight">
+        <h2 className="font-serif text-2xl sm:text-4xl font-bold text-charcoal tracking-tight">
           Begin Your Journey with The Pink Aura
         </h2>
-        <p className="text-xs sm:text-sm text-charcoal-muted mt-2 font-light max-w-md mx-auto leading-relaxed">
+        <p className="text-xs sm:text-sm text-charcoal-muted mt-1.5 font-light max-w-md mx-auto leading-relaxed">
           Share your details below to receive a personalized aesthetic & wellness consultation plan from our specialists.
         </p>
       </div>
@@ -134,14 +134,14 @@ function ConsultationFormContent() {
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-6 p-4 rounded-2xl bg-red-50 border border-red-200 text-red-700 text-xs flex items-center gap-2.5 shadow-sm"
+          className="mb-4 sm:mb-6 p-3 sm:p-4 rounded-2xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/50 text-red-700 dark:text-red-300 text-xs flex items-center gap-2.5 shadow-sm"
         >
           <AlertCircle className="w-4 h-4 shrink-0" />
           <span>{errors.general}</span>
         </motion.div>
       )}
 
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-5">
         {/* Hidden Honeypot Field */}
         <input
           type="text"
@@ -155,11 +155,11 @@ function ConsultationFormContent() {
 
         {/* Full Name */}
         <div>
-          <label className="block text-xs font-bold text-charcoal uppercase tracking-wider mb-2">
-            Full Name <span className="text-aura-600">*</span>
+          <label className="block text-[11px] sm:text-xs font-bold text-charcoal uppercase tracking-wider mb-1.5">
+            Full Name <span className="text-aura-600 dark:text-aura-300">*</span>
           </label>
           <div className="relative">
-            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-aura-400">
+            <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-aura-400 dark:text-aura-300/60">
               <User className="w-4 h-4" />
             </div>
             <input
@@ -168,13 +168,13 @@ function ConsultationFormContent() {
               placeholder="e.g. Ananya Sharma"
               value={formData.name}
               onChange={handleChange}
-              className={`w-full pl-11 pr-4 py-3.5 clay-input text-sm font-medium text-charcoal placeholder-charcoal-soft focus:outline-none ${
-                errors.name ? 'border-red-300 ring-2 ring-red-100' : ''
+              className={`w-full pl-10 pr-3.5 py-2.5 sm:py-3.5 clay-input text-xs sm:text-sm font-medium text-charcoal placeholder-charcoal-soft focus:outline-none ${
+                errors.name ? 'border-red-300 dark:border-red-500/50 ring-2 ring-red-100 dark:ring-red-900/30' : ''
               }`}
             />
           </div>
           {errors.name && (
-            <p className="text-red-500 text-xs mt-1.5 flex items-center gap-1 font-medium">
+            <p className="text-red-500 dark:text-red-400 text-[11px] mt-1 flex items-center gap-1 font-medium">
               <AlertCircle className="w-3 h-3" />
               <span>{errors.name}</span>
             </p>
@@ -182,14 +182,14 @@ function ConsultationFormContent() {
         </div>
 
         {/* Contact Grid: Phone & Email */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-5">
           {/* Phone Number */}
           <div>
-            <label className="block text-xs font-bold text-charcoal uppercase tracking-wider mb-2">
-              Phone Number <span className="text-aura-600">*</span>
+            <label className="block text-[11px] sm:text-xs font-bold text-charcoal uppercase tracking-wider mb-1.5">
+              Phone Number <span className="text-aura-600 dark:text-aura-300">*</span>
             </label>
             <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-aura-400">
+              <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-aura-400 dark:text-aura-300/60">
                 <Phone className="w-4 h-4" />
               </div>
               <input
@@ -198,13 +198,13 @@ function ConsultationFormContent() {
                 placeholder="+91 76191 51455"
                 value={formData.phone}
                 onChange={handleChange}
-                className={`w-full pl-11 pr-4 py-3.5 clay-input text-sm font-medium text-charcoal placeholder-charcoal-soft focus:outline-none ${
-                  errors.phone ? 'border-red-300 ring-2 ring-red-100' : ''
+                className={`w-full pl-10 pr-3.5 py-2.5 sm:py-3.5 clay-input text-xs sm:text-sm font-medium text-charcoal placeholder-charcoal-soft focus:outline-none ${
+                  errors.phone ? 'border-red-300 dark:border-red-500/50 ring-2 ring-red-100 dark:ring-red-900/30' : ''
                 }`}
               />
             </div>
             {errors.phone && (
-              <p className="text-red-500 text-xs mt-1.5 flex items-center gap-1 font-medium">
+              <p className="text-red-500 dark:text-red-400 text-[11px] mt-1 flex items-center gap-1 font-medium">
                 <AlertCircle className="w-3 h-3" />
                 <span>{errors.phone}</span>
               </p>
@@ -213,11 +213,11 @@ function ConsultationFormContent() {
 
           {/* Email Address */}
           <div>
-            <label className="block text-xs font-bold text-charcoal uppercase tracking-wider mb-2">
-              Email Address <span className="text-aura-600">*</span>
+            <label className="block text-[11px] sm:text-xs font-bold text-charcoal uppercase tracking-wider mb-1.5">
+              Email Address <span className="text-aura-600 dark:text-aura-300">*</span>
             </label>
             <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-aura-400">
+              <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-aura-400 dark:text-aura-300/60">
                 <Mail className="w-4 h-4" />
               </div>
               <input
@@ -226,13 +226,13 @@ function ConsultationFormContent() {
                 placeholder="ananya@example.com"
                 value={formData.email}
                 onChange={handleChange}
-                className={`w-full pl-11 pr-4 py-3.5 clay-input text-sm font-medium text-charcoal placeholder-charcoal-soft focus:outline-none ${
-                  errors.email ? 'border-red-300 ring-2 ring-red-100' : ''
+                className={`w-full pl-10 pr-3.5 py-2.5 sm:py-3.5 clay-input text-xs sm:text-sm font-medium text-charcoal placeholder-charcoal-soft focus:outline-none ${
+                  errors.email ? 'border-red-300 dark:border-red-500/50 ring-2 ring-red-100 dark:ring-red-900/30' : ''
                 }`}
               />
             </div>
             {errors.email && (
-              <p className="text-red-500 text-xs mt-1.5 flex items-center gap-1 font-medium">
+              <p className="text-red-500 dark:text-red-400 text-[11px] mt-1 flex items-center gap-1 font-medium">
                 <AlertCircle className="w-3 h-3" />
                 <span>{errors.email}</span>
               </p>
@@ -242,19 +242,19 @@ function ConsultationFormContent() {
 
         {/* Service Category Selection */}
         <div>
-          <label className="block text-xs font-extrabold uppercase tracking-wider text-charcoal mb-2">
-            Service Category of Interest <span className="text-red-500">*</span>
+          <label className="block text-[11px] sm:text-xs font-extrabold uppercase tracking-wider text-charcoal mb-1.5">
+            Service Category of Interest <span className="text-red-500 dark:text-red-400">*</span>
           </label>
           <div className="relative">
-            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-aura-400">
+            <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-aura-400 dark:text-aura-300/60">
               <Grid className="w-4 h-4" />
             </div>
             <select
               name="category"
               value={formData.category}
               onChange={handleChange}
-              className={`w-full pl-11 pr-8 py-3.5 clay-input text-sm font-medium text-charcoal focus:outline-none appearance-none cursor-pointer ${
-                errors.category ? 'border-red-300 ring-2 ring-red-100' : ''
+              className={`w-full pl-10 pr-7 py-2.5 sm:py-3.5 clay-input text-xs sm:text-sm font-medium text-charcoal focus:outline-none appearance-none cursor-pointer ${
+                errors.category ? 'border-red-300 dark:border-red-500/50 ring-2 ring-red-100 dark:ring-red-900/30' : ''
               }`}
             >
               <option value="" disabled>
@@ -268,7 +268,7 @@ function ConsultationFormContent() {
             </select>
           </div>
           {errors.category && (
-            <p className="text-red-500 text-xs mt-1.5 flex items-center gap-1 font-medium">
+            <p className="text-red-500 dark:text-red-400 text-[11px] mt-1 flex items-center gap-1 font-medium">
               <AlertCircle className="w-3 h-3" />
               <span>{errors.category}</span>
             </p>
@@ -277,26 +277,26 @@ function ConsultationFormContent() {
 
         {/* Specific Requirement / Note */}
         <div>
-          <label className="block text-xs font-extrabold uppercase tracking-wider text-charcoal mb-2">
+          <label className="block text-[11px] sm:text-xs font-extrabold uppercase tracking-wider text-charcoal mb-1.5">
             Specific Goals or Notes (Optional)
           </label>
           <div className="relative">
-            <div className="absolute top-3.5 left-4 pointer-events-none text-aura-400">
+            <div className="absolute top-3 left-3.5 pointer-events-none text-aura-400 dark:text-aura-300/60">
               <MessageSquare className="w-4 h-4" />
             </div>
             <textarea
               name="requirement"
-              rows={3}
+              rows={2}
               placeholder="Share any specific areas of concern, desired timeline, or questions for our doctors..."
               value={formData.requirement}
               onChange={handleChange}
-              className="w-full pl-11 pr-4 py-3.5 clay-input text-sm font-medium text-charcoal placeholder-charcoal-soft focus:outline-none resize-none"
+              className="w-full pl-10 pr-3.5 py-2.5 sm:py-3.5 clay-input text-xs sm:text-sm font-medium text-charcoal placeholder-charcoal-soft focus:outline-none resize-none"
             />
           </div>
         </div>
 
         {/* Privacy Notice */}
-        <p className="text-[11px] text-charcoal-muted text-center font-light leading-relaxed">
+        <p className="text-[10px] sm:text-[11px] text-charcoal-muted text-center font-light leading-relaxed">
           By submitting this form, you agree to be contacted by The Pink Aura regarding your consultation inquiry. Your information remains strictly private.
         </p>
 
@@ -304,11 +304,11 @@ function ConsultationFormContent() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="clay-btn-primary w-full py-4 px-8 text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2.5 disabled:opacity-70 disabled:cursor-not-allowed"
+          className="clay-btn-primary w-full py-3 sm:py-4 px-6 text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2.5 disabled:opacity-70 disabled:cursor-not-allowed"
         >
           {isSubmitting ? (
             <span className="flex items-center gap-2">
-              <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+              <span className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin" />
               <span>Registering Your Consultation...</span>
             </span>
           ) : (

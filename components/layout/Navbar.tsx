@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Menu, X, ArrowRight, Flower2 } from 'lucide-react';
+import { ChevronDown, Menu, X, ArrowRight, Flower2, Sun, Moon } from 'lucide-react';
 import { SERVICE_CATEGORIES } from '@/data/services';
 
 const SERVICE_GROUPS = [
@@ -22,10 +22,6 @@ const SERVICE_GROUPS = [
     categories: SERVICE_CATEGORIES.filter((c) => c.group === 'BODY'),
   },
   {
-    title: 'WELLNESS & SPIRITUAL',
-    categories: SERVICE_CATEGORIES.filter((c) => c.group === 'WELLNESS'),
-  },
-  {
     title: 'SURGICAL PROCEDURES',
     categories: SERVICE_CATEGORIES.filter((c) => c.group === 'SURGICAL'),
   },
@@ -35,7 +31,64 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+
+    const getSystemOrTimeTheme = () => {
+      // 1. Phone / OS System Dark Mode Preference
+      if (typeof window !== 'undefined' && window.matchMedia) {
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        if (mediaQuery.matches) return true;
+      }
+      // 2. Automatic Day / Night Time Fallback (Night: 7 PM to 6 AM)
+      const hour = new Date().getHours();
+      return hour >= 19 || hour < 6;
+    };
+
+    const isDark = savedTheme ? savedTheme === 'dark' : getSystemOrTimeTheme();
+    setDarkMode(isDark);
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+    // Listen to live Phone / System OS theme changes if user hasn't explicitly overridden it
+    if (typeof window !== 'undefined' && window.matchMedia) {
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      const handleSystemThemeChange = (e: MediaQueryListEvent) => {
+        if (!localStorage.getItem('theme')) {
+          const nextDark = e.matches;
+          setDarkMode(nextDark);
+          if (nextDark) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        }
+      };
+
+      if (mediaQuery.addEventListener) {
+        mediaQuery.addEventListener('change', handleSystemThemeChange);
+        return () => mediaQuery.removeEventListener('change', handleSystemThemeChange);
+      }
+    }
+  }, []);
+
+  const toggleDarkMode = () => {
+    const nextDark = !darkMode;
+    setDarkMode(nextDark);
+    if (nextDark) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,39 +103,42 @@ export default function Navbar() {
     setMobileMenuOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 py-4 px-4 transition-all duration-300">
+    <header className="fixed top-0 left-0 right-0 z-50 py-1.5 sm:py-2.5 px-2 sm:px-4 transition-all duration-300">
       <div
-        className={`max-w-7xl mx-auto px-6 py-3 relative transition-all duration-500 rounded-full ${
+        className={`max-w-7xl mx-auto px-3.5 sm:px-6 py-1.5 sm:py-2 relative transition-all duration-500 rounded-full ${
           scrolled
-            ? 'clay-card bg-white/90 backdrop-blur-xl shadow-clay-md border border-white'
-            : 'bg-white/70 backdrop-blur-md border border-white/80 shadow-clay-sm'
+            ? 'clay-card bg-[#F8BBD0]/95 dark:bg-[#3D0C1E]/95 backdrop-blur-xl shadow-clay-md border border-white/90 dark:border-aura-700/30'
+            : 'clay-badge bg-[#FFF5F8]/95 dark:bg-[#2E0817]/95 backdrop-blur-md border border-white/90 dark:border-aura-700/30 shadow-clay-sm'
         }`}
       >
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/home" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-10 overflow-hidden rounded-full clay-badge p-1 group-hover:scale-105 transition-transform flex items-center justify-center">
+        <div className="flex items-center justify-between gap-4 w-full">
+          {/* Header Brand Logo Image */}
+          <Link href="/home" className="flex items-center group shrink-0">
+            <div className="relative h-12 sm:h-14 md:h-16 lg:h-18 w-48 sm:w-60 md:w-72 lg:w-80 shrink-0 -my-2 sm:-my-3 group-hover:scale-105 transition-transform duration-300">
               <Image
-                src="/images/logo/Logo%20the%20pink%20aura.png"
-                alt="The Pink Aura Logo"
+                src="/Logo%20header.png"
+                alt="The Pink Aura"
                 fill
-                className="object-contain p-0.5"
+                className="object-contain object-left transition-all duration-300 dark:brightness-125 dark:drop-shadow-[0_0_14px_rgba(248,187,208,0.45)]"
                 priority
               />
             </div>
-            <div className="flex flex-col">
-              <span className="font-serif text-xl font-bold tracking-tight text-charcoal group-hover:text-aura-600 transition-colors">
-                The Pink Aura
-              </span>
-              <span className="text-[9px] tracking-widest uppercase font-bold text-aura-600 -mt-1">
-                Aesthetic & Wellness
-              </span>
-            </div>
           </Link>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-7">
+          {/* Desktop Navigation Links (Centered) */}
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8 mx-auto">
             <Link
               href="/home"
               className={`text-xs font-bold uppercase tracking-wider transition-all hover:text-aura-600 px-3 py-1.5 rounded-full ${
@@ -127,12 +183,12 @@ export default function Navbar() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 8, scale: 0.98 }}
                     transition={{ duration: 0.25, ease: 'easeOut' }}
-                    className="absolute top-full left-4 right-4 md:left-6 md:right-6 mt-3 clay-card bg-white/98 backdrop-blur-2xl rounded-3xl p-7 grid grid-cols-3 gap-6 shadow-clay-lg z-50 border border-white"
+                    className="absolute top-full left-4 right-4 md:left-6 md:right-6 mt-3 clay-card bg-white/98 dark:bg-[#290613]/98 backdrop-blur-2xl rounded-3xl p-7 grid grid-cols-3 gap-6 shadow-clay-lg z-50 border border-white dark:border-aura-700/30"
                   >
-                    <div className="col-span-2 grid grid-cols-2 gap-6 border-r border-aura-100/80 pr-6">
-                      {SERVICE_GROUPS.slice(0, 4).map((group, idx) => (
+                    <div className="col-span-2 grid grid-cols-2 gap-6 border-r border-aura-100/80 dark:border-aura-800/40 pr-6">
+                      {SERVICE_GROUPS.slice(0, 3).map((group, idx) => (
                         <div key={idx} className="space-y-2">
-                          <h4 className="text-[10px] font-extrabold tracking-widest text-aura-600 uppercase">
+                          <h4 className="text-[10px] font-extrabold tracking-widest text-aura-600 dark:text-aura-300 uppercase">
                             {group.title}
                           </h4>
                           <ul className="space-y-1.5">
@@ -140,7 +196,7 @@ export default function Navbar() {
                               <li key={cat.id}>
                                 <Link
                                   href={`/services/${cat.slug}`}
-                                  className="text-xs text-charcoal-muted hover:text-aura-600 hover:translate-x-1 transition-all inline-flex items-center gap-1 font-medium"
+                                  className="text-xs text-charcoal-muted dark:text-pink-200/80 hover:text-aura-600 dark:hover:text-aura-300 hover:translate-x-1 transition-all inline-flex items-center gap-1 font-medium"
                                 >
                                   <span>{cat.title}</span>
                                 </Link>
@@ -154,15 +210,15 @@ export default function Navbar() {
                     {/* Surgical & CTA */}
                     <div className="space-y-4 flex flex-col justify-between">
                       <div>
-                        <h4 className="text-[10px] font-extrabold tracking-widest text-aura-600 uppercase mb-2">
-                          {SERVICE_GROUPS[4].title}
+                        <h4 className="text-[10px] font-extrabold tracking-widest text-aura-600 dark:text-aura-300 uppercase mb-2">
+                          {SERVICE_GROUPS[3].title}
                         </h4>
                         <ul className="space-y-1.5 mb-4">
-                          {SERVICE_GROUPS[4].categories.map((cat) => (
+                          {SERVICE_GROUPS[3].categories.map((cat) => (
                             <li key={cat.id}>
                               <Link
                                 href={`/services/${cat.slug}`}
-                                className="text-xs text-charcoal-muted hover:text-aura-600 hover:translate-x-1 transition-all inline-flex items-center gap-1 font-medium"
+                                className="text-xs text-charcoal-muted dark:text-pink-200/80 hover:text-aura-600 dark:hover:text-aura-300 hover:translate-x-1 transition-all inline-flex items-center gap-1 font-medium"
                               >
                                 <span>{cat.title}</span>
                               </Link>
@@ -171,21 +227,21 @@ export default function Navbar() {
                         </ul>
                       </div>
 
-                      <div className="p-4 rounded-2xl bg-gradient-to-br from-aura-50/95 via-rose-50/40 to-aura-100/60 border border-aura-200/80 shadow-sm space-y-2">
-                        <div className="flex items-center gap-2 text-aura-700 font-serif font-bold text-sm">
-                          <Flower2 className="w-4 h-4 text-aura-600 shrink-0" />
+                      <div className="p-4 rounded-2xl bg-gradient-to-br from-aura-50/95 via-rose-50/40 to-aura-100/60 dark:from-[#3B091D]/90 dark:via-[#290513]/90 dark:to-[#1C030D]/90 border border-aura-200/80 dark:border-aura-700/40 shadow-sm space-y-2">
+                        <div className="flex items-center gap-2 text-aura-700 dark:text-aura-200 font-serif font-bold text-sm">
+                          <Flower2 className="w-4 h-4 text-aura-600 dark:text-aura-300 shrink-0" />
                           <span>Personalized Consultation</span>
                         </div>
-                        <p className="text-[11px] text-charcoal-muted leading-relaxed font-light">
-                          Receive a custom beauty roadmap tailored to your skin & wellness goals.
+                        <p className="text-[11px] text-charcoal-muted dark:text-pink-200/70 leading-relaxed font-light">
+                          Receive a custom beauty roadmap tailored to your skin & aesthetic goals.
                         </p>
                         <div className="pt-1">
                           <Link
                             href="/register"
-                            className="inline-flex items-center gap-1.5 text-xs font-extrabold text-aura-700 hover:text-aura-900 group"
+                            className="inline-flex items-center gap-1.5 text-xs font-extrabold text-aura-700 dark:text-aura-200 hover:text-aura-900 dark:hover:text-white group"
                           >
                             <span>Begin Your Consultation</span>
-                            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-aura-600" />
+                            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-aura-600 dark:text-aura-300" />
                           </Link>
                         </div>
                       </div>
@@ -194,15 +250,6 @@ export default function Navbar() {
                 )}
               </AnimatePresence>
             </div>
-
-            <Link
-              href="/services/wellness"
-              className={`text-xs font-bold uppercase tracking-wider transition-all hover:text-aura-600 px-3 py-1.5 rounded-full ${
-                pathname === '/services/wellness' ? 'clay-badge text-aura-600 font-extrabold' : 'text-charcoal-muted'
-              }`}
-            >
-              Wellness
-            </Link>
 
             <Link
               href="/contact"
@@ -214,31 +261,48 @@ export default function Navbar() {
             </Link>
           </nav>
 
-          {/* Right Action */}
-          <div className="hidden sm:flex items-center gap-4">
+          {/* Desktop Right Action: Night Mode Toggle & CTA (>= 1024px) */}
+          <div className="hidden lg:flex items-center gap-3 shrink-0">
+            <button
+              onClick={toggleDarkMode}
+              aria-label="Toggle Night / Dark Mode"
+              title={darkMode ? "Switch to Light Mode" : "Switch to Night / Dark Mode"}
+              className="p-2.5 rounded-full clay-badge text-aura-750 hover:text-aura-900 transition-all flex items-center justify-center hover:scale-105 shrink-0"
+            >
+              {darkMode ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-aura-750" />}
+            </button>
             <Link
               href="/register"
-              className="clay-btn-primary px-6 py-2.5 text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2"
+              className="clay-btn-primary px-5 py-2 text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 shrink-0"
             >
               <span>Begin Your Journey</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
-          {/* Mobile Toggle */}
-          <div className="flex lg:hidden items-center gap-2">
+          {/* Mobile & Tablet Right Controls (< 1024px) */}
+          <div className="flex lg:hidden items-center gap-2 shrink-0">
+            <button
+              onClick={toggleDarkMode}
+              aria-label="Toggle Night / Dark Mode"
+              title={darkMode ? "Switch to Light Mode" : "Switch to Night / Dark Mode"}
+              className="p-1.5 sm:p-2 rounded-full clay-badge text-aura-750 transition-all flex items-center justify-center shrink-0"
+            >
+              {darkMode ? <Sun className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400" /> : <Moon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-aura-750" />}
+            </button>
             <Link
               href="/register"
-              className="clay-btn-primary px-4 py-1.5 text-[10px] font-bold uppercase tracking-wider sm:hidden"
+              className="clay-btn-primary px-3 py-1.5 sm:px-4 sm:py-2 text-[9.5px] sm:text-xs font-bold uppercase tracking-wider shrink-0 whitespace-nowrap"
             >
-              Consult
+              <span className="hidden sm:inline">Begin Your Journey</span>
+              <span className="sm:hidden">Consult</span>
             </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle Navigation Menu"
-              className="p-2 rounded-full clay-badge text-charcoal hover:bg-aura-100 transition-colors"
+              className="p-1.5 sm:p-2 rounded-full clay-badge text-charcoal hover:bg-aura-100 transition-colors shrink-0"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? <X className="w-4 h-4 sm:w-5 sm:h-5" /> : <Menu className="w-4 h-4 sm:w-5 sm:h-5" />}
             </button>
           </div>
         </div>
@@ -272,7 +336,7 @@ export default function Navbar() {
                   Service Categories
                 </span>
                 <div className="grid grid-cols-1 gap-2 pl-2">
-                  {SERVICE_CATEGORIES.map((cat) => (
+                  {SERVICE_CATEGORIES.filter((c) => c.group !== 'WELLNESS').map((cat) => (
                     <Link
                       key={cat.id}
                       href={`/services/${cat.slug}`}

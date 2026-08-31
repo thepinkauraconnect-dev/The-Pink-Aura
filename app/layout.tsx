@@ -54,15 +54,15 @@ export default function RootLayout({
         {/* Subtle Silk Pattern Overlay */}
         <div className="fixed inset-0 bg-silk-pattern pointer-events-none opacity-60 z-0" />
 
-        {/* Ambient Animated Luxury Aura Orbs */}
-        <div className="fixed top-10 left-10 w-[600px] h-[600px] bg-aura-200/35 rounded-full blur-[140px] pointer-events-none z-0 animate-pulse" />
-        <div className="fixed bottom-20 right-10 w-[550px] h-[550px] bg-champagne-light/35 rounded-full blur-[140px] pointer-events-none z-0" />
-        <div className="fixed top-1/2 left-1/3 w-[450px] h-[450px] bg-aura-100/40 rounded-full blur-[120px] pointer-events-none z-0" />
+        {/* Ambient Animated Luxury Aura Orbs (Adaptive for Light & Dark Modes) */}
+        <div className="fixed top-10 left-10 w-[600px] h-[600px] bg-aura-200/35 dark:bg-[#9E1B4E]/20 rounded-full blur-[140px] pointer-events-none z-0 animate-pulse transition-colors duration-700" />
+        <div className="fixed bottom-20 right-10 w-[550px] h-[550px] bg-champagne-light/35 dark:bg-[#700B34]/25 rounded-full blur-[140px] pointer-events-none z-0 transition-colors duration-700" />
+        <div className="fixed top-1/2 left-1/3 w-[450px] h-[450px] bg-aura-100/40 dark:bg-[#4A0A22]/30 rounded-full blur-[120px] pointer-events-none z-0 transition-colors duration-700" />
 
         {/* Layout Shell */}
         <div className="relative z-10 flex flex-col min-h-screen">
           <Navbar />
-          <main className="flex-grow pt-24">{children}</main>
+          <main className="flex-grow pt-16 sm:pt-20">{children}</main>
           <Footer />
           <WhatsAppButton />
         </div>

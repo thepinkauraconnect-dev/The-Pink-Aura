@@ -203,9 +203,9 @@ export default function Footer() {
             href="https://vyome.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-sky-950/70 via-blue-950/50 to-cyan-950/70 border border-sky-400/40 text-sky-200 hover:text-white hover:border-sky-300/80 hover:shadow-[0_0_16px_rgba(56,189,248,0.35)] transition-all duration-300 group"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full clay-badge bg-gradient-to-r from-[#FFF0F4] via-[#FCE4EC] to-[#F8C8DC] border border-white/90 text-aura-750 hover:text-aura-900 hover:scale-105 shadow-clay-sm transition-all duration-300 group"
           >
-            <span className="text-[11px] font-normal tracking-wide text-sky-200/90 group-hover:text-white">
+            <span className="text-[11px] font-medium tracking-wide text-aura-700">
               Developed by
             </span>
             <div className="relative w-4 h-4 shrink-0">
@@ -213,10 +213,10 @@ export default function Footer() {
                 src="/images/Vyome/Vyome%20Logo.png"
                 alt="Vyome Logo"
                 fill
-                className="object-contain filter drop-shadow-[0_0_6px_rgba(56,189,248,0.6)] group-hover:scale-110 transition-transform"
+                className="object-contain filter drop-shadow-[0_0_6px_rgba(233,30,99,0.35)] group-hover:scale-110 transition-transform"
               />
             </div>
-            <span className="font-semibold text-xs text-sky-300 group-hover:text-sky-100 tracking-wider uppercase">
+            <span className="font-extrabold text-xs text-aura-750 group-hover:text-aura-900 tracking-wider uppercase">
               Vyome
             </span>
           </a>

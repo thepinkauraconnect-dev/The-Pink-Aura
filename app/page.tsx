@@ -13,12 +13,12 @@ export default function RootEntryPage() {
       <motion.div
         animate={{ y: [0, -15, 0], scale: [1, 1.05, 1] }}
         transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute top-1/4 left-1/4 w-[550px] h-[550px] bg-aura-200/40 rounded-full blur-[120px] pointer-events-none"
+        className="absolute top-1/4 left-1/4 w-[550px] h-[550px] bg-aura-200/40 dark:bg-[#9E1B4E]/25 rounded-full blur-[120px] pointer-events-none"
       />
       <motion.div
         animate={{ y: [0, 15, 0], scale: [1, 0.95, 1] }}
         transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute bottom-10 right-1/4 w-[500px] h-[500px] bg-champagne-light/35 rounded-full blur-[120px] pointer-events-none"
+        className="absolute bottom-10 right-1/4 w-[500px] h-[500px] bg-champagne-light/35 dark:bg-[#700B34]/25 rounded-full blur-[120px] pointer-events-none"
       />
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
@@ -53,7 +53,7 @@ export default function RootEntryPage() {
             Discover a personalized approach to beauty, advanced aesthetics, hair restoration, body sculpting, and holistic wellbeing.
           </p>
 
-          <div className="p-5 rounded-3xl clay-card space-y-2">
+          <div className="p-5 rounded-3xl clay-card clay-card-contour space-y-2">
             <p className="text-xs italic font-serif text-aura-700 font-bold">
               "Enhance Your Beauty • Elevate Your Aura"
             </p>

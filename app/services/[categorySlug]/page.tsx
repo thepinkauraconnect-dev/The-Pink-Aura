@@ -80,7 +80,7 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
 
       {/* 2. OVERVIEW & HIGHLIGHTS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="clay-card bg-white/90 rounded-4xl p-8 sm:p-12 border border-white grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="clay-card bg-white/90 dark:bg-[#320A19]/90 rounded-4xl p-8 sm:p-12 border border-white dark:border-aura-700/30 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-7 space-y-4">
             <span className="text-xs font-extrabold uppercase tracking-widest text-aura-600 block">
               Treatment Overview
@@ -88,21 +88,21 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
             <h2 className="font-serif text-3xl font-bold text-charcoal">
               Precision Clinical Care & Personalized Craftsmanship
             </h2>
-            <p className="text-sm sm:text-base text-charcoal-muted leading-relaxed font-light">
+            <p className="text-sm sm:text-base text-charcoal-muted leading-relaxed font-normal">
               {category.description}
             </p>
           </div>
 
           {category.highlights && (
-            <div className="lg:col-span-5 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-white via-aura-50/50 to-[#FDF4F7] border border-aura-200/80 shadow-[0_8px_24px_-6px_rgba(158,77,104,0.12)] space-y-4">
+            <div className="lg:col-span-5 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-[#FFF0F4] via-[#FCE4EC] to-[#F8C8DC] dark:from-[#320A19] dark:via-[#240511] dark:to-[#160309] border border-aura-200/80 dark:border-aura-700/30 shadow-clay-sm dark:shadow-none space-y-4">
               <h4 className="font-serif text-lg sm:text-xl font-bold text-charcoal flex items-center gap-2.5">
-                <Flower2 className="w-5 h-5 text-aura-600 shrink-0" />
+                <Flower2 className="w-5 h-5 text-aura-600 dark:text-aura-300 shrink-0" />
                 <span>Key Experience Highlights</span>
               </h4>
               <ul className="space-y-3">
                 {category.highlights.map((h, idx) => (
-                  <li key={idx} className="text-xs sm:text-sm text-charcoal-muted flex items-start gap-2.5 font-light leading-relaxed">
-                    <CheckCircle2 className="w-4 h-4 text-aura-600 shrink-0 mt-0.5" />
+                  <li key={idx} className="text-xs sm:text-sm flex items-start gap-2.5 font-medium leading-relaxed">
+                    <CheckCircle2 className="w-4 h-4 text-aura-600 dark:text-aura-300 shrink-0 mt-0.5" />
                     <span className="text-charcoal">{h}</span>
                   </li>
                 ))}
@@ -132,7 +132,7 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
           {category.treatments.map((treatment) => (
             <div
               key={treatment.id}
-              className="clay-card clay-card-hover rounded-3xl p-6 border border-white flex flex-col justify-between space-y-4"
+              className="clay-card clay-card-hover rounded-3xl p-6 border border-white dark:border-aura-700/30 flex flex-col justify-between space-y-4"
             >
               <div className="space-y-2">
                 <div className="flex items-center justify-between gap-2">
@@ -140,7 +140,7 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
                     {treatment.name}
                   </h3>
                   {treatment.tag && (
-                    <span className="text-[10px] uppercase tracking-wider font-extrabold text-aura-700 clay-badge px-2.5 py-0.5 shrink-0">
+                    <span className="text-[10px] uppercase tracking-wider font-extrabold text-aura-750 clay-badge px-2.5 py-0.5 shrink-0">
                       {treatment.tag}
                     </span>
                   )}
@@ -150,14 +150,14 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
                 </p>
               </div>
 
-              <div className="pt-2 border-t border-aura-100 flex items-center justify-between">
-                <span className="text-[11px] text-aura-600 font-bold">Personalized Plan Available</span>
+              <div className="pt-3 mt-3 border-t border-aura-200/50 dark:border-aura-700/30 flex items-center justify-between gap-2">
+                <span className="text-[11px] text-aura-750 dark:text-aura-300 font-bold">Doctor Assessment Plan</span>
                 <Link
                   href={`/register?category=${encodeURIComponent(category.title)}&treatment=${encodeURIComponent(treatment.name)}`}
-                  className="text-xs font-bold text-aura-600 hover:text-aura-700 inline-flex items-center gap-1 clay-badge px-3 py-1 hover:scale-105 transition-all"
+                  className="clay-btn-primary px-4 py-2 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 shrink-0"
                 >
-                  <span>Enquire</span>
-                  <ChevronRight className="w-3.5 h-3.5" />
+                  <span>Enquire Now</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
             </div>
@@ -180,7 +180,7 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
 
           <div className="space-y-4">
             {category.faqs.map((faq, idx) => (
-              <div key={idx} className="clay-card rounded-3xl p-6 border border-white space-y-2">
+              <div key={idx} className="clay-card rounded-3xl p-6 border border-white dark:border-aura-700/30 space-y-2">
                 <h4 className="font-serif text-base font-bold text-charcoal">
                   {faq.question}
                 </h4>
@@ -195,11 +195,11 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
 
       {/* 5. CONSULTATION BANNER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="clay-card-dark text-white rounded-4xl p-8 sm:p-12 text-center shadow-xl space-y-4">
-          <h3 className="font-serif text-3xl font-bold">
+        <div className="clay-card rounded-4xl p-8 sm:p-12 text-center shadow-clay-lg border border-white dark:border-aura-700/30 space-y-4">
+          <h3 className="font-serif text-3xl font-bold text-charcoal">
             Begin Your {category.title} Journey
           </h3>
-          <p className="text-sm font-light text-white/90 max-w-xl mx-auto">
+          <p className="text-sm font-light text-charcoal-muted max-w-xl mx-auto">
             Schedule your confidential consultation with our aesthetic team to discuss your goals and receive a custom treatment roadmap.
           </p>
           <div className="pt-2">

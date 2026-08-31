@@ -9,10 +9,10 @@ export const metadata: Metadata = {
 
 export default function RegisterPage() {
   return (
-    <div className="min-h-screen py-12 px-4 relative overflow-hidden flex items-center justify-center">
+    <div className="py-6 sm:py-10 px-3 sm:px-4 relative overflow-hidden flex justify-center">
       {/* Background Subtle Gradient & Organic Glow */}
-      <div className="absolute top-10 right-10 w-96 h-96 bg-aura-200/40 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 left-10 w-96 h-96 bg-champagne-light/30 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-10 right-10 w-96 h-96 bg-aura-200/40 dark:bg-[#9E1B4E]/25 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 left-10 w-96 h-96 bg-champagne-light/30 dark:bg-[#700B34]/25 rounded-full blur-3xl pointer-events-none" />
 
       <div className="w-full max-w-4xl mx-auto relative z-10">
         <Suspense fallback={
