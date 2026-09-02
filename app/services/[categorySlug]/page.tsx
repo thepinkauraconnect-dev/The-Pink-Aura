@@ -182,7 +182,7 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
 
           <div className="space-y-4">
             {category.faqs.map((faq, idx) => (
-              <div key={idx} className="clay-card rounded-3xl p-6 border border-white dark:border-aura-700/30 space-y-2">
+              <div key={idx} className="clay-card clay-card-hover rounded-3xl p-6 border border-white dark:border-aura-700/30 space-y-2">
                 <h4 className="font-serif text-base font-bold text-charcoal">
                   {faq.question}
                 </h4>
@@ -197,7 +197,7 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
 
       {/* 5. CONSULTATION BANNER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="clay-card rounded-4xl p-8 sm:p-12 text-center shadow-clay-lg border border-white dark:border-aura-700/30 space-y-4">
+        <div className="clay-card clay-card-hover rounded-4xl p-8 sm:p-12 text-center shadow-clay-lg border border-white dark:border-aura-700/30 space-y-4">
           <h3 className="font-serif text-3xl font-bold text-charcoal">
             Begin Your {category.title} Journey
           </h3>

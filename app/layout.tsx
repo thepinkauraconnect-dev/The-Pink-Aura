@@ -3,6 +3,7 @@ import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
+import GrotoscopeObserver from '@/components/ui/GrotoscopeObserver';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://thepinkaura.co.in'),
@@ -61,6 +62,7 @@ export default function RootLayout({
 
         {/* Layout Shell */}
         <div className="relative z-10 flex flex-col min-h-screen">
+          <GrotoscopeObserver />
           <Navbar />
           <main className="flex-grow pt-16 sm:pt-20">{children}</main>
           <Footer />

@@ -123,9 +123,9 @@ export default function Navbar() {
   }, [mobileMenuOpen]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 py-1.5 sm:py-2.5 px-2 sm:px-4 transition-all duration-300">
+    <header className="fixed top-0 left-0 right-0 z-50 pt-3 sm:pt-4.5 pb-1.5 sm:pb-2.5 px-3 sm:px-6 transition-all duration-300">
       <div
-        className={`max-w-7xl mx-auto px-3.5 sm:px-6 py-1.5 sm:py-2 relative transition-all duration-500 rounded-full ${
+        className={`max-w-7xl mx-auto px-3.5 sm:px-6 py-1 sm:py-1.5 relative transition-all duration-500 rounded-full ${
           scrolled
             ? 'clay-card bg-[#F8BBD0]/95 dark:bg-[#3D0C1E]/95 backdrop-blur-xl shadow-clay-md border border-white/90 dark:border-aura-700/30'
             : 'clay-badge bg-[#FFF5F8]/95 dark:bg-[#2E0817]/95 backdrop-blur-md border border-white/90 dark:border-aura-700/30 shadow-clay-sm'
@@ -134,12 +134,12 @@ export default function Navbar() {
         <div className="flex items-center justify-between gap-2 sm:gap-4 w-full">
           {/* Header Brand Logo Image */}
           <Link href="/home" className="flex items-center group shrink-0">
-            <div className="relative h-9 xs:h-11 sm:h-14 md:h-16 lg:h-18 w-32 xs:w-44 sm:w-60 md:w-72 lg:w-80 shrink-0 -my-1 sm:-my-3 group-hover:scale-105 transition-transform duration-300">
+            <div className="relative h-11 xs:h-13 sm:h-16 md:h-18 lg:h-20 w-36 xs:w-48 sm:w-64 md:w-76 lg:w-[350px] shrink-0 -my-2.5 sm:-my-4 lg:-my-5 group-hover:scale-105 transition-transform duration-300">
               <Image
                 src="/logo-header.png"
                 alt="The Pink Aura"
                 fill
-                className="object-contain object-left transition-all duration-300 dark:brightness-125 dark:drop-shadow-[0_0_14px_rgba(248,187,208,0.45)]"
+                className="object-contain object-left transition-all duration-300 dark:brightness-125 dark:drop-shadow-[0_0_16px_rgba(248,187,208,0.55)]"
                 priority
               />
             </div>

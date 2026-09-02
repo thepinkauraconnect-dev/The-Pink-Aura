@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { Heart, ShieldCheck, Flower2, ArrowRight } from 'lucide-react';
-import { FOUNDERS } from '@/data/services';
+import { Heart, ShieldCheck, Flower2, ArrowRight, Award, CheckCircle2, Phone } from 'lucide-react';
+import { FOUNDERS, SURGEONS } from '@/data/services';
 
 export const metadata: Metadata = {
   title: 'About Us — The Pink Aura Aesthetic & Wellness',
-  description: 'Learn about The Pink Aura, Co-Founder Dr. Yashaswini HV, Founder Nagendra Karanik, and our holistic philosophy of aesthetic & wellness care.',
+  description: 'Learn about The Pink Aura, Co-Founder Dr. Yashaswini HV, Founder Nagendra Karanik, Senior Surgeon Dr. Priyadarshan K, and our holistic philosophy.',
 };
 
 export default function AboutPage() {
@@ -114,6 +114,51 @@ export default function AboutPage() {
                   {founder.phone}
                 </a>
               </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Senior Surgical Faculty Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div className="text-center space-y-2 max-w-2xl mx-auto">
+          <span className="text-xs font-extrabold uppercase tracking-widest text-aura-600 block">
+            Senior Surgical Specialist
+          </span>
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-charcoal">
+            Expert Cosmetic & Plastic Surgery
+          </h2>
+        </div>
+
+        <div className="max-w-3xl mx-auto">
+          {SURGEONS.map((surgeon, idx) => (
+            <div
+              key={idx}
+              className="clay-card rounded-4xl p-8 sm:p-10 border border-white dark:border-aura-700/30 shadow-clay-lg space-y-6 flex flex-col justify-between"
+            >
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+                <div className="relative w-36 h-36 rounded-3xl overflow-hidden shrink-0 shadow-lg border-2 border-white dark:border-aura-700/30">
+                  <Image
+                    src={surgeon.image}
+                    alt={surgeon.name}
+                    fill
+                    className="object-cover object-[center_15%]"
+                  />
+                </div>
+                <div className="space-y-2 text-center sm:text-left">
+                  <h3 className="font-serif text-2xl font-bold text-charcoal">{surgeon.name}</h3>
+                  <p className="text-xs font-extrabold uppercase tracking-wider text-aura-600">
+                    {surgeon.role}
+                  </p>
+                  <p className="text-xs text-aura-800 dark:text-aura-100 font-medium italic bg-aura-50 dark:bg-white/10 border border-aura-200/60 dark:border-white/10 rounded-xl px-3 py-2">
+                    {surgeon.qualifications}
+                  </p>
+                </div>
+              </div>
+
+              <p className="text-xs sm:text-sm text-charcoal-muted leading-relaxed font-light border-t border-aura-100 dark:border-aura-700/30 pt-4">
+                {surgeon.bio}
+              </p>
             </div>
           ))}
         </div>

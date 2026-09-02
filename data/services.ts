@@ -414,6 +414,16 @@ export const FOUNDERS = [
   }
 ];
 
+export const SURGEONS = [
+  {
+    name: 'Dr. Priyadarshan K',
+    role: 'Senior Consultant Cosmetic & Plastic Surgeon',
+    qualifications: 'MBBS | MS | MCh | DNB (Plastic Surgery)',
+    bio: 'Nearly 30 years of plastic surgery mastery since 1994. Honored by the Karnataka State Government, specializing in cosmetic surgery, reconstructive procedures, facial aesthetics, and lip reduction.',
+    image: '/images/surgeons/Dr.%20priyadarshan%20k.jpeg'
+  }
+];
+
 export const CLINIC_INFO = {
   name: 'The Pink Aura — Aesthetic & Wellness Centre',
   tagline: 'Enhance Your Beauty • Elevate Your Aura',

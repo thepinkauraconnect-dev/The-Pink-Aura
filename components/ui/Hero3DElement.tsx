@@ -22,7 +22,7 @@ export default function Hero3DElement() {
           transformStyle: 'preserve-3d',
           perspective: 800,
         }}
-        className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-white/95 via-pink-50/90 to-aura-100/90 dark:from-[#3B091D] dark:via-[#250512] dark:to-[#1A030C] backdrop-blur-xl border-2 border-white/90 dark:border-aura-400/50 shadow-[0_10px_28px_rgba(158,27,78,0.35)] flex items-center justify-center p-1.5 cursor-pointer hover:scale-110 transition-transform duration-300"
+        className="relative w-18 h-18 sm:w-22 sm:h-22 rounded-full bg-gradient-to-br from-white/95 via-pink-50/90 to-aura-100/90 dark:from-[#3B091D] dark:via-[#250512] dark:to-[#1A030C] backdrop-blur-xl border-2 border-white/90 dark:border-aura-400/50 shadow-[0_12px_32px_rgba(158,27,78,0.4)] flex items-center justify-center p-2 cursor-pointer hover:scale-110 transition-transform duration-300"
       >
         {/* Soft Pink Aura Glow Behind Coin */}
         <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-aura-400/35 via-pink-300/25 to-champagne/30 blur-md pointer-events-none" />

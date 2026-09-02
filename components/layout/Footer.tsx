@@ -17,12 +17,12 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-2 space-y-6">
             <Link href="/home" className="flex items-center group">
-              <div className="relative h-14 w-64 shrink-0 group-hover:scale-105 transition-transform duration-300">
+              <div className="relative h-20 sm:h-24 w-80 sm:w-[420px] shrink-0 group-hover:scale-105 transition-transform duration-300">
                 <Image
                   src="/logo-header.png"
                   alt="The Pink Aura"
                   fill
-                  className="object-contain object-left brightness-110 drop-shadow-[0_0_12px_rgba(248,187,208,0.35)]"
+                  className="object-contain object-left brightness-110 drop-shadow-[0_0_16px_rgba(248,187,208,0.45)]"
                 />
               </div>
             </Link>
@@ -200,12 +200,12 @@ export default function Footer() {
             <span className="text-[11px] font-medium tracking-wide text-aura-700">
               Developed by
             </span>
-            <div className="relative w-4 h-4 shrink-0">
+            <div className="relative w-6 h-6 shrink-0">
               <Image
                 src="/images/Vyome/Vyome%20Logo.png"
                 alt="Vyome Logo"
                 fill
-                className="object-contain filter drop-shadow-[0_0_6px_rgba(233,30,99,0.35)] group-hover:scale-110 transition-transform"
+                className="object-contain filter drop-shadow-[0_0_8px_rgba(233,30,99,0.45)] group-hover:scale-110 transition-transform"
               />
             </div>
             <span className="font-extrabold text-xs text-aura-750 group-hover:text-aura-900 tracking-wider uppercase">

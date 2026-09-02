@@ -17,14 +17,14 @@ export default function WelcomePage() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="inline-flex items-center justify-center p-3 rounded-full bg-white/80 clay-badge mb-4"
+          className="inline-flex items-center justify-center p-4 rounded-full bg-white/90 clay-badge grotoscope-hover mb-4 shadow-clay-lg"
         >
-          <div className="relative w-16 h-16 rounded-full overflow-hidden">
+          <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden bg-white p-1.5 shadow-md">
             <Image
               src="/images/logo/Logo%20the%20pink%20aura.png"
               alt="The Pink Aura Logo"
               fill
-              className="object-contain p-0.5"
+              className="object-contain p-1"
               priority
             />
           </div>

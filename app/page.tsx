@@ -30,17 +30,17 @@ export default function RootEntryPage() {
           className="lg:col-span-5 space-y-6 text-left"
         >
           {/* Logo & Clay Emblem */}
-          <div className="inline-flex items-center gap-3 p-2 pr-5 rounded-full clay-badge">
-            <div className="relative w-10 h-10 rounded-full overflow-hidden bg-white p-0.5 shadow-sm">
+          <div className="inline-flex items-center gap-4 p-2.5 pr-6 rounded-full clay-badge grotoscope-hover">
+            <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-white p-1 shadow-md shrink-0">
               <Image
                 src="/images/logo/Logo%20the%20pink%20aura.png"
                 alt="The Pink Aura Logo"
                 fill
-                className="object-contain p-0.5"
+                className="object-contain p-1"
                 priority
               />
             </div>
-            <span className="text-xs font-extrabold text-aura-800 uppercase tracking-widest">
+            <span className="text-sm font-extrabold text-aura-800 uppercase tracking-widest">
               The Pink Aura
             </span>
           </div>

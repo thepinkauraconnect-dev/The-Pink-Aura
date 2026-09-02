@@ -24,7 +24,7 @@ import {
   Users,
   CalendarCheck
 } from 'lucide-react';
-import { SERVICE_CATEGORIES, FOUNDERS, CLINIC_INFO } from '@/data/services';
+import { SERVICE_CATEGORIES, FOUNDERS, SURGEONS, CLINIC_INFO } from '@/data/services';
 import { ServiceGroup } from '@/types/services';
 
 const FILTER_TABS: { label: string; group: ServiceGroup | 'ALL' }[] = [
@@ -198,7 +198,7 @@ export default function MainHomePage() {
                 key={idx}
                 whileHover={{ y: -6 }}
                 transition={{ duration: 0.3 }}
-                className="clay-card rounded-3xl p-6 border border-white dark:border-aura-700/30 flex flex-col justify-between space-y-4 relative overflow-hidden group"
+                className="clay-card clay-card-hover rounded-3xl p-6 border border-white dark:border-aura-700/30 flex flex-col justify-between space-y-4 relative overflow-hidden group"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
@@ -407,7 +407,7 @@ export default function MainHomePage() {
           {FOUNDERS.map((founder, i) => (
             <div
               key={i}
-              className="clay-card rounded-4xl p-8 border border-white dark:border-aura-700/30 flex flex-col justify-between space-y-6 shadow-clay-lg hover:shadow-xl transition-shadow"
+              className="clay-card clay-card-hover rounded-4xl p-8 border border-white dark:border-aura-700/30 flex flex-col justify-between space-y-6 shadow-clay-lg hover:shadow-xl transition-shadow"
             >
               <div className="flex flex-col sm:flex-row gap-6 items-center sm:items-start">
                 <div className="relative w-32 h-32 sm:w-36 sm:h-36 rounded-3xl overflow-hidden shrink-0 shadow-lg border-2 border-white dark:border-aura-700/30">
@@ -453,6 +453,41 @@ export default function MainHomePage() {
                   <span>Call {founder.name.split(' ')[0]}</span>
                 </a>
               </div>
+            </div>
+          ))}
+
+          {SURGEONS.map((surgeon, sIdx) => (
+            <div
+              key={`surgeon-${sIdx}`}
+              className="clay-card clay-card-hover rounded-4xl p-8 border border-white dark:border-aura-700/30 flex flex-col justify-between space-y-6 shadow-clay-lg hover:shadow-xl transition-shadow"
+            >
+              <div className="flex flex-col sm:flex-row gap-6 items-center sm:items-start">
+                <div className="relative w-32 h-32 sm:w-36 sm:h-36 rounded-3xl overflow-hidden shrink-0 shadow-lg border-2 border-white dark:border-aura-700/30">
+                  <Image
+                    src={surgeon.image}
+                    alt={surgeon.name}
+                    fill
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                    quality={85}
+                    className="object-cover object-[center_15%]"
+                  />
+                </div>
+                <div className="space-y-2 text-center sm:text-left">
+                  <div>
+                    <h3 className="font-serif text-2xl font-bold text-charcoal">{surgeon.name}</h3>
+                    <span className="text-xs font-extrabold uppercase tracking-wider text-aura-600 block mt-1">
+                      {surgeon.role}
+                    </span>
+                    <span className="text-[11px] text-charcoal-muted italic block mt-0.5 font-light">
+                      {surgeon.qualifications}
+                    </span>
+                  </div>
+                  <p className="text-xs text-charcoal-muted leading-relaxed font-light">
+                    {surgeon.bio}
+                  </p>
+                </div>
+              </div>
+
             </div>
           ))}
         </div>
