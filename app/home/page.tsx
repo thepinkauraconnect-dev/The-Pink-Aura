@@ -459,7 +459,7 @@ export default function MainHomePage() {
           {SURGEONS.map((surgeon, sIdx) => (
             <div
               key={`surgeon-${sIdx}`}
-              className="clay-card clay-card-hover rounded-4xl p-8 border border-white dark:border-aura-700/30 flex flex-col justify-between space-y-6 shadow-clay-lg hover:shadow-xl transition-shadow"
+              className="clay-card clay-card-hover rounded-4xl p-6 sm:p-8 border border-white dark:border-aura-700/30 flex flex-col justify-between space-y-6 shadow-clay-lg hover:shadow-xl transition-shadow"
             >
               <div className="flex flex-col sm:flex-row gap-6 items-center sm:items-start">
                 <div className="relative w-32 h-32 sm:w-36 sm:h-36 rounded-3xl overflow-hidden shrink-0 shadow-lg border-2 border-white dark:border-aura-700/30">
@@ -472,7 +472,7 @@ export default function MainHomePage() {
                     className="object-cover object-[center_15%]"
                   />
                 </div>
-                <div className="space-y-2 text-center sm:text-left">
+                <div className="space-y-2 text-center sm:text-left flex-1">
                   <div>
                     <h3 className="font-serif text-2xl font-bold text-charcoal">{surgeon.name}</h3>
                     <span className="text-xs font-extrabold uppercase tracking-wider text-aura-600 block mt-1">
@@ -482,12 +482,30 @@ export default function MainHomePage() {
                       {surgeon.qualifications}
                     </span>
                   </div>
-                  <p className="text-xs text-charcoal-muted leading-relaxed font-light">
-                    {surgeon.bio}
+                  <p className="text-xs sm:text-sm text-charcoal-muted leading-relaxed font-light pt-1">
+                    {surgeon.intro || surgeon.bio}
                   </p>
                 </div>
               </div>
 
+              {surgeon.highlights && surgeon.highlights.length > 0 && (
+                <div className="space-y-3 pt-5 border-t border-aura-100 dark:border-aura-700/30">
+                  <h4 className="font-serif text-base font-bold text-charcoal">
+                    {surgeon.whyChooseTitle || `Why Choose ${surgeon.name}?`}
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {surgeon.highlights.map((h, hIdx) => (
+                      <div key={hIdx} className="flex items-start gap-2.5 p-3 rounded-2xl bg-white/40 dark:bg-white/5 border border-white/60 dark:border-white/10 text-xs text-charcoal-muted">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                        <div>
+                          <span className="font-bold text-charcoal">{h.title}: </span>
+                          <span className="font-light leading-relaxed">{h.desc}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           ))}
         </div>

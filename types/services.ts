@@ -27,3 +27,21 @@ export interface ServiceCategory {
   faqs: ServiceFAQ[];
   highlights?: string[];
 }
+
+export interface SurgeonHighlight {
+  title: string;
+  desc: string;
+}
+
+export interface Surgeon {
+  name: string;
+  role: string;
+  qualifications: string;
+  intro: string;
+  whyChooseTitle: string;
+  highlights: SurgeonHighlight[];
+  bio: string;
+  image: string;
+}
+
+

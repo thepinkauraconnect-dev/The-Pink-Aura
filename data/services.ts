@@ -417,9 +417,29 @@ export const FOUNDERS = [
 export const SURGEONS = [
   {
     name: 'Dr. Priyadarshan K',
-    role: 'Senior Consultant Cosmetic & Plastic Surgeon',
-    qualifications: 'MBBS | MS | MCh | DNB (Plastic Surgery)',
-    bio: 'Nearly 30 years of plastic surgery mastery since 1994. Honored by the Karnataka State Government, specializing in cosmetic surgery, reconstructive procedures, facial aesthetics, and lip reduction.',
+    role: 'Visiting Consultant Cosmetic & Plastic Surgeon',
+    qualifications: 'MBBS | MS (General Surgery) | MCh (Plastic Surgery) | DNB (Plastic Surgery)',
+    intro: 'Dr. Priyadarshan K. is a highly experienced and skilled Cosmetic & Plastic Surgeon, widely regarded as one of the best in Bangalore, India.',
+    whyChooseTitle: 'Why Choose Dr. Priyadarshan K.?',
+    highlights: [
+      {
+        title: 'Extensive Experience',
+        desc: 'With nearly 30 years of experience in plastic surgery since 1994, he possesses incredible expertise in dealing with all sorts of plastic surgeries.'
+      },
+      {
+        title: 'Broad Expertise in Plastic Surgery',
+        desc: 'He holds tremendous experience in all aspects of Plastic Surgery such as Cosmetic Surgery, Reconstructive Surgery, Hand Surgery, Maxillofacial Surgery, and Microvascular Surgery.'
+      },
+      {
+        title: 'Prestigious Education',
+        desc: 'He completed his MBBS, MS - General Surgery, MCh - Plastic Surgery, and DNB - Plastic Surgery, demonstrating a strong commitment to excellence.'
+      },
+      {
+        title: 'Recognised Excellence',
+        desc: 'He has achieved many awards and recognitions owing to his matchless services in the field of Plastic Surgery. The Karnataka state government has facilitated him many times as well.'
+      }
+    ],
+    bio: 'Dr. Priyadarshan K. is a highly experienced and skilled Cosmetic & Plastic Surgeon, widely regarded as one of the best in Bangalore, India, with nearly 30 years of surgical expertise since 1994.',
     image: '/images/surgeons/Dr.%20priyadarshan%20k.jpeg'
   }
 ];

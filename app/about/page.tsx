@@ -6,7 +6,7 @@ import { FOUNDERS, SURGEONS } from '@/data/services';
 
 export const metadata: Metadata = {
   title: 'About Us — The Pink Aura Aesthetic & Wellness',
-  description: 'Learn about The Pink Aura, Co-Founder Dr. Yashaswini HV, Founder Nagendra Karanik, Senior Surgeon Dr. Priyadarshan K, and our holistic philosophy.',
+  description: 'Learn about The Pink Aura, Co-Founder Dr. Yashaswini HV, Founder Nagendra Karanik, Visiting Surgeon Dr. Priyadarshan K, and our holistic philosophy.',
 };
 
 export default function AboutPage() {
@@ -119,22 +119,22 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Senior Surgical Faculty Section */}
+      {/* Visiting Surgical Faculty Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="text-center space-y-2 max-w-2xl mx-auto">
           <span className="text-xs font-extrabold uppercase tracking-widest text-aura-600 block">
-            Senior Surgical Specialist
+            Visiting Surgical Specialist
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-charcoal">
             Expert Cosmetic & Plastic Surgery
           </h2>
         </div>
 
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           {SURGEONS.map((surgeon, idx) => (
             <div
               key={idx}
-              className="clay-card rounded-4xl p-8 sm:p-10 border border-white dark:border-aura-700/30 shadow-clay-lg space-y-6 flex flex-col justify-between"
+              className="clay-card rounded-4xl p-6 sm:p-10 border border-white dark:border-aura-700/30 shadow-clay-lg space-y-6 flex flex-col justify-between"
             >
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
                 <div className="relative w-36 h-36 rounded-3xl overflow-hidden shrink-0 shadow-lg border-2 border-white dark:border-aura-700/30">
@@ -145,20 +145,38 @@ export default function AboutPage() {
                     className="object-cover object-[center_15%]"
                   />
                 </div>
-                <div className="space-y-2 text-center sm:text-left">
+                <div className="space-y-2 text-center sm:text-left flex-1">
                   <h3 className="font-serif text-2xl font-bold text-charcoal">{surgeon.name}</h3>
                   <p className="text-xs font-extrabold uppercase tracking-wider text-aura-600">
                     {surgeon.role}
                   </p>
-                  <p className="text-xs text-aura-800 dark:text-aura-100 font-medium italic bg-aura-50 dark:bg-white/10 border border-aura-200/60 dark:border-white/10 rounded-xl px-3 py-2">
+                  <p className="text-xs text-aura-800 dark:text-aura-100 font-medium italic bg-aura-50 dark:bg-white/10 border border-aura-200/60 dark:border-white/10 rounded-xl px-3 py-2 inline-block">
                     {surgeon.qualifications}
+                  </p>
+                  <p className="text-xs sm:text-sm text-charcoal-muted leading-relaxed font-light pt-2">
+                    {surgeon.intro || surgeon.bio}
                   </p>
                 </div>
               </div>
 
-              <p className="text-xs sm:text-sm text-charcoal-muted leading-relaxed font-light border-t border-aura-100 dark:border-aura-700/30 pt-4">
-                {surgeon.bio}
-              </p>
+              {surgeon.highlights && surgeon.highlights.length > 0 && (
+                <div className="space-y-4 border-t border-aura-100 dark:border-aura-700/30 pt-6">
+                  <h4 className="font-serif text-lg font-bold text-charcoal">
+                    {surgeon.whyChooseTitle || `Why Choose ${surgeon.name}?`}
+                  </h4>
+                  <div className="space-y-3">
+                    {surgeon.highlights.map((h, hIdx) => (
+                      <div key={hIdx} className="flex items-start gap-3 p-3.5 rounded-2xl bg-white/40 dark:bg-white/5 border border-white/60 dark:border-white/10 text-xs sm:text-sm text-charcoal-muted">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                        <div>
+                          <strong className="text-charcoal font-semibold">{h.title}: </strong>
+                          <span className="font-light">{h.desc}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           ))}
         </div>
