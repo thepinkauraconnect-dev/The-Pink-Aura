@@ -70,7 +70,7 @@ const HOME_FAQS = [
   },
   {
     q: 'What is the clinic timing and weekly schedule?',
-    a: 'We are open Wednesday to Monday from 10:00 AM to 7:00 PM. Please note that our clinic is closed on Tuesdays.'
+    a: 'We are open Monday to Sunday from 10:00 AM to 7:00 PM. Please note that our clinic is closed on Tuesdays.'
   },
   {
     q: 'Are the treatments safe and FDA-approved?',
@@ -124,7 +124,7 @@ export default function MainHomePage() {
             </div>
 
             <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full bg-white/25 dark:bg-black/30 backdrop-blur-md border border-white/30 text-[9px] font-mono font-bold uppercase tracking-wider text-white/95">
-              <span>Wed–Mon: 10AM–7PM</span>
+              <span>Mon–Sun: 10AM–7PM (Tue Closed)</span>
             </div>
           </div>
 
