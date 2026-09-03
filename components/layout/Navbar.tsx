@@ -40,12 +40,13 @@ export default function Navbar() {
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
-    const isDark = savedTheme === 'dark';
-    setDarkMode(isDark);
-    if (isDark) {
+    if (savedTheme === 'dark') {
+      setDarkMode(true);
       document.documentElement.classList.add('dark');
     } else {
+      setDarkMode(false);
       document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
     }
   }, []);
 
