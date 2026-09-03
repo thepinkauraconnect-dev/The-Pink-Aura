@@ -39,49 +39,50 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
 
   return (
     <div className="space-y-12 sm:space-y-16 pb-20 overflow-x-hidden">
-      {/* 1. TOP HERO BANNER USING THE SPECIFIC UPLOADED SERVICE IMAGE */}
+      {/* 1. TOP HERO BANNER SHOWING THE CLEAN SERVICE IMAGE */}
       <section className="relative px-3 sm:px-6 lg:px-8 pt-3 sm:pt-6 max-w-[1440px] mx-auto">
-        <div className="relative w-full min-h-[50vh] sm:min-h-[65vh] lg:min-h-[72vh] rounded-[28px] sm:rounded-[44px] overflow-hidden shadow-[0_28px_70px_-15px_rgba(158,77,104,0.22)] border border-white flex flex-col justify-center p-6 sm:p-10 lg:p-14">
-          {/* Custom Uploaded Image for this Specific Service Category */}
-          <div className="absolute inset-0 z-0">
-            <Image
-              src={category.heroImage}
-              alt={category.title}
-              fill
-              sizes="100vw"
-              quality={85}
-              className="object-cover object-center scale-100 sm:scale-105 transition-transform duration-1000"
-              priority
-            />
-            {/* Soft Transparent Cinematic Overlays */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-aura-950/85" />
-            <div className="absolute inset-0 bg-gradient-to-r from-aura-950/50 via-transparent to-aura-950/30" />
+        <div className="relative w-full h-[40vh] sm:h-[55vh] lg:h-[65vh] rounded-[28px] sm:rounded-[44px] overflow-hidden shadow-[0_28px_70px_-15px_rgba(158,77,104,0.22)] border border-white">
+          <Image
+            src={category.heroImage}
+            alt={category.title}
+            fill
+            sizes="100vw"
+            quality={90}
+            className="object-cover object-center scale-100 sm:scale-105 transition-transform duration-1000"
+            priority
+          />
+        </div>
+      </section>
+
+      {/* 2. SERVICE TITLE & TAGLINE BELOW THE IMAGE */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="clay-card rounded-4xl p-8 sm:p-12 text-center border border-white dark:border-aura-700/30 space-y-4 shadow-clay-lg">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full clay-badge text-aura-800 text-xs font-extrabold uppercase tracking-widest mx-auto">
+            <Flower2 className="w-3.5 h-3.5 text-aura-600" />
+            <span>Category {category.number} • {category.group}</span>
           </div>
 
-          {/* Hero Content: ONLY Service Name & Tagline */}
-          <div className="relative z-20 w-full max-w-3xl space-y-4 text-white drop-shadow-md">
-            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-light text-white tracking-tight leading-[1.1]">
-              {category.title}
-            </h1>
+          <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold text-charcoal tracking-tight">
+            {category.title}
+          </h1>
 
-            <p className="text-sm sm:text-xl text-pink-100 font-serif italic max-w-2xl leading-relaxed">
-              "{category.subtitle}"
-            </p>
+          <p className="text-base sm:text-xl text-aura-700 dark:text-aura-300 font-serif italic max-w-2xl mx-auto">
+            "{category.subtitle}"
+          </p>
 
-            <div className="pt-2">
-              <Link
-                href={`/register?category=${encodeURIComponent(category.title)}`}
-                className="clay-btn-primary inline-flex items-center gap-2 px-7 py-3.5 text-xs font-extrabold uppercase tracking-widest shadow-lg"
-              >
-                <span>Book Consultation</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
+          <div className="pt-2 flex justify-center">
+            <Link
+              href={`/register?category=${encodeURIComponent(category.title)}`}
+              className="clay-btn-primary inline-flex items-center gap-2 px-8 py-3.5 text-xs font-extrabold uppercase tracking-widest shadow-md"
+            >
+              <span>Book Consultation</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* 2. AVAILABLE TREATMENTS LIST */}
+      {/* 3. AVAILABLE TREATMENTS LIST */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
@@ -134,7 +135,7 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
         </div>
       </section>
 
-      {/* 3. ALL OTHER SERVICES */}
+      {/* 4. ALL OTHER SERVICES */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 pt-4">
         <div className="text-center space-y-3 max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full clay-badge text-aura-800 text-xs font-extrabold uppercase tracking-widest">
@@ -209,7 +210,7 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
         </div>
       </section>
 
-      {/* 4. TREATMENT OVERVIEW & KEY HIGHLIGHTS (Placing Treatment Overview above Frequently Asked Questions, just below Other Services) */}
+      {/* 5. TREATMENT OVERVIEW & KEY HIGHLIGHTS (Placing Treatment Overview above Frequently Asked Questions, just below Other Services) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="clay-card bg-white/90 dark:bg-[#320A19]/90 rounded-4xl p-8 sm:p-12 border border-white dark:border-aura-700/30 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-7 space-y-4">
@@ -243,7 +244,7 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
         </div>
       </section>
 
-      {/* 5. FREQUENTLY ASKED QUESTIONS */}
+      {/* 6. FREQUENTLY ASKED QUESTIONS */}
       {category.faqs && category.faqs.length > 0 && (
         <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="text-center space-y-2">
@@ -271,7 +272,7 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
         </section>
       )}
 
-      {/* 6. CONSULTATION BANNER */}
+      {/* 7. CONSULTATION BANNER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="clay-card clay-card-hover rounded-4xl p-8 sm:p-12 text-center shadow-clay-lg border border-white dark:border-aura-700/30 space-y-4">
           <h3 className="font-serif text-3xl font-bold text-charcoal">
