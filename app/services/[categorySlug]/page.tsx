@@ -41,7 +41,7 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
     <div className="space-y-12 sm:space-y-16 pb-20 overflow-x-hidden">
       {/* 1. TOP HERO BANNER: PROPER RECTANGLE WITH SERVICE TITLE & TAGLINE AT BOTTOM SECTION */}
       <section className="relative px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 max-w-6xl mx-auto">
-        <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] min-h-[380px] sm:min-h-[460px] md:min-h-[500px] rounded-3xl sm:rounded-4xl overflow-hidden shadow-clay-lg dark:shadow-[0_20px_50px_-15px_rgba(158,27,78,0.3)] border border-white/80 dark:border-aura-700/50 flex flex-col justify-end p-6 sm:p-8 md:p-10">
+        <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] min-h-[380px] sm:min-h-[460px] md:min-h-[500px] rounded-3xl sm:rounded-4xl overflow-hidden shadow-clay-lg dark:shadow-[0_20px_50px_-15px_rgba(158,27,78,0.3)] border border-aura-200/80 dark:border-aura-900/60 flex flex-col justify-end p-6 sm:p-8 md:p-10">
           {/* Custom Uploaded Image for this Specific Service Category */}
           <div className="absolute inset-0 z-0">
             <Image
@@ -60,7 +60,7 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
 
           {/* Hero Content: Service Name, Tagline & Button INSIDE the Bottom Section of the Image */}
           <div className="relative z-20 w-full max-w-3xl space-y-2.5 sm:space-y-3.5 text-white drop-shadow-md">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-[10px] sm:text-xs font-extrabold uppercase tracking-widest text-champagne-light">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 dark:bg-black/40 backdrop-blur-md border border-white/30 dark:border-white/20 text-[10px] sm:text-xs font-extrabold uppercase tracking-widest text-champagne-light">
               <span>Category {category.number} • {category.group}</span>
             </div>
 
@@ -105,7 +105,7 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
           {category.treatments.map((treatment) => (
             <div
               key={treatment.id}
-              className="clay-card clay-card-hover rounded-3xl p-6 border border-white/80 dark:border-aura-700/30 flex flex-col justify-between space-y-4"
+              className="clay-card clay-card-hover rounded-3xl p-6 border border-aura-200/80 dark:border-aura-800/40 flex flex-col justify-between space-y-4"
             >
               <div className="space-y-2">
                 <div className="flex items-center justify-between gap-2">
@@ -138,7 +138,69 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
         </div>
       </section>
 
-      {/* 3. ALL OTHER SERVICES */}
+      {/* 3. TREATMENT OVERVIEW & KEY HIGHLIGHTS */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="clay-card bg-white/90 dark:bg-[#320A19]/90 rounded-4xl p-8 sm:p-12 border border-aura-200/80 dark:border-aura-800/40 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-7 space-y-4">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-aura-600 block">
+              Treatment Overview
+            </span>
+            <h2 className="font-serif text-3xl font-bold text-charcoal">
+              Precision Clinical Care & Personalized Craftsmanship
+            </h2>
+            <p className="text-sm sm:text-base text-charcoal-muted leading-relaxed font-normal">
+              {category.description}
+            </p>
+          </div>
+
+          {category.highlights && (
+            <div className="lg:col-span-5 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-[#FFF0F4] via-[#FCE4EC] to-[#F8C8DC] dark:from-[#320A19] dark:via-[#240511] dark:to-[#160309] border border-aura-200/80 dark:border-aura-700/30 shadow-clay-sm dark:shadow-none space-y-4">
+              <h4 className="font-serif text-lg sm:text-xl font-bold text-charcoal flex items-center gap-2.5">
+                <Flower2 className="w-5 h-5 text-aura-600 dark:text-aura-300 shrink-0" />
+                <span>Key Experience Highlights</span>
+              </h4>
+              <ul className="space-y-3">
+                {category.highlights.map((h, idx) => (
+                  <li key={idx} className="text-xs sm:text-sm flex items-start gap-2.5 font-medium leading-relaxed">
+                    <CheckCircle2 className="w-4 h-4 text-aura-600 dark:text-aura-300 shrink-0 mt-0.5" />
+                    <span className="text-charcoal">{h}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* 4. FREQUENTLY ASKED QUESTIONS */}
+      {category.faqs && category.faqs.length > 0 && (
+        <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <div className="text-center space-y-2">
+            <HelpCircle className="w-8 h-8 text-aura-600 mx-auto" />
+            <h2 className="font-serif text-3xl font-bold text-charcoal">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-xs text-charcoal-muted font-light">
+              Common inquiries regarding {category.title}
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {category.faqs.map((faq, idx) => (
+              <div key={idx} className="clay-card clay-card-hover rounded-3xl p-6 border border-aura-200/80 dark:border-aura-800/40 space-y-2">
+                <h4 className="font-serif text-base font-bold text-charcoal">
+                  {faq.question}
+                </h4>
+                <p className="text-xs text-charcoal-muted leading-relaxed font-light">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* 5. ALL OTHER SERVICES (PLACED BELOW FREQUENTLY ASKED QUESTIONS) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 pt-4">
         <div className="text-center space-y-3 max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full clay-badge text-aura-800 text-xs font-extrabold uppercase tracking-widest">
@@ -157,7 +219,7 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
           {otherCategories.map((otherCat) => (
             <div
               key={otherCat.id}
-              className="group clay-card clay-card-hover rounded-4xl overflow-hidden flex flex-col justify-between border border-white/80 dark:border-aura-700/30"
+              className="group clay-card clay-card-hover rounded-4xl overflow-hidden flex flex-col justify-between border border-aura-200/80 dark:border-aura-800/40"
             >
               <Link href={`/services/${otherCat.slug}`} className="block group">
                 {/* Card Image */}
@@ -213,71 +275,9 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
         </div>
       </section>
 
-      {/* 4. TREATMENT OVERVIEW & KEY HIGHLIGHTS (Placing Treatment Overview BELOW Available Other Services) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="clay-card bg-white/90 dark:bg-[#320A19]/90 rounded-4xl p-8 sm:p-12 border border-white/80 dark:border-aura-700/30 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div className="lg:col-span-7 space-y-4">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-aura-600 block">
-              Treatment Overview
-            </span>
-            <h2 className="font-serif text-3xl font-bold text-charcoal">
-              Precision Clinical Care & Personalized Craftsmanship
-            </h2>
-            <p className="text-sm sm:text-base text-charcoal-muted leading-relaxed font-normal">
-              {category.description}
-            </p>
-          </div>
-
-          {category.highlights && (
-            <div className="lg:col-span-5 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-[#FFF0F4] via-[#FCE4EC] to-[#F8C8DC] dark:from-[#320A19] dark:via-[#240511] dark:to-[#160309] border border-aura-200/80 dark:border-aura-700/30 shadow-clay-sm dark:shadow-none space-y-4">
-              <h4 className="font-serif text-lg sm:text-xl font-bold text-charcoal flex items-center gap-2.5">
-                <Flower2 className="w-5 h-5 text-aura-600 dark:text-aura-300 shrink-0" />
-                <span>Key Experience Highlights</span>
-              </h4>
-              <ul className="space-y-3">
-                {category.highlights.map((h, idx) => (
-                  <li key={idx} className="text-xs sm:text-sm flex items-start gap-2.5 font-medium leading-relaxed">
-                    <CheckCircle2 className="w-4 h-4 text-aura-600 dark:text-aura-300 shrink-0 mt-0.5" />
-                    <span className="text-charcoal">{h}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* 5. FREQUENTLY ASKED QUESTIONS */}
-      {category.faqs && category.faqs.length > 0 && (
-        <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="text-center space-y-2">
-            <HelpCircle className="w-8 h-8 text-aura-600 mx-auto" />
-            <h2 className="font-serif text-3xl font-bold text-charcoal">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-xs text-charcoal-muted font-light">
-              Common inquiries regarding {category.title}
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            {category.faqs.map((faq, idx) => (
-              <div key={idx} className="clay-card clay-card-hover rounded-3xl p-6 border border-white/80 dark:border-aura-700/30 space-y-2">
-                <h4 className="font-serif text-base font-bold text-charcoal">
-                  {faq.question}
-                </h4>
-                <p className="text-xs text-charcoal-muted leading-relaxed font-light">
-                  {faq.answer}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
-
       {/* 6. CONSULTATION BANNER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="clay-card clay-card-hover rounded-4xl p-8 sm:p-12 text-center shadow-clay-lg dark:shadow-[0_20px_50px_-15px_rgba(158,27,78,0.3)] border border-white/80 dark:border-aura-700/30 space-y-4">
+        <div className="clay-card clay-card-hover rounded-4xl p-8 sm:p-12 text-center shadow-clay-lg dark:shadow-[0_20px_50px_-15px_rgba(158,27,78,0.3)] border border-aura-200/80 dark:border-aura-800/40 space-y-4">
           <h3 className="font-serif text-3xl font-bold text-charcoal">
             Begin Your {category.title} Journey
           </h3>
