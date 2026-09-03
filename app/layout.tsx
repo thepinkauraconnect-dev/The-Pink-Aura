@@ -53,22 +53,15 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        {/* Force Light Mode by default on initial render */}
+        {/* FORCE Light Mode on every initial page load — Dark Mode only activates when the user clicks the toggle */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
                 try {
-                  var savedTheme = localStorage.getItem('theme');
-                  if (savedTheme === 'dark') {
-                    document.documentElement.classList.add('dark');
-                  } else {
-                    document.documentElement.classList.remove('dark');
-                    localStorage.setItem('theme', 'light');
-                  }
-                } catch (e) {
                   document.documentElement.classList.remove('dark');
-                }
+                  localStorage.setItem('theme', 'light');
+                } catch (e) {}
               })();
             `,
           }}

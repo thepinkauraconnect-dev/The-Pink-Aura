@@ -79,6 +79,18 @@ html, body, * {
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
+  /* Dark mode override for .clay-card — replace white glow with dark burgundy aura */
+  html.dark .clay-card,
+  .dark .clay-card {
+    background: linear-gradient(145deg, #2a0513 0%, #1a0a10 100%);
+    box-shadow: 
+      8px 12px 24px -6px rgba(158, 27, 78, 0.25),
+      -6px -6px 20px 0px rgba(158, 27, 78, 0.12),
+      inset 3px 3px 8px 0px rgba(255, 255, 255, 0.05),
+      inset -3px -3px 8px 0px rgba(0, 0, 0, 0.4);
+    border: 1.5px solid rgba(158, 27, 78, 0.3);
+  }
+
   /* GEOMETRIC CONTOUR ARCS BACKGROUND OVERLAY */
   .clay-card-contour {
     position: relative;

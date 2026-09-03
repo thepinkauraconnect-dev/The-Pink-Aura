@@ -39,15 +39,10 @@ export default function Navbar() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      setDarkMode(true);
-      document.documentElement.classList.add('dark');
-    } else {
-      setDarkMode(false);
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
+    // Always start in light mode — the layout.tsx inline script already forces this
+    setDarkMode(false);
+    document.documentElement.classList.remove('dark');
+    localStorage.setItem('theme', 'light');
   }, []);
 
   const toggleDarkMode = () => {
@@ -106,7 +101,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between gap-2 sm:gap-4 w-full">
           {/* Header Brand Logo Image */}
           <Link href="/home" className="flex items-center group shrink-0">
-            <div className="relative h-11 xs:h-13 sm:h-16 md:h-18 lg:h-20 w-36 xs:w-48 sm:w-64 md:w-76 lg:w-[350px] shrink-0 -my-2.5 sm:-my-4 lg:-my-5 group-hover:scale-105 transition-transform duration-300">
+            <div className="relative h-9 sm:h-11 md:h-12 w-36 sm:w-48 md:w-56 shrink-0 py-0.5 group-hover:scale-105 transition-transform duration-300">
               <Image
                 src="/logo-header.png"
                 alt="The Pink Aura"
