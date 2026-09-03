@@ -167,8 +167,11 @@ export default function Footer() {
               </div>
 
               <div className="flex items-start gap-2.5">
-                <span className="text-aura-400">🕒</span>
-                <span>{CLINIC_INFO.hours}</span>
+                <span className="text-aura-400 mt-0.5">🕒</span>
+                <div className="flex flex-col">
+                  <span>{CLINIC_INFO.hours}</span>
+                  <span className="text-aura-300 font-medium text-[11px] mt-0.5">{CLINIC_INFO.closed}</span>
+                </div>
               </div>
 
               <div className="flex items-center gap-2.5">

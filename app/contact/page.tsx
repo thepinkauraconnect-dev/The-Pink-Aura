@@ -105,9 +105,10 @@ export default function ContactPage() {
                   <h4 className="text-xs font-extrabold uppercase tracking-wider text-charcoal mb-1">
                     Operating Hours
                   </h4>
-                  <p className="text-xs sm:text-sm text-charcoal-muted font-light">
-                    {CLINIC_INFO.hours}
-                  </p>
+                  <div className="text-xs sm:text-sm text-charcoal-muted font-light flex flex-col">
+                    <span>{CLINIC_INFO.hours}</span>
+                    <span className="text-aura-700 dark:text-pink-300 font-semibold text-xs mt-0.5">{CLINIC_INFO.closed}</span>
+                  </div>
                 </div>
               </div>
 

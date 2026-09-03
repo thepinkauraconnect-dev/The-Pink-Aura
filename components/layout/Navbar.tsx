@@ -22,6 +22,10 @@ const SERVICE_GROUPS = [
     categories: SERVICE_CATEGORIES.filter((c) => c.group === 'BODY'),
   },
   {
+    title: 'WELLNESS & SPIRITUAL',
+    categories: SERVICE_CATEGORIES.filter((c) => c.group === 'WELLNESS'),
+  },
+  {
     title: 'SURGICAL PROCEDURES',
     categories: SERVICE_CATEGORIES.filter((c) => c.group === 'SURGICAL'),
   },
@@ -36,45 +40,12 @@ export default function Navbar() {
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
-
-    const getSystemOrTimeTheme = () => {
-      // 1. Phone / OS System Dark Mode Preference
-      if (typeof window !== 'undefined' && window.matchMedia) {
-        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-        if (mediaQuery.matches) return true;
-      }
-      // 2. Automatic Day / Night Time Fallback (Night: 7 PM to 6 AM)
-      const hour = new Date().getHours();
-      return hour >= 19 || hour < 6;
-    };
-
-    const isDark = savedTheme ? savedTheme === 'dark' : getSystemOrTimeTheme();
+    const isDark = savedTheme === 'dark';
     setDarkMode(isDark);
     if (isDark) {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
-    }
-
-    // Listen to live Phone / System OS theme changes if user hasn't explicitly overridden it
-    if (typeof window !== 'undefined' && window.matchMedia) {
-      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-      const handleSystemThemeChange = (e: MediaQueryListEvent) => {
-        if (!localStorage.getItem('theme')) {
-          const nextDark = e.matches;
-          setDarkMode(nextDark);
-          if (nextDark) {
-            document.documentElement.classList.add('dark');
-          } else {
-            document.documentElement.classList.remove('dark');
-          }
-        }
-      };
-
-      if (mediaQuery.addEventListener) {
-        mediaQuery.addEventListener('change', handleSystemThemeChange);
-        return () => mediaQuery.removeEventListener('change', handleSystemThemeChange);
-      }
     }
   }, []);
 
@@ -191,43 +162,46 @@ export default function Navbar() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 8, scale: 0.98 }}
                     transition={{ duration: 0.25, ease: 'easeOut' }}
-                    className="absolute top-full left-4 right-4 md:left-6 md:right-6 mt-3 clay-card bg-white/98 dark:bg-[#290613]/98 backdrop-blur-2xl rounded-3xl p-7 grid grid-cols-3 gap-6 shadow-clay-lg z-50 border border-white dark:border-aura-700/30"
+                    className="absolute top-full left-2 right-2 md:left-4 md:right-4 mt-3 clay-card bg-white/98 dark:bg-[#290613]/98 backdrop-blur-2xl rounded-3xl p-6 sm:p-7 grid grid-cols-1 lg:grid-cols-4 gap-6 shadow-clay-lg z-50 border border-white dark:border-aura-700/30"
                   >
-                    <div className="col-span-2 grid grid-cols-2 gap-6 border-r border-aura-100/80 dark:border-aura-800/40 pr-6">
-                      {SERVICE_GROUPS.slice(0, 3).map((group, idx) => (
-                        <div key={idx} className="space-y-2">
-                          <h4 className="text-[10px] font-extrabold tracking-widest text-aura-600 dark:text-aura-300 uppercase">
-                            {group.title}
-                          </h4>
-                          <ul className="space-y-1.5">
-                            {group.categories.map((cat) => (
-                              <li key={cat.id}>
-                                <Link
-                                  href={`/services/${cat.slug}`}
-                                  className="text-xs text-charcoal-muted dark:text-pink-200/80 hover:text-aura-600 dark:hover:text-aura-300 hover:translate-x-1 transition-all inline-flex items-center gap-1 font-medium"
-                                >
-                                  <span>{cat.title}</span>
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
+                    {/* Column 1: Beauty & Aesthetics */}
+                    <div className="space-y-3 border-r-0 lg:border-r border-aura-100/80 dark:border-aura-800/40 lg:pr-4">
+                      <div className="pb-1.5 border-b border-aura-200/80 dark:border-aura-700/50 flex items-center justify-between">
+                        <span className="text-[10.5px] font-extrabold uppercase tracking-widest text-aura-950 dark:text-pink-100 bg-aura-100/90 dark:bg-aura-900/70 px-2.5 py-1 rounded-md border border-aura-200 dark:border-aura-700/50 shadow-xs">
+                          {SERVICE_GROUPS[0].title}
+                        </span>
+                      </div>
+                      <ul className="space-y-2 pt-1">
+                        {SERVICE_GROUPS[0].categories.map((cat) => (
+                          <li key={cat.id}>
+                            <Link
+                              href={`/services/${cat.slug}`}
+                              className="text-xs text-charcoal-muted dark:text-pink-200/80 hover:text-aura-700 dark:hover:text-white hover:translate-x-1 transition-all inline-flex items-center gap-2 font-normal group"
+                            >
+                              <span className="w-1.5 h-1.5 rounded-full bg-aura-400 dark:bg-aura-500 shrink-0 group-hover:scale-125 transition-transform" />
+                              <span>{cat.title}</span>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
 
-                    {/* Surgical & CTA */}
-                    <div className="space-y-4 flex flex-col justify-between">
-                      <div>
-                        <h4 className="text-[10px] font-extrabold tracking-widest text-aura-600 dark:text-aura-300 uppercase mb-2">
-                          {SERVICE_GROUPS[3].title}
-                        </h4>
-                        <ul className="space-y-1.5 mb-4">
-                          {SERVICE_GROUPS[3].categories.map((cat) => (
+                    {/* Column 2: Hair Restoration & Body Contouring */}
+                    <div className="space-y-5 border-r-0 lg:border-r border-aura-100/80 dark:border-aura-800/40 lg:pr-4">
+                      <div className="space-y-3">
+                        <div className="pb-1.5 border-b border-aura-200/80 dark:border-aura-700/50 flex items-center justify-between">
+                          <span className="text-[10.5px] font-extrabold uppercase tracking-widest text-aura-950 dark:text-pink-100 bg-aura-100/90 dark:bg-aura-900/70 px-2.5 py-1 rounded-md border border-aura-200 dark:border-aura-700/50 shadow-xs">
+                            {SERVICE_GROUPS[1].title}
+                          </span>
+                        </div>
+                        <ul className="space-y-2 pt-1">
+                          {SERVICE_GROUPS[1].categories.map((cat) => (
                             <li key={cat.id}>
                               <Link
                                 href={`/services/${cat.slug}`}
-                                className="text-xs text-charcoal-muted dark:text-pink-200/80 hover:text-aura-600 dark:hover:text-aura-300 hover:translate-x-1 transition-all inline-flex items-center gap-1 font-medium"
+                                className="text-xs text-charcoal-muted dark:text-pink-200/80 hover:text-aura-700 dark:hover:text-white hover:translate-x-1 transition-all inline-flex items-center gap-2 font-normal group"
                               >
+                                <span className="w-1.5 h-1.5 rounded-full bg-aura-400 dark:bg-aura-500 shrink-0 group-hover:scale-125 transition-transform" />
                                 <span>{cat.title}</span>
                               </Link>
                             </li>
@@ -235,23 +209,102 @@ export default function Navbar() {
                         </ul>
                       </div>
 
+                      <div className="space-y-3">
+                        <div className="pb-1.5 border-b border-aura-200/80 dark:border-aura-700/50 flex items-center justify-between">
+                          <span className="text-[10.5px] font-extrabold uppercase tracking-widest text-aura-950 dark:text-pink-100 bg-aura-100/90 dark:bg-aura-900/70 px-2.5 py-1 rounded-md border border-aura-200 dark:border-aura-700/50 shadow-xs">
+                            {SERVICE_GROUPS[2].title}
+                          </span>
+                        </div>
+                        <ul className="space-y-2 pt-1">
+                          {SERVICE_GROUPS[2].categories.map((cat) => (
+                            <li key={cat.id}>
+                              <Link
+                                href={`/services/${cat.slug}`}
+                                className="text-xs text-charcoal-muted dark:text-pink-200/80 hover:text-aura-700 dark:hover:text-white hover:translate-x-1 transition-all inline-flex items-center gap-2 font-normal group"
+                              >
+                                <span className="w-1.5 h-1.5 rounded-full bg-aura-400 dark:bg-aura-500 shrink-0 group-hover:scale-125 transition-transform" />
+                                <span>{cat.title}</span>
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+
+                    {/* Column 3: Wellness & Spiritual & Surgical Procedures */}
+                    <div className="space-y-5 border-r-0 lg:border-r border-aura-100/80 dark:border-aura-800/40 lg:pr-4">
+                      <div className="space-y-3">
+                        <div className="pb-1.5 border-b border-aura-200/80 dark:border-aura-700/50 flex items-center justify-between">
+                          <span className="text-[10.5px] font-extrabold uppercase tracking-widest text-aura-950 dark:text-pink-100 bg-aura-100/90 dark:bg-aura-900/70 px-2.5 py-1 rounded-md border border-aura-200 dark:border-aura-700/50 shadow-xs">
+                            {SERVICE_GROUPS[3].title}
+                          </span>
+                        </div>
+                        <ul className="space-y-2 pt-1">
+                          {SERVICE_GROUPS[3].categories.map((cat) => (
+                            <li key={cat.id}>
+                              <Link
+                                href={`/services/${cat.slug}`}
+                                className="text-xs text-charcoal-muted dark:text-pink-200/80 hover:text-aura-700 dark:hover:text-white hover:translate-x-1 transition-all inline-flex items-center gap-2 font-normal group"
+                              >
+                                <span className="w-1.5 h-1.5 rounded-full bg-aura-400 dark:bg-aura-500 shrink-0 group-hover:scale-125 transition-transform" />
+                                <span>{cat.title}</span>
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="space-y-3">
+                        <div className="pb-1.5 border-b border-aura-200/80 dark:border-aura-700/50 flex items-center justify-between">
+                          <span className="text-[10.5px] font-extrabold uppercase tracking-widest text-aura-950 dark:text-pink-100 bg-aura-100/90 dark:bg-aura-900/70 px-2.5 py-1 rounded-md border border-aura-200 dark:border-aura-700/50 shadow-xs">
+                            {SERVICE_GROUPS[4].title}
+                          </span>
+                        </div>
+                        <ul className="space-y-2 pt-1">
+                          {SERVICE_GROUPS[4].categories.map((cat) => (
+                            <li key={cat.id}>
+                              <Link
+                                href={`/services/${cat.slug}`}
+                                className="text-xs text-charcoal-muted dark:text-pink-200/80 hover:text-aura-700 dark:hover:text-white hover:translate-x-1 transition-all inline-flex items-center gap-2 font-normal group"
+                              >
+                                <span className="w-1.5 h-1.5 rounded-full bg-aura-400 dark:bg-aura-500 shrink-0 group-hover:scale-125 transition-transform" />
+                                <span>{cat.title}</span>
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+
+                    {/* Column 4: Consultation CTA & Directory Link */}
+                    <div className="space-y-4 flex flex-col justify-between">
                       <div className="p-4 rounded-2xl bg-gradient-to-br from-aura-50/95 via-rose-50/40 to-aura-100/60 dark:from-[#3B091D]/90 dark:via-[#290513]/90 dark:to-[#1C030D]/90 border border-aura-200/80 dark:border-aura-700/40 shadow-sm space-y-2">
                         <div className="flex items-center gap-2 text-aura-700 dark:text-aura-200 font-serif font-bold text-sm">
                           <Flower2 className="w-4 h-4 text-aura-600 dark:text-aura-300 shrink-0" />
-                          <span>Personalized Consultation</span>
+                          <span>Personalized Care</span>
                         </div>
                         <p className="text-[11px] text-charcoal-muted dark:text-pink-200/70 leading-relaxed font-light">
-                          Receive a custom beauty roadmap tailored to your skin & aesthetic goals.
+                          Receive a custom beauty & inner wellness roadmap tailored to your goals.
                         </p>
                         <div className="pt-1">
                           <Link
                             href="/register"
                             className="inline-flex items-center gap-1.5 text-xs font-extrabold text-aura-700 dark:text-aura-200 hover:text-aura-900 dark:hover:text-white group"
                           >
-                            <span>Begin Your Consultation</span>
+                            <span>Begin Your Journey</span>
                             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-aura-600 dark:text-aura-300" />
                           </Link>
                         </div>
+                      </div>
+
+                      <div className="pt-1">
+                        <Link
+                          href="/services"
+                          className="clay-btn-primary w-full py-2.5 px-4 text-[11px] font-extrabold uppercase tracking-wider inline-flex items-center justify-center gap-1.5"
+                        >
+                          <span>View All 12 Categories</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
                       </div>
                     </div>
                   </motion.div>
@@ -341,20 +394,32 @@ export default function Navbar() {
                 About Us
               </Link>
 
-              <div className="pt-2 border-t border-aura-100 dark:border-aura-800/40">
-                <span className="text-xs font-bold uppercase tracking-wider text-aura-600 dark:text-aura-300 block mb-2">
-                  Service Categories
+              <div className="pt-2 border-t border-aura-100 dark:border-aura-800/40 space-y-3">
+                <span className="text-xs font-extrabold uppercase tracking-widest text-aura-800 dark:text-aura-200 block mb-1">
+                  Service Catalogue
                 </span>
-                <div className="grid grid-cols-1 gap-2 pl-2">
-                  {SERVICE_CATEGORIES.filter((c) => c.group !== 'WELLNESS').map((cat) => (
-                    <Link
-                      key={cat.id}
-                      href={`/services/${cat.slug}`}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="text-sm text-charcoal-muted dark:text-pink-200/80 hover:text-aura-600 dark:hover:text-aura-300 py-1 font-medium"
-                    >
-                      {cat.title}
-                    </Link>
+                <div className="space-y-3 pl-1">
+                  {SERVICE_GROUPS.map((group, gIdx) => (
+                    <div key={gIdx} className="space-y-1.5">
+                      <div className="pb-1 border-b border-aura-200/60 dark:border-aura-800/40">
+                        <span className="text-[10px] font-extrabold uppercase tracking-wider text-aura-900 dark:text-pink-100 bg-aura-100/90 dark:bg-aura-900/70 px-2 py-0.5 rounded border border-aura-200 dark:border-aura-700/50">
+                          {group.title}
+                        </span>
+                      </div>
+                      <div className="grid grid-cols-1 gap-1 pl-2">
+                        {group.categories.map((cat) => (
+                          <Link
+                            key={cat.id}
+                            href={`/services/${cat.slug}`}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="text-xs text-charcoal-muted dark:text-pink-200/80 hover:text-aura-600 py-1 font-medium flex items-center gap-2"
+                          >
+                            <span className="w-1.5 h-1.5 rounded-full bg-aura-400 shrink-0" />
+                            <span>{cat.title}</span>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>

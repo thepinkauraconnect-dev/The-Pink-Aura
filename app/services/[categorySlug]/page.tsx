@@ -34,94 +34,98 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
     notFound();
   }
 
-  // Related categories
-  const relatedCategories = SERVICE_CATEGORIES.filter((c) => c.id !== category.id).slice(0, 3);
+  // All other categories except the current one
+  const otherCategories = SERVICE_CATEGORIES.filter((c) => c.id !== category.id);
 
   return (
-    <div className="space-y-16 pb-16">
-      {/* 1. CATEGORY HERO */}
-      <section className="relative min-h-[50vh] flex items-center justify-center py-16 px-4 overflow-hidden bg-gradient-to-br from-aura-950 via-aura-900 to-charcoal text-white">
-        <div className="absolute inset-0 opacity-20">
-          <Image
-            src={category.heroImage}
-            alt={category.title}
-            fill
-            sizes="100vw"
-            quality={85}
-            className="object-cover"
-            priority
-          />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-aura-950 via-aura-950/80 to-transparent" />
-
-        <div className="max-w-4xl mx-auto text-center relative z-10 space-y-4">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-aura-300 text-xs font-bold uppercase tracking-widest">
-            <Flower2 className="w-3.5 h-3.5 text-aura-300" />
-            <span>Category {category.number} • {category.group}</span>
+    <div className="space-y-12 sm:space-y-16 pb-20 overflow-x-hidden">
+      {/* 1. TOP HERO BANNER USING THE SPECIFIC UPLOADED SERVICE IMAGE */}
+      <section className="relative px-3 sm:px-6 lg:px-8 pt-3 sm:pt-6 max-w-[1440px] mx-auto">
+        <div className="relative w-full min-h-[55vh] sm:min-h-[70vh] lg:min-h-[78vh] rounded-[28px] sm:rounded-[44px] overflow-hidden shadow-[0_28px_70px_-15px_rgba(158,77,104,0.22)] border border-white flex flex-col justify-between p-4 sm:p-8 lg:p-12">
+          {/* Custom Uploaded Image for this Specific Service Category */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src={category.heroImage}
+              alt={category.title}
+              fill
+              sizes="100vw"
+              quality={85}
+              className="object-cover object-center scale-100 sm:scale-105 transition-transform duration-1000"
+              priority
+            />
+            {/* Soft Transparent Cinematic Overlays */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-aura-950/90" />
+            <div className="absolute inset-0 bg-gradient-to-r from-aura-950/40 via-transparent to-aura-950/40" />
           </div>
 
-          <h1 className="font-serif text-4xl sm:text-6xl font-light text-white tracking-tight leading-tight">
-            {category.title}
-          </h1>
-
-          <p className="text-base sm:text-xl text-aura-200/90 font-serif italic max-w-2xl mx-auto">
-            "{category.subtitle}"
-          </p>
-
-          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href={`/register?category=${encodeURIComponent(category.title)}`}
-              className="clay-btn-primary inline-flex items-center gap-2 px-8 py-3.5 text-xs font-extrabold uppercase tracking-widest"
-            >
-              <span>Begin Consultation for {category.title}</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. OVERVIEW & HIGHLIGHTS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="clay-card bg-white/90 dark:bg-[#320A19]/90 rounded-4xl p-8 sm:p-12 border border-white dark:border-aura-700/30 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div className="lg:col-span-7 space-y-4">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-aura-600 block">
-              Treatment Overview
-            </span>
-            <h2 className="font-serif text-3xl font-bold text-charcoal">
-              Precision Clinical Care & Personalized Craftsmanship
-            </h2>
-            <p className="text-sm sm:text-base text-charcoal-muted leading-relaxed font-normal">
-              {category.description}
-            </p>
-          </div>
-
-          {category.highlights && (
-            <div className="lg:col-span-5 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-[#FFF0F4] via-[#FCE4EC] to-[#F8C8DC] dark:from-[#320A19] dark:via-[#240511] dark:to-[#160309] border border-aura-200/80 dark:border-aura-700/30 shadow-clay-sm dark:shadow-none space-y-4">
-              <h4 className="font-serif text-lg sm:text-xl font-bold text-charcoal flex items-center gap-2.5">
-                <Flower2 className="w-5 h-5 text-aura-600 dark:text-aura-300 shrink-0" />
-                <span>Key Experience Highlights</span>
-              </h4>
-              <ul className="space-y-3">
-                {category.highlights.map((h, idx) => (
-                  <li key={idx} className="text-xs sm:text-sm flex items-start gap-2.5 font-medium leading-relaxed">
-                    <CheckCircle2 className="w-4 h-4 text-aura-600 dark:text-aura-300 shrink-0 mt-0.5" />
-                    <span className="text-charcoal">{h}</span>
-                  </li>
-                ))}
-              </ul>
+          {/* Top Header Badges */}
+          <div className="relative z-20 w-full flex items-center justify-between gap-2 flex-wrap sm:flex-nowrap">
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-white/30 dark:bg-black/35 backdrop-blur-md border border-white/40 text-[9px] sm:text-[11px] font-extrabold uppercase tracking-widest text-white shadow-sm">
+              <Flower2 className="w-3.5 h-3.5 text-champagne-light shrink-0" />
+              <span>Category {category.number} • {category.group}</span>
             </div>
-          )}
+
+            <div className="inline-flex flex-col items-center justify-center gap-0.5 px-3.5 py-1.5 rounded-2xl bg-white/25 dark:bg-black/30 backdrop-blur-md border border-white/30 text-[9px] font-mono font-bold uppercase tracking-wider text-white/95 text-center">
+              <span>Monday - Sunday : 10AM - 7PM</span>
+              <span className="text-pink-200">Tuesday's : Closed</span>
+            </div>
+          </div>
+
+          {/* Hero Content: ONLY Service Name & Tagline */}
+          <div className="relative z-20 w-full max-w-3xl my-auto pt-6 sm:pt-10 space-y-3 sm:space-y-4 text-white drop-shadow-md">
+            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-light text-white tracking-tight leading-[1.1]">
+              {category.title}
+            </h1>
+
+            <p className="text-sm sm:text-xl text-pink-100 font-serif italic max-w-2xl leading-relaxed">
+              "{category.subtitle}"
+            </p>
+
+            <div className="pt-2">
+              <Link
+                href={`/register?category=${encodeURIComponent(category.title)}`}
+                className="clay-btn-primary inline-flex items-center gap-2 px-7 py-3.5 text-xs font-extrabold uppercase tracking-widest shadow-lg"
+              >
+                <span>Book Consultation</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Scalable Vector Typography Across Bottom */}
+          <div className="relative z-10 w-full pt-3 sm:pt-4 pb-1 select-none pointer-events-none flex items-center justify-center">
+            <svg
+              viewBox="0 0 1300 150"
+              className="w-full h-auto max-h-12 sm:max-h-20 md:max-h-28 lg:max-h-32 overflow-visible"
+              aria-label="THE PINK AURA"
+            >
+              <text
+                x="50%"
+                y="74%"
+                textAnchor="middle"
+                className="font-serif font-normal"
+                fill="rgba(255, 255, 255, 0.96)"
+                fontSize="120"
+                letterSpacing="0.04em"
+                style={{
+                  filter: 'drop-shadow(0px 8px 24px rgba(0, 0, 0, 0.5))',
+                }}
+              >
+                THE PINK AURA
+              </text>
+            </svg>
+          </div>
         </div>
       </section>
 
-      {/* 3. TREATMENTS CATALOGUE */}
+      {/* 2. AVAILABLE TREATMENTS LIST */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
             <span className="text-xs font-extrabold uppercase tracking-widest text-aura-600 block mb-1">
               Service Procedures
             </span>
-            <h2 className="font-serif text-3xl font-bold text-charcoal">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-charcoal">
               Available Treatments ({category.treatments.length})
             </h2>
           </div>
@@ -167,7 +171,116 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
         </div>
       </section>
 
-      {/* 4. FREQUENTLY ASKED QUESTIONS */}
+      {/* 3. ALL OTHER SERVICES */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 pt-4">
+        <div className="text-center space-y-3 max-w-2xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full clay-badge text-aura-800 text-xs font-extrabold uppercase tracking-widest">
+            <Flower2 className="w-3.5 h-3.5 text-aura-600" />
+            <span>Explore More Offerings</span>
+          </div>
+          <h2 className="font-serif text-3xl sm:text-5xl font-bold text-charcoal tracking-tight">
+            All Other Services
+          </h2>
+          <p className="text-xs sm:text-sm text-charcoal-muted font-light">
+            Discover our complete catalogue of signature aesthetic, body contouring, hair restoration, and spiritual wellness categories.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {otherCategories.map((otherCat) => (
+            <div
+              key={otherCat.id}
+              className="group clay-card clay-card-hover rounded-4xl overflow-hidden flex flex-col justify-between border border-white dark:border-aura-700/30"
+            >
+              <Link href={`/services/${otherCat.slug}`} className="block group">
+                {/* Card Image */}
+                <div className="relative w-full h-52 overflow-hidden rounded-t-4xl">
+                  <Image
+                    src={otherCat.cardImage}
+                    alt={otherCat.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    quality={80}
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent" />
+                  <span className="absolute top-4 left-4 font-serif text-xs font-bold text-white bg-aura-950/70 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
+                    {otherCat.number}
+                  </span>
+                  <span className="absolute bottom-3 left-4 text-[10px] uppercase font-bold tracking-wider text-champagne-light bg-aura-900/80 backdrop-blur-md px-2.5 py-0.5 rounded-md">
+                    {otherCat.group}
+                  </span>
+                </div>
+
+                {/* Card Body */}
+                <div className="p-6 space-y-2">
+                  <h3 className="font-serif text-2xl font-bold text-charcoal group-hover:text-aura-600 transition-colors">
+                    {otherCat.title}
+                  </h3>
+                  <p className="text-xs font-bold text-aura-600 dark:text-aura-300 italic">
+                    {otherCat.subtitle}
+                  </p>
+                </div>
+              </Link>
+
+              {/* Card Action */}
+              <div className="px-6 py-4 border-t border-aura-200/60 dark:border-aura-800/40 mt-auto flex items-center justify-between gap-2 bg-[#FCE4EC]/40 dark:bg-[#1C030D]/60 backdrop-blur-sm rounded-b-4xl">
+                <Link
+                  href={`/register?category=${encodeURIComponent(otherCat.title)}`}
+                  className="clay-btn-primary px-4 py-2 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shrink-0"
+                >
+                  <span>Enquire Now</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+                <Link
+                  href={`/services/${otherCat.slug}`}
+                  className="clay-btn-secondary inline-flex items-center gap-1 text-[11px] font-bold px-3 py-1.5 text-charcoal-muted dark:text-pink-200/80"
+                >
+                  <span>Explore</span>
+                  <ChevronRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 4. TREATMENT OVERVIEW & KEY HIGHLIGHTS (Placing Treatment Overview above Frequently Asked Questions, just below Other Services) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="clay-card bg-white/90 dark:bg-[#320A19]/90 rounded-4xl p-8 sm:p-12 border border-white dark:border-aura-700/30 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-7 space-y-4">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-aura-600 block">
+              Treatment Overview
+            </span>
+            <h2 className="font-serif text-3xl font-bold text-charcoal">
+              Precision Clinical Care & Personalized Craftsmanship
+            </h2>
+            <p className="text-sm sm:text-base text-charcoal-muted leading-relaxed font-normal">
+              {category.description}
+            </p>
+          </div>
+
+          {category.highlights && (
+            <div className="lg:col-span-5 p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-[#FFF0F4] via-[#FCE4EC] to-[#F8C8DC] dark:from-[#320A19] dark:via-[#240511] dark:to-[#160309] border border-aura-200/80 dark:border-aura-700/30 shadow-clay-sm dark:shadow-none space-y-4">
+              <h4 className="font-serif text-lg sm:text-xl font-bold text-charcoal flex items-center gap-2.5">
+                <Flower2 className="w-5 h-5 text-aura-600 dark:text-aura-300 shrink-0" />
+                <span>Key Experience Highlights</span>
+              </h4>
+              <ul className="space-y-3">
+                {category.highlights.map((h, idx) => (
+                  <li key={idx} className="text-xs sm:text-sm flex items-start gap-2.5 font-medium leading-relaxed">
+                    <CheckCircle2 className="w-4 h-4 text-aura-600 dark:text-aura-300 shrink-0 mt-0.5" />
+                    <span className="text-charcoal">{h}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* 5. FREQUENTLY ASKED QUESTIONS */}
       {category.faqs && category.faqs.length > 0 && (
         <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="text-center space-y-2">
@@ -195,7 +308,7 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
         </section>
       )}
 
-      {/* 5. CONSULTATION BANNER */}
+      {/* 6. CONSULTATION BANNER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="clay-card clay-card-hover rounded-4xl p-8 sm:p-12 text-center shadow-clay-lg border border-white dark:border-aura-700/30 space-y-4">
           <h3 className="font-serif text-3xl font-bold text-charcoal">
@@ -213,33 +326,6 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
-        </div>
-      </section>
-
-      {/* 6. RELATED SERVICES */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 pt-4">
-        <h3 className="font-serif text-2xl font-bold text-charcoal">
-          Explore Related Categories
-        </h3>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {relatedCategories.map((rel) => (
-            <Link
-              key={rel.id}
-              href={`/services/${rel.slug}`}
-              className="clay-card clay-card-hover rounded-3xl p-5 border border-white flex items-center justify-between group"
-            >
-              <div>
-                <span className="text-[10px] font-extrabold text-aura-600 uppercase tracking-wider block">
-                  {rel.group}
-                </span>
-                <h4 className="font-serif text-lg font-bold text-charcoal group-hover:text-aura-600 transition-colors">
-                  {rel.title}
-                </h4>
-              </div>
-              <ArrowRight className="w-5 h-5 text-aura-400 group-hover:text-aura-600 group-hover:translate-x-1 transition-all" />
-            </Link>
-          ))}
         </div>
       </section>
     </div>

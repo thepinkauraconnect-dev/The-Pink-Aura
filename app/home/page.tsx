@@ -103,7 +103,7 @@ export default function MainHomePage() {
           {/* High-Resolution Editorial Background Image */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/images/hero/editorial-hero.jpg"
+              src="/images/hero/editorial-hero.webp"
               alt="The Pink Aura Luxury Editorial Care"
               fill
               sizes="100vw"
@@ -123,8 +123,9 @@ export default function MainHomePage() {
               <span>Aesthetic & Wellness Sanctuary</span>
             </div>
 
-            <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full bg-white/25 dark:bg-black/30 backdrop-blur-md border border-white/30 text-[9px] font-mono font-bold uppercase tracking-wider text-white/95">
-              <span>Mon–Sun: 10AM–7PM (Tue Closed)</span>
+            <div className="inline-flex flex-col items-center justify-center gap-0.5 px-3.5 py-1.5 rounded-2xl bg-white/25 dark:bg-black/30 backdrop-blur-md border border-white/30 text-[9px] font-mono font-bold uppercase tracking-wider text-white/95 text-center">
+              <span>Monday - Sunday : 10AM - 7PM</span>
+              <span className="text-pink-200">Tuesday's : Closed</span>
             </div>
           </div>
 
@@ -533,11 +534,14 @@ export default function MainHomePage() {
                 <span>{CLINIC_INFO.address}</span>
               </div>
 
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full clay-badge flex items-center justify-center text-aura-600 shrink-0">
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-full clay-badge flex items-center justify-center text-aura-600 shrink-0 mt-0.5">
                   <Clock className="w-4 h-4" />
                 </div>
-                <span>{CLINIC_INFO.hours}</span>
+                <div className="flex flex-col">
+                  <span>{CLINIC_INFO.hours}</span>
+                  <span className="text-aura-700 dark:text-pink-300 font-semibold text-xs mt-0.5">{CLINIC_INFO.closed}</span>
+                </div>
               </div>
 
               <div className="flex items-center gap-3">
