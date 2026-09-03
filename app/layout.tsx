@@ -4,6 +4,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import GrotoscopeObserver from '@/components/ui/GrotoscopeObserver';
+import InitialLoader from '@/components/ui/InitialLoader';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://thepinkaura.co.in'),
@@ -52,6 +53,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className="bg-ivory bg-aura-mesh text-charcoal antialiased flex flex-col min-h-screen selection:bg-aura-200 selection:text-aura-900 relative">
+        {/* Full-screen Hydration & Transition Loading Page */}
+        <InitialLoader />
+
         {/* Subtle Silk Pattern Overlay */}
         <div className="fixed inset-0 bg-silk-pattern pointer-events-none opacity-60 z-0" />
 
