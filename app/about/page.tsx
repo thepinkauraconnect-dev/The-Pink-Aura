@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { Heart, ShieldCheck, Flower2, ArrowRight, Award, CheckCircle2, Phone } from 'lucide-react';
+import { Heart, ShieldCheck, Flower2, ArrowRight, CheckCircle2, Phone, Users } from 'lucide-react';
 import { FOUNDERS, SURGEONS } from '@/data/services';
 
 export const metadata: Metadata = {
@@ -61,57 +61,69 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Leadership & Founders Section */}
+      {/* Leadership & Founders Section (Identical Content & Layout to Homepage) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="text-center space-y-3 max-w-2xl mx-auto">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-aura-600 block">
-            Founding Leadership
-          </span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-charcoal">
-            The Visionaries Behind The Pink Aura
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full clay-badge text-aura-800 text-xs font-extrabold uppercase tracking-widest">
+            <Users className="w-3.5 h-3.5 text-aura-600" />
+            <span>Leadership & Vision</span>
+          </div>
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-charcoal tracking-tight">
+            Meet the Experts Behind The Pink Aura
           </h2>
           <p className="text-sm text-charcoal-muted font-light">
-            Bringing together medical expertise, Ayurvedic wisdom, and spiritual guidance.
+            Guiding your transformation with clinical expertise, aesthetic passion, and spiritual vision.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {FOUNDERS.map((founder, idx) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {FOUNDERS.map((founder, i) => (
             <div
-              key={idx}
-              className="clay-card rounded-4xl p-8 sm:p-10 border border-white dark:border-aura-700/30 shadow-clay-lg space-y-6 flex flex-col justify-between"
+              key={i}
+              className="clay-card clay-card-hover rounded-4xl p-8 border border-white dark:border-aura-700/30 flex flex-col justify-between space-y-6 shadow-clay-lg hover:shadow-xl transition-shadow"
             >
-              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
-                <div className="relative w-36 h-36 rounded-3xl overflow-hidden shrink-0 shadow-lg border-2 border-white dark:border-aura-700/30">
+              <div className="flex flex-col sm:flex-row gap-6 items-center sm:items-start">
+                <div className="relative w-32 h-32 sm:w-36 sm:h-36 rounded-3xl overflow-hidden shrink-0 shadow-lg border-2 border-white dark:border-aura-700/30">
                   <Image
                     src={founder.image}
                     alt={founder.name}
                     fill
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                    quality={80}
                     className="object-cover object-[center_20%]"
                   />
                 </div>
                 <div className="space-y-2 text-center sm:text-left">
-                  <h3 className="font-serif text-2xl font-bold text-charcoal">{founder.name}</h3>
-                  <p className="text-xs font-extrabold uppercase tracking-wider text-aura-600">
-                    {founder.role}
-                  </p>
-                  <p className="text-xs text-aura-800 dark:text-aura-100 font-medium italic bg-aura-50 dark:bg-white/10 border border-aura-200/60 dark:border-white/10 rounded-xl px-3 py-2">
-                    {founder.qualifications}
+                  <div>
+                    <h3 className="font-serif text-2xl font-bold text-charcoal">{founder.name}</h3>
+                    <span className="text-xs font-extrabold uppercase tracking-wider text-aura-600 block mt-1">
+                      {founder.role}
+                    </span>
+                    <span className="text-[11px] text-charcoal-muted italic block mt-0.5 font-light">
+                      {founder.qualifications}
+                    </span>
+                  </div>
+                  <p className="text-xs text-charcoal-muted leading-relaxed font-light">
+                    {founder.bio}
                   </p>
                 </div>
               </div>
 
-              <p className="text-xs sm:text-sm text-charcoal-muted leading-relaxed font-light border-t border-aura-100 dark:border-aura-700/30 pt-4">
-                {founder.bio}
-              </p>
-
-              <div className="pt-2 border-t border-aura-100 dark:border-aura-700/30 flex items-center justify-between text-xs">
-                <span className="text-charcoal-muted font-light">Direct Line:</span>
+              <div className="pt-3 border-t border-aura-100 dark:border-aura-700/30 flex flex-col sm:flex-row items-center justify-between gap-3 bg-aura-50/70 dark:bg-[#20040E]/90 p-3.5 rounded-2xl border border-aura-200/50 dark:border-aura-700/30">
+                <div className="text-center sm:text-left">
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-aura-800 dark:text-aura-100 block">
+                    Direct Contact
+                  </span>
+                  <span className="font-mono text-sm font-bold text-charcoal">
+                    {founder.phone}
+                  </span>
+                </div>
                 <a
                   href={`tel:${founder.rawPhone || founder.phone?.replace(/[^0-9+]/g, '')}`}
-                  className="font-mono font-bold text-aura-600 hover:underline"
+                  className="clay-btn-primary inline-flex items-center gap-1.5 px-5 py-2.5 text-xs font-bold uppercase tracking-wider shrink-0"
                 >
-                  {founder.phone}
+                  <Phone className="w-3.5 h-3.5" />
+                  <span>Call {founder.name.split(' ')[0]}</span>
                 </a>
               </div>
             </div>
@@ -134,9 +146,9 @@ export default function AboutPage() {
           {SURGEONS.map((surgeon, idx) => (
             <div
               key={idx}
-              className="clay-card rounded-4xl p-6 sm:p-10 border border-white dark:border-aura-700/30 shadow-clay-lg space-y-6 flex flex-col justify-between"
+              className="clay-card clay-card-hover rounded-4xl p-6 sm:p-10 border border-white dark:border-aura-700/30 shadow-clay-lg space-y-6 flex flex-col justify-between"
             >
-              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+              <div className="flex flex-col sm:flex-row gap-6 items-center sm:items-start">
                 <div className="relative w-36 h-36 rounded-3xl overflow-hidden shrink-0 shadow-lg border-2 border-white dark:border-aura-700/30">
                   <Image
                     src={surgeon.image}
