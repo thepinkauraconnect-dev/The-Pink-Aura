@@ -41,7 +41,7 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
     <div className="space-y-12 sm:space-y-16 pb-20 overflow-x-hidden">
       {/* 1. TOP HERO BANNER USING THE SPECIFIC UPLOADED SERVICE IMAGE */}
       <section className="relative px-3 sm:px-6 lg:px-8 pt-3 sm:pt-6 max-w-[1440px] mx-auto">
-        <div className="relative w-full min-h-[55vh] sm:min-h-[70vh] lg:min-h-[78vh] rounded-[28px] sm:rounded-[44px] overflow-hidden shadow-[0_28px_70px_-15px_rgba(158,77,104,0.22)] border border-white flex flex-col justify-between p-4 sm:p-8 lg:p-12">
+        <div className="relative w-full min-h-[50vh] sm:min-h-[65vh] lg:min-h-[72vh] rounded-[28px] sm:rounded-[44px] overflow-hidden shadow-[0_28px_70px_-15px_rgba(158,77,104,0.22)] border border-white flex flex-col justify-center p-6 sm:p-10 lg:p-14">
           {/* Custom Uploaded Image for this Specific Service Category */}
           <div className="absolute inset-0 z-0">
             <Image
@@ -54,25 +54,12 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
               priority
             />
             {/* Soft Transparent Cinematic Overlays */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-aura-950/90" />
-            <div className="absolute inset-0 bg-gradient-to-r from-aura-950/40 via-transparent to-aura-950/40" />
-          </div>
-
-          {/* Top Header Badges */}
-          <div className="relative z-20 w-full flex items-center justify-between gap-2 flex-wrap sm:flex-nowrap">
-            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-white/30 dark:bg-black/35 backdrop-blur-md border border-white/40 text-[9px] sm:text-[11px] font-extrabold uppercase tracking-widest text-white shadow-sm">
-              <Flower2 className="w-3.5 h-3.5 text-champagne-light shrink-0" />
-              <span>Category {category.number} • {category.group}</span>
-            </div>
-
-            <div className="inline-flex flex-col items-center justify-center gap-0.5 px-3.5 py-1.5 rounded-2xl bg-white/25 dark:bg-black/30 backdrop-blur-md border border-white/30 text-[9px] font-mono font-bold uppercase tracking-wider text-white/95 text-center">
-              <span>Monday - Sunday : 10AM - 7PM</span>
-              <span className="text-pink-200">Tuesday's : Closed</span>
-            </div>
+            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-aura-950/85" />
+            <div className="absolute inset-0 bg-gradient-to-r from-aura-950/50 via-transparent to-aura-950/30" />
           </div>
 
           {/* Hero Content: ONLY Service Name & Tagline */}
-          <div className="relative z-20 w-full max-w-3xl my-auto pt-6 sm:pt-10 space-y-3 sm:space-y-4 text-white drop-shadow-md">
+          <div className="relative z-20 w-full max-w-3xl space-y-4 text-white drop-shadow-md">
             <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-light text-white tracking-tight leading-[1.1]">
               {category.title}
             </h1>
@@ -90,30 +77,6 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
-          </div>
-
-          {/* Scalable Vector Typography Across Bottom */}
-          <div className="relative z-10 w-full pt-3 sm:pt-4 pb-1 select-none pointer-events-none flex items-center justify-center">
-            <svg
-              viewBox="0 0 1300 150"
-              className="w-full h-auto max-h-12 sm:max-h-20 md:max-h-28 lg:max-h-32 overflow-visible"
-              aria-label="THE PINK AURA"
-            >
-              <text
-                x="50%"
-                y="74%"
-                textAnchor="middle"
-                className="font-serif font-normal"
-                fill="rgba(255, 255, 255, 0.96)"
-                fontSize="120"
-                letterSpacing="0.04em"
-                style={{
-                  filter: 'drop-shadow(0px 8px 24px rgba(0, 0, 0, 0.5))',
-                }}
-              >
-                THE PINK AURA
-              </text>
-            </svg>
           </div>
         </div>
       </section>
