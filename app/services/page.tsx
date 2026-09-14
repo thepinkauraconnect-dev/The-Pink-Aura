@@ -78,7 +78,7 @@ export default function ServicesPage() {
           {/* Bottom Editorial Callout Bar */}
           <div className="relative z-20 w-full pt-4 border-t border-white/20 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-white/90">
             <p className="text-xs sm:text-sm font-serif italic text-center sm:text-left text-pink-100/90">
-              "Discover our 12 signature categories and 117 customized treatment procedures."
+              "Discover our 13 signature categories and 125 customized treatment procedures."
             </p>
             <div className="flex items-center gap-3">
               <Link
@@ -124,8 +124,8 @@ export default function ServicesPage() {
               className="group clay-card clay-card-hover rounded-4xl overflow-hidden flex flex-col justify-between border border-aura-200/80 dark:border-aura-800/40 shadow-clay-md dark:shadow-[0_15px_35px_-10px_rgba(158,27,78,0.25)]"
             >
               <Link href={`/services/${category.slug}`} className="block group">
-                {/* Category Header Image */}
-                <div className="relative w-full h-56 sm:h-60 overflow-hidden rounded-t-4xl">
+                {/* Category Header Image (Horizontal Rectangle aspect-16/9) */}
+                <div className="relative w-full aspect-[16/9] overflow-hidden rounded-t-4xl">
                   <Image
                     src={category.cardImage}
                     alt={category.title}

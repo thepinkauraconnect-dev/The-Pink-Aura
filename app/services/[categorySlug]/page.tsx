@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import { ArrowRight, CheckCircle2, HelpCircle, ChevronRight, Flower2 } from 'lucide-react';
 import { SERVICE_CATEGORIES } from '@/data/services';
+import { TreatmentImage } from '@/components/ui/TreatmentImage';
+import { getTreatmentImageSources } from '@/data/subTreatmentImages';
 
 interface CategoryPageProps {
   params: {
@@ -102,39 +104,54 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {category.treatments.map((treatment) => (
-            <div
-              key={treatment.id}
-              className="clay-card clay-card-hover rounded-3xl p-6 border border-aura-200/80 dark:border-aura-800/40 flex flex-col justify-between space-y-4"
-            >
-              <div className="space-y-2">
-                <div className="flex items-center justify-between gap-2">
-                  <h3 className="font-serif text-xl font-bold text-charcoal">
-                    {treatment.name}
-                  </h3>
+          {category.treatments.map((treatment) => {
+            const imageFallbacks = getTreatmentImageSources(treatment.id, category.cardImage);
+            const primarySrc = treatment.image || imageFallbacks[0] || category.cardImage;
+            return (
+              <div
+                key={treatment.id}
+                className="group clay-card clay-card-hover rounded-3xl overflow-hidden border border-aura-200/80 dark:border-aura-800/40 flex flex-col justify-between"
+              >
+                {/* Sub-treatment Image Header (Horizontal Rectangle aspect-16/9 with Loading Rotator & Fallback Support) */}
+                <TreatmentImage
+                  src={primarySrc}
+                  fallbacks={imageFallbacks}
+                  alt={treatment.name}
+                  aspectRatio="aspect-[16/9]"
+                  roundedClassName="rounded-t-3xl"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent pointer-events-none z-10" />
                   {treatment.tag && (
-                    <span className="text-[10px] uppercase tracking-wider font-extrabold text-aura-750 clay-badge px-2.5 py-0.5 shrink-0">
+                    <span className="absolute top-3 right-3 text-[10px] uppercase font-bold tracking-wider text-white bg-aura-950/80 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/20 z-10">
                       {treatment.tag}
                     </span>
                   )}
-                </div>
-                <p className="text-xs text-charcoal-muted leading-relaxed font-light">
-                  {treatment.description}
-                </p>
-              </div>
+                  <div className="absolute bottom-3 left-4 right-4 z-10">
+                    <h3 className="font-serif text-lg sm:text-xl font-bold text-white drop-shadow-md">
+                      {treatment.name}
+                    </h3>
+                  </div>
+                </TreatmentImage>
 
-              <div className="pt-3 mt-3 border-t border-aura-200/50 dark:border-aura-700/30 flex items-center justify-between gap-2">
-                <span className="text-[11px] text-aura-750 dark:text-aura-300 font-bold">Doctor Assessment Plan</span>
-                <Link
-                  href={`/register?category=${encodeURIComponent(category.title)}&treatment=${encodeURIComponent(treatment.name)}`}
-                  className="clay-btn-primary px-4 py-2 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 shrink-0"
-                >
-                  <span>Enquire Now</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
+                <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
+                  <p className="text-xs text-charcoal-muted leading-relaxed font-light">
+                    {treatment.description}
+                  </p>
+
+                  <div className="pt-3 border-t border-aura-200/50 dark:border-aura-700/30 flex items-center justify-between gap-2 mt-auto">
+                    <span className="text-[11px] text-aura-750 dark:text-aura-300 font-bold">Doctor Assessment Plan</span>
+                    <Link
+                      href={`/register?category=${encodeURIComponent(category.title)}&treatment=${encodeURIComponent(treatment.name)}`}
+                      className="clay-btn-primary px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 shrink-0"
+                    >
+                      <span>Enquire</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
@@ -211,7 +228,7 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
             All Other Services
           </h2>
           <p className="text-xs sm:text-sm text-charcoal-muted font-light">
-            Discover our complete catalogue of signature aesthetic, body contouring, hair restoration, and spiritual wellness categories.
+            Discover our complete catalogue of signature aesthetic, body contouring, hair restoration, IV drip therapy, and spiritual wellness categories.
           </p>
         </div>
 
@@ -282,7 +299,7 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
             Begin Your {category.title} Journey
           </h3>
           <p className="text-sm font-light text-charcoal-muted max-w-xl mx-auto">
-            Schedule your confidential consultation with our aesthetic team to discuss your goals and receive a custom treatment roadmap.
+            Schedule your confidential consultation with our dedicated medical & wellness team to explore your goals and begin your {category.title} journey.
           </p>
           <div className="pt-2">
             <Link

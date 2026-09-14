@@ -298,7 +298,7 @@ export default function Navbar() {
                           href="/services"
                           className="clay-btn-primary w-full py-2.5 px-4 text-[11px] font-extrabold uppercase tracking-wider inline-flex items-center justify-center gap-1.5"
                         >
-                          <span>View All 12 Categories</span>
+                          <span>View All 13 Categories</span>
                           <ArrowRight className="w-3.5 h-3.5" />
                         </Link>
                       </div>

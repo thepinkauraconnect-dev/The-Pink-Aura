@@ -27,29 +27,29 @@ export default function RootEntryPage() {
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="lg:col-span-5 space-y-6 text-left"
+          className="lg:col-span-5 space-y-6 text-center lg:text-left"
         >
-          {/* Logo & Clay Emblem */}
-          <div className="inline-flex items-center gap-4 p-2.5 pr-6 rounded-full clay-badge grotoscope-hover">
-            <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-white p-1 shadow-md shrink-0">
-              <Image
-                src="/images/logo/Logo%20the%20pink%20aura.png"
-                alt="The Pink Aura Logo"
-                fill
-                className="object-contain p-1"
-                priority
-              />
+          {/* Hero Logo with Rectangular Container & Grotoscope Effect */}
+          <div className="flex justify-center lg:justify-start">
+            <div className="w-full max-w-sm sm:max-w-md p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-white/95 via-[#FFF5F8]/90 to-[#FCE4EC]/95 dark:from-[#2E0817]/95 dark:to-[#1F040F]/95 shadow-md dark:shadow-[0_0_35px_2px_rgba(158,27,78,0.55)] grotoscope-hover border border-pink-300/60 dark:border-[#9E1B4E]/60 backdrop-blur-md">
+              <div className="relative w-full h-32 sm:h-40 lg:h-44">
+                <Image
+                  src="/landing_page_hero_logo.png"
+                  alt="The Pink Aura Logo"
+                  fill
+                  className="object-contain p-1"
+                  priority
+                  unoptimized
+                />
+              </div>
             </div>
-            <span className="text-sm font-extrabold text-aura-800 uppercase tracking-widest">
-              The Pink Aura
-            </span>
           </div>
 
-          <h1 className="font-serif text-4xl sm:text-6xl font-light text-charcoal tracking-tight leading-[1.1]">
-            Begin Your Journey with <span className="aura-gradient-text italic font-normal block">The Pink Aura</span>
+          <h1 className="font-serif text-4xl sm:text-6xl font-normal text-[#2D0617] dark:text-white tracking-tight leading-[1.1]">
+            Begin Your Journey with <span className="aura-gradient-text italic font-bold block">The Pink Aura</span>
           </h1>
 
-          <p className="text-base sm:text-lg text-charcoal-muted font-light leading-relaxed">
+          <p className="text-base sm:text-lg text-[#5A0E2E] dark:text-pink-100/90 font-normal leading-relaxed">
             Discover a personalized approach to beauty, advanced aesthetics, hair restoration, body sculpting, and holistic wellbeing.
           </p>
 

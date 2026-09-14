@@ -227,7 +227,7 @@ export default function MainHomePage() {
         </div>
       </section>
 
-      {/* 3. EXPLORE OUR 12 SIGNATURE OFFERINGS WITH INTERACTIVE TABS */}
+      {/* 3. EXPLORE OUR 13 SIGNATURE OFFERINGS WITH INTERACTIVE TABS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
@@ -243,7 +243,7 @@ export default function MainHomePage() {
             href="/services"
             className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-aura-600 hover:text-aura-800 group shrink-0"
           >
-            <span>View All 12 Categories</span>
+            <span>View All 13 Categories</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
@@ -282,8 +282,8 @@ export default function MainHomePage() {
                 className="group clay-card clay-card-hover rounded-4xl overflow-hidden flex flex-col justify-between border border-white dark:border-aura-700/30"
               >
                 <Link href={`/services/${category.slug}`} className="block group">
-                  {/* Image Header */}
-                  <div className="relative w-full h-52 overflow-hidden rounded-t-4xl">
+                  {/* Image Header (Horizontal Rectangle aspect-16/9) */}
+                  <div className="relative w-full aspect-[16/9] overflow-hidden rounded-t-4xl">
                     <Image
                       src={category.cardImage}
                       alt={category.title}
@@ -451,7 +451,7 @@ export default function MainHomePage() {
                   className="clay-btn-primary inline-flex items-center gap-1.5 px-5 py-2.5 text-xs font-bold uppercase tracking-wider shrink-0"
                 >
                   <Phone className="w-3.5 h-3.5" />
-                  <span>Call {founder.name.split(' ')[0]}</span>
+                  <span>Call {founder.name.startsWith('Dr.') ? founder.name.split(' ').slice(0, 2).join(' ') : founder.name.split(' ')[0]}</span>
                 </a>
               </div>
             </div>

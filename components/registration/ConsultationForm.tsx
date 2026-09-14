@@ -15,9 +15,15 @@ const CATEGORY_OPTIONS = [
   { value: 'Other / Not Sure', label: 'Other / Personalized Recommendation' },
 ];
 
-function ConsultationFormContent() {
+interface ConsultationFormProps {
+  title?: React.ReactNode;
+  subtitle?: string;
+}
+
+function ConsultationFormContent({ title, subtitle }: ConsultationFormProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
+  // ... existing code ...
 
   const [formData, setFormData] = useState({
     name: '',
@@ -117,15 +123,15 @@ function ConsultationFormContent() {
       {/* Decorative Aura Accent */}
       <div className="absolute -top-24 -right-24 w-56 h-56 bg-aura-300/30 dark:bg-[#9E1B4E]/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="text-center mb-5 sm:mb-8">
-        <div className="inline-flex items-center px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full clay-badge text-aura-700 text-[10px] sm:text-xs font-extrabold uppercase tracking-widest mb-2.5">
+      <div className="text-center mb-6 sm:mb-8 pt-1">
+        <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/95 dark:bg-[#3D0C1E] border border-aura-200/80 dark:border-aura-700/50 shadow-sm text-aura-800 dark:text-aura-200 text-xs font-extrabold uppercase tracking-widest mb-3">
           <span>Personalized Consultation</span>
         </div>
-        <h2 className="font-serif text-2xl sm:text-4xl font-bold text-charcoal tracking-tight">
-          Begin Your Journey with The Pink Aura
+        <h2 className="font-serif text-2xl sm:text-4xl font-extrabold text-[#3B071E] dark:text-white tracking-tight">
+          {title || <>Schedule Your <span className="aura-gradient-text italic font-bold">Consultation</span></>}
         </h2>
-        <p className="text-xs sm:text-sm text-charcoal-muted mt-1.5 font-light max-w-md mx-auto leading-relaxed">
-          Share your details below to receive a personalized aesthetic & wellness consultation plan from our specialists.
+        <p className="text-xs sm:text-sm text-[#5C1030] dark:text-pink-200/90 mt-2 font-medium max-w-md mx-auto leading-relaxed">
+          {subtitle || "Share your details below to receive a personalized aesthetic & wellness consultation plan from our specialists."}
         </p>
       </div>
 
@@ -312,7 +318,7 @@ function ConsultationFormContent() {
             </span>
           ) : (
             <span className="flex items-center gap-2">
-              <span>Begin My Journey</span>
+              <span>Schedule My Consultation</span>
               <ArrowRight className="w-4 h-4" />
             </span>
           )}
@@ -322,7 +328,7 @@ function ConsultationFormContent() {
   );
 }
 
-export default function ConsultationForm() {
+export default function ConsultationForm(props: ConsultationFormProps) {
   return (
     <Suspense
       fallback={
@@ -332,7 +338,7 @@ export default function ConsultationForm() {
         </div>
       }
     >
-      <ConsultationFormContent />
+      <ConsultationFormContent {...props} />
     </Suspense>
   );
 }

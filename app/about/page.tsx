@@ -123,7 +123,7 @@ export default function AboutPage() {
                   className="clay-btn-primary inline-flex items-center gap-1.5 px-5 py-2.5 text-xs font-bold uppercase tracking-wider shrink-0"
                 >
                   <Phone className="w-3.5 h-3.5" />
-                  <span>Call {founder.name.split(' ')[0]}</span>
+                  <span>Call {founder.name.startsWith('Dr.') ? founder.name.split(' ').slice(0, 2).join(' ') : founder.name.split(' ')[0]}</span>
                 </a>
               </div>
             </div>

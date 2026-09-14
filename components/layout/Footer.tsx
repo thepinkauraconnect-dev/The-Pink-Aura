@@ -81,6 +81,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/services/iv-drip-therapy" className="text-aura-200/70 hover:text-white transition-colors">
+                  IV Drip Therapy
+                </Link>
+              </li>
+              <li>
                 <Link href="/register" className="text-aura-200/70 hover:text-white transition-colors">
                   Consultation Registration
                 </Link>
@@ -114,7 +119,7 @@ export default function Footer() {
                   href="/services"
                   className="text-aura-400 hover:text-aura-300 transition-colors font-medium inline-flex items-center gap-1 mt-1"
                 >
-                  <span>View All 12 Categories</span>
+                  <span>View All 13 Categories</span>
                   <ArrowUpRight className="w-3 h-3" />
                 </Link>
               </li>

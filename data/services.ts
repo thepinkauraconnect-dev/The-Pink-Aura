@@ -1,3 +1,4 @@
+import { SUB_TREATMENT_IMAGES } from './subTreatmentImages';
 import { ServiceCategory } from '@/types/services';
 
 export const SERVICE_CATEGORIES: ServiceCategory[] = [
@@ -19,20 +20,20 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     ],
     treatments: [
       { id: 'lhr-1', name: 'Upper Lip', description: 'Targeted laser treatment for fine facial hair around the upper lip area.', tag: 'Facial' },
-      { id: 'lhr-2', name: 'Chin', description: 'Precision hair removal focusing on chin stubble and fine hairs.', tag: 'Facial' },
-      { id: 'lhr-3', name: 'Upper Lip + Chin', description: 'Combined lower face precision treatment for a clean, velvety finish.', tag: 'Facial' },
-      { id: 'lhr-4', name: 'Full Face', description: 'Comprehensive facial hair reduction covering cheeks, upper lip, chin, and jawline.', tag: 'Facial' },
-      { id: 'lhr-5', name: 'Beard Line Shaping', description: 'Defined, sharp beard contours for men with smooth surrounding cheek and neck skin.', tag: 'Grooming' },
-      { id: 'lhr-6', name: 'Underarms', description: 'Quick and effective laser session for smooth, shadow-free underarms.', tag: 'Body' },
-      { id: 'lhr-7', name: 'Full Arms', description: 'Complete arm treatment from shoulders to wrists for seamless radiance.', tag: 'Body' },
-      { id: 'lhr-8', name: 'Full Legs', description: 'Full leg laser reduction covering thighs, knees, and lower legs.', tag: 'Body' },
-      { id: 'lhr-9', name: 'Full Arms + Full Legs', description: 'Integrated arm and leg laser reduction for complete limb smoothness.', tag: 'Combo' },
-      { id: 'lhr-10', name: 'Full Front', description: 'Custom chest and abdomen laser reduction for smooth upper body aesthetic.', tag: 'Body' },
-      { id: 'lhr-11', name: 'Full Back', description: 'Complete back laser reduction including shoulders and lower back.', tag: 'Body' },
-      { id: 'lhr-12', name: 'Full Bikini', description: 'Gentle, hygienic laser hair reduction for sensitive bikini contours.', tag: 'Intimate' },
-      { id: 'lhr-13', name: 'Buttocks', description: 'Smooth skin treatment covering the entire seat and hip region.', tag: 'Body' },
-      { id: 'lhr-14', name: 'Full Bikini + Buttocks', description: 'Comprehensive lower intimate area grooming for effortless confidence.', tag: 'Combo' },
-      { id: 'lhr-15', name: 'Full Body', description: 'The ultimate head-to-toe laser package tailored for maximum smoothness and ease.', tag: 'Signature' }
+      { id: 'lhr-2', name: 'Chin', description: 'Precision hair removal focusing on chin stubble and fine hairs.', tag: 'Facial', image: SUB_TREATMENT_IMAGES['lhr-2'] },
+      { id: 'lhr-3', name: 'Upper Lip + Chin', description: 'Combined lower face precision treatment for a clean, velvety finish.', tag: 'Facial', image: SUB_TREATMENT_IMAGES['lhr-3'] },
+      { id: 'lhr-4', name: 'Full Face', description: 'Comprehensive facial hair reduction covering cheeks, upper lip, chin, and jawline.', tag: 'Facial', image: SUB_TREATMENT_IMAGES['lhr-4'] },
+      { id: 'lhr-5', name: 'Beard Line Shaping', description: 'Defined, sharp beard contours for men with smooth surrounding cheek and neck skin.', tag: 'Grooming', image: SUB_TREATMENT_IMAGES['lhr-5'] },
+      { id: 'lhr-6', name: 'Underarms', description: 'Quick and effective laser session for smooth, shadow-free underarms.', tag: 'Body', image: SUB_TREATMENT_IMAGES['lhr-6'] },
+      { id: 'lhr-7', name: 'Full Arms', description: 'Complete arm treatment from shoulders to wrists for seamless radiance.', tag: 'Body', image: SUB_TREATMENT_IMAGES['lhr-7'] },
+      { id: 'lhr-8', name: 'Full Legs', description: 'Full leg laser reduction covering thighs, knees, and lower legs.', tag: 'Body', image: SUB_TREATMENT_IMAGES['lhr-8'] },
+      { id: 'lhr-9', name: 'Full Arms + Full Legs', description: 'Integrated arm and leg laser reduction for complete limb smoothness.', tag: 'Combo', image: SUB_TREATMENT_IMAGES['lhr-9'] },
+      { id: 'lhr-10', name: 'Full Front', description: 'Custom chest and abdomen laser reduction for smooth upper body aesthetic.', tag: 'Body', image: SUB_TREATMENT_IMAGES['lhr-10'] },
+      { id: 'lhr-11', name: 'Full Back', description: 'Complete back laser reduction including shoulders and lower back.', tag: 'Body', image: SUB_TREATMENT_IMAGES['lhr-11'] },
+      { id: 'lhr-12', name: 'Full Bikini', description: 'Gentle, hygienic laser hair reduction for sensitive bikini contours.', tag: 'Intimate', image: SUB_TREATMENT_IMAGES['lhr-12'] },
+      { id: 'lhr-13', name: 'Buttocks', description: 'Smooth skin treatment covering the entire seat and hip region.', tag: 'Body', image: SUB_TREATMENT_IMAGES['lhr-13'] },
+      { id: 'lhr-14', name: 'Full Bikini + Buttocks', description: 'Comprehensive lower intimate area grooming for effortless confidence.', tag: 'Combo', image: SUB_TREATMENT_IMAGES['lhr-14'] },
+      { id: 'lhr-15', name: 'Full Body', description: 'The ultimate head-to-toe laser package tailored for maximum smoothness and ease.', tag: 'Signature', image: SUB_TREATMENT_IMAGES['lhr-15'] }
     ],
     faqs: [
       { question: 'Is laser hair reduction painful?', answer: 'Our advanced laser system features active contact cooling technology that keeps the skin comfortable throughout the session, making the procedure virtually painless.' },
@@ -58,30 +59,30 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     ],
     treatments: [
       { id: 'sk-1', name: 'Hydra Medi Facial', description: 'Multi-step vortex deep cleansing, exfoliation, and deep antioxidant hydration infusion.' },
-      { id: 'sk-2', name: 'Carbon Facial', description: 'Hollywood China Doll facial utilizing liquid carbon and laser light for pore tightening and radiant glow.' },
-      { id: 'sk-3', name: 'Korean Glass Skin Treatment', description: 'Intense moisture surge and micro-nutrient infusion for a smooth, glass-like skin finish.' },
-      { id: 'sk-4', name: 'Q-Switched Laser', description: 'High-speed laser light targeting stubborn pigmentation, freckles, and age spots.' },
-      { id: 'sk-5', name: 'Pico Laser', description: 'Picosecond pulse technology for targeted melasma reduction and collagen remodeling.' },
-      { id: 'sk-6', name: 'CO₂ Fractional Laser', description: 'Micro-ablative resurfacing targeting deep acne scars, enlarged pores, and fine wrinkles.' },
-      { id: 'sk-7', name: 'Fractional Laser', description: 'Gentle skin renewal laser stimulating natural elastin and collagen synthesis.' },
-      { id: 'sk-8', name: 'AHA Peel', description: 'Alpha Hydroxy Acid exfoliation ideal for brightening dull complexions.' },
-      { id: 'sk-9', name: 'BHA / Salicylic Peel', description: 'Deep pore penetration formulated to clarify acne-prone, congested skin.' },
-      { id: 'sk-10', name: 'Black Peel', description: 'Black acetic acid formulation targeting resistant acne, inflammation, and sebum control.' },
-      { id: 'sk-11', name: 'TCA Peel', description: 'Trichloroacetic acid chemical peel for deep skin restructuring and sun damage repair.' },
-      { id: 'sk-12', name: 'Yellow Peel', description: 'Retinol-enriched peel designed to inhibit melanin production and restore youthful glow.' },
-      { id: 'sk-13', name: 'Retises Peel', description: 'Concentrated Vitamin A therapy enhancing cellular turnover and skin tightness.' },
-      { id: 'sk-14', name: 'Cosmelan Peel', description: 'World-leading depigmentation treatment for stubborn melasma and dark spots.' },
-      { id: 'sk-15', name: 'Microdermabrasion', description: 'Diamond-tip mechanical exfoliation removing dead surface cells for silkiness.' },
-      { id: 'sk-16', name: 'Dermapen / Dermaroller / Microneedling', description: 'Controlled collagen induction therapy to refine texture and minimize pores.' },
-      { id: 'sk-17', name: 'PRP + Microneedling', description: 'Autologous platelet-rich plasma combined with microneedling for cellular renewal.' },
-      { id: 'sk-18', name: 'Photofacial / IPL', description: 'Intense Pulsed Light targeting redness, sun damage, and uneven skin tone.' },
-      { id: 'sk-19', name: 'Mole Removal', description: 'Safe clinical removal of benign facial and body moles with minimal scarring.' },
-      { id: 'sk-20', name: 'Wart Removal', description: 'Precision electro-cautery or radiofrequency removal of cutaneous warts.' },
-      { id: 'sk-21', name: 'Skin Tag Removal', description: 'Quick, painless elimination of unwanted skin tags around neck and underarms.' },
-      { id: 'sk-22', name: 'Radiofrequency Skin Tightening', description: 'Thermal energy heating sub-dermal layers to lift and firm loose skin.' },
-      { id: 'sk-23', name: 'HIFU Face', description: 'High-Intensity Focused Ultrasound non-surgical face lift targeting the SMAS layer.' },
-      { id: 'sk-24', name: 'LED Light Therapy', description: 'Therapeutic light waves calming inflammation, boosting collagen, and clearing bacteria.' },
-      { id: 'sk-25', name: 'Tattoo Removal', description: 'Laser pigment shattering to fade unwanted body art safely over multi-session protocols.' }
+      { id: 'sk-2', name: 'Carbon Facial', description: 'Hollywood China Doll facial utilizing liquid carbon and laser light for pore tightening and radiant glow.', image: SUB_TREATMENT_IMAGES['sk-2'] },
+      { id: 'sk-3', name: 'Korean Glass Skin Treatment', description: 'Intense moisture surge and micro-nutrient infusion for a smooth, glass-like skin finish.', image: SUB_TREATMENT_IMAGES['sk-3'] },
+      { id: 'sk-4', name: 'Q-Switched Laser', description: 'High-speed laser light targeting stubborn pigmentation, freckles, and age spots.', image: SUB_TREATMENT_IMAGES['sk-4'] },
+      { id: 'sk-5', name: 'Pico Laser', description: 'Picosecond pulse technology for targeted melasma reduction and collagen remodeling.', image: SUB_TREATMENT_IMAGES['sk-5'] },
+      { id: 'sk-6', name: 'CO₂ Fractional Laser', description: 'Micro-ablative resurfacing targeting deep acne scars, enlarged pores, and fine wrinkles.', image: SUB_TREATMENT_IMAGES['sk-6'] },
+      { id: 'sk-7', name: 'Fractional Laser', description: 'Gentle skin renewal laser stimulating natural elastin and collagen synthesis.', image: SUB_TREATMENT_IMAGES['sk-7'] },
+      { id: 'sk-8', name: 'AHA Peel', description: 'Alpha Hydroxy Acid exfoliation ideal for brightening dull complexions.', image: SUB_TREATMENT_IMAGES['sk-8'] },
+      { id: 'sk-9', name: 'BHA / Salicylic Peel', description: 'Deep pore penetration formulated to clarify acne-prone, congested skin.', image: SUB_TREATMENT_IMAGES['sk-9'] },
+      { id: 'sk-10', name: 'Black Peel', description: 'Black acetic acid formulation targeting resistant acne, inflammation, and sebum control.', image: SUB_TREATMENT_IMAGES['sk-10'] },
+      { id: 'sk-11', name: 'TCA Peel', description: 'Trichloroacetic acid chemical peel for deep skin restructuring and sun damage repair.', image: SUB_TREATMENT_IMAGES['sk-11'] },
+      { id: 'sk-12', name: 'Yellow Peel', description: 'Retinol-enriched peel designed to inhibit melanin production and restore youthful glow.', image: SUB_TREATMENT_IMAGES['sk-12'] },
+      { id: 'sk-13', name: 'Retises Peel', description: 'Concentrated Vitamin A therapy enhancing cellular turnover and skin tightness.', image: SUB_TREATMENT_IMAGES['sk-13'] },
+      { id: 'sk-14', name: 'Cosmelan Peel', description: 'World-leading depigmentation treatment for stubborn melasma and dark spots.', image: SUB_TREATMENT_IMAGES['sk-14'] },
+      { id: 'sk-15', name: 'Microdermabrasion', description: 'Diamond-tip mechanical exfoliation removing dead surface cells for silkiness.', image: SUB_TREATMENT_IMAGES['sk-15'] },
+      { id: 'sk-16', name: 'Dermapen / Dermaroller / Microneedling', description: 'Controlled collagen induction therapy to refine texture and minimize pores.', image: SUB_TREATMENT_IMAGES['sk-16'] },
+      { id: 'sk-17', name: 'PRP + Microneedling', description: 'Autologous platelet-rich plasma combined with microneedling for cellular renewal.', image: SUB_TREATMENT_IMAGES['sk-17'] },
+      { id: 'sk-18', name: 'Photofacial / IPL', description: 'Intense Pulsed Light targeting redness, sun damage, and uneven skin tone.', image: SUB_TREATMENT_IMAGES['sk-18'] },
+      { id: 'sk-19', name: 'Mole Removal', description: 'Safe clinical removal of benign facial and body moles with minimal scarring.', image: SUB_TREATMENT_IMAGES['sk-19'] },
+      { id: 'sk-20', name: 'Wart Removal', description: 'Precision electro-cautery or radiofrequency removal of cutaneous warts.', image: SUB_TREATMENT_IMAGES['sk-20'] },
+      { id: 'sk-21', name: 'Skin Tag Removal', description: 'Quick, painless elimination of unwanted skin tags around neck and underarms.', image: SUB_TREATMENT_IMAGES['sk-21'] },
+      { id: 'sk-22', name: 'Radiofrequency Skin Tightening', description: 'Thermal energy heating sub-dermal layers to lift and firm loose skin.', image: SUB_TREATMENT_IMAGES['sk-22'] },
+      { id: 'sk-23', name: 'HIFU Face', description: 'High-Intensity Focused Ultrasound non-surgical face lift targeting the SMAS layer.', image: SUB_TREATMENT_IMAGES['sk-23'] },
+      { id: 'sk-24', name: 'LED Light Therapy', description: 'Therapeutic light waves calming inflammation, boosting collagen, and clearing bacteria.', image: SUB_TREATMENT_IMAGES['sk-24'] },
+      { id: 'sk-25', name: 'Tattoo Removal', description: 'Laser pigment shattering to fade unwanted body art safely over multi-session protocols.', image: SUB_TREATMENT_IMAGES['sk-25'] }
     ],
     faqs: [
       { question: 'Which facial is best suited for my skin type?', answer: 'During your initial consultation, our aesthetic expert performs a skin analysis to recommend the ideal blend of medi-facials or clinical peels for your concerns.' },
@@ -106,23 +107,23 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     ],
     treatments: [
       { id: 'inj-1', name: 'PRP for Skin Rejuvenation', description: 'Platelet-rich plasma growth factor injections restoring skin vitality and collagen density.' },
-      { id: 'inj-2', name: 'Plasmolift', description: 'Concentrated autologous plasma mesh providing subtle volume elevation and glow.' },
-      { id: 'inj-3', name: 'Vampire Facelift', description: 'Synergistic combination of hyaluronic acid dermal fillers and rich growth factor plasma.' },
-      { id: 'inj-4', name: 'Botox', description: 'Precision neuromuscular relaxant for smoothing forehead lines, crow’s feet, and frown lines.' },
-      { id: 'inj-5', name: 'Dermal Fillers', description: 'Hyaluronic acid injections sculpting lips, cheekbones, jawline, and tear troughs.' },
-      { id: 'inj-6', name: 'Skin Boosters', description: 'Micro-droplet hyaluronic acid hydration restoring inner glow and elastic bounce.' },
-      { id: 'inj-7', name: 'Deoxycholic Acid', description: 'Targeted lipolytic treatment contoured to dissolve double chin fullness.' },
-      { id: 'inj-8', name: 'Bio Fillers', description: 'Autologous plasma gel derived from your blood for natural volume restoration.' },
-      { id: 'inj-9', name: 'Microneedling with PRP', description: 'Deep epidermal micro-channeling infused with active growth factor serums.' },
-      { id: 'inj-10', name: 'Subcision', description: 'Minor surgical release of fibrous tethered scar tissue underneath depressed acne scars.' },
-      { id: 'inj-11', name: 'Thread Lift', description: 'Absorbable PDO/PLLA barbed threads repositioning sagging cheek and jawline tissues.' },
-      { id: 'inj-12', name: 'Mesolipolysis', description: 'Micro-injections breaking down localized stubborn fat deposits on lower face and chin.' },
-      { id: 'inj-13', name: 'FatX', description: 'Advanced lipolytic formulation targeting localized adiposity for defined facial contours.' },
-      { id: 'inj-14', name: 'Exosome Therapy', description: 'Stem cell-derived extracellular vesicles packed with growth factors for intense skin repair.' },
-      { id: 'inj-15', name: 'PDRN', description: 'Polydeoxyribonucleotide salmon DNA therapy triggering cellular tissue regeneration.' },
-      { id: 'inj-16', name: 'NCTF 135HA', description: 'French poly-revitalizing cocktail containing 59 active nutrients plus hyaluronic acid.' },
-      { id: 'inj-17', name: 'Skin Rebirth Therapy', description: 'Multi-layer skin restoration protocol revitalizing sun-damaged and mature skin.' },
-      { id: 'inj-18', name: 'Skin Infusion Therapy', description: 'Direct cellular nutrient micro-infusion tailored for ultimate radiance.' }
+      { id: 'inj-2', name: 'Plasmolift', description: 'Concentrated autologous plasma mesh providing subtle volume elevation and glow.', image: SUB_TREATMENT_IMAGES['inj-2'] },
+      { id: 'inj-3', name: 'Vampire Facelift', description: 'Synergistic combination of hyaluronic acid dermal fillers and rich growth factor plasma.', image: SUB_TREATMENT_IMAGES['inj-3'] },
+      { id: 'inj-4', name: 'Botox', description: 'Precision neuromuscular relaxant for smoothing forehead lines, crow’s feet, and frown lines.', image: SUB_TREATMENT_IMAGES['inj-4'] },
+      { id: 'inj-5', name: 'Dermal Fillers', description: 'Hyaluronic acid injections sculpting lips, cheekbones, jawline, and tear troughs.', image: SUB_TREATMENT_IMAGES['inj-5'] },
+      { id: 'inj-6', name: 'Skin Boosters', description: 'Micro-droplet hyaluronic acid hydration restoring inner glow and elastic bounce.', image: SUB_TREATMENT_IMAGES['inj-6'] },
+      { id: 'inj-7', name: 'Deoxycholic Acid', description: 'Targeted lipolytic treatment contoured to dissolve double chin fullness.', image: SUB_TREATMENT_IMAGES['inj-7'] },
+      { id: 'inj-8', name: 'Bio Fillers', description: 'Autologous plasma gel derived from your blood for natural volume restoration.', image: SUB_TREATMENT_IMAGES['inj-8'] },
+      { id: 'inj-9', name: 'Microneedling with PRP', description: 'Deep epidermal micro-channeling infused with active growth factor serums.', image: SUB_TREATMENT_IMAGES['inj-9'] },
+      { id: 'inj-10', name: 'Subcision', description: 'Minor surgical release of fibrous tethered scar tissue underneath depressed acne scars.', image: SUB_TREATMENT_IMAGES['inj-10'] },
+      { id: 'inj-11', name: 'Thread Lift', description: 'Absorbable PDO/PLLA barbed threads repositioning sagging cheek and jawline tissues.', image: SUB_TREATMENT_IMAGES['inj-11'] },
+      { id: 'inj-12', name: 'Mesolipolysis', description: 'Micro-injections breaking down localized stubborn fat deposits on lower face and chin.', image: SUB_TREATMENT_IMAGES['inj-12'] },
+      { id: 'inj-13', name: 'FatX', description: 'Advanced lipolytic formulation targeting localized adiposity for defined facial contours.', image: SUB_TREATMENT_IMAGES['inj-13'] },
+      { id: 'inj-14', name: 'Exosome Therapy', description: 'Stem cell-derived extracellular vesicles packed with growth factors for intense skin repair.', image: SUB_TREATMENT_IMAGES['inj-14'] },
+      { id: 'inj-15', name: 'PDRN', description: 'Polydeoxyribonucleotide salmon DNA therapy triggering cellular tissue regeneration.', image: SUB_TREATMENT_IMAGES['inj-15'] },
+      { id: 'inj-16', name: 'NCTF 135HA', description: 'French poly-revitalizing cocktail containing 59 active nutrients plus hyaluronic acid.', image: SUB_TREATMENT_IMAGES['inj-16'] },
+      { id: 'inj-17', name: 'Skin Rebirth Therapy', description: 'Multi-layer skin restoration protocol revitalizing sun-damaged and mature skin.', image: SUB_TREATMENT_IMAGES['inj-17'] },
+      { id: 'inj-18', name: 'Skin Infusion Therapy', description: 'Direct cellular nutrient micro-infusion tailored for ultimate radiance.', image: SUB_TREATMENT_IMAGES['inj-18'] }
     ],
     faqs: [
       { question: 'Will Botox make my face look frozen or unnatural?', answer: 'Not at all. At The Pink Aura, our philosophy centers on subtle, micro-droplet artistry that preserves your natural expressions while softening dynamic wrinkles.' },
@@ -147,15 +148,15 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     ],
     treatments: [
       { id: 'pmu-1', name: 'Microblading', description: 'Manual hair-stroke eyebrow micropigmentation creating hyper-realistic, full brows.' },
-      { id: 'pmu-2', name: 'Ombre Powder Brows', description: 'Soft, misty pixelated pigment shading giving a soft makeup powder look.' },
-      { id: 'pmu-3', name: 'Combination Brows', description: 'The ideal blend of realistic front hair strokes with shaded arch density.' },
-      { id: 'pmu-4', name: 'Scalp Micropigmentation', description: 'Precision scalp micro-dots replicating dense hair follicles to camouflage thinning.' },
-      { id: 'pmu-5', name: 'Lip Tinting / Lip Blush', description: 'Velvety semi-permanent lip blush enhancing lip symmetry, border definition, and rosy tone.' },
-      { id: 'pmu-6', name: 'Eyeliner Tattoo', description: 'Subtle lash-line enhancement creating the illusion of thicker, darker eyelashes.' },
-      { id: 'pmu-7', name: 'Full Eyeliner', description: 'Defined upper or lower eyeliner contour tailored to enhance your eye shape.' },
-      { id: 'pmu-8', name: 'Beauty Spot', description: 'Delicate, natural beauty mark micro-pigmentation placement.' },
-      { id: 'pmu-9', name: 'PMU Touch-Up', description: 'Perfecting session held 4 to 6 weeks after initial treatment for pigment saturation.' },
-      { id: 'pmu-10', name: 'Annual Color Refresh', description: 'Color boost session to maintain vibrant pigment clarity and crispness.' }
+      { id: 'pmu-2', name: 'Ombre Powder Brows', description: 'Soft, misty pixelated pigment shading giving a soft makeup powder look.', image: SUB_TREATMENT_IMAGES['pmu-2'] },
+      { id: 'pmu-3', name: 'Combination Brows', description: 'The ideal blend of realistic front hair strokes with shaded arch density.', image: SUB_TREATMENT_IMAGES['pmu-3'] },
+      { id: 'pmu-4', name: 'Scalp Micropigmentation', description: 'Precision scalp micro-dots replicating dense hair follicles to camouflage thinning.', image: SUB_TREATMENT_IMAGES['pmu-4'] },
+      { id: 'pmu-5', name: 'Lip Tinting / Lip Blush', description: 'Velvety semi-permanent lip blush enhancing lip symmetry, border definition, and rosy tone.', image: SUB_TREATMENT_IMAGES['pmu-5'] },
+      { id: 'pmu-6', name: 'Eyeliner Tattoo', description: 'Subtle lash-line enhancement creating the illusion of thicker, darker eyelashes.', image: SUB_TREATMENT_IMAGES['pmu-6'] },
+      { id: 'pmu-7', name: 'Full Eyeliner', description: 'Defined upper or lower eyeliner contour tailored to enhance your eye shape.', image: SUB_TREATMENT_IMAGES['pmu-7'] },
+      { id: 'pmu-8', name: 'Beauty Spot', description: 'Delicate, natural beauty mark micro-pigmentation placement.', image: SUB_TREATMENT_IMAGES['pmu-8'] },
+      { id: 'pmu-9', name: 'PMU Touch-Up', description: 'Perfecting session held 4 to 6 weeks after initial treatment for pigment saturation.', image: SUB_TREATMENT_IMAGES['pmu-9'] },
+      { id: 'pmu-10', name: 'Annual Color Refresh', description: 'Color boost session to maintain vibrant pigment clarity and crispness.', image: SUB_TREATMENT_IMAGES['pmu-10'] }
     ],
     faqs: [
       { question: 'How long does Microblading or Lip Blush last?', answer: 'PMU treatments typically remain beautiful for 1.5 to 3 years depending on skin type, lifestyle, and sun exposure before needing a color refresh.' },
@@ -180,14 +181,14 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     ],
     treatments: [
       { id: 'hr-1', name: 'High Frequency Hair Therapy', description: 'Scalp micro-current stimulation boosting blood micro-circulation to hair roots.' },
-      { id: 'hr-2', name: 'Laser Helmet / LLLT', description: 'Low-Level Laser Therapy energizing cellular ATP within dormant hair follicles.' },
-      { id: 'hr-3', name: 'PRP Hair Treatment', description: 'Platelet-rich plasma growth factor injections arresting hair shedding.' },
-      { id: 'hr-4', name: 'GFC (Growth Factor Concentrate)', description: 'Next-generation highly concentrated growth factors harvested from autologous platelets.' },
-      { id: 'hr-5', name: 'QR678 Hair Therapy', description: 'US & Indian patented bio-engineered growth factor cocktail for hair re-growth.' },
-      { id: 'hr-6', name: 'Hair Fillers', description: 'Peptide micro-injections promoting blood flow and hair shaft diameter reinforcement.' },
-      { id: 'hr-7', name: 'Exosome Hair Therapy', description: 'Potent stem-cell signaling exosome vesicles reactivating dormant hair follicles.' },
-      { id: 'hr-8', name: 'Bio-PRF Hair Treatment', description: 'Platelet-Rich Fibrin slow-release scaffold nourishing weakened hair roots.' },
-      { id: 'hr-9', name: 'Stem Cell / Regenerative Hair Therapy', description: 'Advanced cellular therapy targeting root micro-environment restoration.' }
+      { id: 'hr-2', name: 'Laser Helmet / LLLT', description: 'Low-Level Laser Therapy energizing cellular ATP within dormant hair follicles.', image: SUB_TREATMENT_IMAGES['hr-2'] },
+      { id: 'hr-3', name: 'PRP Hair Treatment', description: 'Platelet-rich plasma growth factor injections arresting hair shedding.', image: SUB_TREATMENT_IMAGES['hr-3'] },
+      { id: 'hr-4', name: 'GFC (Growth Factor Concentrate)', description: 'Next-generation highly concentrated growth factors harvested from autologous platelets.', image: SUB_TREATMENT_IMAGES['hr-4'] },
+      { id: 'hr-5', name: 'QR678 Hair Therapy', description: 'US & Indian patented bio-engineered growth factor cocktail for hair re-growth.', image: SUB_TREATMENT_IMAGES['hr-5'] },
+      { id: 'hr-6', name: 'Hair Fillers', description: 'Peptide micro-injections promoting blood flow and hair shaft diameter reinforcement.', image: SUB_TREATMENT_IMAGES['hr-6'] },
+      { id: 'hr-7', name: 'Exosome Hair Therapy', description: 'Potent stem-cell signaling exosome vesicles reactivating dormant hair follicles.', image: SUB_TREATMENT_IMAGES['hr-7'] },
+      { id: 'hr-8', name: 'Bio-PRF Hair Treatment', description: 'Platelet-Rich Fibrin slow-release scaffold nourishing weakened hair roots.', image: SUB_TREATMENT_IMAGES['hr-8'] },
+      { id: 'hr-9', name: 'Stem Cell / Regenerative Hair Therapy', description: 'Advanced cellular therapy targeting root micro-environment restoration.', image: SUB_TREATMENT_IMAGES['hr-9'] }
     ],
     faqs: [
       { question: 'What is the difference between PRP and GFC for hair loss?', answer: 'GFC (Growth Factor Concentrate) is a pure, cell-free preparation where growth factors are extracted from platelets before injection, yielding higher stability and less discomfort than standard PRP.' },
@@ -212,7 +213,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     ],
     treatments: [
       { id: 'ht-1', name: 'Hair Transplant — FUE', description: 'Follicular Unit Extraction harvesting individual hair grafts with minimal micro-incisions and rapid healing.' },
-      { id: 'ht-2', name: 'Hair Transplant — FUT', description: 'Follicular Unit Transplantation strip method allowing high-density graft collection for extensive balding areas.' }
+      { id: 'ht-2', name: 'Hair Transplant — FUT', description: 'Follicular Unit Transplantation strip method allowing high-density graft collection for extensive balding areas.', image: SUB_TREATMENT_IMAGES['ht-2'] }
     ],
     faqs: [
       { question: 'Are transplanted hair grafts permanent?', answer: 'Yes. Grafts harvested from the donor zone (back and sides of the scalp) are genetically resistant to DHT-induced balding, ensuring permanent growth.' },
@@ -236,17 +237,17 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       'Targeted stubborn fat reduction for belly, thighs, arms, and flanks'
     ],
     treatments: [
-      { id: 'sl-1', name: 'Body Composition Analysis', description: 'Comprehensive diagnostic breakdown of visceral fat, muscle mass, metabolic rate, and hydration levels.' },
-      { id: 'sl-2', name: 'Weight Management Consultation', description: 'In-depth physician consultation targeting root causes of weight gain and metabolic bottlenecks.' },
-      { id: 'sl-3', name: 'Personalized Diet & Lifestyle Plan', description: 'Tailored macro-nutrient diet charts paired with actionable daily wellness habits.' },
-      { id: 'sl-4', name: 'Body Firming', description: 'Clinical electro-stimulation and firming therapy improving skin laxity after weight loss.' },
-      { id: 'sl-5', name: 'Body Toning', description: 'Targeted muscle activation therapy strengthening underlying core and limb muscles.' },
-      { id: 'sl-6', name: 'Weight Loss Program', description: 'Integrated physician-guided weight management protocol combining therapy and nutrition.' },
-      { id: 'sl-7', name: 'Lipolaser', description: 'Low-level laser energy creating micro-pores in fat cells to release stored triglycerides.' },
-      { id: 'sl-8', name: 'Radiofrequency Body Tightening', description: 'Thermal energy heating deep subcutaneous tissue to stimulate collagen and smooth cellulite.' },
-      { id: 'sl-9', name: 'CoolSculpting / Cryolipolysis', description: 'Controlled cooling technology freezing and permanently eliminating stubborn fat cells.' },
-      { id: 'sl-10', name: 'Mesolipolysis', description: 'Targeted micro-injections dissolving resistant localized fat deposits on abdomen or thighs.' },
-      { id: 'sl-11', name: 'Bust Reduction / Non-Surgical Program', description: 'Non-surgical radiofrequency and tissue toning therapy for breast firming and contour refinement.' }
+      { id: 'sl-1', name: 'Body Composition Analysis', description: 'Comprehensive diagnostic breakdown of visceral fat, muscle mass, metabolic rate, and hydration levels.', image: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80' },
+      { id: 'sl-2', name: 'Weight Management Consultation', description: 'In-depth physician consultation targeting root causes of weight gain and metabolic bottlenecks.', image: SUB_TREATMENT_IMAGES['sl-2'] },
+      { id: 'sl-3', name: 'Personalized Diet & Lifestyle Plan', description: 'Tailored macro-nutrient diet charts paired with actionable daily wellness habits.', image: SUB_TREATMENT_IMAGES['sl-3'] },
+      { id: 'sl-4', name: 'Body Firming', description: 'Clinical electro-stimulation and firming therapy improving skin laxity after weight loss.', image: SUB_TREATMENT_IMAGES['sl-4'] },
+      { id: 'sl-5', name: 'Body Toning', description: 'Targeted muscle activation therapy strengthening underlying core and limb muscles.', image: SUB_TREATMENT_IMAGES['sl-5'] },
+      { id: 'sl-6', name: 'Weight Loss Program', description: 'Integrated physician-guided weight management protocol combining therapy and nutrition.', image: SUB_TREATMENT_IMAGES['sl-6'] },
+      { id: 'sl-7', name: 'Lipolaser', description: 'Low-level laser energy creating micro-pores in fat cells to release stored triglycerides.', image: SUB_TREATMENT_IMAGES['sl-7'] },
+      { id: 'sl-8', name: 'Radiofrequency Body Tightening', description: 'Thermal energy heating deep subcutaneous tissue to stimulate collagen and smooth cellulite.', image: SUB_TREATMENT_IMAGES['sl-8'] },
+      { id: 'sl-9', name: 'CoolSculpting / Cryolipolysis', description: 'Controlled cooling technology freezing and permanently eliminating stubborn fat cells.', image: SUB_TREATMENT_IMAGES['sl-9'] },
+      { id: 'sl-10', name: 'Mesolipolysis', description: 'Targeted micro-injections dissolving resistant localized fat deposits on abdomen or thighs.', image: SUB_TREATMENT_IMAGES['sl-10'] },
+      { id: 'sl-11', name: 'Bust Reduction / Non-Surgical Program', description: 'Non-surgical radiofrequency and tissue toning therapy for breast firming and contour refinement.', image: SUB_TREATMENT_IMAGES['sl-11'] }
     ],
     faqs: [
       { question: 'Is CoolSculpting permanent?', answer: 'Yes. Cryolipolysis crystallizes and permanently destroys target fat cells, which are naturally processed and eliminated by the lymphatic system.' },
@@ -270,9 +271,9 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       'Focus on permanent inch loss and skin elasticity'
     ],
     treatments: [
-      { id: 'pkg-1', name: 'Basic Slimming Package', description: 'Targeted program combining Body Composition Analysis, introductory RF slimming sessions, and customized dietary guidance.' },
-      { id: 'pkg-2', name: 'Advanced Body Contouring Package', description: 'Comprehensive package integrating Lipolaser, RF skin firming, targeted mesolipolysis, and metabolic tracking.' },
-      { id: 'pkg-3', name: 'Premium Weight Transformation Program', description: 'The ultimate holistic body transformation protocol featuring Cryolipolysis, body toning, custom nutrition, and lifestyle alignment.' }
+      { id: 'pkg-1', name: 'Basic Slimming Package', description: 'Targeted program combining Body Composition Analysis, introductory RF slimming sessions, and customized dietary guidance.', image: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80' },
+      { id: 'pkg-2', name: 'Advanced Body Contouring Package', description: 'Comprehensive package integrating Lipolaser, RF skin firming, targeted mesolipolysis, and metabolic tracking.', image: SUB_TREATMENT_IMAGES['pkg-2'] },
+      { id: 'pkg-3', name: 'Premium Weight Transformation Program', description: 'The ultimate holistic body transformation protocol featuring Cryolipolysis, body toning, custom nutrition, and lifestyle alignment.', image: SUB_TREATMENT_IMAGES['pkg-3'] }
     ],
     faqs: [
       { question: 'Which body contouring package is right for me?', answer: 'We determine the ideal package during your initial body analysis consultation based on your target inch-loss goals and target areas.' }
@@ -295,9 +296,9 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       'Stress reduction & metabolic optimization protocols'
     ],
     treatments: [
-      { id: 'wel-1', name: 'Personalized Diet Chart / Nutrition Planning', description: 'Custom nutritional meal blueprints designed around your bio-individual needs and lifestyle.' },
-      { id: 'wel-2', name: 'Yoga & Exercise Guidance', description: 'Therapeutic yoga postures and low-impact exercise routines designed for physical vigor and inner peace.' },
-      { id: 'wel-3', name: 'Lifestyle Modification Consultation', description: 'One-on-one wellness consultation focusing on sleep hygiene, stress reduction, and hormonal harmony.' }
+      { id: 'wel-1', name: 'Personalized Diet Chart / Nutrition Planning', description: 'Custom nutritional meal blueprints designed around your bio-individual needs and lifestyle.', image: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=80' },
+      { id: 'wel-2', name: 'Yoga & Exercise Guidance', description: 'Therapeutic yoga postures and low-impact exercise routines designed for physical vigor and inner peace.', image: SUB_TREATMENT_IMAGES['wel-2'] },
+      { id: 'wel-3', name: 'Lifestyle Modification Consultation', description: 'One-on-one wellness consultation focusing on sleep hygiene, stress reduction, and hormonal harmony.', image: SUB_TREATMENT_IMAGES['wel-3'] }
     ],
     faqs: [
       { question: 'How does wellness support aesthetic treatments?', answer: 'True radiance stems from within. Balancing your metabolic health and stress levels accelerates skin healing, reduces inflammation, and enhances treatment longevity.' }
@@ -320,23 +321,24 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       'Dedicated post-operative nursing care & recovery support'
     ],
     treatments: [
-      { id: 'surg-1', name: 'Liposuction / Body Contouring', description: 'Precision surgical removal of deep stubborn fat deposits from flanks, abdomen, or thighs.' },
-      { id: 'surg-2', name: 'Tummy Tuck / Abdominoplasty', description: 'Surgical excision of loose abdominal skin and tightening of underlying rectus muscle wall.' },
-      { id: 'surg-3', name: 'Breast Augmentation / Implants', description: 'Enhancement of breast volume and shape using premium silicone implants.' },
-      { id: 'surg-4', name: 'Breast Lift', description: 'Surgical elevation and reshaping of sagging breast tissue for a youthful contour.' },
-      { id: 'surg-5', name: 'Breast Reduction', description: 'Reduction of oversized breast tissue to alleviate neck pain and restore proportionate balance.' },
-      { id: 'surg-6', name: 'Gynecomastia Surgery', description: 'Surgical male breast reduction removing glandular tissue and excess fat.' },
-      { id: 'surg-7', name: 'Fat Grafting / Fat Transfer', description: 'Harvesting autologous fat from unwanted body areas to restore volume in face or buttocks.' },
-      { id: 'surg-8', name: 'Rhinoplasty', description: 'Surgical nose reshaping improving nasal bridge symmetry, tip projection, and breathing.' },
-      { id: 'surg-9', name: 'Blepharoplasty', description: 'Eyelid surgery removing drooping upper lid skin or puffiness underneath the lower eyes.' },
-      { id: 'surg-10', name: 'Facelift', description: 'Deep SMAS layer face repositioning smoothing jowls, sagging cheeks, and deep facial folds.' },
-      { id: 'surg-11', name: 'Neck Lift', description: 'Surgical contouring of lax neck skin and platysma muscle bands.' },
-      { id: 'surg-12', name: 'Scar Revision Surgery', description: 'Reconstructive surgical refining of hypertrophic or irregular surgical and traumatic scars.' },
-      { id: 'surg-13', name: 'Brazilian Butt Lift', description: 'Autologous fat transfer enhancing buttock projection and hip dip fullness.' },
-      { id: 'surg-14', name: 'Buttock Implants', description: 'Surgical placement of anatomical implants for structural buttock enhancement.' },
-      { id: 'surg-15', name: 'Arm Lift', description: 'Brachioplasty surgical removal of sagging arm skin for defined arm contours.' },
-      { id: 'surg-16', name: 'Thigh Lift', description: 'Excision of redundant skin along the inner or outer thighs following major weight loss.' },
-      { id: 'surg-17', name: 'Calf Augmentation / Calf Implants', description: 'Placement of silicone calf implants defining lower leg muscular symmetry.' }
+      { id: 'surg-1', name: 'Liposuction / Body Contouring', description: 'Precision surgical removal of deep stubborn fat deposits from flanks, abdomen, or thighs.', image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80' },
+      { id: 'surg-2', name: 'Tummy Tuck / Abdominoplasty', description: 'Surgical excision of loose abdominal skin and tightening of underlying rectus muscle wall.', image: SUB_TREATMENT_IMAGES['surg-2'] },
+      { id: 'surg-3', name: 'Breast Augmentation / Implants', description: 'Enhancement of breast volume and shape using premium silicone implants.', image: SUB_TREATMENT_IMAGES['surg-3'] },
+      { id: 'surg-4', name: 'Breast Lift', description: 'Surgical elevation and reshaping of sagging breast tissue for a youthful contour.', image: SUB_TREATMENT_IMAGES['surg-4'] },
+      { id: 'surg-5', name: 'Breast Reduction', description: 'Reduction of oversized breast tissue to alleviate neck pain and restore proportionate balance.', image: SUB_TREATMENT_IMAGES['surg-5'] },
+      { id: 'surg-6', name: 'Gynecomastia Surgery', description: 'Surgical male breast reduction removing glandular tissue and excess fat.', image: SUB_TREATMENT_IMAGES['surg-6'] },
+      { id: 'surg-7', name: 'Fat Grafting / Fat Transfer', description: 'Harvesting autologous fat from unwanted body areas to restore volume in face or buttocks.', image: SUB_TREATMENT_IMAGES['surg-7'] },
+      { id: 'surg-8', name: 'Rhinoplasty', description: 'Surgical nose reshaping improving nasal bridge symmetry, tip projection, and breathing.', image: SUB_TREATMENT_IMAGES['surg-8'] },
+      { id: 'surg-9', name: 'Blepharoplasty', description: 'Eyelid surgery removing drooping upper lid skin or puffiness underneath the lower eyes.', image: SUB_TREATMENT_IMAGES['surg-9'] },
+      { id: 'surg-10', name: 'Facelift', description: 'Deep SMAS layer face repositioning smoothing jowls, sagging cheeks, and deep facial folds.', image: SUB_TREATMENT_IMAGES['surg-10'] },
+      { id: 'surg-11', name: 'Neck Lift', description: 'Surgical contouring of lax neck skin and platysma muscle bands.', image: SUB_TREATMENT_IMAGES['surg-11'] },
+      { id: 'surg-12', name: 'Scar Revision Surgery', description: 'Reconstructive surgical refining of hypertrophic or irregular surgical and traumatic scars.', image: SUB_TREATMENT_IMAGES['surg-12'] },
+      { id: 'surg-13', name: 'Brazilian Butt Lift', description: 'Autologous fat transfer enhancing buttock projection and hip dip fullness.', image: SUB_TREATMENT_IMAGES['surg-13'] },
+      { id: 'surg-14', name: 'Buttock Implants', description: 'Surgical placement of anatomical implants for structural buttock enhancement.', image: SUB_TREATMENT_IMAGES['surg-14'] },
+      { id: 'surg-15', name: 'Arm Lift', description: 'Brachioplasty surgical removal of sagging arm skin for defined arm contours.', image: SUB_TREATMENT_IMAGES['surg-15'] },
+      { id: 'surg-16', name: 'Thigh Lift', description: 'Excision of redundant skin along the inner or outer thighs following major weight loss.', image: SUB_TREATMENT_IMAGES['surg-16'] },
+      { id: 'surg-17', name: 'Calf Augmentation / Calf Implants', description: 'Placement of silicone calf implants defining lower leg muscular symmetry.', image: SUB_TREATMENT_IMAGES['surg-17'] },
+      { id: 'surg-18', name: 'Dimple Creation / Dimpleplasty', description: 'Minimally invasive surgical procedure creating natural-looking facial dimples to enhance your smile aesthetics.', image: SUB_TREATMENT_IMAGES['surg-18'] }
     ],
     faqs: [
       { question: 'Where are cosmetic surgeries performed?', answer: 'All surgical procedures are conducted in accredited high-spec hospital operating theaters with dedicated anesthesiologists.' },
@@ -360,9 +362,9 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       'Focus on restoring comfort, symmetry, and self-assurance'
     ],
     treatments: [
-      { id: 'int-1', name: 'Vaginoplasty', description: 'Surgical vaginal tightening procedure restoring muscle tone and structural support.' },
-      { id: 'int-2', name: 'Labiaplasty', description: 'Precision reduction and sculpting of labia minora or labia majora for symmetry and comfort.' },
-      { id: 'int-3', name: 'Penile Cosmetic Procedures', description: 'Discreet cosmetic contouring procedures enhancing aesthetics and self-confidence.' }
+      { id: 'int-1', name: 'Vaginoplasty', description: 'Surgical vaginal tightening procedure restoring muscle tone and structural support.', image: 'https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=800&q=80' },
+      { id: 'int-2', name: 'Labiaplasty', description: 'Precision reduction and sculpting of labia minora or labia majora for symmetry and comfort.', image: SUB_TREATMENT_IMAGES['int-2'] },
+      { id: 'int-3', name: 'Penile Cosmetic Procedures', description: 'Discreet cosmetic contouring procedures enhancing aesthetics and self-confidence.', image: SUB_TREATMENT_IMAGES['int-3'] }
     ],
     faqs: [
       { question: 'How confidential are intimate aesthetic consultations?', answer: 'Your privacy is paramount. Consultations take place in private clinical suites with strict medical record confidentiality protocols.' }
@@ -379,16 +381,48 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     heroImage: '/images/services/WEB%20IMAGES/SPIRITUAL%20COUNSELLING%20&%20WELLNESS.webp',
     cardImage: '/images/services/WEB%20IMAGES/SPIRITUAL%20COUNSELLING%20&%20WELLNESS.webp',
     highlights: [
-      'Guided by Founder, Inner Harmony Guide & Filmmaker Nagendra Karanik',
+      'Guided by Founder, Spiritual Wellness Guide & Filmmaker Nagendra Karanik',
       'Mindfulness & aura alignment sessions',
       'Emotional releasing & clarity dialogues',
       'Holistic integration of physical beauty and inner spirit'
     ],
     treatments: [
-      { id: 'sp-1', name: 'Spiritual Counselling', description: 'One-on-one reflective guidance sessions designed to quiet mental noise, foster self-compassion, and align your life energy.' }
+      { id: 'sp-1', name: 'Spiritual Counselling', description: 'One-on-one reflective guidance sessions designed to quiet mental noise, foster self-compassion, and align your life energy.', image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80' }
     ],
     faqs: [
       { question: 'What can I expect in a Spiritual Counselling session?', answer: 'A peaceful, non-judgmental environment where you explore personal growth, release emotional tension, and cultivate deep inner harmony.' }
+    ]
+  },
+  {
+    id: 'cat-13',
+    slug: 'iv-drip-therapy',
+    number: '13',
+    title: 'IV Drip Menu & Nutrient Therapy',
+    subtitle: 'Revitalize • Recharge • Rejuvenate',
+    description: 'Intravenous micronutrient therapy delivering essential vitamins, antioxidants, minerals, and hydration directly into the bloodstream for instant cellular absorption and maximum radiance.',
+    group: 'WELLNESS',
+    heroImage: '/images/services/WEB%20IMAGES/IV%20Drips.webp',
+    cardImage: '/images/services/WEB%20IMAGES/IV%20Drips.webp',
+    highlights: [
+      '100% bioavailability direct intravenous nutrient infusion',
+      'Formulated with high-dose antioxidants, Glutathione & essential vitamins',
+      'Tailored IV formulations for glow, immunity, detox & energy',
+      'Supervised by certified medical doctors in a luxurious clinical lounge'
+    ],
+    treatments: [
+      { id: 'iv-1', name: 'Beauty Boost IV Drip', description: 'Glow • Radiance • Anti-Aging. Vitamin C | Glutathione | Collagen Support | Biotin.', tag: 'Glow', image: SUB_TREATMENT_IMAGES['iv-1'] },
+      { id: 'iv-2', name: 'Energy IV Drip', description: 'Fuel • Focus • Performance. B-Complex | B12 | Magnesium | Amino Acids | Vitamin C.', tag: 'Vitality', image: SUB_TREATMENT_IMAGES['iv-2'] },
+      { id: 'iv-3', name: 'Immune Boost IV Drip', description: 'Defend • Recover • Protect. Vitamin C | Zinc | B-Complex | Magnesium.', tag: 'Immunity', image: SUB_TREATMENT_IMAGES['iv-3'] },
+      { id: 'iv-4', name: 'Multivitamin IV Drip', description: 'Daily Wellness Support. Essential Vitamins | Minerals | Hydration.', tag: 'Wellness', image: SUB_TREATMENT_IMAGES['iv-4'] },
+      { id: 'iv-5', name: 'B12 IV Drip', description: 'Energy • Metabolism • Mood. Vitamin B12.', tag: 'Energy', image: SUB_TREATMENT_IMAGES['iv-5'] },
+      { id: 'iv-6', name: 'Detox IV Drip', description: 'Revive • Cleanse • Renew. Glutathione | Detox Complex | Hydration.', tag: 'Detox', image: SUB_TREATMENT_IMAGES['iv-6'] },
+      { id: 'iv-7', name: 'Vitamin C IV Drip', description: 'Immunity • Glow • Heal. High-dose antioxidant Vitamin C.', tag: 'Antioxidant', image: SUB_TREATMENT_IMAGES['iv-7'] },
+      { id: 'iv-8', name: 'Glutathione IV Drip', description: 'Powerful antioxidant, brightens skin, detoxifies body, promotes overall wellness!', tag: 'Signature', image: SUB_TREATMENT_IMAGES['iv-8'] }
+    ],
+    faqs: [
+      { question: 'What is IV Drip Therapy?', answer: 'IV Drip Therapy delivers essential vitamins, minerals, antioxidants, and hydration directly into your bloodstream for 100% immediate absorption and maximum cellular benefit.' },
+      { question: 'How long does an IV Drip session take?', answer: 'A typical IV drip session takes 30 to 45 minutes in our comfortable clinical lounge.' },
+      { question: 'Is Glutathione IV therapy safe and effective?', answer: 'Yes, Glutathione is a powerful master antioxidant naturally present in the body. Intravenous delivery maximizes its detoxifying, anti-aging, and skin-brightening effects safely under medical supervision.' }
     ]
   }
 ];
@@ -405,9 +439,9 @@ export const FOUNDERS = [
   },
   {
     name: 'Nagendra Karanik',
-    role: 'Founder, CEO & Inner Harmony Guide',
-    qualifications: 'Founder | CEO | Inner Harmony Guide | Filmmaker',
-    bio: 'Nagendra Karanik brings a profound vision of holistic human transformation to The Pink Aura. As a filmmaker and inner harmony guide, he shapes The Pink Aura into more than a centre — a sanctuary where inner confidence and outer beauty meet.',
+    role: 'Founder, CEO & Spiritual Wellness Guide',
+    qualifications: 'Founder | CEO | Spiritual Wellness Guide | Filmmaker',
+    bio: 'Nagendra Karanik brings a profound vision of holistic human transformation to The Pink Aura. As a filmmaker and spiritual wellness guide, he shapes The Pink Aura into more than a centre — a sanctuary where inner harmony and outer beauty meet.',
     image: '/images/Founders%20Images/Mr.%20Nagendra%20Karanik.jpeg',
     phone: '+91 63623 48467',
     rawPhone: '6362348467'

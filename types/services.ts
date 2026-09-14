@@ -6,6 +6,8 @@ export interface TreatmentItem {
   description: string;
   benefits?: string[];
   tag?: string;
+  image?: string;
+  imageFallbacks?: string[];
 }
 
 export interface ServiceFAQ {

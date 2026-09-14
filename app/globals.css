@@ -96,6 +96,34 @@ html, body, * {
     border: 1.5px solid rgba(158, 27, 78, 0.3);
   }
 
+  /* Dark mode overrides for Tailwind clay shadow utilities to prevent white outer glows */
+  html.dark .shadow-clay-lg,
+  .dark .shadow-clay-lg {
+    box-shadow: 
+      16px 22px 40px -6px rgba(0, 0, 0, 0.7),
+      -10px -10px 28px 0px rgba(158, 27, 78, 0.35),
+      inset 3px 3px 8px 0px rgba(255, 255, 255, 0.05),
+      inset -6px -6px 14px 0px rgba(0, 0, 0, 0.5) !important;
+  }
+
+  html.dark .shadow-clay-md,
+  .dark .shadow-clay-md {
+    box-shadow: 
+      12px 16px 32px -6px rgba(0, 0, 0, 0.6),
+      -8px -8px 24px 0px rgba(158, 27, 78, 0.25),
+      inset 2px 2px 6px 0px rgba(255, 255, 255, 0.05),
+      inset -5px -5px 12px 0px rgba(0, 0, 0, 0.4) !important;
+  }
+
+  html.dark .shadow-clay-sm,
+  .dark .shadow-clay-sm {
+    box-shadow: 
+      6px 8px 18px -4px rgba(0, 0, 0, 0.5),
+      -4px -4px 12px 0px rgba(158, 27, 78, 0.2),
+      inset 1px 1px 4px 0px rgba(255, 255, 255, 0.05),
+      inset -2px -2px 4px 0px rgba(0, 0, 0, 0.4) !important;
+  }
+
   /* GEOMETRIC CONTOUR ARCS BACKGROUND OVERLAY */
   .clay-card-contour {
     position: relative;
@@ -162,11 +190,11 @@ html, body, * {
     padding: 1px;
     background: linear-gradient(
       135deg,
-      rgba(255, 255, 255, 0.95),
-      rgba(248, 187, 208, 0.6),
-      rgba(233, 30, 99, 0.4),
-      rgba(248, 187, 208, 0.6),
-      rgba(255, 255, 255, 0.95)
+      rgba(233, 30, 99, 0.65),
+      rgba(248, 187, 208, 0.8),
+      rgba(158, 27, 78, 0.75),
+      rgba(248, 187, 208, 0.8),
+      rgba(233, 30, 99, 0.65)
     );
     background-size: 300% 300%;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -223,20 +251,35 @@ html, body, * {
   }
 
   /* ULTRA HIGH-CONTRAST LIGHT MODE HOVER TYPOGRAPHY FOR MAXIMUM LEGIBILITY */
-  .grotoscope-hover:hover h1,
-  .grotoscope-hover:hover h2,
-  .grotoscope-hover:hover h3,
-  .grotoscope-hover:hover h4,
-  .clay-card-hover:hover h1,
-  .clay-card-hover:hover h2,
-  .clay-card-hover:hover h3,
-  .clay-card-hover:hover h4 {
+  .grotoscope-hover:hover h1:not(.text-white),
+  .grotoscope-hover:hover h2:not(.text-white),
+  .grotoscope-hover:hover h3:not(.text-white),
+  .grotoscope-hover:hover h4:not(.text-white),
+  .clay-card-hover:hover h1:not(.text-white),
+  .clay-card-hover:hover h2:not(.text-white),
+  .clay-card-hover:hover h3:not(.text-white),
+  .clay-card-hover:hover h4:not(.text-white) {
     color: #2B0212 !important;
     transition: color 0.3s ease;
   }
 
-  .grotoscope-hover:hover p,
-  .clay-card-hover:hover p,
+  /* ENSURE WHITE TEXT AND SUB-LIST HEADERS REMAIN PURE WHITE ON HOVER */
+  .grotoscope-hover:hover .text-white,
+  .clay-card-hover:hover .text-white,
+  .grotoscope-hover:hover h1.text-white,
+  .grotoscope-hover:hover h2.text-white,
+  .grotoscope-hover:hover h3.text-white,
+  .grotoscope-hover:hover h4.text-white,
+  .clay-card-hover:hover h1.text-white,
+  .clay-card-hover:hover h2.text-white,
+  .clay-card-hover:hover h3.text-white,
+  .clay-card-hover:hover h4.text-white {
+    color: #FFFFFF !important;
+    transition: color 0.3s ease;
+  }
+
+  .grotoscope-hover:hover p:not(.text-white),
+  .clay-card-hover:hover p:not(.text-white),
   .grotoscope-hover:hover .text-charcoal-muted,
   .clay-card-hover:hover .text-charcoal-muted {
     color: #250310 !important;
@@ -267,11 +310,11 @@ html, body, * {
   .dark .clay-card-hover::before {
     background: linear-gradient(
       135deg,
-      rgba(255, 255, 255, 0.7),
+      rgba(233, 30, 99, 0.65),
       rgba(248, 187, 208, 0.5),
-      rgba(233, 30, 99, 0.55),
-      rgba(255, 182, 193, 0.5),
-      rgba(255, 255, 255, 0.7)
+      rgba(158, 27, 78, 0.8),
+      rgba(248, 187, 208, 0.5),
+      rgba(233, 30, 99, 0.65)
     );
     background-size: 300% 300%;
   }
