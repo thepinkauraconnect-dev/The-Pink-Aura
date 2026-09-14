@@ -119,7 +119,7 @@ export const SUB_TREATMENT_FILENAMES: Record<string, string> = {
   'surg-12': '108.png', // #108 Scar Revision Surgery
   'surg-13': '109.png', // #109 Brazilian Butt Lift
   'surg-14': '110.png', // #110 Buttock Implants
-  'surg-15': '111.png', // #111 Arm Lift
+  'surg-15': '111.jpg', // #111 Arm Lift
   'surg-16': '112.png', // #112 Thigh Lift
   'surg-17': '113.png', // #113 Calf Augmentation / Calf Implants
   'surg-18': '114.png', // #114 Dimple Creation / Dimpleplasty
@@ -248,7 +248,7 @@ export const SUB_TREATMENT_IMAGES: Record<string, string> = {
   'surg-12': '/images/treatments/108.png', // #108 Scar Revision Surgery
   'surg-13': '/images/treatments/109.png', // #109 Brazilian Butt Lift
   'surg-14': '/images/treatments/110.png', // #110 Buttock Implants
-  'surg-15': '/images/treatments/111.png', // #111 Arm Lift
+  'surg-15': '/images/treatments/111.jpg', // #111 Arm Lift
   'surg-16': '/images/treatments/112.png', // #112 Thigh Lift
   'surg-17': '/images/treatments/113.png', // #113 Calf Augmentation / Calf Implants
   'surg-18': '/images/treatments/114.png', // #114 Dimple Creation / Dimpleplasty
@@ -818,8 +818,8 @@ export const SUB_TREATMENT_FALLBACKS: Record<string, string[]> = {
     '/images/services/WEB%20IMAGES/COSMETIC%20%26%20PLASTIC%20SURGERY.webp'
   ],
   'surg-15': [
-    '/images/treatments/111.png',
-    '/images/treatments/Sub%20treatment%20images/111.png',
+    '/images/treatments/111.jpg',
+    '/images/treatments/Sub%20treatment%20images/111.jpg',
     '/images/services/WEB%20IMAGES/COSMETIC%20%26%20PLASTIC%20SURGERY.webp'
   ],
   'surg-16': [
