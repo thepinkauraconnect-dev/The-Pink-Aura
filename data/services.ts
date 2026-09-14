@@ -237,7 +237,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       'Targeted stubborn fat reduction for belly, thighs, arms, and flanks'
     ],
     treatments: [
-      { id: 'sl-1', name: 'Body Composition Analysis', description: 'Comprehensive diagnostic breakdown of visceral fat, muscle mass, metabolic rate, and hydration levels.', image: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80' },
+      { id: 'sl-1', name: 'Body Composition Analysis', description: 'Comprehensive diagnostic breakdown of visceral fat, muscle mass, metabolic rate, and hydration levels.', image: SUB_TREATMENT_IMAGES['sl-1'] },
       { id: 'sl-2', name: 'Weight Management Consultation', description: 'In-depth physician consultation targeting root causes of weight gain and metabolic bottlenecks.', image: SUB_TREATMENT_IMAGES['sl-2'] },
       { id: 'sl-3', name: 'Personalized Diet & Lifestyle Plan', description: 'Tailored macro-nutrient diet charts paired with actionable daily wellness habits.', image: SUB_TREATMENT_IMAGES['sl-3'] },
       { id: 'sl-4', name: 'Body Firming', description: 'Clinical electro-stimulation and firming therapy improving skin laxity after weight loss.', image: SUB_TREATMENT_IMAGES['sl-4'] },
@@ -271,7 +271,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       'Focus on permanent inch loss and skin elasticity'
     ],
     treatments: [
-      { id: 'pkg-1', name: 'Basic Slimming Package', description: 'Targeted program combining Body Composition Analysis, introductory RF slimming sessions, and customized dietary guidance.', image: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80' },
+      { id: 'pkg-1', name: 'Basic Slimming Package', description: 'Targeted program combining Body Composition Analysis, introductory RF slimming sessions, and customized dietary guidance.', image: SUB_TREATMENT_IMAGES['pkg-1'] },
       { id: 'pkg-2', name: 'Advanced Body Contouring Package', description: 'Comprehensive package integrating Lipolaser, RF skin firming, targeted mesolipolysis, and metabolic tracking.', image: SUB_TREATMENT_IMAGES['pkg-2'] },
       { id: 'pkg-3', name: 'Premium Weight Transformation Program', description: 'The ultimate holistic body transformation protocol featuring Cryolipolysis, body toning, custom nutrition, and lifestyle alignment.', image: SUB_TREATMENT_IMAGES['pkg-3'] }
     ],
@@ -296,7 +296,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       'Stress reduction & metabolic optimization protocols'
     ],
     treatments: [
-      { id: 'wel-1', name: 'Personalized Diet Chart / Nutrition Planning', description: 'Custom nutritional meal blueprints designed around your bio-individual needs and lifestyle.', image: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=80' },
+      { id: 'wel-1', name: 'Personalized Diet Chart / Nutrition Planning', description: 'Custom nutritional meal blueprints designed around your bio-individual needs and lifestyle.', image: SUB_TREATMENT_IMAGES['wel-1'] },
       { id: 'wel-2', name: 'Yoga & Exercise Guidance', description: 'Therapeutic yoga postures and low-impact exercise routines designed for physical vigor and inner peace.', image: SUB_TREATMENT_IMAGES['wel-2'] },
       { id: 'wel-3', name: 'Lifestyle Modification Consultation', description: 'One-on-one wellness consultation focusing on sleep hygiene, stress reduction, and hormonal harmony.', image: SUB_TREATMENT_IMAGES['wel-3'] }
     ],
@@ -321,7 +321,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       'Dedicated post-operative nursing care & recovery support'
     ],
     treatments: [
-      { id: 'surg-1', name: 'Liposuction / Body Contouring', description: 'Precision surgical removal of deep stubborn fat deposits from flanks, abdomen, or thighs.', image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80' },
+      { id: 'surg-1', name: 'Liposuction / Body Contouring', description: 'Precision surgical removal of deep stubborn fat deposits from flanks, abdomen, or thighs.', image: SUB_TREATMENT_IMAGES['surg-1'] },
       { id: 'surg-2', name: 'Tummy Tuck / Abdominoplasty', description: 'Surgical excision of loose abdominal skin and tightening of underlying rectus muscle wall.', image: SUB_TREATMENT_IMAGES['surg-2'] },
       { id: 'surg-3', name: 'Breast Augmentation / Implants', description: 'Enhancement of breast volume and shape using premium silicone implants.', image: SUB_TREATMENT_IMAGES['surg-3'] },
       { id: 'surg-4', name: 'Breast Lift', description: 'Surgical elevation and reshaping of sagging breast tissue for a youthful contour.', image: SUB_TREATMENT_IMAGES['surg-4'] },
@@ -362,7 +362,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       'Focus on restoring comfort, symmetry, and self-assurance'
     ],
     treatments: [
-      { id: 'int-1', name: 'Vaginoplasty', description: 'Surgical vaginal tightening procedure restoring muscle tone and structural support.', image: 'https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=800&q=80' },
+      { id: 'int-1', name: 'Vaginoplasty', description: 'Surgical vaginal tightening procedure restoring muscle tone and structural support.', image: SUB_TREATMENT_IMAGES['int-1'] },
       { id: 'int-2', name: 'Labiaplasty', description: 'Precision reduction and sculpting of labia minora or labia majora for symmetry and comfort.', image: SUB_TREATMENT_IMAGES['int-2'] },
       { id: 'int-3', name: 'Penile Cosmetic Procedures', description: 'Discreet cosmetic contouring procedures enhancing aesthetics and self-confidence.', image: SUB_TREATMENT_IMAGES['int-3'] }
     ],
@@ -387,7 +387,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       'Holistic integration of physical beauty and inner spirit'
     ],
     treatments: [
-      { id: 'sp-1', name: 'Spiritual Counselling', description: 'One-on-one reflective guidance sessions designed to quiet mental noise, foster self-compassion, and align your life energy.', image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80' }
+      { id: 'sp-1', name: 'Spiritual Counselling', description: 'One-on-one reflective guidance sessions designed to quiet mental noise, foster self-compassion, and align your life energy.', image: SUB_TREATMENT_IMAGES['sp-1'] }
     ],
     faqs: [
       { question: 'What can I expect in a Spiritual Counselling session?', answer: 'A peaceful, non-judgmental environment where you explore personal growth, release emotional tension, and cultivate deep inner harmony.' }
