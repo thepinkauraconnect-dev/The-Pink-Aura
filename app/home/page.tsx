@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -12,6 +12,7 @@ import {
   MapPin,
   Clock,
   Mail,
+  ChevronLeft,
   ChevronRight,
   ChevronDown,
   Flower2,
@@ -26,6 +27,34 @@ import {
 } from 'lucide-react';
 import { SERVICE_CATEGORIES, FOUNDERS, SURGEONS, CLINIC_INFO } from '@/data/services';
 import { ServiceGroup } from '@/types/services';
+
+const HERO_SLIDES = [
+  {
+    id: 'hero-slide-img',
+    type: 'image',
+    src: '/images/hero/editorial-hero.webp',
+    alt: 'The Pink Aura Luxury Editorial Care',
+    duration: 3500,
+  },
+  {
+    id: 'hero-slide-vid-1',
+    type: 'video',
+    src: '/Videos/Hero_section_videos/hero_display_1.mp4',
+    alt: 'The Pink Aura Luxury Care Video 1',
+  },
+  {
+    id: 'hero-slide-vid-2',
+    type: 'video',
+    src: '/Videos/Hero_section_videos/hero_display_2.mp4',
+    alt: 'The Pink Aura Luxury Care Video 2',
+  },
+  {
+    id: 'hero-slide-vid-3',
+    type: 'video',
+    src: '/Videos/Hero_section_videos/hero__display_3.mp4',
+    alt: 'The Pink Aura Luxury Care Video 3',
+  },
+];
 
 const FILTER_TABS: { label: string; group: ServiceGroup | 'ALL' }[] = [
   { label: 'All Services', group: 'ALL' },
@@ -86,6 +115,41 @@ export default function MainHomePage() {
   const [activeGroup, setActiveGroup] = useState<ServiceGroup | 'ALL'>('ALL');
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
+  // Hero Slider Carousel state
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+  }, []);
+
+  const prevSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
+  }, []);
+
+  // Timer for image slide (3.5s duration)
+  useEffect(() => {
+    const current = HERO_SLIDES[currentSlide];
+    if (current.type === 'image') {
+      const timer = setTimeout(() => {
+        nextSlide();
+      }, current.duration || 3500);
+      return () => clearTimeout(timer);
+    }
+  }, [currentSlide, nextSlide]);
+
+  // Reset & play video at normal 1.0x rate when video slide becomes active
+  useEffect(() => {
+    const current = HERO_SLIDES[currentSlide];
+    if (current.type === 'video' && videoRef.current) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.playbackRate = 1.0;
+      videoRef.current.play().catch(() => {
+        // Handle autoplay policy gracefully
+      });
+    }
+  }, [currentSlide]);
+
   const displayedCategories = activeGroup === 'ALL'
     ? SERVICE_CATEGORIES
     : SERVICE_CATEGORIES.filter((c) => c.group === activeGroup);
@@ -100,21 +164,64 @@ export default function MainHomePage() {
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           className="relative w-full min-h-[70vh] sm:min-h-[84vh] lg:min-h-[88vh] rounded-[28px] sm:rounded-[44px] overflow-hidden shadow-[0_28px_70px_-15px_rgba(158,77,104,0.22)] border border-white flex flex-col justify-between p-4 sm:p-8 lg:p-12"
         >
-          {/* High-Resolution Editorial Background Image */}
+          {/* Dynamic Hero Slide Media (Image + 3 Videos) */}
           <div className="absolute inset-0 z-0">
-            <Image
-              src="/images/hero/editorial-hero.webp"
-              alt="The Pink Aura Luxury Editorial Care"
-              fill
-              sizes="100vw"
-              quality={85}
-              className="object-cover object-center sm:object-[center_28%] scale-100 sm:scale-105 transition-transform duration-1000"
-              priority
-            />
-            {/* Soft Transparent Cinematic Overlays for High Image Visibility */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-aura-950/75 sm:to-aura-950/85" />
-            <div className="absolute inset-0 bg-gradient-to-r from-aura-950/15 via-transparent to-aura-950/30" />
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={HERO_SLIDES[currentSlide].id}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.7, ease: "easeInOut" }}
+                className="absolute inset-0 w-full h-full"
+              >
+                {HERO_SLIDES[currentSlide].type === 'image' ? (
+                  <Image
+                    src={HERO_SLIDES[currentSlide].src}
+                    alt={HERO_SLIDES[currentSlide].alt}
+                    fill
+                    sizes="100vw"
+                    quality={85}
+                    className="object-cover object-center sm:object-[center_28%] scale-100 sm:scale-105 transition-transform duration-1000"
+                    priority
+                  />
+                ) : (
+                  <video
+                    ref={videoRef}
+                    src={HERO_SLIDES[currentSlide].src}
+                    aria-label={HERO_SLIDES[currentSlide].alt}
+                    autoPlay
+                    muted
+                    playsInline
+                    onEnded={nextSlide}
+                    className="w-full h-full object-cover object-center"
+                  />
+                )}
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Soft Transparent Cinematic Overlays for High Image & Video Legibility */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-aura-950/75 sm:to-aura-950/85 pointer-events-none z-10" />
+            <div className="absolute inset-0 bg-gradient-to-r from-aura-950/30 via-transparent to-aura-950/30 pointer-events-none z-10" />
           </div>
+
+          {/* Left Arrow Navigation Button */}
+          <button
+            onClick={prevSlide}
+            aria-label="Previous Slide"
+            className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-30 p-2.5 sm:p-3.5 rounded-full bg-black/40 hover:bg-black/75 text-white/90 hover:text-white backdrop-blur-md border border-white/30 transition-all duration-300 shadow-xl hover:scale-110 active:scale-95 group"
+          >
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 group-hover:-translate-x-0.5 transition-transform" />
+          </button>
+
+          {/* Right Arrow Navigation Button */}
+          <button
+            onClick={nextSlide}
+            aria-label="Next Slide"
+            className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-30 p-2.5 sm:p-3.5 rounded-full bg-black/40 hover:bg-black/75 text-white/90 hover:text-white backdrop-blur-md border border-white/30 transition-all duration-300 shadow-xl hover:scale-110 active:scale-95 group"
+          >
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-0.5 transition-transform" />
+          </button>
 
           {/* Top Canvas Header Badges (Responsive) */}
           <div className="relative z-20 w-full flex items-center justify-between gap-2 flex-wrap sm:flex-nowrap">
@@ -150,28 +257,47 @@ export default function MainHomePage() {
             </div>
           </div>
 
-          {/* 100% Scalable Precision Vector Typography Across Bottom */}
-          <div className="relative z-10 w-full pt-3 sm:pt-6 pb-1 select-none pointer-events-none flex items-center justify-center">
-            <svg
-              viewBox="0 0 1300 150"
-              className="w-full h-auto max-h-12 sm:max-h-24 md:max-h-32 lg:max-h-36 overflow-visible"
-              aria-label="THE PINK AURA"
-            >
-              <text
-                x="50%"
-                y="74%"
-                textAnchor="middle"
-                className="font-serif font-normal"
-                fill="rgba(255, 255, 255, 0.96)"
-                fontSize="128"
-                letterSpacing="0.04em"
-                style={{
-                  filter: 'drop-shadow(0px 8px 24px rgba(0, 0, 0, 0.5))',
-                }}
+          {/* Bottom Area: Vector Typography + Slide Indicators */}
+          <div className="relative z-20 w-full space-y-3 pt-3 sm:pt-6 pb-1">
+            {/* 100% Scalable Precision Vector Typography Across Bottom */}
+            <div className="w-full select-none pointer-events-none flex items-center justify-center">
+              <svg
+                viewBox="0 0 1300 150"
+                className="w-full h-auto max-h-12 sm:max-h-24 md:max-h-32 lg:max-h-36 overflow-visible"
+                aria-label="THE PINK AURA"
               >
-                THE PINK AURA
-              </text>
-            </svg>
+                <text
+                  x="50%"
+                  y="74%"
+                  textAnchor="middle"
+                  className="font-serif font-normal"
+                  fill="rgba(255, 255, 255, 0.96)"
+                  fontSize="128"
+                  letterSpacing="0.04em"
+                  style={{
+                    filter: 'drop-shadow(0px 8px 24px rgba(0, 0, 0, 0.5))',
+                  }}
+                >
+                  THE PINK AURA
+                </text>
+              </svg>
+            </div>
+
+            {/* Slide Indicators / Pill Dots */}
+            <div className="flex items-center justify-center gap-2 pt-1">
+              {HERO_SLIDES.map((slide, idx) => (
+                <button
+                  key={slide.id}
+                  onClick={() => setCurrentSlide(idx)}
+                  aria-label={`Go to slide ${idx + 1}`}
+                  className={`h-1.5 sm:h-2 rounded-full transition-all duration-500 ${
+                    idx === currentSlide
+                      ? 'w-7 sm:w-8 bg-pink-400 shadow-[0_0_10px_rgba(244,114,182,0.8)]'
+                      : 'w-2 sm:w-2.5 bg-white/40 hover:bg-white/80'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </motion.div>
       </section>
