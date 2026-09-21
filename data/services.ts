@@ -488,5 +488,5 @@ export const CLINIC_INFO = {
   whatsapp: 'https://wa.me/917619151455?text=Hello%20The%20Pink%20Aura%2C%20I%20would%20like%20to%20enquire%20about%20a%20consultation.',
   instagram: 'https://www.instagram.com/thepinkaura_official?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==',
   hours: 'Monday - Sunday : 10AM - 7PM',
-  closed: "Tuesday's : Closed"
+  closed: 'Tuesday : Closed'
 };

@@ -23,7 +23,8 @@ import {
   Compass,
   Star,
   Users,
-  CalendarCheck
+  CalendarCheck,
+  Loader2
 } from 'lucide-react';
 import { SERVICE_CATEGORIES, FOUNDERS, SURGEONS, CLINIC_INFO } from '@/data/services';
 import { ServiceGroup } from '@/types/services';
@@ -35,24 +36,28 @@ const HERO_SLIDES = [
     src: '/images/hero/editorial-hero.webp',
     alt: 'The Pink Aura Luxury Editorial Care',
     duration: 3500,
+    className: 'object-cover object-center sm:object-[center_28%] scale-100 sm:scale-105 transition-transform duration-1000',
   },
   {
     id: 'hero-slide-vid-1',
     type: 'video',
     src: '/Videos/Hero_section_videos/hero_display_1.mp4',
     alt: 'The Pink Aura Luxury Care Video 1',
+    className: 'object-cover object-center',
   },
   {
     id: 'hero-slide-vid-2',
     type: 'video',
     src: '/Videos/Hero_section_videos/hero_display_2.mp4',
-    alt: 'The Pink Aura Luxury Care Video 2',
+    alt: 'The Pink Aura Exercise & Fitness Video',
+    className: 'object-cover object-[18%_center] sm:object-center transition-all duration-700',
   },
   {
     id: 'hero-slide-vid-3',
     type: 'video',
     src: '/Videos/Hero_section_videos/hero__display_3.mp4',
-    alt: 'The Pink Aura Luxury Care Video 3',
+    alt: 'The Pink Aura Meditation & Wellness Video',
+    className: 'object-cover object-center',
   },
 ];
 
@@ -117,6 +122,7 @@ export default function MainHomePage() {
 
   // Hero Slider Carousel state
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isVideoLoading, setIsVideoLoading] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   const nextSlide = useCallback(() => {
@@ -131,10 +137,13 @@ export default function MainHomePage() {
   useEffect(() => {
     const current = HERO_SLIDES[currentSlide];
     if (current.type === 'image') {
+      setIsVideoLoading(false);
       const timer = setTimeout(() => {
         nextSlide();
       }, current.duration || 3500);
       return () => clearTimeout(timer);
+    } else {
+      setIsVideoLoading(true);
     }
   }, [currentSlide, nextSlide]);
 
@@ -162,17 +171,17 @@ export default function MainHomePage() {
           initial={{ opacity: 0, scale: 0.98, y: 15 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full min-h-[70vh] sm:min-h-[84vh] lg:min-h-[88vh] rounded-[28px] sm:rounded-[44px] overflow-hidden shadow-[0_28px_70px_-15px_rgba(158,77,104,0.22)] border border-white flex flex-col justify-between p-4 sm:p-8 lg:p-12"
+          className="relative w-full min-h-[65vh] sm:min-h-[84vh] lg:min-h-[88vh] rounded-[24px] sm:rounded-[44px] overflow-hidden shadow-[0_28px_70px_-15px_rgba(158,77,104,0.22)] border border-white flex flex-col justify-between p-3.5 sm:p-8 lg:p-12"
         >
           {/* Dynamic Hero Slide Media (Image + 3 Videos) */}
           <div className="absolute inset-0 z-0">
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="popLayout">
               <motion.div
                 key={HERO_SLIDES[currentSlide].id}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.7, ease: "easeInOut" }}
+                initial={{ opacity: 0, scale: 1.04, filter: 'blur(4px)' }}
+                animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+                exit={{ opacity: 0, scale: 0.98, filter: 'blur(4px)' }}
+                transition={{ duration: 0.95, ease: [0.22, 1, 0.36, 1] }}
                 className="absolute inset-0 w-full h-full"
               >
                 {HERO_SLIDES[currentSlide].type === 'image' ? (
@@ -182,7 +191,7 @@ export default function MainHomePage() {
                     fill
                     sizes="100vw"
                     quality={85}
-                    className="object-cover object-center sm:object-[center_28%] scale-100 sm:scale-105 transition-transform duration-1000"
+                    className={HERO_SLIDES[currentSlide].className || "object-cover object-center sm:object-[center_28%] scale-100 sm:scale-105 transition-transform duration-1000"}
                     priority
                   />
                 ) : (
@@ -193,55 +202,82 @@ export default function MainHomePage() {
                     autoPlay
                     muted
                     playsInline
+                    onLoadStart={() => setIsVideoLoading(true)}
+                    onWaiting={() => setIsVideoLoading(true)}
+                    onCanPlay={() => setIsVideoLoading(false)}
+                    onPlaying={() => setIsVideoLoading(false)}
+                    onLoadedData={() => setIsVideoLoading(false)}
                     onEnded={nextSlide}
-                    className="w-full h-full object-cover object-center"
+                    className={`w-full h-full ${HERO_SLIDES[currentSlide].className || 'object-cover object-center'}`}
                   />
                 )}
               </motion.div>
             </AnimatePresence>
 
-            {/* Soft Transparent Cinematic Overlays for High Image & Video Legibility */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-aura-950/75 sm:to-aura-950/85 pointer-events-none z-10" />
-            <div className="absolute inset-0 bg-gradient-to-r from-aura-950/30 via-transparent to-aura-950/30 pointer-events-none z-10" />
+            {/* Video Buffering / Loading Indicator */}
+            <AnimatePresence>
+              {isVideoLoading && HERO_SLIDES[currentSlide].type === 'video' && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/40 backdrop-blur-md text-white space-y-2 pointer-events-none"
+                >
+                  <div className="relative flex items-center justify-center">
+                    <Loader2 className="w-8 h-8 text-pink-300 animate-spin" />
+                    <Sparkles className="w-3.5 h-3.5 text-pink-200 absolute animate-pulse" />
+                  </div>
+                  <span className="text-[10px] font-mono tracking-widest uppercase text-white/90">
+                    Loading Media...
+                  </span>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* Ultra-Clear Subtle Gradient Scrim (Keeps Center Media 100% Radiant & Unobscured) */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-transparent to-black/75 pointer-events-none z-10" />
           </div>
 
-          {/* Left Arrow Navigation Button */}
+          {/* Desktop/Laptop Side Navigation Arrows (Guaranteed safe distance with container inset) */}
           <button
             onClick={prevSlide}
             aria-label="Previous Slide"
-            className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-30 p-2.5 sm:p-3.5 rounded-full bg-black/40 hover:bg-black/75 text-white/90 hover:text-white backdrop-blur-md border border-white/30 transition-all duration-300 shadow-xl hover:scale-110 active:scale-95 group"
+            className="hidden sm:flex absolute left-4 md:left-6 lg:left-8 top-1/2 -translate-y-1/2 z-30 p-2.5 sm:p-3.5 rounded-full bg-black/40 hover:bg-black/75 text-white/90 hover:text-white backdrop-blur-md border border-white/30 transition-all duration-300 shadow-xl hover:scale-110 active:scale-95 group"
           >
             <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 group-hover:-translate-x-0.5 transition-transform" />
           </button>
 
-          {/* Right Arrow Navigation Button */}
           <button
             onClick={nextSlide}
             aria-label="Next Slide"
-            className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-30 p-2.5 sm:p-3.5 rounded-full bg-black/40 hover:bg-black/75 text-white/90 hover:text-white backdrop-blur-md border border-white/30 transition-all duration-300 shadow-xl hover:scale-110 active:scale-95 group"
+            className="hidden sm:flex absolute right-4 md:right-6 lg:right-8 top-1/2 -translate-y-1/2 z-30 p-2.5 sm:p-3.5 rounded-full bg-black/40 hover:bg-black/75 text-white/90 hover:text-white backdrop-blur-md border border-white/30 transition-all duration-300 shadow-xl hover:scale-110 active:scale-95 group"
           >
             <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-0.5 transition-transform" />
           </button>
 
-          {/* Top Canvas Header Badges (Responsive) */}
-          <div className="relative z-20 w-full flex items-center justify-between gap-2 flex-wrap sm:flex-nowrap">
-            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-white/30 dark:bg-black/35 backdrop-blur-md border border-white/40 text-[9px] sm:text-[11px] font-extrabold uppercase tracking-widest text-white shadow-sm">
-              <Flower2 className="w-3.5 h-3.5 text-champagne-light shrink-0" />
-              <span>Aesthetic & Wellness Sanctuary</span>
+          {/* Top Canvas Header Badges (Responsive, Compact Glassmorphic Design) */}
+          <div className="relative z-20 w-full flex items-center justify-between gap-2 flex-wrap sm:flex-nowrap px-1 sm:px-0">
+            <div className="inline-flex items-center px-3 sm:px-4 py-1.5 rounded-full bg-black/35 sm:bg-white/30 backdrop-blur-md border border-white/30 sm:border-white/40 text-[9px] sm:text-[11px] font-extrabold uppercase tracking-widest text-white shadow-sm">
+              <span className="hidden xs:inline">Aesthetic & Wellness Sanctuary</span>
+              <span className="xs:hidden">Aesthetic & Wellness</span>
             </div>
 
-            <div className="inline-flex flex-col items-center justify-center gap-0.5 px-3.5 py-1.5 rounded-2xl bg-white/25 dark:bg-black/30 backdrop-blur-md border border-white/30 text-[9px] font-mono font-bold uppercase tracking-wider text-white/95 text-center">
-              <span>Monday - Sunday : 10AM - 7PM</span>
-              <span className="text-pink-200">Tuesday's : Closed</span>
+            <div className="inline-grid grid-cols-[auto_auto_1fr] items-center gap-x-2 px-3 sm:px-3.5 py-1.5 rounded-2xl bg-black/35 sm:bg-white/25 backdrop-blur-md border border-white/30 text-[9px] sm:text-[9.5px] font-mono tracking-wider text-white/95 text-left">
+              <span className="font-medium uppercase">Monday - Sunday</span>
+              <span className="font-medium">:</span>
+              <span className="font-medium uppercase">10AM - 7PM</span>
+              <span className="font-extrabold text-pink-200 uppercase">Tuesday</span>
+              <span className="font-extrabold text-pink-200">:</span>
+              <span className="font-extrabold text-pink-200 uppercase">Closed</span>
             </div>
           </div>
 
-          {/* Floating Luxury Editorial Callouts */}
-          <div className="relative z-20 w-full flex flex-col md:flex-row items-center justify-between gap-4 my-auto pt-6 sm:pt-14">
+          {/* Floating Luxury Editorial Callouts (With Safe Horizontal Inset on Laptop to Avoid Side Arrows) */}
+          <div className="relative z-20 w-full flex flex-col md:flex-row items-center justify-between gap-4 my-auto pt-4 sm:pt-10 px-2 sm:px-12 md:px-16 lg:px-20">
             {/* Left subtle doctor-led badge (desktop) */}
             <div className="hidden lg:block max-w-xs space-y-2 text-white drop-shadow-md">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-[10px] font-extrabold uppercase tracking-widest text-champagne-light">
-                <Sparkles className="w-3.5 h-3.5" />
+              <div className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-[10px] font-extrabold uppercase tracking-widest text-champagne-light">
                 <span>JP Nagar 4th Phase • Bangalore</span>
               </div>
               <p className="text-xs text-white/85 font-light leading-relaxed">
@@ -249,21 +285,26 @@ export default function MainHomePage() {
               </p>
             </div>
 
-            {/* Right side Editorial description - Framed cleanly for mobile readability */}
-            <div className="max-w-sm md:ml-auto text-center sm:text-right space-y-2 text-white drop-shadow-md bg-black/35 sm:bg-transparent backdrop-blur-md sm:backdrop-blur-none p-4 sm:p-0 rounded-2xl border border-white/20 sm:border-none">
-              <p className="text-xs sm:text-sm text-white/95 font-light leading-relaxed tracking-wide">
+            {/* Mobile subtle location pill */}
+            <div className="inline-flex lg:hidden items-center px-3 py-1 rounded-full bg-black/30 backdrop-blur-md border border-white/20 text-[9.5px] font-extrabold uppercase tracking-wider text-champagne-light shadow-sm mb-1">
+              <span>JP Nagar 4th Phase • Bangalore</span>
+            </div>
+
+            {/* Right side Editorial description - Clean, unobscured layout without heavy dark box on mobile */}
+            <div className="max-w-xs sm:max-w-sm md:ml-auto text-center sm:text-right space-y-1.5 text-white">
+              <p className="text-[11px] sm:text-xs md:text-sm text-white/95 font-medium sm:font-light leading-relaxed tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
                 Advanced aesthetic care & clinical dermatology engineered with precision. Gentle enough for daily wellbeing, powerful enough for lasting radiance.
               </p>
             </div>
           </div>
 
-          {/* Bottom Area: Vector Typography + Slide Indicators */}
-          <div className="relative z-20 w-full space-y-3 pt-3 sm:pt-6 pb-1">
-            {/* 100% Scalable Precision Vector Typography Across Bottom */}
+          {/* Bottom Area: Scalable Branding + Responsive Slide Controls */}
+          <div className="relative z-20 w-full space-y-2 sm:space-y-3 pt-2 sm:pt-4 pb-1">
+            {/* Scalable Precision Vector Typography */}
             <div className="w-full select-none pointer-events-none flex items-center justify-center">
               <svg
                 viewBox="0 0 1300 150"
-                className="w-full h-auto max-h-12 sm:max-h-24 md:max-h-32 lg:max-h-36 overflow-visible"
+                className="w-full h-auto max-h-8 sm:max-h-20 md:max-h-28 lg:max-h-36 overflow-visible"
                 aria-label="THE PINK AURA"
               >
                 <text
@@ -283,20 +324,38 @@ export default function MainHomePage() {
               </svg>
             </div>
 
-            {/* Slide Indicators / Pill Dots */}
-            <div className="flex items-center justify-center gap-2 pt-1">
-              {HERO_SLIDES.map((slide, idx) => (
-                <button
-                  key={slide.id}
-                  onClick={() => setCurrentSlide(idx)}
-                  aria-label={`Go to slide ${idx + 1}`}
-                  className={`h-1.5 sm:h-2 rounded-full transition-all duration-500 ${
-                    idx === currentSlide
-                      ? 'w-7 sm:w-8 bg-pink-400 shadow-[0_0_10px_rgba(244,114,182,0.8)]'
-                      : 'w-2 sm:w-2.5 bg-white/40 hover:bg-white/80'
-                  }`}
-                />
-              ))}
+            {/* Responsive Slide Controls (Mobile-friendly arrow controls flanking pill dots) */}
+            <div className="flex items-center justify-center gap-3 pt-1">
+              <button
+                onClick={prevSlide}
+                aria-label="Previous Slide"
+                className="sm:hidden p-1.5 rounded-full bg-black/40 hover:bg-black/75 text-white/90 backdrop-blur-md border border-white/20 active:scale-95 transition-all"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+
+              <div className="flex items-center gap-2">
+                {HERO_SLIDES.map((slide, idx) => (
+                  <button
+                    key={slide.id}
+                    onClick={() => setCurrentSlide(idx)}
+                    aria-label={`Go to slide ${idx + 1}`}
+                    className={`h-1.5 sm:h-2 rounded-full transition-all duration-500 ${
+                      idx === currentSlide
+                        ? 'w-6 sm:w-8 bg-pink-400 shadow-[0_0_10px_rgba(244,114,182,0.8)]'
+                        : 'w-2 sm:w-2.5 bg-white/40 hover:bg-white/80'
+                    }`}
+                  />
+                ))}
+              </div>
+
+              <button
+                onClick={nextSlide}
+                aria-label="Next Slide"
+                className="sm:hidden p-1.5 rounded-full bg-black/40 hover:bg-black/75 text-white/90 backdrop-blur-md border border-white/20 active:scale-95 transition-all"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
             </div>
           </div>
         </motion.div>
@@ -664,9 +723,13 @@ export default function MainHomePage() {
                 <div className="w-8 h-8 rounded-full clay-badge flex items-center justify-center text-aura-600 shrink-0 mt-0.5">
                   <Clock className="w-4 h-4" />
                 </div>
-                <div className="flex flex-col">
-                  <span>{CLINIC_INFO.hours}</span>
-                  <span className="text-aura-700 dark:text-pink-300 font-semibold text-xs mt-0.5">{CLINIC_INFO.closed}</span>
+                <div className="grid grid-cols-[auto_auto_1fr] items-center gap-x-2 text-xs">
+                  <span className="font-medium">Monday - Sunday</span>
+                  <span className="font-medium">:</span>
+                  <span className="font-medium">10AM - 7PM</span>
+                  <span className="text-aura-700 dark:text-pink-300 font-extrabold">Tuesday</span>
+                  <span className="text-aura-700 dark:text-pink-300 font-extrabold">:</span>
+                  <span className="text-aura-700 dark:text-pink-300 font-extrabold">Closed</span>
                 </div>
               </div>
 

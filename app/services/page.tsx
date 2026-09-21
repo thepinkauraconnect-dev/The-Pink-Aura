@@ -57,9 +57,13 @@ export default function ServicesPage() {
               <span>Complete Service Catalogue</span>
             </div>
 
-            <div className="inline-flex flex-col items-center justify-center gap-0.5 px-3.5 py-1.5 rounded-2xl bg-white/25 dark:bg-black/40 backdrop-blur-md border border-white/30 dark:border-white/20 text-[9px] font-mono font-bold uppercase tracking-wider text-white/95 text-center">
-              <span>Monday - Sunday : 10AM - 7PM</span>
-              <span className="text-pink-200 text-[8.5px]">Tuesday's : Closed</span>
+            <div className="inline-grid grid-cols-[auto_auto_1fr] items-center gap-x-2 px-3.5 py-1.5 rounded-2xl bg-white/25 dark:bg-black/40 backdrop-blur-md border border-white/30 dark:border-white/20 text-[9px] font-mono tracking-wider text-white/95 text-left">
+              <span className="font-medium uppercase">Monday - Sunday</span>
+              <span className="font-medium">:</span>
+              <span className="font-medium uppercase">10AM - 7PM</span>
+              <span className="font-extrabold text-pink-200 uppercase">Tuesday</span>
+              <span className="font-extrabold text-pink-200">:</span>
+              <span className="font-extrabold text-pink-200 uppercase">Closed</span>
             </div>
           </div>
 

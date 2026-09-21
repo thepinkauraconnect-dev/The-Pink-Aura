@@ -45,6 +45,9 @@ export const metadata: Metadata = {
   },
 };
 
+import PinkSunCursor from '@/components/ui/PinkSunCursor';
+import SmoothScrollProvider from '@/components/ui/SmoothScrollProvider';
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -68,25 +71,30 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-ivory bg-aura-mesh text-charcoal antialiased flex flex-col min-h-screen selection:bg-aura-200 selection:text-aura-900 relative">
-        {/* Full-screen Hydration & Transition Loading Page */}
-        <InitialLoader />
+        <SmoothScrollProvider>
+          {/* Custom Pink Sun Cursor */}
+          <PinkSunCursor />
 
-        {/* Subtle Silk Pattern Overlay */}
-        <div className="fixed inset-0 bg-silk-pattern pointer-events-none opacity-60 z-0" />
+          {/* Full-screen Hydration & Transition Loading Page */}
+          <InitialLoader />
 
-        {/* Ambient Luxury Aura Orbs (Optimized for smooth GPU rendering) */}
-        <div className="absolute top-10 left-10 w-[500px] h-[500px] bg-aura-200/25 dark:bg-[#9E1B4E]/15 rounded-full blur-[80px] pointer-events-none z-0 transform-gpu transition-colors duration-700" />
-        <div className="absolute bottom-20 right-10 w-[450px] h-[450px] bg-champagne-light/25 dark:bg-[#700B34]/15 rounded-full blur-[80px] pointer-events-none z-0 transform-gpu transition-colors duration-700" />
-        <div className="absolute top-1/2 left-1/3 w-[400px] h-[400px] bg-aura-100/30 dark:bg-[#4A0A22]/20 rounded-full blur-[70px] pointer-events-none z-0 transform-gpu transition-colors duration-700" />
+          {/* Subtle Silk Pattern Overlay */}
+          <div className="fixed inset-0 bg-silk-pattern pointer-events-none opacity-60 z-0" />
 
-        {/* Layout Shell */}
-        <div className="relative z-10 flex flex-col min-h-screen">
-          <GrotoscopeObserver />
-          <Navbar />
-          <main className="flex-grow pt-16 sm:pt-20">{children}</main>
-          <Footer />
-          <WhatsAppButton />
-        </div>
+          {/* Ambient Luxury Aura Orbs (Optimized for smooth GPU rendering) */}
+          <div className="absolute top-10 left-10 w-[500px] h-[500px] bg-aura-200/25 dark:bg-[#9E1B4E]/15 rounded-full blur-[80px] pointer-events-none z-0 transform-gpu transition-colors duration-700" />
+          <div className="absolute bottom-20 right-10 w-[450px] h-[450px] bg-champagne-light/25 dark:bg-[#700B34]/15 rounded-full blur-[80px] pointer-events-none z-0 transform-gpu transition-colors duration-700" />
+          <div className="absolute top-1/2 left-1/3 w-[400px] h-[400px] bg-aura-100/30 dark:bg-[#4A0A22]/20 rounded-full blur-[70px] pointer-events-none z-0 transform-gpu transition-colors duration-700" />
+
+          {/* Layout Shell */}
+          <div className="relative z-10 flex flex-col min-h-screen">
+            <GrotoscopeObserver />
+            <Navbar />
+            <main className="flex-grow pt-16 sm:pt-20">{children}</main>
+            <Footer />
+            <WhatsAppButton />
+          </div>
+        </SmoothScrollProvider>
       </body>
     </html>
   );

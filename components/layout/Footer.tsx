@@ -173,9 +173,13 @@ export default function Footer() {
 
               <div className="flex items-start gap-2.5">
                 <span className="text-aura-400 mt-0.5">🕒</span>
-                <div className="flex flex-col">
-                  <span>{CLINIC_INFO.hours}</span>
-                  <span className="text-aura-300 font-medium text-[11px] mt-0.5">{CLINIC_INFO.closed}</span>
+                <div className="grid grid-cols-[auto_auto_1fr] items-center gap-x-2 text-xs">
+                  <span>Monday - Sunday</span>
+                  <span>:</span>
+                  <span>10AM - 7PM</span>
+                  <span className="text-pink-300 font-extrabold">Tuesday</span>
+                  <span className="text-pink-300 font-extrabold">:</span>
+                  <span className="text-pink-300 font-extrabold">Closed</span>
                 </div>
               </div>
 

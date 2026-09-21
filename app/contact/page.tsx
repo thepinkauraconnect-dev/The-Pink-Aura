@@ -105,9 +105,13 @@ export default function ContactPage() {
                   <h4 className="text-xs font-extrabold uppercase tracking-wider text-charcoal mb-1">
                     Operating Hours
                   </h4>
-                  <div className="text-xs sm:text-sm text-charcoal-muted font-light flex flex-col">
-                    <span>{CLINIC_INFO.hours}</span>
-                    <span className="text-aura-700 dark:text-pink-300 font-semibold text-xs mt-0.5">{CLINIC_INFO.closed}</span>
+                  <div className="grid grid-cols-[auto_auto_1fr] items-center gap-x-2 text-xs sm:text-sm text-charcoal-muted">
+                    <span className="font-medium">Monday - Sunday</span>
+                    <span className="font-medium">:</span>
+                    <span className="font-medium">10AM - 7PM</span>
+                    <span className="text-aura-700 dark:text-pink-300 font-extrabold">Tuesday</span>
+                    <span className="text-aura-700 dark:text-pink-300 font-extrabold">:</span>
+                    <span className="text-aura-700 dark:text-pink-300 font-extrabold">Closed</span>
                   </div>
                 </div>
               </div>
