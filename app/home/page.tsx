@@ -133,14 +133,18 @@ export default function MainHomePage() {
     setCurrentSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
   }, []);
 
-  // Timer for image slide (3.5s duration)
+  // Timer for image slide (gentle auto-rotation on desktop, user-controlled on mobile to save data & performance)
   useEffect(() => {
     const current = HERO_SLIDES[currentSlide];
     if (current.type === 'image') {
       setIsVideoLoading(false);
+      // On mobile / touch devices, do not force-stream 45MB videos automatically; let users tap next
+      const isMobile = typeof window !== 'undefined' && (window.innerWidth < 768 || window.matchMedia('(pointer: coarse)').matches);
+      if (isMobile) return;
+
       const timer = setTimeout(() => {
         nextSlide();
-      }, current.duration || 3500);
+      }, 7000);
       return () => clearTimeout(timer);
     } else {
       setIsVideoLoading(true);
@@ -195,6 +199,7 @@ export default function MainHomePage() {
                     ref={videoRef}
                     src={HERO_SLIDES[currentSlide].src}
                     aria-label={HERO_SLIDES[currentSlide].alt}
+                    preload="metadata"
                     autoPlay
                     muted
                     playsInline
@@ -892,3 +897,4 @@ export default function MainHomePage() {
     </div>
   );
 }
+

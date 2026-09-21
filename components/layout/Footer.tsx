@@ -22,6 +22,7 @@ export default function Footer() {
                   src="/logo-header.png"
                   alt="The Pink Aura"
                   fill
+                  sizes="(max-width: 640px) 320px, 420px"
                   className="object-contain object-left brightness-110 drop-shadow-[0_0_16px_rgba(248,187,208,0.45)]"
                 />
               </div>
@@ -51,47 +52,47 @@ export default function Footer() {
 
           {/* Quick Navigation */}
           <div className="space-y-4">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-aura-300">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-aura-300">
               Explore
-            </h4>
-            <ul className="space-y-2.5 text-sm">
+            </h3>
+            <ul className="space-y-1 text-sm">
               <li>
-                <Link href="/home" className="text-aura-200/70 hover:text-white transition-colors">
+                <Link href="/home" className="text-aura-200/70 hover:text-white transition-colors min-h-[32px] flex items-center py-1">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-aura-200/70 hover:text-white transition-colors">
+                <Link href="/about" className="text-aura-200/70 hover:text-white transition-colors min-h-[32px] flex items-center py-1">
                   About The Pink Aura
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-aura-200/70 hover:text-white transition-colors">
+                <Link href="/services" className="text-aura-200/70 hover:text-white transition-colors min-h-[32px] flex items-center py-1">
                   Service Directory
                 </Link>
               </li>
               <li>
-                <Link href="/services/wellness" className="text-aura-200/70 hover:text-white transition-colors">
+                <Link href="/services/wellness" className="text-aura-200/70 hover:text-white transition-colors min-h-[32px] flex items-center py-1">
                   Lifestyle & Wellness
                 </Link>
               </li>
               <li>
-                <Link href="/services/spiritual-wellness" className="text-aura-200/70 hover:text-white transition-colors">
+                <Link href="/services/spiritual-wellness" className="text-aura-200/70 hover:text-white transition-colors min-h-[32px] flex items-center py-1">
                   Spiritual Counselling
                 </Link>
               </li>
               <li>
-                <Link href="/services/iv-drip-therapy" className="text-aura-200/70 hover:text-white transition-colors">
+                <Link href="/services/iv-drip-therapy" className="text-aura-200/70 hover:text-white transition-colors min-h-[32px] flex items-center py-1">
                   IV Drip Therapy
                 </Link>
               </li>
               <li>
-                <Link href="/register" className="text-aura-200/70 hover:text-white transition-colors">
+                <Link href="/register" className="text-aura-200/70 hover:text-white transition-colors min-h-[32px] flex items-center py-1">
                   Consultation Registration
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-aura-200/70 hover:text-white transition-colors">
+                <Link href="/contact" className="text-aura-200/70 hover:text-white transition-colors min-h-[32px] flex items-center py-1">
                   Contact & Location
                 </Link>
               </li>
@@ -100,15 +101,15 @@ export default function Footer() {
 
           {/* Key Categories */}
           <div className="space-y-4">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-aura-300">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-aura-300">
               Service Categories
-            </h4>
-            <ul className="space-y-2 text-xs">
+            </h3>
+            <ul className="space-y-1.5 text-xs">
               {SERVICE_CATEGORIES.slice(0, 7).map((cat) => (
                 <li key={cat.id}>
                   <Link
                     href={`/services/${cat.slug}`}
-                    className="text-aura-200/70 hover:text-white transition-colors truncate block"
+                    className="text-aura-200/70 hover:text-white transition-colors truncate flex items-center min-h-[32px] py-1"
                   >
                     {cat.title}
                   </Link>
@@ -117,7 +118,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services"
-                  className="text-aura-400 hover:text-aura-300 transition-colors font-medium inline-flex items-center gap-1 mt-1"
+                  className="text-aura-400 hover:text-aura-300 transition-colors font-medium inline-flex items-center gap-1 min-h-[32px] py-1 mt-0.5"
                 >
                   <span>View All 13 Categories</span>
                   <ArrowUpRight className="w-3 h-3" />
@@ -128,9 +129,9 @@ export default function Footer() {
 
           {/* Official Location & Contact */}
           <div className="space-y-4">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-aura-300">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-aura-300">
               Clinic Location
-            </h4>
+            </h3>
 
             <div className="space-y-3 text-xs text-aura-200/80">
               <div className="flex items-start gap-2.5">
@@ -217,6 +218,7 @@ export default function Footer() {
                 src="/images/Vyome/Vyome%20Logo.png"
                 alt="Vyome Logo"
                 fill
+                sizes="24px"
                 className="object-contain filter drop-shadow-[0_0_8px_rgba(233,30,99,0.45)] group-hover:scale-110 transition-transform"
               />
             </div>
@@ -225,14 +227,14 @@ export default function Footer() {
             </span>
           </a>
 
-          <div className="flex items-center gap-6">
-            <Link href="/privacy" className="hover:text-aura-200 transition-colors">
+          <div className="flex items-center gap-4 sm:gap-6 flex-wrap">
+            <Link href="/privacy" className="hover:text-aura-200 transition-colors min-h-[36px] flex items-center px-1">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="hover:text-aura-200 transition-colors">
+            <Link href="/terms" className="hover:text-aura-200 transition-colors min-h-[36px] flex items-center px-1">
               Terms of Service
             </Link>
-            <Link href="/contact" className="hover:text-aura-200 transition-colors">
+            <Link href="/contact" className="hover:text-aura-200 transition-colors min-h-[36px] flex items-center px-1">
               Contact Us
             </Link>
           </div>
