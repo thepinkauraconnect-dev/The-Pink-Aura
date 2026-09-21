@@ -1,10 +1,15 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import GrotoscopeObserver from '@/components/ui/GrotoscopeObserver';
-import InitialLoader from '@/components/ui/InitialLoader';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#FFF3F6',
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://thepinkaura.co.in'),
@@ -71,16 +76,13 @@ export default function RootLayout({
       </head>
       <body className="bg-ivory bg-aura-mesh text-charcoal antialiased flex flex-col min-h-screen selection:bg-aura-200 selection:text-aura-900 relative">
         <SmoothScrollProvider>
-          {/* Full-screen Hydration & Transition Loading Page */}
-          <InitialLoader />
-
           {/* Subtle Silk Pattern Overlay */}
           <div className="fixed inset-0 bg-silk-pattern pointer-events-none opacity-60 z-0" />
 
-          {/* Ambient Luxury Aura Orbs (Optimized for smooth GPU rendering) */}
-          <div className="absolute top-10 left-10 w-[500px] h-[500px] bg-aura-200/25 dark:bg-[#9E1B4E]/15 rounded-full blur-[80px] pointer-events-none z-0 transform-gpu transition-colors duration-700" />
-          <div className="absolute bottom-20 right-10 w-[450px] h-[450px] bg-champagne-light/25 dark:bg-[#700B34]/15 rounded-full blur-[80px] pointer-events-none z-0 transform-gpu transition-colors duration-700" />
-          <div className="absolute top-1/2 left-1/3 w-[400px] h-[400px] bg-aura-100/30 dark:bg-[#4A0A22]/20 rounded-full blur-[70px] pointer-events-none z-0 transform-gpu transition-colors duration-700" />
+          {/* Ambient Luxury Aura Orbs (GPU-optimized with responsive blur) */}
+          <div className="absolute top-10 left-10 w-[280px] sm:w-[500px] h-[280px] sm:h-[500px] bg-aura-200/25 dark:bg-[#9E1B4E]/15 rounded-full blur-[40px] sm:blur-[80px] pointer-events-none z-0 transform-gpu transition-colors duration-700 will-change-transform" />
+          <div className="absolute bottom-20 right-10 w-[260px] sm:w-[450px] h-[260px] sm:h-[450px] bg-champagne-light/25 dark:bg-[#700B34]/15 rounded-full blur-[40px] sm:blur-[80px] pointer-events-none z-0 transform-gpu transition-colors duration-700 will-change-transform" />
+          <div className="hidden sm:block absolute top-1/2 left-1/3 w-[400px] h-[400px] bg-aura-100/30 dark:bg-[#4A0A22]/20 rounded-full blur-[70px] pointer-events-none z-0 transform-gpu transition-colors duration-700 will-change-transform" />
 
           {/* Layout Shell */}
           <div className="relative z-10 flex flex-col min-h-screen">

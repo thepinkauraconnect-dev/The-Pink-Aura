@@ -167,21 +167,17 @@ export default function MainHomePage() {
     <div className="space-y-24 sm:space-y-32 pb-20 overflow-x-hidden">
       {/* 1. HIGH-FASHION EDITORIAL LUXURY HERO CANVAS */}
       <section className="relative px-3 sm:px-6 lg:px-8 pt-3 sm:pt-6 pb-8 max-w-[1440px] mx-auto">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98, y: 15 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full min-h-[65vh] sm:min-h-[84vh] lg:min-h-[88vh] rounded-[24px] sm:rounded-[44px] overflow-hidden shadow-[0_28px_70px_-15px_rgba(158,77,104,0.22)] border border-white flex flex-col justify-between p-3.5 sm:p-8 lg:p-12"
-        >
+        <h1 className="sr-only">The Pink Aura — Aesthetic & Wellness Sanctuary Bangalore</h1>
+        <div className="relative w-full min-h-[65vh] sm:min-h-[84vh] lg:min-h-[88vh] rounded-[24px] sm:rounded-[44px] overflow-hidden shadow-[0_28px_70px_-15px_rgba(158,77,104,0.22)] border border-white flex flex-col justify-between p-3.5 sm:p-8 lg:p-12">
           {/* Dynamic Hero Slide Media (Image + 3 Videos) */}
           <div className="absolute inset-0 z-0">
-            <AnimatePresence mode="popLayout">
+            <AnimatePresence mode="popLayout" initial={false}>
               <motion.div
                 key={HERO_SLIDES[currentSlide].id}
-                initial={{ opacity: 0, scale: 1.04, filter: 'blur(4px)' }}
-                animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-                exit={{ opacity: 0, scale: 0.98, filter: 'blur(4px)' }}
-                transition={{ duration: 0.95, ease: [0.22, 1, 0.36, 1] }}
+                initial={currentSlide === 0 ? false : { opacity: 0, scale: 1.03 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                 className="absolute inset-0 w-full h-full"
               >
                 {HERO_SLIDES[currentSlide].type === 'image' ? (
@@ -189,8 +185,8 @@ export default function MainHomePage() {
                     src={HERO_SLIDES[currentSlide].src}
                     alt={HERO_SLIDES[currentSlide].alt}
                     fill
-                    sizes="100vw"
-                    quality={85}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1440px) 95vw, 1400px"
+                    quality={80}
                     className={HERO_SLIDES[currentSlide].className || "object-cover object-center sm:object-[center_28%] scale-100 sm:scale-105 transition-transform duration-1000"}
                     priority
                   />
@@ -243,17 +239,17 @@ export default function MainHomePage() {
           <button
             onClick={prevSlide}
             aria-label="Previous Slide"
-            className="hidden sm:flex absolute left-4 md:left-6 lg:left-8 top-1/2 -translate-y-1/2 z-30 p-2.5 sm:p-3.5 rounded-full bg-black/40 hover:bg-black/75 text-white/90 hover:text-white backdrop-blur-md border border-white/30 transition-all duration-300 shadow-xl hover:scale-110 active:scale-95 group"
+            className="hidden sm:flex absolute left-4 md:left-6 lg:left-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-black/40 hover:bg-black/75 text-white/90 hover:text-white backdrop-blur-md border border-white/30 transition-all duration-300 shadow-xl hover:scale-110 active:scale-95 group items-center justify-center"
           >
-            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 group-hover:-translate-x-0.5 transition-transform" />
+            <ChevronLeft className="w-6 h-6 group-hover:-translate-x-0.5 transition-transform" />
           </button>
 
           <button
             onClick={nextSlide}
             aria-label="Next Slide"
-            className="hidden sm:flex absolute right-4 md:right-6 lg:right-8 top-1/2 -translate-y-1/2 z-30 p-2.5 sm:p-3.5 rounded-full bg-black/40 hover:bg-black/75 text-white/90 hover:text-white backdrop-blur-md border border-white/30 transition-all duration-300 shadow-xl hover:scale-110 active:scale-95 group"
+            className="hidden sm:flex absolute right-4 md:right-6 lg:right-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-black/40 hover:bg-black/75 text-white/90 hover:text-white backdrop-blur-md border border-white/30 transition-all duration-300 shadow-xl hover:scale-110 active:scale-95 group items-center justify-center"
           >
-            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-0.5 transition-transform" />
+            <ChevronRight className="w-6 h-6 group-hover:translate-x-0.5 transition-transform" />
           </button>
 
           {/* Top Canvas Header Badges (Responsive, Compact Glassmorphic Design) */}
@@ -301,7 +297,7 @@ export default function MainHomePage() {
           {/* Bottom Area: Scalable Branding + Responsive Slide Controls */}
           <div className="relative z-20 w-full space-y-2 sm:space-y-3 pt-2 sm:pt-4 pb-1">
             {/* Scalable Precision Vector Typography */}
-            <div className="w-full select-none pointer-events-none flex items-center justify-center">
+            <div className="w-full select-none pointer-events-none flex items-center justify-center" aria-hidden="true">
               <svg
                 viewBox="0 0 1300 150"
                 className="w-full h-auto max-h-8 sm:max-h-20 md:max-h-28 lg:max-h-36 overflow-visible"
@@ -324,41 +320,45 @@ export default function MainHomePage() {
               </svg>
             </div>
 
-            {/* Responsive Slide Controls (Mobile-friendly arrow controls flanking pill dots) */}
-            <div className="flex items-center justify-center gap-3 pt-1">
+            {/* Responsive Slide Controls (Accessible 44px Touch Targets) */}
+            <div className="flex items-center justify-center gap-1 pt-1">
               <button
                 onClick={prevSlide}
                 aria-label="Previous Slide"
-                className="sm:hidden p-1.5 rounded-full bg-black/40 hover:bg-black/75 text-white/90 backdrop-blur-md border border-white/20 active:scale-95 transition-all"
+                className="sm:hidden w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-black/40 hover:bg-black/75 text-white/90 backdrop-blur-md border border-white/20 active:scale-95 transition-all"
               >
                 <ChevronLeft className="w-4 h-4" />
               </button>
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-center">
                 {HERO_SLIDES.map((slide, idx) => (
                   <button
                     key={slide.id}
                     onClick={() => setCurrentSlide(idx)}
                     aria-label={`Go to slide ${idx + 1}`}
-                    className={`h-1.5 sm:h-2 rounded-full transition-all duration-500 ${
-                      idx === currentSlide
-                        ? 'w-6 sm:w-8 bg-pink-400 shadow-[0_0_10px_rgba(244,114,182,0.8)]'
-                        : 'w-2 sm:w-2.5 bg-white/40 hover:bg-white/80'
-                    }`}
-                  />
+                    className="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center group"
+                  >
+                    <span
+                      className={`h-2 rounded-full transition-all duration-500 ${
+                        idx === currentSlide
+                          ? 'w-7 sm:w-8 bg-pink-400 shadow-[0_0_10px_rgba(244,114,182,0.8)]'
+                          : 'w-2.5 bg-white/50 group-hover:bg-white/80'
+                      }`}
+                    />
+                  </button>
                 ))}
               </div>
 
               <button
                 onClick={nextSlide}
                 aria-label="Next Slide"
-                className="sm:hidden p-1.5 rounded-full bg-black/40 hover:bg-black/75 text-white/90 backdrop-blur-md border border-white/20 active:scale-95 transition-all"
+                className="sm:hidden w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-black/40 hover:bg-black/75 text-white/90 backdrop-blur-md border border-white/20 active:scale-95 transition-all"
               >
                 <ChevronRight className="w-4 h-4" />
               </button>
             </div>
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* 2. THE 4-STEP AURA JOURNEY PROTOCOL */}

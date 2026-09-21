@@ -106,6 +106,7 @@ export default function Navbar() {
                 src="/logo-header.png"
                 alt="The Pink Aura"
                 fill
+                sizes="(max-width: 640px) 144px, 224px"
                 className="object-contain object-left transition-all duration-300 dark:brightness-125 dark:drop-shadow-[0_0_16px_rgba(248,187,208,0.55)]"
                 priority
               />
@@ -343,13 +344,13 @@ export default function Navbar() {
               onClick={toggleDarkMode}
               aria-label="Toggle Night / Dark Mode"
               title={darkMode ? "Switch to Light Mode" : "Switch to Night / Dark Mode"}
-              className="p-1.5 sm:p-2 rounded-full clay-badge text-aura-750 transition-all flex items-center justify-center shrink-0"
+              className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full clay-badge text-aura-750 transition-all flex items-center justify-center shrink-0 active:scale-95"
             >
-              {darkMode ? <Sun className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400" /> : <Moon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-aura-750" />}
+              {darkMode ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-aura-750" />}
             </button>
             <Link
               href="/register"
-              className="clay-btn-primary px-3 py-1.5 sm:px-4 sm:py-2 text-[9.5px] sm:text-xs font-bold uppercase tracking-wider shrink-0 whitespace-nowrap"
+              className="clay-btn-primary px-3.5 py-2.5 sm:px-4 sm:py-2 text-[10px] sm:text-xs font-bold uppercase tracking-wider shrink-0 whitespace-nowrap min-h-[40px] flex items-center"
             >
               <span className="hidden sm:inline">Begin Your Journey</span>
               <span className="sm:hidden">Consult</span>
@@ -357,9 +358,9 @@ export default function Navbar() {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle Navigation Menu"
-              className="p-1.5 sm:p-2 rounded-full clay-badge text-charcoal hover:bg-aura-100 transition-colors shrink-0"
+              className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full clay-badge text-charcoal hover:bg-aura-100 transition-colors flex items-center justify-center shrink-0 active:scale-95"
             >
-              {mobileMenuOpen ? <X className="w-4 h-4 sm:w-5 sm:h-5" /> : <Menu className="w-4 h-4 sm:w-5 sm:h-5" />}
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>

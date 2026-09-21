@@ -6,6 +6,10 @@ export default function GrotoscopeObserver() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
+    // Only activate on desktop devices with mouse pointer (hover capability)
+    const isDesktop = window.matchMedia('(pointer: fine)').matches && window.innerWidth >= 768;
+    if (!isDesktop) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

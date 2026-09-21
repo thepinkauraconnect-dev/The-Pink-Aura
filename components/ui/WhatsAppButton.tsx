@@ -20,8 +20,8 @@ export default function WhatsAppButton() {
         aria-label="Chat on WhatsApp with The Pink Aura"
         className="relative w-14 h-14 rounded-full bg-gradient-to-tr from-[#20B038] to-[#25D366] text-white flex items-center justify-center shadow-[0_8px_24px_rgba(37,211,102,0.4)] hover:shadow-[0_12px_32px_rgba(37,211,102,0.6)] hover:scale-110 active:scale-95 transition-all duration-300 border-2 border-white"
       >
-        {/* Subtle Pulse Ring */}
-        <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-30 animate-ping pointer-events-none" />
+        {/* Subtle Pulse Ring (GPU-composited) */}
+        <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-30 animate-ping pointer-events-none transform-gpu will-change-transform" />
 
         {/* WhatsApp Official SVG Icon */}
         <svg
