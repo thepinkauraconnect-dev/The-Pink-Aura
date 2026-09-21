@@ -45,7 +45,6 @@ export const metadata: Metadata = {
   },
 };
 
-import PinkSunCursor from '@/components/ui/PinkSunCursor';
 import SmoothScrollProvider from '@/components/ui/SmoothScrollProvider';
 
 export default function RootLayout({
@@ -72,9 +71,6 @@ export default function RootLayout({
       </head>
       <body className="bg-ivory bg-aura-mesh text-charcoal antialiased flex flex-col min-h-screen selection:bg-aura-200 selection:text-aura-900 relative">
         <SmoothScrollProvider>
-          {/* Custom Pink Sun Cursor */}
-          <PinkSunCursor />
-
           {/* Full-screen Hydration & Transition Loading Page */}
           <InitialLoader />
 
