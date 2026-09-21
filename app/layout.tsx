@@ -1,9 +1,24 @@
 import type { Metadata, Viewport } from 'next';
+import { Cormorant_Garamond, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
-import GrotoscopeObserver from '@/components/ui/GrotoscopeObserver';
+
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-cormorant',
+  display: 'swap',
+});
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800'],
+  variable: '--font-jakarta',
+  display: 'swap',
+});
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -58,7 +73,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={`scroll-smooth ${cormorant.variable} ${jakarta.variable}`}>
       <head>
         {/* FORCE Light Mode on every initial page load — Dark Mode only activates when the user clicks the toggle */}
         <script
@@ -86,7 +101,6 @@ export default function RootLayout({
 
           {/* Layout Shell */}
           <div className="relative z-10 flex flex-col min-h-screen">
-            <GrotoscopeObserver />
             <Navbar />
             <main className="flex-grow pt-16 sm:pt-20">{children}</main>
             <Footer />
