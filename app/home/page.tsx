@@ -31,12 +31,12 @@ import { ServiceGroup } from '@/types/services';
 
 const HERO_SLIDES = [
   {
-    id: 'hero-slide-img',
+    id: 'hero-slide-main',
     type: 'image',
-    src: '/images/hero/editorial-hero.webp',
-    alt: 'The Pink Aura Luxury Editorial Care',
-    duration: 3500,
-    className: 'object-cover object-center sm:object-[center_28%] scale-100 sm:scale-105 transition-transform duration-1000',
+    src: '/images/hero/hero.png',
+    alt: 'The Pink Aura Luxury Sanctuary',
+    duration: 5000,
+    className: 'object-cover object-center scale-100 sm:scale-105 transition-transform duration-1000',
   },
   {
     id: 'hero-slide-vid-1',
@@ -46,11 +46,27 @@ const HERO_SLIDES = [
     className: 'object-cover object-center',
   },
   {
+    id: 'hero-slide-retreat',
+    type: 'image',
+    src: '/images/hero/Dreamy%20Pink%20Spa%20Beauty%20Retreat.png',
+    alt: 'The Pink Aura Luxury Spa Beauty Retreat',
+    duration: 5000,
+    className: 'object-cover object-center scale-100 sm:scale-105 transition-transform duration-1000',
+  },
+  {
     id: 'hero-slide-vid-2',
     type: 'video',
     src: '/Videos/Hero_section_videos/hero_display_2.mp4',
     alt: 'The Pink Aura Exercise & Fitness Video',
     className: 'object-cover object-[18%_center] sm:object-center transition-all duration-700',
+  },
+  {
+    id: 'hero-slide-hair-spa',
+    type: 'image',
+    src: '/images/hero/Dreamy%20Pink%20Hair%20Regeneration%20Spa.png',
+    alt: 'The Pink Aura Hair Regeneration Spa',
+    duration: 5000,
+    className: 'object-cover object-center scale-100 sm:scale-105 transition-transform duration-1000',
   },
   {
     id: 'hero-slide-vid-3',
