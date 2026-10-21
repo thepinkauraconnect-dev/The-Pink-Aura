@@ -21,7 +21,7 @@ export const SUB_TREATMENT_FILENAMES: Record<string, string> = {
   'lhr-10': '10.png', // #10 Full Front
   'lhr-11': '11.png', // #11 Full Back
   'lhr-12': '12.png', // #12 Full Bikini
-  'lhr-13': '13.png', // #13 Buttocks
+  'lhr-13': '13.webp', // #13 Buttocks
   'lhr-14': '14.png', // #14 Full Bikini + Buttocks
   'lhr-15': '15.png', // #15 Full Body
   'sk-1': '16.png', // #16 Hydra Medi Facial
@@ -87,7 +87,8 @@ export const SUB_TREATMENT_FILENAMES: Record<string, string> = {
   'hr-8': '76.png', // #76 Bio-PRF Hair Treatment
   'hr-9': '77.png', // #77 Stem Cell/Regenerative Hair Therapy
   'ht-1': '78.png', // #78 FUE
-  'ht-2': '79.png', // #79 FUT
+  'ht-2': '79.png', // #79 Bio FUE
+  'ht-3': 'hair_transplant_dhi.jpg', // DHI Direct Hair Implantation
   'sl-1': '80.png', // #80 Body Composition Analysis
   'sl-2': '81.png', // #81 Weight Management Consultation
   'sl-3': '82.png', // #82 Personalized Diet & Lifestyle Plan
@@ -126,7 +127,9 @@ export const SUB_TREATMENT_FILENAMES: Record<string, string> = {
   'int-1': '115.png', // #115 Vaginoplasty
   'int-2': '116.png', // #116 Labiaplasty
   'int-3': '117.png', // #117 Penile Cosmetic Procedures
-  'sp-1': '118.png', // #118 Spiritual Counselling
+  'sp-1': '118.png', // #118 Spiritual Counseling Treatment
+  'sp-2': 'spiritual_awareness_program.jpg', // Spiritual Awareness Program
+  'sp-3': 'spiritual_enlightenment_sessions.jpg', // Spiritual Enlightenment Sessions
   'iv-1': '119.png', // #119 Beauty Boost IV Drip
   'iv-2': '120.png', // #120 Energy IV Drip
   'iv-3': '121.png', // #121 Immune Boost IV Drip
@@ -150,7 +153,7 @@ export const SUB_TREATMENT_IMAGES: Record<string, string> = {
   'lhr-10': '/images/treatments/10.png', // #10 Full Front
   'lhr-11': '/images/treatments/11.png', // #11 Full Back
   'lhr-12': '/images/treatments/12.png', // #12 Full Bikini
-  'lhr-13': '/images/treatments/13.png', // #13 Buttocks
+  'lhr-13': '/images/treatments/13.webp', // #13 Buttocks
   'lhr-14': '/images/treatments/14.png', // #14 Full Bikini + Buttocks
   'lhr-15': '/images/treatments/15.png', // #15 Full Body
   'sk-1': '/images/treatments/16.png', // #16 Hydra Medi Facial
@@ -216,7 +219,8 @@ export const SUB_TREATMENT_IMAGES: Record<string, string> = {
   'hr-8': '/images/treatments/76.png', // #76 Bio-PRF Hair Treatment
   'hr-9': '/images/treatments/77.png', // #77 Stem Cell/Regenerative Hair Therapy
   'ht-1': '/images/treatments/78.png', // #78 FUE
-  'ht-2': '/images/treatments/79.png', // #79 FUT
+  'ht-2': '/images/treatments/79.png', // #79 Bio FUE
+  'ht-3': '/images/treatments/hair_transplant_dhi.jpg', // DHI Direct Hair Implantation
   'sl-1': '/images/treatments/80.png', // #80 Body Composition Analysis
   'sl-2': '/images/treatments/81.png', // #81 Weight Management Consultation
   'sl-3': '/images/treatments/82.png', // #82 Personalized Diet & Lifestyle Plan
@@ -255,7 +259,9 @@ export const SUB_TREATMENT_IMAGES: Record<string, string> = {
   'int-1': '/images/treatments/115.png', // #115 Vaginoplasty
   'int-2': '/images/treatments/116.png', // #116 Labiaplasty
   'int-3': '/images/treatments/117.png', // #117 Penile Cosmetic Procedures
-  'sp-1': '/images/treatments/118.png', // #118 Spiritual Counselling
+  'sp-1': '/images/treatments/118.png', // #118 Spiritual Counseling Treatment
+  'sp-2': '/images/treatments/spiritual_awareness_program.jpg', // Spiritual Awareness Program
+  'sp-3': '/images/treatments/spiritual_enlightenment_sessions.jpg', // Spiritual Enlightenment Sessions
   'iv-1': '/images/treatments/119.png', // #119 Beauty Boost IV Drip
   'iv-2': '/images/treatments/120.png', // #120 Energy IV Drip
   'iv-3': '/images/treatments/121.png', // #121 Immune Boost IV Drip
@@ -328,8 +334,7 @@ export const SUB_TREATMENT_FALLBACKS: Record<string, string[]> = {
     '/images/services/WEB%20IMAGES/Laser%20Hair%20Reduction.webp'
   ],
   'lhr-13': [
-    '/images/treatments/13.png',
-    '/images/treatments/Sub%20treatment%20images/13.png',
+    '/images/treatments/13.webp',
     '/images/services/WEB%20IMAGES/Laser%20Hair%20Reduction.webp'
   ],
   'lhr-14': [
@@ -662,6 +667,11 @@ export const SUB_TREATMENT_FALLBACKS: Record<string, string[]> = {
     '/images/treatments/Sub%20treatment%20images/79.png',
     '/images/services/WEB%20IMAGES/HAIR%20TRANSPLANT.webp'
   ],
+  'ht-3': [
+    '/images/treatments/hair_transplant_dhi.jpg',
+    '/images/treatments/Sub%20treatment%20images/hair_transplant_dhi.jpg',
+    '/images/services/WEB%20IMAGES/HAIR%20TRANSPLANT.webp'
+  ],
   'sl-1': [
     '/images/treatments/80.png',
     '/images/treatments/Sub%20treatment%20images/80.png',
@@ -855,6 +865,18 @@ export const SUB_TREATMENT_FALLBACKS: Record<string, string[]> = {
   'sp-1': [
     '/images/treatments/118.png',
     '/images/treatments/Sub%20treatment%20images/118.png',
+    '/images/services/WEB%20IMAGES/SPIRITUAL%20COUNSELLING%20%26%20WELLNESS.webp'
+  ],
+  'sp-2': [
+    '/images/treatments/spiritual_awareness_program.jpg',
+    '/images/treatments/Sub%20treatment%20images/spiritual_awareness_program.jpg',
+    '/images/treatments/118.png',
+    '/images/services/WEB%20IMAGES/SPIRITUAL%20COUNSELLING%20%26%20WELLNESS.webp'
+  ],
+  'sp-3': [
+    '/images/treatments/spiritual_enlightenment_sessions.jpg',
+    '/images/treatments/Sub%20treatment%20images/spiritual_enlightenment_sessions.jpg',
+    '/images/treatments/118.png',
     '/images/services/WEB%20IMAGES/SPIRITUAL%20COUNSELLING%20%26%20WELLNESS.webp'
   ],
   'iv-1': [

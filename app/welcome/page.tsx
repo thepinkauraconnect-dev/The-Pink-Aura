@@ -58,7 +58,7 @@ export default function WelcomePage() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-base sm:text-xl text-charcoal-muted max-w-2xl mx-auto font-light leading-relaxed"
         >
-          Discover a personalized approach to beauty, advanced aesthetics, body sculpting, and holistic wellbeing.
+          Discover a personalized approach to advanced skin aesthetics, hair restoration, body contouring, and spiritual wellbeing.
         </motion.p>
 
         {/* Action CTAs */}
@@ -95,7 +95,7 @@ export default function WelcomePage() {
           <div className="p-4 rounded-3xl clay-card text-center space-y-2">
             <ShieldCheck className="w-6 h-6 text-aura-600 mx-auto" />
             <h4 className="font-serif text-base font-bold text-charcoal">Clinical Excellence</h4>
-            <p className="text-xs text-charcoal-muted font-light">Supervised by qualified aesthetic doctors and wellness experts.</p>
+            <p className="text-xs text-charcoal-muted font-light">Supervised by qualified aesthetic physicians and wellness experts.</p>
           </div>
 
           <div className="p-4 rounded-3xl clay-card text-center space-y-2">
@@ -106,7 +106,7 @@ export default function WelcomePage() {
 
           <div className="p-4 rounded-3xl clay-card text-center space-y-2">
             <HeartHandshake className="w-6 h-6 text-aura-600 mx-auto" />
-            <h4 className="font-serif text-base font-bold text-charcoal">Holistic Wellbeing</h4>
+            <h4 className="font-serif text-base font-bold text-charcoal">Spiritual Wellbeing</h4>
             <p className="text-xs text-charcoal-muted font-light">Harmonizing external beauty with internal vitality and peace.</p>
           </div>
         </motion.div>

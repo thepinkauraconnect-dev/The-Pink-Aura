@@ -225,7 +225,7 @@ export default function AboutPage() {
               <Flower2 className="w-8 h-8 text-aura-600 mx-auto" />
               <h4 className="font-serif text-lg font-bold text-charcoal">Holistic Synergy</h4>
               <p className="text-xs text-charcoal-muted font-light leading-relaxed">
-                Combining external skin & body refinement with internal nutritional and energy balance.
+                Combining external skin, hair & body refinement with internal nutritional and energy balance.
               </p>
             </div>
           </div>

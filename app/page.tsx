@@ -50,35 +50,35 @@ export default function RootEntryPage() {
           </h1>
 
           <p className="text-base sm:text-lg text-[#5A0E2E] dark:text-pink-100/90 font-normal leading-relaxed">
-            Discover a personalized approach to beauty, advanced aesthetics, hair restoration, body sculpting, and holistic wellbeing.
+            Discover a personalized approach to advanced skin aesthetics, hair restoration, body contouring, and spiritual wellbeing.
           </p>
 
-          <div className="p-5 rounded-3xl clay-card clay-card-contour space-y-2">
-            <p className="text-xs italic font-serif text-aura-700 font-bold">
+          <div className="p-5 rounded-3xl clay-card clay-card-contour bg-white/95 dark:bg-[#2C0618]/95 border border-pink-200/80 dark:border-pink-900/50 space-y-2 shadow-sm">
+            <p className="text-xs sm:text-sm italic font-serif text-[#4A0824] dark:text-pink-200 font-bold tracking-wide">
               "Enhance Your Beauty • Elevate Your Aura"
             </p>
-            <p className="text-[11px] text-charcoal-muted font-light leading-relaxed">
+            <p className="text-xs text-[#5A0E2E] dark:text-pink-100 font-medium leading-relaxed">
               Register your consultation inquiry to unlock personalized care and explore our complete service catalogue.
             </p>
           </div>
 
           {/* Quick Clay Pillars */}
           <div className="space-y-3 pt-2">
-            <div className="flex items-center gap-3 text-xs text-charcoal-muted font-medium">
+            <div className="flex items-center gap-3 text-xs text-[#4A0A26] dark:text-pink-100 font-medium">
               <div className="w-7 h-7 rounded-full clay-badge flex items-center justify-center text-aura-600 shrink-0">
                 <ShieldCheck className="w-4 h-4" />
               </div>
-              <span>Supervised by certified aesthetic doctors & wellness experts</span>
+              <span>Supervised by certified aesthetic physicians & wellness experts</span>
             </div>
 
-            <div className="flex items-center gap-3 text-xs text-charcoal-muted font-medium">
+            <div className="flex items-center gap-3 text-xs text-[#4A0A26] dark:text-pink-100 font-medium">
               <div className="w-7 h-7 rounded-full clay-badge flex items-center justify-center text-aura-600 shrink-0">
                 <Feather className="w-4 h-4" />
               </div>
               <span>Tailored non-surgical aesthetic & body contouring programs</span>
             </div>
 
-            <div className="flex items-center gap-3 text-xs text-charcoal-muted font-medium">
+            <div className="flex items-center gap-3 text-xs text-[#4A0A26] dark:text-pink-100 font-medium">
               <div className="w-7 h-7 rounded-full clay-badge flex items-center justify-center text-aura-600 shrink-0">
                 <HeartHandshake className="w-4 h-4" />
               </div>

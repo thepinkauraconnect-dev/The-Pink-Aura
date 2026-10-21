@@ -63,7 +63,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       { id: 'sk-3', name: 'Korean Glass Skin Treatment', description: 'Intense moisture surge and micro-nutrient infusion for a smooth, glass-like skin finish.', image: SUB_TREATMENT_IMAGES['sk-3'] },
       { id: 'sk-4', name: 'Q-Switched Laser', description: 'High-speed laser light targeting stubborn pigmentation, freckles, and age spots.', image: SUB_TREATMENT_IMAGES['sk-4'] },
       { id: 'sk-5', name: 'Pico Laser', description: 'Picosecond pulse technology for targeted melasma reduction and collagen remodeling.', image: SUB_TREATMENT_IMAGES['sk-5'] },
-      { id: 'sk-6', name: 'CO₂ Fractional Laser', description: 'Micro-ablative resurfacing targeting deep acne scars, enlarged pores, and fine wrinkles.', image: SUB_TREATMENT_IMAGES['sk-6'] },
+      { id: 'sk-6', name: 'CO2 Fractional Laser', description: 'Micro-ablative resurfacing targeting deep acne scars, enlarged pores, and fine lines and wrinkles.', image: SUB_TREATMENT_IMAGES['sk-6'] },
       { id: 'sk-7', name: 'Fractional Laser', description: 'Gentle skin renewal laser stimulating natural elastin and collagen synthesis.', image: SUB_TREATMENT_IMAGES['sk-7'] },
       { id: 'sk-8', name: 'AHA Peel', description: 'Alpha Hydroxy Acid exfoliation ideal for brightening dull complexions.', image: SUB_TREATMENT_IMAGES['sk-8'] },
       { id: 'sk-9', name: 'BHA / Salicylic Peel', description: 'Deep pore penetration formulated to clarify acne-prone, congested skin.', image: SUB_TREATMENT_IMAGES['sk-9'] },
@@ -200,20 +200,21 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
     slug: 'hair-transplant',
     number: '06',
     title: 'Hair Transplant',
-    subtitle: 'Surgical Precision Follicular Unit Extraction & Grafting',
-    description: 'Permanent, natural hairline restoration using advanced FUE and FUT surgical graft implantation techniques performed by skilled surgical specialists.',
+    subtitle: 'Surgical Precision Follicular Unit Extraction & Direct Implantation',
+    description: 'Permanent, natural hairline restoration using Advanced Bio FUE and DHI surgical graft implantation techniques performed by skilled surgical specialists.',
     group: 'HAIR',
     heroImage: '/images/services/WEB%20IMAGES/HAIR%20TRANSPLANT.webp',
     cardImage: '/images/services/WEB%20IMAGES/HAIR%20TRANSPLANT.webp',
     highlights: [
-      'Advanced Follicular Unit Extraction (FUE) & FUT techniques',
-      'Micro-punch graft harvesting with zero linear scarring option',
+      'Advanced Follicular Unit Extraction (FUE) & DHI techniques',
+      'Micro-punch graft harvesting with zero linear scarring',
       'Artistic hairline design matched to natural growth angle',
       'High graft survival rates and permanent natural results'
     ],
     treatments: [
-      { id: 'ht-1', name: 'Hair Transplant — FUE', description: 'Follicular Unit Extraction harvesting individual hair grafts with minimal micro-incisions and rapid healing.' },
-      { id: 'ht-2', name: 'Hair Transplant — FUT', description: 'Follicular Unit Transplantation strip method allowing high-density graft collection for extensive balding areas.', image: SUB_TREATMENT_IMAGES['ht-2'] }
+      { id: 'ht-1', name: 'Hair Transplant (FUE)', description: 'Advanced Follicular Unit Extraction harvesting individual healthy grafts with precision micro-punches for natural hairline restoration, minimal downtime, and zero linear scarring.' },
+      { id: 'ht-2', name: 'Hair Transplant (Bio FUE)', description: 'Next-generation FUE enriched with autologous growth factors and PRP bio-therapy to accelerate graft survival, stimulate faster follicle regeneration, and promote rapid donor-area healing.', image: SUB_TREATMENT_IMAGES['ht-2'] },
+      { id: 'ht-3', name: 'Hair Transplant (DHI)', description: 'Direct Hair Implantation utilizing specialized Choi implanter pens to precisely control angle, depth, and direction without pre-made channel incisions, achieving maximum density and seamless natural growth.', image: SUB_TREATMENT_IMAGES['ht-3'] }
     ],
     faqs: [
       { question: 'Are transplanted hair grafts permanent?', answer: 'Yes. Grafts harvested from the donor zone (back and sides of the scalp) are genetically resistant to DHT-induced balding, ensuring permanent growth.' },
@@ -276,7 +277,7 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       { id: 'pkg-3', name: 'Premium Weight Transformation Program', description: 'The ultimate holistic body transformation protocol featuring Cryolipolysis, body toning, custom nutrition, and lifestyle alignment.', image: SUB_TREATMENT_IMAGES['pkg-3'] }
     ],
     faqs: [
-      { question: 'Which body contouring package is right for me?', answer: 'We determine the ideal package during your initial body analysis consultation based on your target inch-loss goals and target areas.' }
+      { question: 'Which body contouring package is right for me?', answer: 'We determine the ideal package during your initial body analysis consultation based on your targeted inch-loss goals and targeted areas.' }
     ]
   },
   {
@@ -387,7 +388,9 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       'Holistic integration of physical beauty and inner spirit'
     ],
     treatments: [
-      { id: 'sp-1', name: 'Spiritual Counselling', description: 'One-on-one reflective guidance sessions designed to quiet mental noise, foster self-compassion, and align your life energy.', image: SUB_TREATMENT_IMAGES['sp-1'] }
+      { id: 'sp-1', name: 'Spiritual Counseling Treatment', description: 'Guidance for inner peace, clarity and emotional balance.', image: SUB_TREATMENT_IMAGES['sp-1'] },
+      { id: 'sp-2', name: 'Spiritual Awareness Program', description: 'Awakening the inner self through mindfulness and self-discovery.', image: SUB_TREATMENT_IMAGES['sp-2'] },
+      { id: 'sp-3', name: 'Spiritual Enlightenment Sessions', description: 'Connecting with your true self for a purposeful and fulfilling life.', image: SUB_TREATMENT_IMAGES['sp-3'] }
     ],
     faqs: [
       { question: 'What can I expect in a Spiritual Counselling session?', answer: 'A peaceful, non-judgmental environment where you explore personal growth, release emotional tension, and cultivate deep inner harmony.' }

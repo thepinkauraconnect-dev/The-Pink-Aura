@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Consultation Registration — The Pink Aura',
-  description: 'Begin your journey with The Pink Aura. Register for a personalized consultation in aesthetic care, skin rejuvenation, hair restoration, or holistic wellness.',
+  description: 'Begin your journey with The Pink Aura. Register for a personalized consultation in advanced skin aesthetics, hair restoration, body contouring, or spiritual wellbeing.',
 };
 
 export default function RegisterPage() {

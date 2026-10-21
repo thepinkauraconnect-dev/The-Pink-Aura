@@ -41,7 +41,7 @@
     | 3 | `sk-3` | **Korean Glass Skin Treatment** | `korean_glass_skin_treatment.jpg` (Image of Korean Glass Skin Treatment) |
     | 4 | `sk-4` | **Q-Switched Laser** | `q_switched_laser.jpg` (Image of Q-Switched Laser) |
     | 5 | `sk-5` | **Pico Laser** | `pico_laser.jpg` (Image of Pico Laser) |
-    | 6 | `sk-6` | **CO₂ Fractional Laser** | `co_fractional_laser.jpg` (Image of CO₂ Fractional Laser) |
+    | 6 | `sk-6` | **CO2 Fractional Laser** | `co_fractional_laser.jpg` (Image of CO2 Fractional Laser) |
     | 7 | `sk-7` | **Fractional Laser** | `fractional_laser.jpg` (Image of Fractional Laser) |
     | 8 | `sk-8` | **AHA Peel** | `aha_peel.jpg` (Image of AHA Peel) |
     | 9 | `sk-9` | **BHA / Salicylic Peel** | `bha_salicylic_peel.jpg` (Image of BHA / Salicylic Peel) |
@@ -134,12 +134,13 @@
     ## Category 6: Hair Transplant (HAIR)
     - **Category Slug:** `/services/hair-transplant`
     - **Main Category WebP Image:** `/images/services/WEB IMAGES/HAIR TRANSPLANT.webp`
-    - **Total Sub-Treatments:** 2
+    - **Total Sub-Treatments:** 3
 
     | # | Treatment ID | Treatment Name | Recommended Image Filename / Description |
     |---|--------------|----------------|------------------------------------------|
-    | 1 | `ht-1` | **Hair Transplant — FUE** | `hair_transplant_fue.jpg` (Image of Hair Transplant — FUE) |
-    | 2 | `ht-2` | **Hair Transplant — FUT** | `hair_transplant_fut.jpg` (Image of Hair Transplant — FUT) |
+    | 1 | `ht-1` | **Hair Transplant (FUE)** | `hair_transplant_fue.jpg` (Image of Hair Transplant (FUE)) |
+    | 2 | `ht-2` | **Hair Transplant (Bio FUE)** | `hair_transplant_bio_fue.jpg` (Image of Hair Transplant (Bio FUE)) |
+    | 3 | `ht-3` | **Hair Transplant (DHI)** | `hair_transplant_dhi.jpg` (Image of Hair Transplant (DHI)) |
 
     ---
 
@@ -234,11 +235,13 @@
     ## Category 12: Spiritual Counselling & Wellness (WELLNESS)
     - **Category Slug:** `/services/spiritual-wellness`
     - **Main Category WebP Image:** `/images/services/WEB IMAGES/SPIRITUAL COUNSELLING & WELLNESS.webp`
-    - **Total Sub-Treatments:** 1
+    - **Total Sub-Treatments:** 3
 
     | # | Treatment ID | Treatment Name | Recommended Image Filename / Description |
     |---|--------------|----------------|------------------------------------------|
-    | 1 | `sp-1` | **Spiritual Counselling** | `spiritual_counselling.jpg` (Image of Spiritual Counselling) |
+    | 1 | `sp-1` | **Spiritual Counseling Treatment** | `spiritual_counseling_treatment.jpg` (Image of Spiritual Counseling Treatment) |
+    | 2 | `sp-2` | **Spiritual Awareness Program** | `spiritual_awareness_program.jpg` (Image of Spiritual Awareness Program) |
+    | 3 | `sp-3` | **Spiritual Enlightenment Sessions** | `spiritual_enlightenment_sessions.jpg` (Image of Spiritual Enlightenment Sessions) |
 
     ---
 

@@ -100,7 +100,7 @@ const JOURNEY_STEPS = [
 const HOME_FAQS = [
   {
     q: 'Who conducts the consultations and procedures at The Pink Aura?',
-    a: 'Every consultation is led by qualified aesthetic doctors and wellness specialists, including Co-Founder Dr. Yashaswini HV (Ayurvedic Physician & Aesthetic Physician) and board-certified surgical consultants.'
+    a: 'Every consultation is led by qualified aesthetic physicians and wellness specialists, including Co-Founder Dr. Yashaswini HV (Ayurvedic Doctor & Aesthetic Physician) and board-certified surgical consultants.'
   },
   {
     q: 'What is the clinic timing and weekly schedule?',
