@@ -413,14 +413,14 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       'Supervised by certified medical doctors in a luxurious clinical lounge'
     ],
     treatments: [
-      { id: 'iv-1', name: 'Beauty Boost IV Drip', description: 'Glow • Radiance • Anti-Aging. Vitamin C | Glutathione | Collagen Support | Biotin.', tag: 'Glow', image: SUB_TREATMENT_IMAGES['iv-1'] },
-      { id: 'iv-2', name: 'Energy IV Drip', description: 'Fuel • Focus • Performance. B-Complex | B12 | Magnesium | Amino Acids | Vitamin C.', tag: 'Vitality', image: SUB_TREATMENT_IMAGES['iv-2'] },
-      { id: 'iv-3', name: 'Immune Boost IV Drip', description: 'Defend • Recover • Protect. Vitamin C | Zinc | B-Complex | Magnesium.', tag: 'Immunity', image: SUB_TREATMENT_IMAGES['iv-3'] },
-      { id: 'iv-4', name: 'Multivitamin IV Drip', description: 'Daily Wellness Support. Essential Vitamins | Minerals | Hydration.', tag: 'Wellness', image: SUB_TREATMENT_IMAGES['iv-4'] },
-      { id: 'iv-5', name: 'B12 IV Drip', description: 'Energy • Metabolism • Mood. Vitamin B12.', tag: 'Energy', image: SUB_TREATMENT_IMAGES['iv-5'] },
-      { id: 'iv-6', name: 'Detox IV Drip', description: 'Revive • Cleanse • Renew. Glutathione | Detox Complex | Hydration.', tag: 'Detox', image: SUB_TREATMENT_IMAGES['iv-6'] },
-      { id: 'iv-7', name: 'Vitamin C IV Drip', description: 'Immunity • Glow • Heal. High-dose antioxidant Vitamin C.', tag: 'Antioxidant', image: SUB_TREATMENT_IMAGES['iv-7'] },
-      { id: 'iv-8', name: 'Glutathione IV Drip', description: 'Powerful antioxidant, brightens skin, detoxifies body, promotes overall wellness!', tag: 'Signature', image: SUB_TREATMENT_IMAGES['iv-8'] }
+      { id: 'iv-1', name: 'Beauty Boost IV Drip', description: 'Glow • Radiance • Anti-Aging\nVitamin C | Glutathione | Collagen Support | Biotin', tag: 'Glow', image: SUB_TREATMENT_IMAGES['iv-1'] },
+      { id: 'iv-2', name: 'Energy IV Drip', description: 'Fuel • Focus • Performance\nB-Complex | B12 | Magnesium | Amino Acids | Vitamin C', tag: 'Vitality', image: SUB_TREATMENT_IMAGES['iv-2'] },
+      { id: 'iv-3', name: 'Immune Boost IV Drip', description: 'Defend • Recover • Protect\nVitamin C | Zinc | B-Complex | Magnesium', tag: 'Immunity', image: SUB_TREATMENT_IMAGES['iv-3'] },
+      { id: 'iv-4', name: 'Multivitamin IV Drip', description: 'Vitality • Immunity • Daily Wellness\nEssential Vitamins | Minerals | Hydration', tag: 'Wellness', image: SUB_TREATMENT_IMAGES['iv-4'] },
+      { id: 'iv-5', name: 'B12 IV Drip', description: 'Energy • Metabolism • Mood\nVitamin B12 | Methylcobalamin | Hydration', tag: 'Energy', image: SUB_TREATMENT_IMAGES['iv-5'] },
+      { id: 'iv-6', name: 'Detox IV Drip', description: 'Revive • Cleanse • Renew\nGlutathione | Detox Complex | Hydration', tag: 'Detox', image: SUB_TREATMENT_IMAGES['iv-6'] },
+      { id: 'iv-7', name: 'Vitamin C IV Drip', description: 'Immunity • Glow • Heal\nHigh-Dose Vitamin C | Antioxidants | Hydration', tag: 'Antioxidant', image: SUB_TREATMENT_IMAGES['iv-7'] },
+      { id: 'iv-8', name: 'Glutathione IV Drip', description: 'Brighten • Detoxify • Anti-Aging\nGlutathione | Master Antioxidant | Wellness', tag: 'Signature', image: SUB_TREATMENT_IMAGES['iv-8'] }
     ],
     faqs: [
       { question: 'What is IV Drip Therapy?', answer: 'IV Drip Therapy delivers essential vitamins, minerals, antioxidants, and hydration directly into your bloodstream for 100% immediate absorption and maximum cellular benefit.' },

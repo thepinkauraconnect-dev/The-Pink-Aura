@@ -134,9 +134,24 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
                 </TreatmentImage>
 
                 <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
-                  <p className="text-xs text-charcoal-muted leading-relaxed font-light">
-                    {treatment.description}
-                  </p>
+                  <div className="text-xs leading-relaxed font-light space-y-1.5">
+                    {treatment.description.includes('\n') ? (
+                      treatment.description.split('\n').map((line, idx) => (
+                        <p
+                          key={idx}
+                          className={
+                            idx === 0
+                              ? "font-medium text-aura-800 dark:text-aura-300 tracking-wide"
+                              : "text-charcoal-muted dark:text-pink-100/70 text-[11px]"
+                          }
+                        >
+                          {line}
+                        </p>
+                      ))
+                    ) : (
+                      <p className="text-charcoal-muted dark:text-pink-100/70">{treatment.description}</p>
+                    )}
+                  </div>
 
                   <div className="pt-3 border-t border-aura-200/50 dark:border-aura-700/30 flex items-center justify-between gap-2 mt-auto">
                     <span className="text-[11px] text-aura-750 dark:text-aura-300 font-bold">Doctor Assessment Plan</span>
