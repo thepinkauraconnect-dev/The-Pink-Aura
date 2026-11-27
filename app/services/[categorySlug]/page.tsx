@@ -6,6 +6,9 @@ import { ArrowRight, CheckCircle2, HelpCircle, ChevronRight, Flower2 } from 'luc
 import { SERVICE_CATEGORIES } from '@/data/services';
 import { TreatmentImage } from '@/components/ui/TreatmentImage';
 import { getTreatmentImageSources } from '@/data/subTreatmentImages';
+import JsonLd from '@/components/seo/JsonLd';
+import { absoluteUrl, breadcrumbJsonLd, faqJsonLd } from '@/lib/site';
+import { BLOG_POSTS } from '@/data/blog';
 
 interface CategoryPageProps {
   params: {
@@ -19,13 +22,28 @@ export function generateStaticParams() {
   }));
 }
 
+export const dynamicParams = false;
+
+const titleCase = (t: string) => t.toLowerCase().replace(/(^|[\s(&/-])([a-z])/g, (m) => m.toUpperCase());
+
 export function generateMetadata({ params }: CategoryPageProps): Metadata {
   const category = SERVICE_CATEGORIES.find((c) => c.slug === params.categorySlug);
-  if (!category) return { title: 'Service Not Found — The Pink Aura' };
+  if (!category) return { title: 'Service Not Found' };
 
+  const name = titleCase(category.title);
+  const path = `/services/${category.slug}`;
+  const description = `${category.subtitle}. Explore ${category.treatments.length} treatments in ${name} at The Pink Aura, a doctor-led clinic in JP Nagar, Bangalore. Book a consultation today.`;
   return {
-    title: `${category.title} — The Pink Aura Aesthetic & Wellness`,
-    description: `${category.subtitle}. Explore ${category.treatments.length} signature treatments at The Pink Aura JP Nagar Bangalore.`,
+    title: `${name} in JP Nagar, Bangalore`,
+    description,
+    keywords: [`${name} Bangalore`, `${name} JP Nagar`, ...category.treatments.slice(0, 6).map((t) => `${t.name} Bangalore`)],
+    alternates: { canonical: path },
+    openGraph: {
+      url: path,
+      title: `${name} | The Pink Aura`,
+      description,
+      images: [{ url: category.heroImage, alt: name }],
+    },
   };
 }
 
@@ -39,8 +57,42 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
   // All other categories except the current one
   const otherCategories = SERVICE_CATEGORIES.filter((c) => c.id !== category.id);
 
+  const name = titleCase(category.title);
+  const path = `/services/${category.slug}`;
+  const relatedPosts = BLOG_POSTS.filter((p) => p.serviceSlug === category.slug);
+  const jsonLd: object[] = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name,
+      serviceType: name,
+      description: category.description,
+      url: absoluteUrl(path),
+      image: absoluteUrl(category.heroImage),
+      provider: { '@id': absoluteUrl('/#clinic') },
+      areaServed: { '@type': 'City', name: 'Bengaluru' },
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: `${name} treatments`,
+        itemListElement: category.treatments.map((t) => ({
+          '@type': 'Offer',
+          itemOffered: { '@type': 'Service', name: t.name },
+        })),
+      },
+    },
+    breadcrumbJsonLd([
+      { name: 'Home', path: '/home' },
+      { name: 'Services', path: '/services' },
+      { name, path },
+    ]),
+  ];
+  if (category.faqs?.length) {
+    jsonLd.push(faqJsonLd(category.faqs.map((f) => ({ q: f.question, a: f.answer }))));
+  }
+
   return (
     <div className="space-y-12 sm:space-y-16 pb-20 overflow-x-hidden">
+      <JsonLd data={jsonLd} />
       {/* 1. TOP HERO BANNER: PROPER RECTANGLE WITH SERVICE TITLE & TAGLINE AT BOTTOM SECTION */}
       <section className="relative px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 max-w-6xl mx-auto">
         <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] min-h-[380px] sm:min-h-[460px] md:min-h-[500px] rounded-3xl sm:rounded-4xl overflow-hidden shadow-clay-lg dark:shadow-[0_20px_50px_-15px_rgba(158,27,78,0.3)] border border-aura-200/80 dark:border-aura-900/60 flex flex-col justify-end p-6 sm:p-8 md:p-10">
@@ -203,6 +255,30 @@ export default function ServiceCategoryPage({ params }: CategoryPageProps) {
           )}
         </div>
       </section>
+
+      {/* RELATED BLOG ARTICLES (internal linking for SEO) */}
+      {relatedPosts.length > 0 && (
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
+          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-charcoal">Learn More About {name}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {relatedPosts.map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="group clay-card clay-card-hover rounded-3xl p-6 border border-white dark:border-aura-700/30 space-y-2"
+              >
+                <span className="text-[10px] font-extrabold uppercase tracking-widest text-aura-600">
+                  {post.readingMinutes} min read
+                </span>
+                <h3 className="font-serif text-lg font-bold text-charcoal group-hover:text-aura-600 transition-colors">
+                  {post.title}
+                </h3>
+                <p className="text-xs text-charcoal-muted font-light leading-relaxed line-clamp-2">{post.excerpt}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* 4. FREQUENTLY ASKED QUESTIONS */}
       {category.faqs && category.faqs.length > 0 && (

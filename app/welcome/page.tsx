@@ -1,9 +1,15 @@
-'use client';
-
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import { ArrowRight, Compass, ShieldCheck, HeartHandshake, Feather, Flower2 } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Welcome',
+  description:
+    'Begin your journey with The Pink Aura — personalised skin aesthetics, hair restoration, body contouring and spiritual wellbeing in JP Nagar, Bangalore.',
+  // Near-duplicate of the landing page — consolidate ranking signals on "/"
+  alternates: { canonical: '/' },
+};
 
 export default function WelcomePage() {
   return (
@@ -13,60 +19,49 @@ export default function WelcomePage() {
 
       <div className="max-w-4xl mx-auto text-center relative z-10 space-y-8">
         {/* Animated Brand Emblem */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="inline-flex items-center justify-center p-4 rounded-full bg-white/90 clay-badge grotoscope-hover mb-4 shadow-clay-lg"
+        <div
+          className="animate-fade-up inline-flex items-center justify-center p-4 rounded-full bg-white/90 clay-badge grotoscope-hover mb-4 shadow-clay-lg"
         >
           <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden bg-white p-1.5 shadow-md">
             <Image
-              src="/images/logo/Logo%20the%20pink%20aura.png"
+              src="/images/logo/Logo%20the%20pink%20aura.webp"
               alt="The Pink Aura Logo"
               fill
               className="object-contain p-1"
               priority
             />
           </div>
-        </motion.div>
+        </div>
 
         {/* Subtitle Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full clay-badge text-aura-800 text-xs font-extrabold uppercase tracking-widest"
+        <div
+          className="animate-fade-up inline-flex items-center gap-2 px-4 py-1.5 rounded-full clay-badge text-aura-800 text-xs font-extrabold uppercase tracking-widest"
+          style={{ animationDelay: '0.2s' }}
         >
           <Flower2 className="w-3.5 h-3.5 text-aura-600" />
           <span>The Pink Aura Aesthetic & Wellness</span>
-        </motion.div>
+        </div>
 
         {/* Main Headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="font-serif text-4xl sm:text-6xl lg:text-7xl font-light text-charcoal tracking-tight leading-[1.15]"
+        <h1
+          className="animate-fade-up font-serif text-4xl sm:text-6xl lg:text-7xl font-light text-charcoal tracking-tight leading-[1.15]"
+          style={{ animationDelay: '0.3s' }}
         >
           Begin Your Journey with <span className="aura-gradient-text font-normal italic">The Pink Aura</span>
-        </motion.h1>
+        </h1>
 
         {/* Supporting Copy */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-base sm:text-xl text-charcoal-muted max-w-2xl mx-auto font-light leading-relaxed"
+        <p
+          className="animate-fade-up text-base sm:text-xl text-charcoal-muted max-w-2xl mx-auto font-light leading-relaxed"
+          style={{ animationDelay: '0.4s' }}
         >
           Discover a personalized approach to advanced skin aesthetics, hair restoration, body contouring, and spiritual wellbeing.
-        </motion.p>
+        </p>
 
         {/* Action CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
+        <div
+          className="animate-fade-up flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
+          style={{ animationDelay: '0.5s' }}
         >
           <Link
             href="/register"
@@ -83,14 +78,12 @@ export default function WelcomePage() {
             <Compass className="w-4 h-4 text-aura-600" />
             <span>Explore The Pink Aura</span>
           </Link>
-        </motion.div>
+        </div>
 
         {/* Brand Value Pillars */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-12 max-w-3xl mx-auto"
+        <div
+          className="animate-fade-up grid grid-cols-1 sm:grid-cols-3 gap-6 pt-12 max-w-3xl mx-auto"
+          style={{ animationDelay: '0.6s' }}
         >
           <div className="p-4 rounded-3xl clay-card text-center space-y-2">
             <ShieldCheck className="w-6 h-6 text-aura-600 mx-auto" />
@@ -109,7 +102,7 @@ export default function WelcomePage() {
             <h4 className="font-serif text-base font-bold text-charcoal">Spiritual Wellbeing</h4>
             <p className="text-xs text-charcoal-muted font-light">Harmonizing external beauty with internal vitality and peace.</p>
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );

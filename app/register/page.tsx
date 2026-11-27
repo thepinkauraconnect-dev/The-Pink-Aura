@@ -3,8 +3,9 @@ import ConsultationForm from '@/components/registration/ConsultationForm';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Consultation Registration — The Pink Aura',
+  title: 'Book a Consultation',
   description: 'Begin your journey with The Pink Aura. Register for a personalized consultation in advanced skin aesthetics, hair restoration, body contouring, or spiritual wellbeing.',
+  alternates: { canonical: '/register' },
 };
 
 export default function RegisterPage() {

@@ -2,8 +2,9 @@ import { Metadata } from 'next';
 import { CLINIC_INFO } from '@/data/services';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service — The Pink Aura',
+  title: 'Terms of Service',
   description: 'Terms of Service and Website Use terms for The Pink Aura Aesthetic & Wellness Centre.',
+  alternates: { canonical: '/terms' },
 };
 
 export default function TermsPage() {

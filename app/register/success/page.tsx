@@ -3,8 +3,9 @@ import { CheckCircle2, ArrowRight, Heart, Flower2 } from 'lucide-react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Thank You For Trusting The Pink Aura',
+  title: 'Thank You',
   description: 'Thank you for trusting The Pink Aura Aesthetic & Wellness Centre. We have received your consultation inquiry.',
+  robots: { index: false, follow: true },
 };
 
 export default function RegistrationSuccessPage() {
