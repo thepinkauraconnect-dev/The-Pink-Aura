@@ -5,8 +5,9 @@ import { Heart, ShieldCheck, Flower2, ArrowRight, CheckCircle2, Phone, Users } f
 import { FOUNDERS, SURGEONS } from '@/data/services';
 
 export const metadata: Metadata = {
-  title: 'About Us — The Pink Aura Aesthetic & Wellness',
+  title: 'About Us — Founders & Doctors',
   description: 'Learn about The Pink Aura, Co-Founder Dr. Yashaswini HV, Founder Nagendra Karanik, Visiting Surgeon Dr. Priyadarshan K, and our holistic philosophy.',
+  alternates: { canonical: '/about' },
 };
 
 export default function AboutPage() {

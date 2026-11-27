@@ -2,8 +2,9 @@ import { Metadata } from 'next';
 import { CLINIC_INFO } from '@/data/services';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — The Pink Aura',
+  title: 'Privacy Policy',
   description: 'Privacy Policy and data protection guidelines for consultation inquiries at The Pink Aura.',
+  alternates: { canonical: '/privacy' },
 };
 
 export default function PrivacyPage() {

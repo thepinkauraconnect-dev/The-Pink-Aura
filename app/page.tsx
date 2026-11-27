@@ -1,45 +1,47 @@
-'use client';
-
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import { ArrowRight, ShieldCheck, Feather, HeartHandshake, Compass } from 'lucide-react';
 import ConsultationForm from '@/components/registration/ConsultationForm';
+
+export const metadata: Metadata = {
+  title: {
+    absolute: 'The Pink Aura — Aesthetic, Skin, Hair & Wellness Clinic in JP Nagar, Bangalore',
+  },
+  description:
+    'Book a consultation at The Pink Aura, a doctor-led aesthetic & wellness clinic in JP Nagar, Bangalore for laser hair reduction, skin rejuvenation, hair restoration, body contouring and IV therapy.',
+  alternates: { canonical: '/' },
+  openGraph: { url: '/' },
+};
 
 export default function RootEntryPage() {
   return (
     <div className="min-h-[88vh] py-8 sm:py-14 px-4 relative overflow-hidden flex flex-col justify-center">
       {/* Background Soft Aura Orbs */}
-      <motion.div
-        animate={{ y: [0, -15, 0], scale: [1, 1.05, 1] }}
-        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute top-1/4 left-1/4 w-[550px] h-[550px] bg-aura-200/40 dark:bg-[#9E1B4E]/25 rounded-full blur-[120px] pointer-events-none"
+      <div
+        aria-hidden="true"
+        className="animate-float absolute top-1/4 left-1/4 w-[550px] h-[550px] bg-aura-200/40 dark:bg-[#9E1B4E]/25 rounded-full blur-[120px] pointer-events-none"
       />
-      <motion.div
-        animate={{ y: [0, 15, 0], scale: [1, 0.95, 1] }}
-        transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute bottom-10 right-1/4 w-[500px] h-[500px] bg-champagne-light/35 dark:bg-[#700B34]/25 rounded-full blur-[120px] pointer-events-none"
+      <div
+        aria-hidden="true"
+        className="animate-float-slow absolute bottom-10 right-1/4 w-[500px] h-[500px] bg-champagne-light/35 dark:bg-[#700B34]/25 rounded-full blur-[120px] pointer-events-none"
       />
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
         {/* Left Side: Brand Welcome & Positioning */}
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="lg:col-span-5 space-y-6 text-center lg:text-left"
+        <div
+          className="animate-fade-up lg:col-span-5 space-y-6 text-center lg:text-left"
         >
           {/* Hero Logo with Rectangular Container & Grotoscope Effect */}
           <div className="flex justify-center lg:justify-start">
             <div className="w-full max-w-sm sm:max-w-md p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-white/95 via-[#FFF5F8]/90 to-[#FCE4EC]/95 dark:from-[#2E0817]/95 dark:to-[#1F040F]/95 shadow-md dark:shadow-[0_0_35px_2px_rgba(158,27,78,0.55)] grotoscope-hover border border-pink-300/60 dark:border-[#9E1B4E]/60 backdrop-blur-md">
               <div className="relative w-full h-32 sm:h-40 lg:h-44">
                 <Image
-                  src="/landing_page_hero_logo.png"
+                  src="/landing_page_hero_logo.webp"
                   alt="The Pink Aura Logo"
                   fill
                   className="object-contain p-1"
                   priority
-                  unoptimized
                 />
               </div>
             </div>
@@ -97,17 +99,15 @@ export default function RootEntryPage() {
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
-        </motion.div>
+        </div>
 
         {/* Right Side: Claymorphic Consultation Form */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="lg:col-span-7"
+        <div
+          className="animate-fade-up lg:col-span-7"
+          style={{ animationDelay: '0.2s' }}
         >
           <ConsultationForm />
-        </motion.div>
+        </div>
       </div>
     </div>
   );

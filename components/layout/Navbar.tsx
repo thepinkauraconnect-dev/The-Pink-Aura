@@ -103,7 +103,7 @@ export default function Navbar() {
           <Link href="/home" className="flex items-center group shrink-0">
             <div className="relative h-9 sm:h-11 md:h-12 w-36 sm:w-48 md:w-56 shrink-0 py-0.5 group-hover:scale-105 transition-transform duration-300">
               <Image
-                src="/logo-header.png"
+                src="/logo-header.webp"
                 alt="The Pink Aura"
                 fill
                 sizes="(max-width: 640px) 144px, 224px"
@@ -310,6 +310,15 @@ export default function Navbar() {
             </div>
 
             <Link
+              href="/blog"
+              className={`text-xs font-bold uppercase tracking-wider transition-all hover:text-aura-600 px-3 py-1.5 rounded-full ${
+                pathname?.startsWith('/blog') ? 'clay-badge text-aura-600 font-extrabold' : 'text-charcoal-muted'
+              }`}
+            >
+              Blog
+            </Link>
+
+            <Link
               href="/contact"
               className={`text-xs font-bold uppercase tracking-wider transition-all hover:text-aura-600 px-3 py-1.5 rounded-full ${
                 pathname === '/contact' ? 'clay-badge text-aura-600 font-extrabold' : 'text-charcoal-muted'
@@ -389,6 +398,13 @@ export default function Navbar() {
                 className="block text-base font-bold text-charcoal dark:text-pink-100 hover:text-aura-600 py-1"
               >
                 About Us
+              </Link>
+              <Link
+                href="/blog"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block text-base font-bold text-charcoal dark:text-pink-100 hover:text-aura-600 py-1"
+              >
+                Blog
               </Link>
 
               <div className="pt-2 border-t border-aura-100 dark:border-aura-800/40 space-y-3">

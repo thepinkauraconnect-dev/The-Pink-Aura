@@ -4,6 +4,8 @@ import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
+import JsonLd from '@/components/seo/JsonLd';
+import { SITE_URL, OG_IMAGE, businessJsonLd } from '@/lib/site';
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -27,42 +29,48 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://thepinkaura.co.in'),
-  title: 'The Pink Aura — Aesthetic & Wellness Centre',
-  description: 'A premium destination for advanced aesthetics, skin rejuvenation, laser hair reduction, body contouring, hair restoration, and spiritual wellness in JP Nagar, Bangalore.',
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: 'The Pink Aura — Aesthetic & Wellness Centre in JP Nagar, Bangalore',
+    template: '%s | The Pink Aura',
+  },
+  description:
+    'A premium, doctor-led destination for advanced aesthetics, skin rejuvenation, laser hair reduction, body contouring, hair restoration, IV therapy and spiritual wellness in JP Nagar, Bangalore.',
+  applicationName: 'The Pink Aura',
   keywords: [
     'The Pink Aura',
-    'Aesthetic Centre Bangalore',
-    'Laser Hair Reduction JP Nagar',
-    'Skin Rejuvenation Bangalore',
-    'Permanent Makeup PMU',
-    'Hair Transplant Bangalore',
-    'CoolSculpting Body Contouring',
-    'Spiritual Wellness',
+    'aesthetic clinic Bangalore',
+    'skin clinic JP Nagar',
+    'laser hair reduction JP Nagar',
+    'skin rejuvenation Bangalore',
+    'permanent makeup Bangalore',
+    'hair transplant Bangalore',
+    'body contouring Bangalore',
+    'IV drip therapy Bangalore',
     'Dr Yashaswini HV',
-    'Nagendra Karanik',
   ],
   authors: [{ name: 'The Pink Aura' }],
   openGraph: {
     title: 'The Pink Aura — Aesthetic & Wellness Centre',
-    description: 'Enhance Your Beauty • Elevate Your Aura',
-    url: 'https://thepinkaura.co.in',
+    description: 'Enhance Your Beauty • Elevate Your Aura. Doctor-led aesthetics & wellness in JP Nagar, Bangalore.',
+    url: '/',
     siteName: 'The Pink Aura',
-    images: [
-      {
-        url: '/images/logo/Logo%20the%20pink%20aura.png',
-        width: 1200,
-        height: 630,
-        alt: 'The Pink Aura Aesthetic & Wellness Centre',
-      },
-    ],
+    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: 'The Pink Aura Aesthetic & Wellness Centre' }],
     locale: 'en_IN',
     type: 'website',
   },
-  icons: {
-    icon: '/images/logo/Logo%20the%20pink%20aura.png',
-    apple: '/images/logo/Logo%20the%20pink%20aura.png',
+  twitter: {
+    card: 'summary_large_image',
+    title: 'The Pink Aura — Aesthetic & Wellness Centre',
+    description: 'Doctor-led aesthetics & wellness in JP Nagar, Bangalore.',
+    images: [OG_IMAGE],
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
+  },
+  formatDetection: { telephone: false },
 };
 
 import SmoothScrollProvider from '@/components/ui/SmoothScrollProvider';
@@ -75,6 +83,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`scroll-smooth ${cormorant.variable} ${jakarta.variable}`}>
       <head>
+        <JsonLd data={businessJsonLd} />
         {/* FORCE Light Mode on every initial page load — Dark Mode only activates when the user clicks the toggle */}
         <script
           dangerouslySetInnerHTML={{

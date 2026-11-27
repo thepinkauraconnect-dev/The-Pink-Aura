@@ -53,7 +53,7 @@ export default function PageLoader({ isLoading = true }: PageLoaderProps) {
               className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-white/90 dark:bg-[#2A0514]/90 backdrop-blur-md p-3 shadow-clay-md border border-white dark:border-aura-700/50 flex items-center justify-center"
             >
               <Image
-                src="/images/logo/Logo the pink aura.png"
+                src="/images/logo/Logo the pink aura.webp"
                 alt="The Pink Aura Logo"
                 fill
                 sizes="(max-width: 640px) 96px, 120px"

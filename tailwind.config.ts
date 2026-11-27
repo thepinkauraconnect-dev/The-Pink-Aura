@@ -62,6 +62,27 @@ const config: Config = {
         '4xl': '32px',
         '5xl': '40px',
       },
+      // CSS-only entrance animations (content stays visible in SSR HTML for crawlers)
+      keyframes: {
+        'fade-up': {
+          '0%': { opacity: '0', transform: 'translateY(16px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0) scale(1)' },
+          '50%': { transform: 'translateY(-15px) scale(1.05)' },
+        },
+      },
+      animation: {
+        'fade-up': 'fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both',
+        'fade-in': 'fade-in 0.8s ease-out both',
+        float: 'float 10s ease-in-out infinite',
+        'float-slow': 'float 12s ease-in-out infinite reverse',
+      },
     },
   },
   plugins: [],

@@ -5,8 +5,9 @@ import { MapPin, Mail, Phone, Clock, Instagram, ExternalLink, ArrowRight, Flower
 import { CLINIC_INFO, FOUNDERS } from '@/data/services';
 
 export const metadata: Metadata = {
-  title: 'Contact Us — The Pink Aura Aesthetic & Wellness',
+  title: 'Contact & Location — JP Nagar, Bangalore',
   description: 'Visit The Pink Aura in JP Nagar 4th Phase, Bangalore. Get clinic location, address, phone number, email, operating hours, and consultation details.',
+  alternates: { canonical: '/contact' },
 };
 
 export default function ContactPage() {

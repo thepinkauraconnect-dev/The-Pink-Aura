@@ -33,7 +33,7 @@ export default function Hero3DElement() {
         {/* Pink Aura Logo Image */}
         <div className="relative w-full h-full rounded-full overflow-hidden flex items-center justify-center">
           <Image
-            src="/images/logo/Logo%20the%20pink%20aura.png"
+            src="/images/logo/Logo%20the%20pink%20aura.webp"
             alt="The Pink Aura 3D Coin Logo"
             fill
             className="object-contain p-0.5 rounded-full"

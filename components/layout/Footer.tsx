@@ -19,7 +19,7 @@ export default function Footer() {
             <Link href="/home" className="flex items-center group">
               <div className="relative h-20 sm:h-24 w-80 sm:w-[420px] shrink-0 group-hover:scale-105 transition-transform duration-300">
                 <Image
-                  src="/logo-header.png"
+                  src="/logo-header.webp"
                   alt="The Pink Aura"
                   fill
                   sizes="(max-width: 640px) 320px, 420px"
@@ -94,6 +94,11 @@ export default function Footer() {
               <li>
                 <Link href="/contact" className="text-aura-200/70 hover:text-white transition-colors min-h-[32px] flex items-center py-1">
                   Contact & Location
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="text-aura-200/70 hover:text-white transition-colors min-h-[32px] flex items-center py-1">
+                  Blog & Skin Guides
                 </Link>
               </li>
             </ul>
@@ -215,7 +220,7 @@ export default function Footer() {
             </span>
             <div className="relative w-6 h-6 shrink-0">
               <Image
-                src="/images/Vyome/Vyome%20Logo.png"
+                src="/images/Vyome/Vyome%20Logo.webp"
                 alt="Vyome Logo"
                 fill
                 sizes="24px"

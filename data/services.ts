@@ -436,7 +436,7 @@ export const FOUNDERS = [
     role: 'Co-Founder & Chief Aesthetic Physician',
     qualifications: 'BAMS | Ayurvedic Doctor | Aesthetic Physician | Wellness Expert',
     bio: 'Dr. Yashaswini HV blends time-tested Ayurvedic wellness principles with state-of-the-art modern aesthetic physician expertise. Her holistic philosophy ensures every treatment enhances external natural beauty while nurturing internal vital aura.',
-    image: '/images/Founders%20Images/Dr.%20Yashaswini.jpeg',
+    image: '/images/Founders%20Images/Dr.%20Yashaswini.webp',
     phone: '+91 96639 11089',
     rawPhone: '9663911089'
   },
@@ -445,7 +445,7 @@ export const FOUNDERS = [
     role: 'Founder, CEO & Spiritual Wellness Guide',
     qualifications: 'Founder | CEO | Spiritual Wellness Guide | Filmmaker',
     bio: 'Nagendra Karanik brings a profound vision of holistic human transformation to The Pink Aura. As a filmmaker and spiritual wellness guide, he shapes The Pink Aura into more than a centre — a sanctuary where inner harmony and outer beauty meet.',
-    image: '/images/Founders%20Images/Mr.%20Nagendra%20Karanik.jpeg',
+    image: '/images/Founders%20Images/Mr.%20Nagendra%20Karanik.webp',
     phone: '+91 63623 48467',
     rawPhone: '6362348467'
   }
@@ -477,7 +477,7 @@ export const SURGEONS = [
       }
     ],
     bio: 'Dr. Priyadarshan K. is a highly experienced and skilled Cosmetic & Plastic Surgeon, widely regarded as one of the best in Bangalore, India, with nearly 30 years of surgical expertise since 1994.',
-    image: '/images/surgeons/Dr.%20priyadarshan%20k.jpeg'
+    image: '/images/surgeons/Dr.%20priyadarshan%20k.webp'
   }
 ];
 
